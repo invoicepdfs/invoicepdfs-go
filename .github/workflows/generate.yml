@@ -34,7 +34,7 @@ jobs:
           docker run --rm -v "${{ github.workspace }}:/local" \
             openapitools/openapi-generator-cli:v7.7.0 generate \
             -i /local/openapi.json -g go -o /local \
-            --additional-properties="packageName=invoicepdfs,isGoSubmodule=true"
+            --additional-properties="packageName=invoicepdfs,gitUserId=invoicepdfs,gitRepoId=invoicepdfs-go"
 
       - name: Commit regenerated client
         run: |
