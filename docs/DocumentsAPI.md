@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**CalculateDocumentApiV1DocumentsCalculatePost**](DocumentsAPI.md#CalculateDocumentApiV1DocumentsCalculatePost) | **Post** /api/v1/documents/calculate | Calculate Document
 [**CreateDocumentApiV1DocumentsPost**](DocumentsAPI.md#CreateDocumentApiV1DocumentsPost) | **Post** /api/v1/documents | Create Document
 [**DeleteDocumentApiV1DocumentsDocumentIdDelete**](DocumentsAPI.md#DeleteDocumentApiV1DocumentsDocumentIdDelete) | **Delete** /api/v1/documents/{document_id} | Delete Document
+[**DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost**](DocumentsAPI.md#DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost) | **Post** /api/v1/documents/{document_id}/duplicate | Duplicate Document
 [**FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost**](DocumentsAPI.md#FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost) | **Post** /api/v1/documents/{document_id}/finalize | Finalize Document
 [**GetDocumentApiV1DocumentsDocumentIdGet**](DocumentsAPI.md#GetDocumentApiV1DocumentsDocumentIdGet) | **Get** /api/v1/documents/{document_id} | Get Document
 [**ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet**](DocumentsAPI.md#ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet) | **Get** /api/v1/documents/{document_id}/deliveries | List Document Deliveries
@@ -278,6 +279,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SimpleBoolResponse**](SimpleBoolResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost
+
+> DocumentResponse DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost(ctx, documentId).Execute()
+
+Duplicate Document
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+	documentId := "documentId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DocumentsAPI.DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost(context.Background(), documentId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost`: DocumentResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**documentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDuplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**DocumentResponse**](DocumentResponse.md)
 
 ### Authorization
 
