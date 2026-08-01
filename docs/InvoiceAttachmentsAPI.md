@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAttachmentApiV1InvoicesInvoiceIdAttachmentsPost**](InvoiceAttachmentsAPI.md#CreateAttachmentApiV1InvoicesInvoiceIdAttachmentsPost) | **Post** /api/v1/invoices/{invoice_id}/attachments | Create Attachment
-[**DeleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete**](InvoiceAttachmentsAPI.md#DeleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete) | **Delete** /api/v1/invoices/{invoice_id}/attachments/{attachment_id} | Delete Attachment
-[**ListAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet**](InvoiceAttachmentsAPI.md#ListAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet) | **Get** /api/v1/invoices/{invoice_id}/attachments | List Attachments
+[**CreateAttachmentApiV1DocumentsInvoiceIdAttachmentsPost**](InvoiceAttachmentsAPI.md#CreateAttachmentApiV1DocumentsInvoiceIdAttachmentsPost) | **Post** /api/v1/documents/{invoice_id}/attachments | Create Attachment
+[**DeleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete**](InvoiceAttachmentsAPI.md#DeleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete) | **Delete** /api/v1/documents/{invoice_id}/attachments/{attachment_id} | Delete Attachment
+[**ListAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet**](InvoiceAttachmentsAPI.md#ListAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet) | **Get** /api/v1/documents/{invoice_id}/attachments | List Attachments
 
 
 
-## CreateAttachmentApiV1InvoicesInvoiceIdAttachmentsPost
+## CreateAttachmentApiV1DocumentsInvoiceIdAttachmentsPost
 
-> InvoiceAttachmentResponse CreateAttachmentApiV1InvoicesInvoiceIdAttachmentsPost(ctx, invoiceId).InvoiceAttachmentCreateRequest(invoiceAttachmentCreateRequest).Execute()
+> InvoiceAttachmentResponse CreateAttachmentApiV1DocumentsInvoiceIdAttachmentsPost(ctx, invoiceId).InvoiceAttachmentCreateRequest(invoiceAttachmentCreateRequest).Execute()
 
 Create Attachment
 
@@ -34,13 +34,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoiceAttachmentsAPI.CreateAttachmentApiV1InvoicesInvoiceIdAttachmentsPost(context.Background(), invoiceId).InvoiceAttachmentCreateRequest(invoiceAttachmentCreateRequest).Execute()
+	resp, r, err := apiClient.InvoiceAttachmentsAPI.CreateAttachmentApiV1DocumentsInvoiceIdAttachmentsPost(context.Background(), invoiceId).InvoiceAttachmentCreateRequest(invoiceAttachmentCreateRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `InvoiceAttachmentsAPI.CreateAttachmentApiV1InvoicesInvoiceIdAttachmentsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `InvoiceAttachmentsAPI.CreateAttachmentApiV1DocumentsInvoiceIdAttachmentsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateAttachmentApiV1InvoicesInvoiceIdAttachmentsPost`: InvoiceAttachmentResponse
-	fmt.Fprintf(os.Stdout, "Response from `InvoiceAttachmentsAPI.CreateAttachmentApiV1InvoicesInvoiceIdAttachmentsPost`: %v\n", resp)
+	// response from `CreateAttachmentApiV1DocumentsInvoiceIdAttachmentsPost`: InvoiceAttachmentResponse
+	fmt.Fprintf(os.Stdout, "Response from `InvoiceAttachmentsAPI.CreateAttachmentApiV1DocumentsInvoiceIdAttachmentsPost`: %v\n", resp)
 }
 ```
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateAttachmentApiV1InvoicesInvoiceIdAttachmentsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateAttachmentApiV1DocumentsInvoiceIdAttachmentsPostRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -80,9 +80,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete
+## DeleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete
 
-> SimpleBoolResponse DeleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete(ctx, invoiceId, attachmentId).Execute()
+> SimpleBoolResponse DeleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete(ctx, invoiceId, attachmentId).Execute()
 
 Delete Attachment
 
@@ -104,13 +104,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoiceAttachmentsAPI.DeleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete(context.Background(), invoiceId, attachmentId).Execute()
+	resp, r, err := apiClient.InvoiceAttachmentsAPI.DeleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete(context.Background(), invoiceId, attachmentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `InvoiceAttachmentsAPI.DeleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `InvoiceAttachmentsAPI.DeleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `InvoiceAttachmentsAPI.DeleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete`: %v\n", resp)
+	// response from `DeleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `InvoiceAttachmentsAPI.DeleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete`: %v\n", resp)
 }
 ```
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDeleteRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -151,9 +151,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet
+## ListAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet
 
-> InvoiceAttachmentsListResponse ListAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet(ctx, invoiceId).Execute()
+> InvoiceAttachmentsListResponse ListAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet(ctx, invoiceId).Execute()
 
 List Attachments
 
@@ -174,13 +174,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InvoiceAttachmentsAPI.ListAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet(context.Background(), invoiceId).Execute()
+	resp, r, err := apiClient.InvoiceAttachmentsAPI.ListAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet(context.Background(), invoiceId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `InvoiceAttachmentsAPI.ListAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `InvoiceAttachmentsAPI.ListAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet`: InvoiceAttachmentsListResponse
-	fmt.Fprintf(os.Stdout, "Response from `InvoiceAttachmentsAPI.ListAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet`: %v\n", resp)
+	// response from `ListAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet`: InvoiceAttachmentsListResponse
+	fmt.Fprintf(os.Stdout, "Response from `InvoiceAttachmentsAPI.ListAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet`: %v\n", resp)
 }
 ```
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListAttachmentsApiV1InvoicesInvoiceIdAttachmentsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListAttachmentsApiV1DocumentsInvoiceIdAttachmentsGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

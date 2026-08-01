@@ -558,7 +558,7 @@ Name | Type | Description  | Notes
 
 ## PreviewTemplateApiV1TemplatesTemplateIdPreviewPost
 
-> interface{} PreviewTemplateApiV1TemplatesTemplateIdPreviewPost(ctx, templateId).DocumentRenderRequest(documentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
+> interface{} PreviewTemplateApiV1TemplatesTemplateIdPreviewPost(ctx, templateId).AppSchemasV1DocumentRenderRequest(appSchemasV1DocumentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
 
 Preview Template
 
@@ -577,12 +577,12 @@ import (
 
 func main() {
 	templateId := "templateId_example" // string | 
-	documentRenderRequest := *openapiclient.NewDocumentRenderRequest(*openapiclient.NewDocumentInvoiceDataInput("INV-2026-001", time.Now(), "USD", *openapiclient.NewDocumentPartyInput("Acme Corp"), *openapiclient.NewDocumentPartyInput("Acme Corp"), []openapiclient.DocumentLineItemInput{*openapiclient.NewDocumentLineItemInput("Web Development", "2", "150.00")}), *openapiclient.NewDocumentTemplateRef("Id_example")) // DocumentRenderRequest | 
+	appSchemasV1DocumentRenderRequest := *openapiclient.NewAppSchemasV1DocumentRenderRequest(*openapiclient.NewDocumentInvoiceDataInput("INV-2026-001", time.Now(), "USD", *openapiclient.NewDocumentPartyInput("Acme Corp"), *openapiclient.NewDocumentPartyInput("Acme Corp"), []openapiclient.DocumentLineItemInput{*openapiclient.NewDocumentLineItemInput("Web Development", "2", "150.00")}), *openapiclient.NewDocumentTemplateRef("Id_example")) // AppSchemasV1DocumentRenderRequest | 
 	idempotencyKey := "idempotencyKey_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TemplatesAPI.PreviewTemplateApiV1TemplatesTemplateIdPreviewPost(context.Background(), templateId).DocumentRenderRequest(documentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
+	resp, r, err := apiClient.TemplatesAPI.PreviewTemplateApiV1TemplatesTemplateIdPreviewPost(context.Background(), templateId).AppSchemasV1DocumentRenderRequest(appSchemasV1DocumentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.PreviewTemplateApiV1TemplatesTemplateIdPreviewPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -608,7 +608,7 @@ Other parameters are passed through a pointer to a apiPreviewTemplateApiV1Templa
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **documentRenderRequest** | [**DocumentRenderRequest**](DocumentRenderRequest.md) |  | 
+ **appSchemasV1DocumentRenderRequest** | [**AppSchemasV1DocumentRenderRequest**](AppSchemasV1DocumentRenderRequest.md) |  | 
  **idempotencyKey** | **string** |  | 
 
 ### Return type
