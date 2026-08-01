@@ -83,6 +83,8 @@ type APIClient struct {
 
 	JobsAPI *JobsAPIService
 
+	LogsAPI *LogsAPIService
+
 	NumberingSequencesAPI *NumberingSequencesAPIService
 
 	PaymentsAPI *PaymentsAPIService
@@ -92,6 +94,8 @@ type APIClient struct {
 	ReferenceAPI *ReferenceAPIService
 
 	RendersAPI *RendersAPIService
+
+	StatsAPI *StatsAPIService
 
 	TaxRatesAPI *TaxRatesAPIService
 
@@ -139,11 +143,13 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.InvoiceAttachmentsAPI = (*InvoiceAttachmentsAPIService)(&c.common)
 	c.InvoicesAPI = (*InvoicesAPIService)(&c.common)
 	c.JobsAPI = (*JobsAPIService)(&c.common)
+	c.LogsAPI = (*LogsAPIService)(&c.common)
 	c.NumberingSequencesAPI = (*NumberingSequencesAPIService)(&c.common)
 	c.PaymentsAPI = (*PaymentsAPIService)(&c.common)
 	c.RecurringInvoicesAPI = (*RecurringInvoicesAPIService)(&c.common)
 	c.ReferenceAPI = (*ReferenceAPIService)(&c.common)
 	c.RendersAPI = (*RendersAPIService)(&c.common)
+	c.StatsAPI = (*StatsAPIService)(&c.common)
 	c.TaxRatesAPI = (*TaxRatesAPIService)(&c.common)
 	c.TemplateVersionsAPI = (*TemplateVersionsAPIService)(&c.common)
 	c.TemplatesAPI = (*TemplatesAPIService)(&c.common)

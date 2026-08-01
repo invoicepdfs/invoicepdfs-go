@@ -18,11 +18,13 @@ api_imports.go
 api_invoice_attachments.go
 api_invoices.go
 api_jobs.go
+api_logs.go
 api_numbering_sequences.go
 api_payments.go
 api_recurring_invoices.go
 api_reference.go
 api_renders.go
+api_stats.go
 api_tax_rates.go
 api_template_versions.go
 api_templates.go
@@ -41,6 +43,8 @@ docs/ApiKeyPatchRequest.md
 docs/ApiKeyRevokeResponse.md
 docs/ApiKeyRotateResponse.md
 docs/ApiKeysAPI.md
+docs/ApiRequestLogOut.md
+docs/ApiRequestLogsListResponse.md
 docs/AuditEventOut.md
 docs/AuditEventResponse.md
 docs/AuditEventsListResponse.md
@@ -168,6 +172,7 @@ docs/JobProgressOut.md
 docs/JobResponse.md
 docs/JobsAPI.md
 docs/LocationInner.md
+docs/LogsAPI.md
 docs/Money.md
 docs/MoneyOut.md
 docs/NumberingSequenceCreateRequest.md
@@ -194,6 +199,11 @@ docs/RecurringInvoicesListResponse.md
 docs/ReferenceAPI.md
 docs/RendersAPI.md
 docs/SimpleBoolResponse.md
+docs/StatsAPI.md
+docs/StatsCounts.md
+docs/StatsOverview.md
+docs/StatsRecentInvoice.md
+docs/StatsResponse.md
 docs/TaxRateCreateRequest.md
 docs/TaxRateOut.md
 docs/TaxRatePatchRequest.md
@@ -251,6 +261,8 @@ model_api_key_list_response.go
 model_api_key_patch_request.go
 model_api_key_revoke_response.go
 model_api_key_rotate_response.go
+model_api_request_log_out.go
+model_api_request_logs_list_response.go
 model_audit_event_out.go
 model_audit_event_response.go
 model_audit_events_list_response.go
@@ -383,6 +395,10 @@ model_recurring_invoice_patch_request.go
 model_recurring_invoice_response.go
 model_recurring_invoices_list_response.go
 model_simple_bool_response.go
+model_stats_counts.go
+model_stats_overview.go
+model_stats_recent_invoice.go
+model_stats_response.go
 model_tax_rate_create_request.go
 model_tax_rate_out.go
 model_tax_rate_patch_request.go
@@ -423,4 +439,6 @@ model_workspace_patch_request.go
 model_workspace_response.go
 model_workspaces_list_response.go
 response.go
+test/api_logs_test.go
+test/api_stats_test.go
 utils.go
