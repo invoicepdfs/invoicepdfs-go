@@ -25,6 +25,8 @@ type BillingSubscriptionData struct {
 	Status NullableString `json:"status,omitempty"`
 	PlanId string `json:"plan_id"`
 	PlanName string `json:"plan_name"`
+	StripeConfigured *bool `json:"stripe_configured,omitempty"`
+	HasBillingAccount *bool `json:"has_billing_account,omitempty"`
 }
 
 type _BillingSubscriptionData BillingSubscriptionData
@@ -37,6 +39,10 @@ func NewBillingSubscriptionData(planId string, planName string) *BillingSubscrip
 	this := BillingSubscriptionData{}
 	this.PlanId = planId
 	this.PlanName = planName
+	var stripeConfigured bool = false
+	this.StripeConfigured = &stripeConfigured
+	var hasBillingAccount bool = false
+	this.HasBillingAccount = &hasBillingAccount
 	return &this
 }
 
@@ -45,6 +51,10 @@ func NewBillingSubscriptionData(planId string, planName string) *BillingSubscrip
 // but it doesn't guarantee that properties required by API are set
 func NewBillingSubscriptionDataWithDefaults() *BillingSubscriptionData {
 	this := BillingSubscriptionData{}
+	var stripeConfigured bool = false
+	this.StripeConfigured = &stripeConfigured
+	var hasBillingAccount bool = false
+	this.HasBillingAccount = &hasBillingAccount
 	return &this
 }
 
@@ -180,6 +190,70 @@ func (o *BillingSubscriptionData) SetPlanName(v string) {
 	o.PlanName = v
 }
 
+// GetStripeConfigured returns the StripeConfigured field value if set, zero value otherwise.
+func (o *BillingSubscriptionData) GetStripeConfigured() bool {
+	if o == nil || IsNil(o.StripeConfigured) {
+		var ret bool
+		return ret
+	}
+	return *o.StripeConfigured
+}
+
+// GetStripeConfiguredOk returns a tuple with the StripeConfigured field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BillingSubscriptionData) GetStripeConfiguredOk() (*bool, bool) {
+	if o == nil || IsNil(o.StripeConfigured) {
+		return nil, false
+	}
+	return o.StripeConfigured, true
+}
+
+// HasStripeConfigured returns a boolean if a field has been set.
+func (o *BillingSubscriptionData) HasStripeConfigured() bool {
+	if o != nil && !IsNil(o.StripeConfigured) {
+		return true
+	}
+
+	return false
+}
+
+// SetStripeConfigured gets a reference to the given bool and assigns it to the StripeConfigured field.
+func (o *BillingSubscriptionData) SetStripeConfigured(v bool) {
+	o.StripeConfigured = &v
+}
+
+// GetHasBillingAccount returns the HasBillingAccount field value if set, zero value otherwise.
+func (o *BillingSubscriptionData) GetHasBillingAccount() bool {
+	if o == nil || IsNil(o.HasBillingAccount) {
+		var ret bool
+		return ret
+	}
+	return *o.HasBillingAccount
+}
+
+// GetHasBillingAccountOk returns a tuple with the HasBillingAccount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BillingSubscriptionData) GetHasBillingAccountOk() (*bool, bool) {
+	if o == nil || IsNil(o.HasBillingAccount) {
+		return nil, false
+	}
+	return o.HasBillingAccount, true
+}
+
+// HasHasBillingAccount returns a boolean if a field has been set.
+func (o *BillingSubscriptionData) HasHasBillingAccount() bool {
+	if o != nil && !IsNil(o.HasBillingAccount) {
+		return true
+	}
+
+	return false
+}
+
+// SetHasBillingAccount gets a reference to the given bool and assigns it to the HasBillingAccount field.
+func (o *BillingSubscriptionData) SetHasBillingAccount(v bool) {
+	o.HasBillingAccount = &v
+}
+
 func (o BillingSubscriptionData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -198,6 +272,12 @@ func (o BillingSubscriptionData) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["plan_id"] = o.PlanId
 	toSerialize["plan_name"] = o.PlanName
+	if !IsNil(o.StripeConfigured) {
+		toSerialize["stripe_configured"] = o.StripeConfigured
+	}
+	if !IsNil(o.HasBillingAccount) {
+		toSerialize["has_billing_account"] = o.HasBillingAccount
+	}
 	return toSerialize, nil
 }
 

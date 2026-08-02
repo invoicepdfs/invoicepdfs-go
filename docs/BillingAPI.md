@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreateCheckoutApiV1BillingCheckoutSessionPost**](BillingAPI.md#CreateCheckoutApiV1BillingCheckoutSessionPost) | **Post** /api/v1/billing/checkout-session | Create Checkout
 [**CreatePortalApiV1BillingPortalSessionPost**](BillingAPI.md#CreatePortalApiV1BillingPortalSessionPost) | **Post** /api/v1/billing/portal-session | Create Portal
 [**GetSubscriptionApiV1BillingSubscriptionGet**](BillingAPI.md#GetSubscriptionApiV1BillingSubscriptionGet) | **Get** /api/v1/billing/subscription | Get Subscription
+[**ListPlansApiV1BillingPlansGet**](BillingAPI.md#ListPlansApiV1BillingPlansGet) | **Get** /api/v1/billing/plans | List Plans
 
 
 
@@ -183,6 +184,67 @@ Other parameters are passed through a pointer to a apiGetSubscriptionApiV1Billin
 ### Return type
 
 [**BillingSubscriptionResponse**](BillingSubscriptionResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListPlansApiV1BillingPlansGet
+
+> BillingPlansListResponse ListPlansApiV1BillingPlansGet(ctx).Execute()
+
+List Plans
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BillingAPI.ListPlansApiV1BillingPlansGet(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BillingAPI.ListPlansApiV1BillingPlansGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListPlansApiV1BillingPlansGet`: BillingPlansListResponse
+	fmt.Fprintf(os.Stdout, "Response from `BillingAPI.ListPlansApiV1BillingPlansGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListPlansApiV1BillingPlansGetRequest struct via the builder pattern
+
+
+### Return type
+
+[**BillingPlansListResponse**](BillingPlansListResponse.md)
 
 ### Authorization
 

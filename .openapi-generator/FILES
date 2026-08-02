@@ -78,6 +78,8 @@ docs/BillingAPI.md
 docs/BillingCheckoutData.md
 docs/BillingCheckoutRequest.md
 docs/BillingCheckoutResponse.md
+docs/BillingPlan.md
+docs/BillingPlansListResponse.md
 docs/BillingPortalData.md
 docs/BillingPortalResponse.md
 docs/BillingSubscriptionData.md
@@ -290,6 +292,8 @@ model_batches_list_response.go
 model_billing_checkout_data.go
 model_billing_checkout_request.go
 model_billing_checkout_response.go
+model_billing_plan.go
+model_billing_plans_list_response.go
 model_billing_portal_data.go
 model_billing_portal_response.go
 model_billing_subscription_data.go

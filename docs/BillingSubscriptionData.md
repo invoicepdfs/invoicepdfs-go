@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **Status** | Pointer to **NullableString** |  | [optional] 
 **PlanId** | **string** |  | 
 **PlanName** | **string** |  | 
+**StripeConfigured** | Pointer to **bool** |  | [optional] [default to false]
+**HasBillingAccount** | Pointer to **bool** |  | [optional] [default to false]
 
 ## Methods
 
@@ -137,6 +139,56 @@ and a boolean to check if the value has been set.
 
 SetPlanName sets PlanName field to given value.
 
+
+### GetStripeConfigured
+
+`func (o *BillingSubscriptionData) GetStripeConfigured() bool`
+
+GetStripeConfigured returns the StripeConfigured field if non-nil, zero value otherwise.
+
+### GetStripeConfiguredOk
+
+`func (o *BillingSubscriptionData) GetStripeConfiguredOk() (*bool, bool)`
+
+GetStripeConfiguredOk returns a tuple with the StripeConfigured field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStripeConfigured
+
+`func (o *BillingSubscriptionData) SetStripeConfigured(v bool)`
+
+SetStripeConfigured sets StripeConfigured field to given value.
+
+### HasStripeConfigured
+
+`func (o *BillingSubscriptionData) HasStripeConfigured() bool`
+
+HasStripeConfigured returns a boolean if a field has been set.
+
+### GetHasBillingAccount
+
+`func (o *BillingSubscriptionData) GetHasBillingAccount() bool`
+
+GetHasBillingAccount returns the HasBillingAccount field if non-nil, zero value otherwise.
+
+### GetHasBillingAccountOk
+
+`func (o *BillingSubscriptionData) GetHasBillingAccountOk() (*bool, bool)`
+
+GetHasBillingAccountOk returns a tuple with the HasBillingAccount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasBillingAccount
+
+`func (o *BillingSubscriptionData) SetHasBillingAccount(v bool)`
+
+SetHasBillingAccount sets HasBillingAccount field to given value.
+
+### HasHasBillingAccount
+
+`func (o *BillingSubscriptionData) HasHasBillingAccount() bool`
+
+HasHasBillingAccount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
