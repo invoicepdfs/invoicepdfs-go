@@ -40,6 +40,7 @@ type DocumentCreateRequest struct {
 	CustomFields []InvoiceCustomFieldInput `json:"custom_fields,omitempty"`
 	Payment NullableInvoicePaymentInput `json:"payment,omitempty"`
 	Branding NullableInvoiceBrandingInput `json:"branding,omitempty"`
+	BrandingProfileId NullableString `json:"branding_profile_id,omitempty"`
 }
 
 type _DocumentCreateRequest DocumentCreateRequest
@@ -711,6 +712,48 @@ func (o *DocumentCreateRequest) UnsetBranding() {
 	o.Branding.Unset()
 }
 
+// GetBrandingProfileId returns the BrandingProfileId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DocumentCreateRequest) GetBrandingProfileId() string {
+	if o == nil || IsNil(o.BrandingProfileId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BrandingProfileId.Get()
+}
+
+// GetBrandingProfileIdOk returns a tuple with the BrandingProfileId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DocumentCreateRequest) GetBrandingProfileIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BrandingProfileId.Get(), o.BrandingProfileId.IsSet()
+}
+
+// HasBrandingProfileId returns a boolean if a field has been set.
+func (o *DocumentCreateRequest) HasBrandingProfileId() bool {
+	if o != nil && o.BrandingProfileId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBrandingProfileId gets a reference to the given NullableString and assigns it to the BrandingProfileId field.
+func (o *DocumentCreateRequest) SetBrandingProfileId(v string) {
+	o.BrandingProfileId.Set(&v)
+}
+// SetBrandingProfileIdNil sets the value for BrandingProfileId to be an explicit nil
+func (o *DocumentCreateRequest) SetBrandingProfileIdNil() {
+	o.BrandingProfileId.Set(nil)
+}
+
+// UnsetBrandingProfileId ensures that no value is present for BrandingProfileId, not even an explicit nil
+func (o *DocumentCreateRequest) UnsetBrandingProfileId() {
+	o.BrandingProfileId.Unset()
+}
+
 func (o DocumentCreateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -765,6 +808,9 @@ func (o DocumentCreateRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Branding.IsSet() {
 		toSerialize["branding"] = o.Branding.Get()
+	}
+	if o.BrandingProfileId.IsSet() {
+		toSerialize["branding_profile_id"] = o.BrandingProfileId.Get()
 	}
 	return toSerialize, nil
 }

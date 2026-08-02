@@ -23,6 +23,7 @@ type InvoiceBrandingInput struct {
 	PrimaryColor *string `json:"primary_color,omitempty"`
 	AccentColor *string `json:"accent_color,omitempty"`
 	FontFamily NullableString `json:"font_family,omitempty"`
+	HeaderText NullableString `json:"header_text,omitempty"`
 	FooterText *string `json:"footer_text,omitempty"`
 }
 
@@ -203,6 +204,48 @@ func (o *InvoiceBrandingInput) UnsetFontFamily() {
 	o.FontFamily.Unset()
 }
 
+// GetHeaderText returns the HeaderText field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *InvoiceBrandingInput) GetHeaderText() string {
+	if o == nil || IsNil(o.HeaderText.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.HeaderText.Get()
+}
+
+// GetHeaderTextOk returns a tuple with the HeaderText field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InvoiceBrandingInput) GetHeaderTextOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.HeaderText.Get(), o.HeaderText.IsSet()
+}
+
+// HasHeaderText returns a boolean if a field has been set.
+func (o *InvoiceBrandingInput) HasHeaderText() bool {
+	if o != nil && o.HeaderText.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHeaderText gets a reference to the given NullableString and assigns it to the HeaderText field.
+func (o *InvoiceBrandingInput) SetHeaderText(v string) {
+	o.HeaderText.Set(&v)
+}
+// SetHeaderTextNil sets the value for HeaderText to be an explicit nil
+func (o *InvoiceBrandingInput) SetHeaderTextNil() {
+	o.HeaderText.Set(nil)
+}
+
+// UnsetHeaderText ensures that no value is present for HeaderText, not even an explicit nil
+func (o *InvoiceBrandingInput) UnsetHeaderText() {
+	o.HeaderText.Unset()
+}
+
 // GetFooterText returns the FooterText field value if set, zero value otherwise.
 func (o *InvoiceBrandingInput) GetFooterText() string {
 	if o == nil || IsNil(o.FooterText) {
@@ -256,6 +299,9 @@ func (o InvoiceBrandingInput) ToMap() (map[string]interface{}, error) {
 	}
 	if o.FontFamily.IsSet() {
 		toSerialize["font_family"] = o.FontFamily.Get()
+	}
+	if o.HeaderText.IsSet() {
+		toSerialize["header_text"] = o.HeaderText.Get()
 	}
 	if !IsNil(o.FooterText) {
 		toSerialize["footer_text"] = o.FooterText

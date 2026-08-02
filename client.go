@@ -59,7 +59,7 @@ type APIClient struct {
 
 	BillingAPI *BillingAPIService
 
-	BrandingAPI *BrandingAPIService
+	BrandingProfilesAPI *BrandingProfilesAPIService
 
 	BusinessProfilesAPI *BusinessProfilesAPIService
 
@@ -127,7 +127,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AuthAPI = (*AuthAPIService)(&c.common)
 	c.BatchesAPI = (*BatchesAPIService)(&c.common)
 	c.BillingAPI = (*BillingAPIService)(&c.common)
-	c.BrandingAPI = (*BrandingAPIService)(&c.common)
+	c.BrandingProfilesAPI = (*BrandingProfilesAPIService)(&c.common)
 	c.BusinessProfilesAPI = (*BusinessProfilesAPIService)(&c.common)
 	c.CustomersAPI = (*CustomersAPIService)(&c.common)
 	c.DeliveriesAPI = (*DeliveriesAPIService)(&c.common)

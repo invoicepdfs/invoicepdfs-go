@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **CustomFields** | Pointer to [**[]InvoiceCustomFieldInput**](InvoiceCustomFieldInput.md) |  | [optional] 
 **Payment** | Pointer to [**NullableInvoicePaymentInput**](InvoicePaymentInput.md) |  | [optional] 
 **Branding** | Pointer to [**NullableInvoiceBrandingInput**](InvoiceBrandingInput.md) |  | [optional] 
+**BrandingProfileId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -568,6 +569,41 @@ HasBranding returns a boolean if a field has been set.
 `func (o *DocumentCreateRequest) UnsetBranding()`
 
 UnsetBranding ensures that no value is present for Branding, not even an explicit nil
+### GetBrandingProfileId
+
+`func (o *DocumentCreateRequest) GetBrandingProfileId() string`
+
+GetBrandingProfileId returns the BrandingProfileId field if non-nil, zero value otherwise.
+
+### GetBrandingProfileIdOk
+
+`func (o *DocumentCreateRequest) GetBrandingProfileIdOk() (*string, bool)`
+
+GetBrandingProfileIdOk returns a tuple with the BrandingProfileId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBrandingProfileId
+
+`func (o *DocumentCreateRequest) SetBrandingProfileId(v string)`
+
+SetBrandingProfileId sets BrandingProfileId field to given value.
+
+### HasBrandingProfileId
+
+`func (o *DocumentCreateRequest) HasBrandingProfileId() bool`
+
+HasBrandingProfileId returns a boolean if a field has been set.
+
+### SetBrandingProfileIdNil
+
+`func (o *DocumentCreateRequest) SetBrandingProfileIdNil(b bool)`
+
+ SetBrandingProfileIdNil sets the value for BrandingProfileId to be an explicit nil
+
+### UnsetBrandingProfileId
+`func (o *DocumentCreateRequest) UnsetBrandingProfileId()`
+
+UnsetBrandingProfileId ensures that no value is present for BrandingProfileId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

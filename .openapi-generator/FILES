@@ -6,7 +6,7 @@ api_audit_log.go
 api_auth.go
 api_batches.go
 api_billing.go
-api_branding.go
+api_branding_profiles.go
 api_business_profiles.go
 api_customers.go
 api_deliveries.go
@@ -82,10 +82,12 @@ docs/BillingPortalData.md
 docs/BillingPortalResponse.md
 docs/BillingSubscriptionData.md
 docs/BillingSubscriptionResponse.md
-docs/BrandingAPI.md
-docs/BrandingOut.md
-docs/BrandingResponse.md
-docs/BrandingUpdateRequest.md
+docs/BrandingProfileCreateRequest.md
+docs/BrandingProfileOut.md
+docs/BrandingProfilePatchRequest.md
+docs/BrandingProfileResponse.md
+docs/BrandingProfilesAPI.md
+docs/BrandingProfilesListResponse.md
 docs/BusinessProfileCreate.md
 docs/BusinessProfileOut.md
 docs/BusinessProfilePatch.md
@@ -292,9 +294,11 @@ model_billing_portal_data.go
 model_billing_portal_response.go
 model_billing_subscription_data.go
 model_billing_subscription_response.go
-model_branding_out.go
-model_branding_response.go
-model_branding_update_request.go
+model_branding_profile_create_request.go
+model_branding_profile_out.go
+model_branding_profile_patch_request.go
+model_branding_profile_response.go
+model_branding_profiles_list_response.go
 model_business_profile_create.go
 model_business_profile_out.go
 model_business_profile_patch.go
@@ -431,4 +435,5 @@ model_workspace_patch_request.go
 model_workspace_response.go
 model_workspaces_list_response.go
 response.go
+test/api_branding_profiles_test.go
 utils.go
