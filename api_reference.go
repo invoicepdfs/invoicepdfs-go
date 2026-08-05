@@ -228,6 +228,12 @@ func (r ApiListDocumentTypesApiV1ReferenceDocumentTypesGetRequest) Execute() (ma
 /*
 ListDocumentTypesApiV1ReferenceDocumentTypesGet List Document Types
 
+List every supported document type with the metadata a client needs to
+build a type-aware create form: the number prefix, whether it is payable /
+takes a source document / supports a reason, which line-item shape it uses
+(``standard`` = priced, ``shipped`` = quantities only), and the lifecycle
+actions available to it.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListDocumentTypesApiV1ReferenceDocumentTypesGetRequest
 */

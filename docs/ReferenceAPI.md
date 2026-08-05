@@ -137,6 +137,8 @@ No authorization required
 
 List Document Types
 
+
+
 ### Example
 
 ```go
