@@ -22,58 +22,62 @@ import (
 // AuthAPIService AuthAPI service
 type AuthAPIService service
 
-type ApiForgotPasswordApiV1AuthForgotPasswordPostRequest struct {
+type ApiExchangeAuthTokenRequest struct {
 	ctx context.Context
 	ApiService *AuthAPIService
-	authForgotPasswordRequest *AuthForgotPasswordRequest
+	authTokenRequest *AuthTokenRequest
 }
 
-func (r ApiForgotPasswordApiV1AuthForgotPasswordPostRequest) AuthForgotPasswordRequest(authForgotPasswordRequest AuthForgotPasswordRequest) ApiForgotPasswordApiV1AuthForgotPasswordPostRequest {
-	r.authForgotPasswordRequest = &authForgotPasswordRequest
+func (r ApiExchangeAuthTokenRequest) AuthTokenRequest(authTokenRequest AuthTokenRequest) ApiExchangeAuthTokenRequest {
+	r.authTokenRequest = &authTokenRequest
 	return r
 }
 
-func (r ApiForgotPasswordApiV1AuthForgotPasswordPostRequest) Execute() (*AuthMessageResponse, *http.Response, error) {
-	return r.ApiService.ForgotPasswordApiV1AuthForgotPasswordPostExecute(r)
+func (r ApiExchangeAuthTokenRequest) Execute() (*AuthTokenResponse, *http.Response, error) {
+	return r.ApiService.ExchangeAuthTokenExecute(r)
 }
 
 /*
-ForgotPasswordApiV1AuthForgotPasswordPost Forgot Password
+ExchangeAuthToken Exchange Auth Token
 
-Send a password reset email via Firebase.
+Exchange a Firebase ID token for account info.
+
+Use this on login: the client authenticates with Firebase, sends the ID
+token here, and receives the InvoicePDFs account details. The Firebase
+token itself is used as the Bearer token for subsequent API calls.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiForgotPasswordApiV1AuthForgotPasswordPostRequest
+ @return ApiExchangeAuthTokenRequest
 */
-func (a *AuthAPIService) ForgotPasswordApiV1AuthForgotPasswordPost(ctx context.Context) ApiForgotPasswordApiV1AuthForgotPasswordPostRequest {
-	return ApiForgotPasswordApiV1AuthForgotPasswordPostRequest{
+func (a *AuthAPIService) ExchangeAuthToken(ctx context.Context) ApiExchangeAuthTokenRequest {
+	return ApiExchangeAuthTokenRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AuthMessageResponse
-func (a *AuthAPIService) ForgotPasswordApiV1AuthForgotPasswordPostExecute(r ApiForgotPasswordApiV1AuthForgotPasswordPostRequest) (*AuthMessageResponse, *http.Response, error) {
+//  @return AuthTokenResponse
+func (a *AuthAPIService) ExchangeAuthTokenExecute(r ApiExchangeAuthTokenRequest) (*AuthTokenResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AuthMessageResponse
+		localVarReturnValue  *AuthTokenResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.ForgotPasswordApiV1AuthForgotPasswordPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.ExchangeAuthToken")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/auth/forgot-password"
+	localVarPath := localBasePath + "/api/v1/auth/token"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.authForgotPasswordRequest == nil {
-		return localVarReturnValue, nil, reportError("authForgotPasswordRequest is required and must be specified")
+	if r.authTokenRequest == nil {
+		return localVarReturnValue, nil, reportError("authTokenRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -94,7 +98,7 @@ func (a *AuthAPIService) ForgotPasswordApiV1AuthForgotPasswordPostExecute(r ApiF
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.authForgotPasswordRequest
+	localVarPostBody = r.authTokenRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -142,25 +146,122 @@ func (a *AuthAPIService) ForgotPasswordApiV1AuthForgotPasswordPostExecute(r ApiF
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiLogoutApiV1AuthLogoutPostRequest struct {
+type ApiGetCurrentUserRequest struct {
 	ctx context.Context
 	ApiService *AuthAPIService
 }
 
-func (r ApiLogoutApiV1AuthLogoutPostRequest) Execute() (*AuthMessageResponse, *http.Response, error) {
-	return r.ApiService.LogoutApiV1AuthLogoutPostExecute(r)
+func (r ApiGetCurrentUserRequest) Execute() (*AuthMeResponse, *http.Response, error) {
+	return r.ApiService.GetCurrentUserExecute(r)
 }
 
 /*
-LogoutApiV1AuthLogoutPost Logout
+GetCurrentUser Get Current User
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetCurrentUserRequest
+*/
+func (a *AuthAPIService) GetCurrentUser(ctx context.Context) ApiGetCurrentUserRequest {
+	return ApiGetCurrentUserRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return AuthMeResponse
+func (a *AuthAPIService) GetCurrentUserExecute(r ApiGetCurrentUserRequest) (*AuthMeResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AuthMeResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.GetCurrentUser")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/auth/me"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiLogoutRequest struct {
+	ctx context.Context
+	ApiService *AuthAPIService
+}
+
+func (r ApiLogoutRequest) Execute() (*AuthMessageResponse, *http.Response, error) {
+	return r.ApiService.LogoutExecute(r)
+}
+
+/*
+Logout Logout
 
 Revoke all Firebase refresh tokens for the authenticated user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiLogoutApiV1AuthLogoutPostRequest
+ @return ApiLogoutRequest
 */
-func (a *AuthAPIService) LogoutApiV1AuthLogoutPost(ctx context.Context) ApiLogoutApiV1AuthLogoutPostRequest {
-	return ApiLogoutApiV1AuthLogoutPostRequest{
+func (a *AuthAPIService) Logout(ctx context.Context) ApiLogoutRequest {
+	return ApiLogoutRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -168,7 +269,7 @@ func (a *AuthAPIService) LogoutApiV1AuthLogoutPost(ctx context.Context) ApiLogou
 
 // Execute executes the request
 //  @return AuthMessageResponse
-func (a *AuthAPIService) LogoutApiV1AuthLogoutPostExecute(r ApiLogoutApiV1AuthLogoutPostRequest) (*AuthMessageResponse, *http.Response, error) {
+func (a *AuthAPIService) LogoutExecute(r ApiLogoutRequest) (*AuthMessageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -176,7 +277,7 @@ func (a *AuthAPIService) LogoutApiV1AuthLogoutPostExecute(r ApiLogoutApiV1AuthLo
 		localVarReturnValue  *AuthMessageResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.LogoutApiV1AuthLogoutPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.Logout")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -241,248 +342,31 @@ func (a *AuthAPIService) LogoutApiV1AuthLogoutPostExecute(r ApiLogoutApiV1AuthLo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiMeApiV1AuthMeGetRequest struct {
-	ctx context.Context
-	ApiService *AuthAPIService
-}
-
-func (r ApiMeApiV1AuthMeGetRequest) Execute() (*AuthMeResponse, *http.Response, error) {
-	return r.ApiService.MeApiV1AuthMeGetExecute(r)
-}
-
-/*
-MeApiV1AuthMeGet Me
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiMeApiV1AuthMeGetRequest
-*/
-func (a *AuthAPIService) MeApiV1AuthMeGet(ctx context.Context) ApiMeApiV1AuthMeGetRequest {
-	return ApiMeApiV1AuthMeGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return AuthMeResponse
-func (a *AuthAPIService) MeApiV1AuthMeGetExecute(r ApiMeApiV1AuthMeGetRequest) (*AuthMeResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AuthMeResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.MeApiV1AuthMeGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/auth/me"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiPatchMeApiV1AuthMePatchRequest struct {
-	ctx context.Context
-	ApiService *AuthAPIService
-	authMePatchRequest *AuthMePatchRequest
-}
-
-func (r ApiPatchMeApiV1AuthMePatchRequest) AuthMePatchRequest(authMePatchRequest AuthMePatchRequest) ApiPatchMeApiV1AuthMePatchRequest {
-	r.authMePatchRequest = &authMePatchRequest
-	return r
-}
-
-func (r ApiPatchMeApiV1AuthMePatchRequest) Execute() (*AuthMeResponse, *http.Response, error) {
-	return r.ApiService.PatchMeApiV1AuthMePatchExecute(r)
-}
-
-/*
-PatchMeApiV1AuthMePatch Patch Me
-
-Update the authenticated account's name or email.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPatchMeApiV1AuthMePatchRequest
-*/
-func (a *AuthAPIService) PatchMeApiV1AuthMePatch(ctx context.Context) ApiPatchMeApiV1AuthMePatchRequest {
-	return ApiPatchMeApiV1AuthMePatchRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return AuthMeResponse
-func (a *AuthAPIService) PatchMeApiV1AuthMePatchExecute(r ApiPatchMeApiV1AuthMePatchRequest) (*AuthMeResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AuthMeResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.PatchMeApiV1AuthMePatch")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/auth/me"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.authMePatchRequest == nil {
-		return localVarReturnValue, nil, reportError("authMePatchRequest is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.authMePatchRequest
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ApiErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiRefreshApiV1AuthRefreshPostRequest struct {
+type ApiRefreshAccessTokenRequest struct {
 	ctx context.Context
 	ApiService *AuthAPIService
 	authRefreshRequest *AuthRefreshRequest
 }
 
-func (r ApiRefreshApiV1AuthRefreshPostRequest) AuthRefreshRequest(authRefreshRequest AuthRefreshRequest) ApiRefreshApiV1AuthRefreshPostRequest {
+func (r ApiRefreshAccessTokenRequest) AuthRefreshRequest(authRefreshRequest AuthRefreshRequest) ApiRefreshAccessTokenRequest {
 	r.authRefreshRequest = &authRefreshRequest
 	return r
 }
 
-func (r ApiRefreshApiV1AuthRefreshPostRequest) Execute() (*AuthRefreshResponse, *http.Response, error) {
-	return r.ApiService.RefreshApiV1AuthRefreshPostExecute(r)
+func (r ApiRefreshAccessTokenRequest) Execute() (*AuthRefreshResponse, *http.Response, error) {
+	return r.ApiService.RefreshAccessTokenExecute(r)
 }
 
 /*
-RefreshApiV1AuthRefreshPost Refresh
+RefreshAccessToken Refresh Access Token
 
 Exchange a Firebase refresh token for a new ID token.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiRefreshApiV1AuthRefreshPostRequest
+ @return ApiRefreshAccessTokenRequest
 */
-func (a *AuthAPIService) RefreshApiV1AuthRefreshPost(ctx context.Context) ApiRefreshApiV1AuthRefreshPostRequest {
-	return ApiRefreshApiV1AuthRefreshPostRequest{
+func (a *AuthAPIService) RefreshAccessToken(ctx context.Context) ApiRefreshAccessTokenRequest {
+	return ApiRefreshAccessTokenRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -490,7 +374,7 @@ func (a *AuthAPIService) RefreshApiV1AuthRefreshPost(ctx context.Context) ApiRef
 
 // Execute executes the request
 //  @return AuthRefreshResponse
-func (a *AuthAPIService) RefreshApiV1AuthRefreshPostExecute(r ApiRefreshApiV1AuthRefreshPostRequest) (*AuthRefreshResponse, *http.Response, error) {
+func (a *AuthAPIService) RefreshAccessTokenExecute(r ApiRefreshAccessTokenRequest) (*AuthRefreshResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -498,7 +382,7 @@ func (a *AuthAPIService) RefreshApiV1AuthRefreshPostExecute(r ApiRefreshApiV1Aut
 		localVarReturnValue  *AuthRefreshResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.RefreshApiV1AuthRefreshPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.RefreshAccessToken")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -578,23 +462,23 @@ func (a *AuthAPIService) RefreshApiV1AuthRefreshPostExecute(r ApiRefreshApiV1Aut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRegisterApiV1AuthRegisterPostRequest struct {
+type ApiRegisterRequest struct {
 	ctx context.Context
 	ApiService *AuthAPIService
 	authRegisterRequest *AuthRegisterRequest
 }
 
-func (r ApiRegisterApiV1AuthRegisterPostRequest) AuthRegisterRequest(authRegisterRequest AuthRegisterRequest) ApiRegisterApiV1AuthRegisterPostRequest {
+func (r ApiRegisterRequest) AuthRegisterRequest(authRegisterRequest AuthRegisterRequest) ApiRegisterRequest {
 	r.authRegisterRequest = &authRegisterRequest
 	return r
 }
 
-func (r ApiRegisterApiV1AuthRegisterPostRequest) Execute() (*AuthRegisterResponse, *http.Response, error) {
-	return r.ApiService.RegisterApiV1AuthRegisterPostExecute(r)
+func (r ApiRegisterRequest) Execute() (*AuthRegisterResponse, *http.Response, error) {
+	return r.ApiService.RegisterExecute(r)
 }
 
 /*
-RegisterApiV1AuthRegisterPost Register
+Register Register
 
 Register a new account using a Firebase ID token.
 
@@ -602,10 +486,10 @@ The client authenticates with Firebase (email/password, Google, etc.)
 and sends the resulting ID token here to create an InvoicePDFs account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiRegisterApiV1AuthRegisterPostRequest
+ @return ApiRegisterRequest
 */
-func (a *AuthAPIService) RegisterApiV1AuthRegisterPost(ctx context.Context) ApiRegisterApiV1AuthRegisterPostRequest {
-	return ApiRegisterApiV1AuthRegisterPostRequest{
+func (a *AuthAPIService) Register(ctx context.Context) ApiRegisterRequest {
+	return ApiRegisterRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -613,7 +497,7 @@ func (a *AuthAPIService) RegisterApiV1AuthRegisterPost(ctx context.Context) ApiR
 
 // Execute executes the request
 //  @return AuthRegisterResponse
-func (a *AuthAPIService) RegisterApiV1AuthRegisterPostExecute(r ApiRegisterApiV1AuthRegisterPostRequest) (*AuthRegisterResponse, *http.Response, error) {
+func (a *AuthAPIService) RegisterExecute(r ApiRegisterRequest) (*AuthRegisterResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -621,7 +505,7 @@ func (a *AuthAPIService) RegisterApiV1AuthRegisterPostExecute(r ApiRegisterApiV1
 		localVarReturnValue  *AuthRegisterResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.RegisterApiV1AuthRegisterPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.Register")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -701,31 +585,31 @@ func (a *AuthAPIService) RegisterApiV1AuthRegisterPostExecute(r ApiRegisterApiV1
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiResetPasswordApiV1AuthResetPasswordPostRequest struct {
+type ApiRequestPasswordResetRequest struct {
 	ctx context.Context
 	ApiService *AuthAPIService
-	authResetPasswordRequest *AuthResetPasswordRequest
+	authForgotPasswordRequest *AuthForgotPasswordRequest
 }
 
-func (r ApiResetPasswordApiV1AuthResetPasswordPostRequest) AuthResetPasswordRequest(authResetPasswordRequest AuthResetPasswordRequest) ApiResetPasswordApiV1AuthResetPasswordPostRequest {
-	r.authResetPasswordRequest = &authResetPasswordRequest
+func (r ApiRequestPasswordResetRequest) AuthForgotPasswordRequest(authForgotPasswordRequest AuthForgotPasswordRequest) ApiRequestPasswordResetRequest {
+	r.authForgotPasswordRequest = &authForgotPasswordRequest
 	return r
 }
 
-func (r ApiResetPasswordApiV1AuthResetPasswordPostRequest) Execute() (*AuthMessageResponse, *http.Response, error) {
-	return r.ApiService.ResetPasswordApiV1AuthResetPasswordPostExecute(r)
+func (r ApiRequestPasswordResetRequest) Execute() (*AuthMessageResponse, *http.Response, error) {
+	return r.ApiService.RequestPasswordResetExecute(r)
 }
 
 /*
-ResetPasswordApiV1AuthResetPasswordPost Reset Password
+RequestPasswordReset Request Password Reset
 
-Confirm a password reset using the code from the reset email.
+Send a password reset email via Firebase.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiResetPasswordApiV1AuthResetPasswordPostRequest
+ @return ApiRequestPasswordResetRequest
 */
-func (a *AuthAPIService) ResetPasswordApiV1AuthResetPasswordPost(ctx context.Context) ApiResetPasswordApiV1AuthResetPasswordPostRequest {
-	return ApiResetPasswordApiV1AuthResetPasswordPostRequest{
+func (a *AuthAPIService) RequestPasswordReset(ctx context.Context) ApiRequestPasswordResetRequest {
+	return ApiRequestPasswordResetRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -733,7 +617,7 @@ func (a *AuthAPIService) ResetPasswordApiV1AuthResetPasswordPost(ctx context.Con
 
 // Execute executes the request
 //  @return AuthMessageResponse
-func (a *AuthAPIService) ResetPasswordApiV1AuthResetPasswordPostExecute(r ApiResetPasswordApiV1AuthResetPasswordPostRequest) (*AuthMessageResponse, *http.Response, error) {
+func (a *AuthAPIService) RequestPasswordResetExecute(r ApiRequestPasswordResetRequest) (*AuthMessageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -741,7 +625,127 @@ func (a *AuthAPIService) ResetPasswordApiV1AuthResetPasswordPostExecute(r ApiRes
 		localVarReturnValue  *AuthMessageResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.ResetPasswordApiV1AuthResetPasswordPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.RequestPasswordReset")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/auth/forgot-password"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.authForgotPasswordRequest == nil {
+		return localVarReturnValue, nil, reportError("authForgotPasswordRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.authForgotPasswordRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiResetPasswordRequest struct {
+	ctx context.Context
+	ApiService *AuthAPIService
+	authResetPasswordRequest *AuthResetPasswordRequest
+}
+
+func (r ApiResetPasswordRequest) AuthResetPasswordRequest(authResetPasswordRequest AuthResetPasswordRequest) ApiResetPasswordRequest {
+	r.authResetPasswordRequest = &authResetPasswordRequest
+	return r
+}
+
+func (r ApiResetPasswordRequest) Execute() (*AuthMessageResponse, *http.Response, error) {
+	return r.ApiService.ResetPasswordExecute(r)
+}
+
+/*
+ResetPassword Reset Password
+
+Confirm a password reset using the code from the reset email.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiResetPasswordRequest
+*/
+func (a *AuthAPIService) ResetPassword(ctx context.Context) ApiResetPasswordRequest {
+	return ApiResetPasswordRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return AuthMessageResponse
+func (a *AuthAPIService) ResetPasswordExecute(r ApiResetPasswordRequest) (*AuthMessageResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AuthMessageResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.ResetPassword")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -821,62 +825,58 @@ func (a *AuthAPIService) ResetPasswordApiV1AuthResetPasswordPostExecute(r ApiRes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiTokenExchangeApiV1AuthTokenPostRequest struct {
+type ApiUpdateCurrentUserRequest struct {
 	ctx context.Context
 	ApiService *AuthAPIService
-	authTokenRequest *AuthTokenRequest
+	authMePatchRequest *AuthMePatchRequest
 }
 
-func (r ApiTokenExchangeApiV1AuthTokenPostRequest) AuthTokenRequest(authTokenRequest AuthTokenRequest) ApiTokenExchangeApiV1AuthTokenPostRequest {
-	r.authTokenRequest = &authTokenRequest
+func (r ApiUpdateCurrentUserRequest) AuthMePatchRequest(authMePatchRequest AuthMePatchRequest) ApiUpdateCurrentUserRequest {
+	r.authMePatchRequest = &authMePatchRequest
 	return r
 }
 
-func (r ApiTokenExchangeApiV1AuthTokenPostRequest) Execute() (*AuthTokenResponse, *http.Response, error) {
-	return r.ApiService.TokenExchangeApiV1AuthTokenPostExecute(r)
+func (r ApiUpdateCurrentUserRequest) Execute() (*AuthMeResponse, *http.Response, error) {
+	return r.ApiService.UpdateCurrentUserExecute(r)
 }
 
 /*
-TokenExchangeApiV1AuthTokenPost Token Exchange
+UpdateCurrentUser Update Current User
 
-Exchange a Firebase ID token for account info.
-
-Use this on login: the client authenticates with Firebase, sends the ID
-token here, and receives the InvoicePDFs account details. The Firebase
-token itself is used as the Bearer token for subsequent API calls.
+Update the authenticated account's name or email.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiTokenExchangeApiV1AuthTokenPostRequest
+ @return ApiUpdateCurrentUserRequest
 */
-func (a *AuthAPIService) TokenExchangeApiV1AuthTokenPost(ctx context.Context) ApiTokenExchangeApiV1AuthTokenPostRequest {
-	return ApiTokenExchangeApiV1AuthTokenPostRequest{
+func (a *AuthAPIService) UpdateCurrentUser(ctx context.Context) ApiUpdateCurrentUserRequest {
+	return ApiUpdateCurrentUserRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AuthTokenResponse
-func (a *AuthAPIService) TokenExchangeApiV1AuthTokenPostExecute(r ApiTokenExchangeApiV1AuthTokenPostRequest) (*AuthTokenResponse, *http.Response, error) {
+//  @return AuthMeResponse
+func (a *AuthAPIService) UpdateCurrentUserExecute(r ApiUpdateCurrentUserRequest) (*AuthMeResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
+		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AuthTokenResponse
+		localVarReturnValue  *AuthMeResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.TokenExchangeApiV1AuthTokenPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthAPIService.UpdateCurrentUser")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/auth/token"
+	localVarPath := localBasePath + "/api/v1/auth/me"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.authTokenRequest == nil {
-		return localVarReturnValue, nil, reportError("authTokenRequest is required and must be specified")
+	if r.authMePatchRequest == nil {
+		return localVarReturnValue, nil, reportError("authMePatchRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -897,7 +897,7 @@ func (a *AuthAPIService) TokenExchangeApiV1AuthTokenPostExecute(r ApiTokenExchan
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.authTokenRequest
+	localVarPostBody = r.authMePatchRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

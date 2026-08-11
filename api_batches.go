@@ -23,25 +23,25 @@ import (
 // BatchesAPIService BatchesAPI service
 type BatchesAPIService service
 
-type ApiCancelBatchApiV1BatchesBatchIdCancelPostRequest struct {
+type ApiCancelBatchRequest struct {
 	ctx context.Context
 	ApiService *BatchesAPIService
 	batchId string
 }
 
-func (r ApiCancelBatchApiV1BatchesBatchIdCancelPostRequest) Execute() (*BatchResponse, *http.Response, error) {
-	return r.ApiService.CancelBatchApiV1BatchesBatchIdCancelPostExecute(r)
+func (r ApiCancelBatchRequest) Execute() (*BatchResponse, *http.Response, error) {
+	return r.ApiService.CancelBatchExecute(r)
 }
 
 /*
-CancelBatchApiV1BatchesBatchIdCancelPost Cancel Batch
+CancelBatch Cancel Batch
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param batchId
- @return ApiCancelBatchApiV1BatchesBatchIdCancelPostRequest
+ @return ApiCancelBatchRequest
 */
-func (a *BatchesAPIService) CancelBatchApiV1BatchesBatchIdCancelPost(ctx context.Context, batchId string) ApiCancelBatchApiV1BatchesBatchIdCancelPostRequest {
-	return ApiCancelBatchApiV1BatchesBatchIdCancelPostRequest{
+func (a *BatchesAPIService) CancelBatch(ctx context.Context, batchId string) ApiCancelBatchRequest {
+	return ApiCancelBatchRequest{
 		ApiService: a,
 		ctx: ctx,
 		batchId: batchId,
@@ -50,7 +50,7 @@ func (a *BatchesAPIService) CancelBatchApiV1BatchesBatchIdCancelPost(ctx context
 
 // Execute executes the request
 //  @return BatchResponse
-func (a *BatchesAPIService) CancelBatchApiV1BatchesBatchIdCancelPostExecute(r ApiCancelBatchApiV1BatchesBatchIdCancelPostRequest) (*BatchResponse, *http.Response, error) {
+func (a *BatchesAPIService) CancelBatchExecute(r ApiCancelBatchRequest) (*BatchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -58,7 +58,7 @@ func (a *BatchesAPIService) CancelBatchApiV1BatchesBatchIdCancelPostExecute(r Ap
 		localVarReturnValue  *BatchResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.CancelBatchApiV1BatchesBatchIdCancelPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.CancelBatch")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,29 +134,29 @@ func (a *BatchesAPIService) CancelBatchApiV1BatchesBatchIdCancelPostExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateBatchApiV1BatchesPostRequest struct {
+type ApiCreateBatchRequest struct {
 	ctx context.Context
 	ApiService *BatchesAPIService
 	batchCreateRequest *BatchCreateRequest
 }
 
-func (r ApiCreateBatchApiV1BatchesPostRequest) BatchCreateRequest(batchCreateRequest BatchCreateRequest) ApiCreateBatchApiV1BatchesPostRequest {
+func (r ApiCreateBatchRequest) BatchCreateRequest(batchCreateRequest BatchCreateRequest) ApiCreateBatchRequest {
 	r.batchCreateRequest = &batchCreateRequest
 	return r
 }
 
-func (r ApiCreateBatchApiV1BatchesPostRequest) Execute() (*BatchResponse, *http.Response, error) {
-	return r.ApiService.CreateBatchApiV1BatchesPostExecute(r)
+func (r ApiCreateBatchRequest) Execute() (*BatchResponse, *http.Response, error) {
+	return r.ApiService.CreateBatchExecute(r)
 }
 
 /*
-CreateBatchApiV1BatchesPost Create Batch
+CreateBatch Create Batch
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateBatchApiV1BatchesPostRequest
+ @return ApiCreateBatchRequest
 */
-func (a *BatchesAPIService) CreateBatchApiV1BatchesPost(ctx context.Context) ApiCreateBatchApiV1BatchesPostRequest {
-	return ApiCreateBatchApiV1BatchesPostRequest{
+func (a *BatchesAPIService) CreateBatch(ctx context.Context) ApiCreateBatchRequest {
+	return ApiCreateBatchRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -164,7 +164,7 @@ func (a *BatchesAPIService) CreateBatchApiV1BatchesPost(ctx context.Context) Api
 
 // Execute executes the request
 //  @return BatchResponse
-func (a *BatchesAPIService) CreateBatchApiV1BatchesPostExecute(r ApiCreateBatchApiV1BatchesPostRequest) (*BatchResponse, *http.Response, error) {
+func (a *BatchesAPIService) CreateBatchExecute(r ApiCreateBatchRequest) (*BatchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -172,7 +172,7 @@ func (a *BatchesAPIService) CreateBatchApiV1BatchesPostExecute(r ApiCreateBatchA
 		localVarReturnValue  *BatchResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.CreateBatchApiV1BatchesPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.CreateBatch")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -252,25 +252,25 @@ func (a *BatchesAPIService) CreateBatchApiV1BatchesPostExecute(r ApiCreateBatchA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDownloadBatchApiV1BatchesBatchIdDownloadGetRequest struct {
+type ApiDownloadBatchRequest struct {
 	ctx context.Context
 	ApiService *BatchesAPIService
 	batchId string
 }
 
-func (r ApiDownloadBatchApiV1BatchesBatchIdDownloadGetRequest) Execute() (interface{}, *http.Response, error) {
-	return r.ApiService.DownloadBatchApiV1BatchesBatchIdDownloadGetExecute(r)
+func (r ApiDownloadBatchRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.DownloadBatchExecute(r)
 }
 
 /*
-DownloadBatchApiV1BatchesBatchIdDownloadGet Download Batch
+DownloadBatch Download Batch
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param batchId
- @return ApiDownloadBatchApiV1BatchesBatchIdDownloadGetRequest
+ @return ApiDownloadBatchRequest
 */
-func (a *BatchesAPIService) DownloadBatchApiV1BatchesBatchIdDownloadGet(ctx context.Context, batchId string) ApiDownloadBatchApiV1BatchesBatchIdDownloadGetRequest {
-	return ApiDownloadBatchApiV1BatchesBatchIdDownloadGetRequest{
+func (a *BatchesAPIService) DownloadBatch(ctx context.Context, batchId string) ApiDownloadBatchRequest {
+	return ApiDownloadBatchRequest{
 		ApiService: a,
 		ctx: ctx,
 		batchId: batchId,
@@ -279,7 +279,7 @@ func (a *BatchesAPIService) DownloadBatchApiV1BatchesBatchIdDownloadGet(ctx cont
 
 // Execute executes the request
 //  @return interface{}
-func (a *BatchesAPIService) DownloadBatchApiV1BatchesBatchIdDownloadGetExecute(r ApiDownloadBatchApiV1BatchesBatchIdDownloadGetRequest) (interface{}, *http.Response, error) {
+func (a *BatchesAPIService) DownloadBatchExecute(r ApiDownloadBatchRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -287,7 +287,7 @@ func (a *BatchesAPIService) DownloadBatchApiV1BatchesBatchIdDownloadGetExecute(r
 		localVarReturnValue  interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.DownloadBatchApiV1BatchesBatchIdDownloadGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.DownloadBatch")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -363,25 +363,25 @@ func (a *BatchesAPIService) DownloadBatchApiV1BatchesBatchIdDownloadGetExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetBatchApiV1BatchesBatchIdGetRequest struct {
+type ApiGetBatchRequest struct {
 	ctx context.Context
 	ApiService *BatchesAPIService
 	batchId string
 }
 
-func (r ApiGetBatchApiV1BatchesBatchIdGetRequest) Execute() (*BatchResponse, *http.Response, error) {
-	return r.ApiService.GetBatchApiV1BatchesBatchIdGetExecute(r)
+func (r ApiGetBatchRequest) Execute() (*BatchResponse, *http.Response, error) {
+	return r.ApiService.GetBatchExecute(r)
 }
 
 /*
-GetBatchApiV1BatchesBatchIdGet Get Batch
+GetBatch Get Batch
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param batchId
- @return ApiGetBatchApiV1BatchesBatchIdGetRequest
+ @return ApiGetBatchRequest
 */
-func (a *BatchesAPIService) GetBatchApiV1BatchesBatchIdGet(ctx context.Context, batchId string) ApiGetBatchApiV1BatchesBatchIdGetRequest {
-	return ApiGetBatchApiV1BatchesBatchIdGetRequest{
+func (a *BatchesAPIService) GetBatch(ctx context.Context, batchId string) ApiGetBatchRequest {
+	return ApiGetBatchRequest{
 		ApiService: a,
 		ctx: ctx,
 		batchId: batchId,
@@ -390,7 +390,7 @@ func (a *BatchesAPIService) GetBatchApiV1BatchesBatchIdGet(ctx context.Context, 
 
 // Execute executes the request
 //  @return BatchResponse
-func (a *BatchesAPIService) GetBatchApiV1BatchesBatchIdGetExecute(r ApiGetBatchApiV1BatchesBatchIdGetRequest) (*BatchResponse, *http.Response, error) {
+func (a *BatchesAPIService) GetBatchExecute(r ApiGetBatchRequest) (*BatchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -398,7 +398,7 @@ func (a *BatchesAPIService) GetBatchApiV1BatchesBatchIdGetExecute(r ApiGetBatchA
 		localVarReturnValue  *BatchResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.GetBatchApiV1BatchesBatchIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.GetBatch")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -474,7 +474,7 @@ func (a *BatchesAPIService) GetBatchApiV1BatchesBatchIdGetExecute(r ApiGetBatchA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListBatchItemsApiV1BatchesBatchIdItemsGetRequest struct {
+type ApiListBatchItemsRequest struct {
 	ctx context.Context
 	ApiService *BatchesAPIService
 	batchId string
@@ -482,29 +482,29 @@ type ApiListBatchItemsApiV1BatchesBatchIdItemsGetRequest struct {
 	cursor *string
 }
 
-func (r ApiListBatchItemsApiV1BatchesBatchIdItemsGetRequest) Limit(limit int32) ApiListBatchItemsApiV1BatchesBatchIdItemsGetRequest {
+func (r ApiListBatchItemsRequest) Limit(limit int32) ApiListBatchItemsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListBatchItemsApiV1BatchesBatchIdItemsGetRequest) Cursor(cursor string) ApiListBatchItemsApiV1BatchesBatchIdItemsGetRequest {
+func (r ApiListBatchItemsRequest) Cursor(cursor string) ApiListBatchItemsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListBatchItemsApiV1BatchesBatchIdItemsGetRequest) Execute() (*BatchItemsListResponse, *http.Response, error) {
-	return r.ApiService.ListBatchItemsApiV1BatchesBatchIdItemsGetExecute(r)
+func (r ApiListBatchItemsRequest) Execute() (*BatchItemsListResponse, *http.Response, error) {
+	return r.ApiService.ListBatchItemsExecute(r)
 }
 
 /*
-ListBatchItemsApiV1BatchesBatchIdItemsGet List Batch Items
+ListBatchItems List Batch Items
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param batchId
- @return ApiListBatchItemsApiV1BatchesBatchIdItemsGetRequest
+ @return ApiListBatchItemsRequest
 */
-func (a *BatchesAPIService) ListBatchItemsApiV1BatchesBatchIdItemsGet(ctx context.Context, batchId string) ApiListBatchItemsApiV1BatchesBatchIdItemsGetRequest {
-	return ApiListBatchItemsApiV1BatchesBatchIdItemsGetRequest{
+func (a *BatchesAPIService) ListBatchItems(ctx context.Context, batchId string) ApiListBatchItemsRequest {
+	return ApiListBatchItemsRequest{
 		ApiService: a,
 		ctx: ctx,
 		batchId: batchId,
@@ -513,7 +513,7 @@ func (a *BatchesAPIService) ListBatchItemsApiV1BatchesBatchIdItemsGet(ctx contex
 
 // Execute executes the request
 //  @return BatchItemsListResponse
-func (a *BatchesAPIService) ListBatchItemsApiV1BatchesBatchIdItemsGetExecute(r ApiListBatchItemsApiV1BatchesBatchIdItemsGetRequest) (*BatchItemsListResponse, *http.Response, error) {
+func (a *BatchesAPIService) ListBatchItemsExecute(r ApiListBatchItemsRequest) (*BatchItemsListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -521,7 +521,7 @@ func (a *BatchesAPIService) ListBatchItemsApiV1BatchesBatchIdItemsGetExecute(r A
 		localVarReturnValue  *BatchItemsListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.ListBatchItemsApiV1BatchesBatchIdItemsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.ListBatchItems")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -606,35 +606,35 @@ func (a *BatchesAPIService) ListBatchItemsApiV1BatchesBatchIdItemsGetExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListBatchesApiV1BatchesGetRequest struct {
+type ApiListBatchesRequest struct {
 	ctx context.Context
 	ApiService *BatchesAPIService
 	limit *int32
 	cursor *string
 }
 
-func (r ApiListBatchesApiV1BatchesGetRequest) Limit(limit int32) ApiListBatchesApiV1BatchesGetRequest {
+func (r ApiListBatchesRequest) Limit(limit int32) ApiListBatchesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListBatchesApiV1BatchesGetRequest) Cursor(cursor string) ApiListBatchesApiV1BatchesGetRequest {
+func (r ApiListBatchesRequest) Cursor(cursor string) ApiListBatchesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListBatchesApiV1BatchesGetRequest) Execute() (*BatchesListResponse, *http.Response, error) {
-	return r.ApiService.ListBatchesApiV1BatchesGetExecute(r)
+func (r ApiListBatchesRequest) Execute() (*BatchesListResponse, *http.Response, error) {
+	return r.ApiService.ListBatchesExecute(r)
 }
 
 /*
-ListBatchesApiV1BatchesGet List Batches
+ListBatches List Batches
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListBatchesApiV1BatchesGetRequest
+ @return ApiListBatchesRequest
 */
-func (a *BatchesAPIService) ListBatchesApiV1BatchesGet(ctx context.Context) ApiListBatchesApiV1BatchesGetRequest {
-	return ApiListBatchesApiV1BatchesGetRequest{
+func (a *BatchesAPIService) ListBatches(ctx context.Context) ApiListBatchesRequest {
+	return ApiListBatchesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -642,7 +642,7 @@ func (a *BatchesAPIService) ListBatchesApiV1BatchesGet(ctx context.Context) ApiL
 
 // Execute executes the request
 //  @return BatchesListResponse
-func (a *BatchesAPIService) ListBatchesApiV1BatchesGetExecute(r ApiListBatchesApiV1BatchesGetRequest) (*BatchesListResponse, *http.Response, error) {
+func (a *BatchesAPIService) ListBatchesExecute(r ApiListBatchesRequest) (*BatchesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -650,7 +650,7 @@ func (a *BatchesAPIService) ListBatchesApiV1BatchesGetExecute(r ApiListBatchesAp
 		localVarReturnValue  *BatchesListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.ListBatchesApiV1BatchesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.ListBatches")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

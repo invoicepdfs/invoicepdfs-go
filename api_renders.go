@@ -24,25 +24,25 @@ import (
 // RendersAPIService RendersAPI service
 type RendersAPIService service
 
-type ApiDownloadRenderApiV1RendersRenderIdDownloadGetRequest struct {
+type ApiDownloadRenderRequest struct {
 	ctx context.Context
 	ApiService *RendersAPIService
 	renderId string
 }
 
-func (r ApiDownloadRenderApiV1RendersRenderIdDownloadGetRequest) Execute() (*os.File, *http.Response, error) {
-	return r.ApiService.DownloadRenderApiV1RendersRenderIdDownloadGetExecute(r)
+func (r ApiDownloadRenderRequest) Execute() (*os.File, *http.Response, error) {
+	return r.ApiService.DownloadRenderExecute(r)
 }
 
 /*
-DownloadRenderApiV1RendersRenderIdDownloadGet Download Render
+DownloadRender Download Render
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param renderId
- @return ApiDownloadRenderApiV1RendersRenderIdDownloadGetRequest
+ @return ApiDownloadRenderRequest
 */
-func (a *RendersAPIService) DownloadRenderApiV1RendersRenderIdDownloadGet(ctx context.Context, renderId string) ApiDownloadRenderApiV1RendersRenderIdDownloadGetRequest {
-	return ApiDownloadRenderApiV1RendersRenderIdDownloadGetRequest{
+func (a *RendersAPIService) DownloadRender(ctx context.Context, renderId string) ApiDownloadRenderRequest {
+	return ApiDownloadRenderRequest{
 		ApiService: a,
 		ctx: ctx,
 		renderId: renderId,
@@ -51,7 +51,7 @@ func (a *RendersAPIService) DownloadRenderApiV1RendersRenderIdDownloadGet(ctx co
 
 // Execute executes the request
 //  @return *os.File
-func (a *RendersAPIService) DownloadRenderApiV1RendersRenderIdDownloadGetExecute(r ApiDownloadRenderApiV1RendersRenderIdDownloadGetRequest) (*os.File, *http.Response, error) {
+func (a *RendersAPIService) DownloadRenderExecute(r ApiDownloadRenderRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -59,7 +59,7 @@ func (a *RendersAPIService) DownloadRenderApiV1RendersRenderIdDownloadGetExecute
 		localVarReturnValue  *os.File
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RendersAPIService.DownloadRenderApiV1RendersRenderIdDownloadGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RendersAPIService.DownloadRender")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -135,25 +135,25 @@ func (a *RendersAPIService) DownloadRenderApiV1RendersRenderIdDownloadGetExecute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetRenderApiV1RendersRenderIdGetRequest struct {
+type ApiGetRenderRequest struct {
 	ctx context.Context
 	ApiService *RendersAPIService
 	renderId string
 }
 
-func (r ApiGetRenderApiV1RendersRenderIdGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.GetRenderApiV1RendersRenderIdGetExecute(r)
+func (r ApiGetRenderRequest) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.GetRenderExecute(r)
 }
 
 /*
-GetRenderApiV1RendersRenderIdGet Get Render
+GetRender Get Render
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param renderId
- @return ApiGetRenderApiV1RendersRenderIdGetRequest
+ @return ApiGetRenderRequest
 */
-func (a *RendersAPIService) GetRenderApiV1RendersRenderIdGet(ctx context.Context, renderId string) ApiGetRenderApiV1RendersRenderIdGetRequest {
-	return ApiGetRenderApiV1RendersRenderIdGetRequest{
+func (a *RendersAPIService) GetRender(ctx context.Context, renderId string) ApiGetRenderRequest {
+	return ApiGetRenderRequest{
 		ApiService: a,
 		ctx: ctx,
 		renderId: renderId,
@@ -162,7 +162,7 @@ func (a *RendersAPIService) GetRenderApiV1RendersRenderIdGet(ctx context.Context
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *RendersAPIService) GetRenderApiV1RendersRenderIdGetExecute(r ApiGetRenderApiV1RendersRenderIdGetRequest) (map[string]interface{}, *http.Response, error) {
+func (a *RendersAPIService) GetRenderExecute(r ApiGetRenderRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -170,7 +170,7 @@ func (a *RendersAPIService) GetRenderApiV1RendersRenderIdGetExecute(r ApiGetRend
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RendersAPIService.GetRenderApiV1RendersRenderIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RendersAPIService.GetRender")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

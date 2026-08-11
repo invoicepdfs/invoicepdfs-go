@@ -23,35 +23,35 @@ import (
 // CustomersAPIService CustomersAPI service
 type CustomersAPIService service
 
-type ApiCreateCustomerApiV1CustomersPostRequest struct {
+type ApiCreateCustomerRequest struct {
 	ctx context.Context
 	ApiService *CustomersAPIService
 	customerCreate *CustomerCreate
 	idempotencyKey *string
 }
 
-func (r ApiCreateCustomerApiV1CustomersPostRequest) CustomerCreate(customerCreate CustomerCreate) ApiCreateCustomerApiV1CustomersPostRequest {
+func (r ApiCreateCustomerRequest) CustomerCreate(customerCreate CustomerCreate) ApiCreateCustomerRequest {
 	r.customerCreate = &customerCreate
 	return r
 }
 
-func (r ApiCreateCustomerApiV1CustomersPostRequest) IdempotencyKey(idempotencyKey string) ApiCreateCustomerApiV1CustomersPostRequest {
+func (r ApiCreateCustomerRequest) IdempotencyKey(idempotencyKey string) ApiCreateCustomerRequest {
 	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
-func (r ApiCreateCustomerApiV1CustomersPostRequest) Execute() (*CustomerResponse, *http.Response, error) {
-	return r.ApiService.CreateCustomerApiV1CustomersPostExecute(r)
+func (r ApiCreateCustomerRequest) Execute() (*CustomerResponse, *http.Response, error) {
+	return r.ApiService.CreateCustomerExecute(r)
 }
 
 /*
-CreateCustomerApiV1CustomersPost Create Customer
+CreateCustomer Create Customer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateCustomerApiV1CustomersPostRequest
+ @return ApiCreateCustomerRequest
 */
-func (a *CustomersAPIService) CreateCustomerApiV1CustomersPost(ctx context.Context) ApiCreateCustomerApiV1CustomersPostRequest {
-	return ApiCreateCustomerApiV1CustomersPostRequest{
+func (a *CustomersAPIService) CreateCustomer(ctx context.Context) ApiCreateCustomerRequest {
+	return ApiCreateCustomerRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -59,7 +59,7 @@ func (a *CustomersAPIService) CreateCustomerApiV1CustomersPost(ctx context.Conte
 
 // Execute executes the request
 //  @return CustomerResponse
-func (a *CustomersAPIService) CreateCustomerApiV1CustomersPostExecute(r ApiCreateCustomerApiV1CustomersPostRequest) (*CustomerResponse, *http.Response, error) {
+func (a *CustomersAPIService) CreateCustomerExecute(r ApiCreateCustomerRequest) (*CustomerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -67,7 +67,7 @@ func (a *CustomersAPIService) CreateCustomerApiV1CustomersPostExecute(r ApiCreat
 		localVarReturnValue  *CustomerResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomersAPIService.CreateCustomerApiV1CustomersPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomersAPIService.CreateCustomer")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -150,25 +150,25 @@ func (a *CustomersAPIService) CreateCustomerApiV1CustomersPostExecute(r ApiCreat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteCustomerApiV1CustomersCustomerIdDeleteRequest struct {
+type ApiDeleteCustomerRequest struct {
 	ctx context.Context
 	ApiService *CustomersAPIService
 	customerId string
 }
 
-func (r ApiDeleteCustomerApiV1CustomersCustomerIdDeleteRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
-	return r.ApiService.DeleteCustomerApiV1CustomersCustomerIdDeleteExecute(r)
+func (r ApiDeleteCustomerRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
+	return r.ApiService.DeleteCustomerExecute(r)
 }
 
 /*
-DeleteCustomerApiV1CustomersCustomerIdDelete Delete Customer
+DeleteCustomer Delete Customer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param customerId
- @return ApiDeleteCustomerApiV1CustomersCustomerIdDeleteRequest
+ @return ApiDeleteCustomerRequest
 */
-func (a *CustomersAPIService) DeleteCustomerApiV1CustomersCustomerIdDelete(ctx context.Context, customerId string) ApiDeleteCustomerApiV1CustomersCustomerIdDeleteRequest {
-	return ApiDeleteCustomerApiV1CustomersCustomerIdDeleteRequest{
+func (a *CustomersAPIService) DeleteCustomer(ctx context.Context, customerId string) ApiDeleteCustomerRequest {
+	return ApiDeleteCustomerRequest{
 		ApiService: a,
 		ctx: ctx,
 		customerId: customerId,
@@ -177,7 +177,7 @@ func (a *CustomersAPIService) DeleteCustomerApiV1CustomersCustomerIdDelete(ctx c
 
 // Execute executes the request
 //  @return SimpleBoolResponse
-func (a *CustomersAPIService) DeleteCustomerApiV1CustomersCustomerIdDeleteExecute(r ApiDeleteCustomerApiV1CustomersCustomerIdDeleteRequest) (*SimpleBoolResponse, *http.Response, error) {
+func (a *CustomersAPIService) DeleteCustomerExecute(r ApiDeleteCustomerRequest) (*SimpleBoolResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -185,7 +185,7 @@ func (a *CustomersAPIService) DeleteCustomerApiV1CustomersCustomerIdDeleteExecut
 		localVarReturnValue  *SimpleBoolResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomersAPIService.DeleteCustomerApiV1CustomersCustomerIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomersAPIService.DeleteCustomer")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -261,25 +261,25 @@ func (a *CustomersAPIService) DeleteCustomerApiV1CustomersCustomerIdDeleteExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetCustomerApiV1CustomersCustomerIdGetRequest struct {
+type ApiGetCustomerRequest struct {
 	ctx context.Context
 	ApiService *CustomersAPIService
 	customerId string
 }
 
-func (r ApiGetCustomerApiV1CustomersCustomerIdGetRequest) Execute() (*CustomerResponse, *http.Response, error) {
-	return r.ApiService.GetCustomerApiV1CustomersCustomerIdGetExecute(r)
+func (r ApiGetCustomerRequest) Execute() (*CustomerResponse, *http.Response, error) {
+	return r.ApiService.GetCustomerExecute(r)
 }
 
 /*
-GetCustomerApiV1CustomersCustomerIdGet Get Customer
+GetCustomer Get Customer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param customerId
- @return ApiGetCustomerApiV1CustomersCustomerIdGetRequest
+ @return ApiGetCustomerRequest
 */
-func (a *CustomersAPIService) GetCustomerApiV1CustomersCustomerIdGet(ctx context.Context, customerId string) ApiGetCustomerApiV1CustomersCustomerIdGetRequest {
-	return ApiGetCustomerApiV1CustomersCustomerIdGetRequest{
+func (a *CustomersAPIService) GetCustomer(ctx context.Context, customerId string) ApiGetCustomerRequest {
+	return ApiGetCustomerRequest{
 		ApiService: a,
 		ctx: ctx,
 		customerId: customerId,
@@ -288,7 +288,7 @@ func (a *CustomersAPIService) GetCustomerApiV1CustomersCustomerIdGet(ctx context
 
 // Execute executes the request
 //  @return CustomerResponse
-func (a *CustomersAPIService) GetCustomerApiV1CustomersCustomerIdGetExecute(r ApiGetCustomerApiV1CustomersCustomerIdGetRequest) (*CustomerResponse, *http.Response, error) {
+func (a *CustomersAPIService) GetCustomerExecute(r ApiGetCustomerRequest) (*CustomerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -296,7 +296,7 @@ func (a *CustomersAPIService) GetCustomerApiV1CustomersCustomerIdGetExecute(r Ap
 		localVarReturnValue  *CustomerResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomersAPIService.GetCustomerApiV1CustomersCustomerIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomersAPIService.GetCustomer")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -372,35 +372,35 @@ func (a *CustomersAPIService) GetCustomerApiV1CustomersCustomerIdGetExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListCustomersApiV1CustomersGetRequest struct {
+type ApiListCustomersRequest struct {
 	ctx context.Context
 	ApiService *CustomersAPIService
 	limit *int32
 	cursor *string
 }
 
-func (r ApiListCustomersApiV1CustomersGetRequest) Limit(limit int32) ApiListCustomersApiV1CustomersGetRequest {
+func (r ApiListCustomersRequest) Limit(limit int32) ApiListCustomersRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListCustomersApiV1CustomersGetRequest) Cursor(cursor string) ApiListCustomersApiV1CustomersGetRequest {
+func (r ApiListCustomersRequest) Cursor(cursor string) ApiListCustomersRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListCustomersApiV1CustomersGetRequest) Execute() (*CustomersListResponse, *http.Response, error) {
-	return r.ApiService.ListCustomersApiV1CustomersGetExecute(r)
+func (r ApiListCustomersRequest) Execute() (*CustomersListResponse, *http.Response, error) {
+	return r.ApiService.ListCustomersExecute(r)
 }
 
 /*
-ListCustomersApiV1CustomersGet List Customers
+ListCustomers List Customers
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListCustomersApiV1CustomersGetRequest
+ @return ApiListCustomersRequest
 */
-func (a *CustomersAPIService) ListCustomersApiV1CustomersGet(ctx context.Context) ApiListCustomersApiV1CustomersGetRequest {
-	return ApiListCustomersApiV1CustomersGetRequest{
+func (a *CustomersAPIService) ListCustomers(ctx context.Context) ApiListCustomersRequest {
+	return ApiListCustomersRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -408,7 +408,7 @@ func (a *CustomersAPIService) ListCustomersApiV1CustomersGet(ctx context.Context
 
 // Execute executes the request
 //  @return CustomersListResponse
-func (a *CustomersAPIService) ListCustomersApiV1CustomersGetExecute(r ApiListCustomersApiV1CustomersGetRequest) (*CustomersListResponse, *http.Response, error) {
+func (a *CustomersAPIService) ListCustomersExecute(r ApiListCustomersRequest) (*CustomersListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -416,7 +416,7 @@ func (a *CustomersAPIService) ListCustomersApiV1CustomersGetExecute(r ApiListCus
 		localVarReturnValue  *CustomersListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomersAPIService.ListCustomersApiV1CustomersGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomersAPIService.ListCustomers")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -500,7 +500,7 @@ func (a *CustomersAPIService) ListCustomersApiV1CustomersGetExecute(r ApiListCus
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchCustomerApiV1CustomersCustomerIdPatchRequest struct {
+type ApiUpdateCustomerRequest struct {
 	ctx context.Context
 	ApiService *CustomersAPIService
 	customerId string
@@ -508,29 +508,29 @@ type ApiPatchCustomerApiV1CustomersCustomerIdPatchRequest struct {
 	idempotencyKey *string
 }
 
-func (r ApiPatchCustomerApiV1CustomersCustomerIdPatchRequest) CustomerPatch(customerPatch CustomerPatch) ApiPatchCustomerApiV1CustomersCustomerIdPatchRequest {
+func (r ApiUpdateCustomerRequest) CustomerPatch(customerPatch CustomerPatch) ApiUpdateCustomerRequest {
 	r.customerPatch = &customerPatch
 	return r
 }
 
-func (r ApiPatchCustomerApiV1CustomersCustomerIdPatchRequest) IdempotencyKey(idempotencyKey string) ApiPatchCustomerApiV1CustomersCustomerIdPatchRequest {
+func (r ApiUpdateCustomerRequest) IdempotencyKey(idempotencyKey string) ApiUpdateCustomerRequest {
 	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
-func (r ApiPatchCustomerApiV1CustomersCustomerIdPatchRequest) Execute() (*CustomerResponse, *http.Response, error) {
-	return r.ApiService.PatchCustomerApiV1CustomersCustomerIdPatchExecute(r)
+func (r ApiUpdateCustomerRequest) Execute() (*CustomerResponse, *http.Response, error) {
+	return r.ApiService.UpdateCustomerExecute(r)
 }
 
 /*
-PatchCustomerApiV1CustomersCustomerIdPatch Patch Customer
+UpdateCustomer Update Customer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param customerId
- @return ApiPatchCustomerApiV1CustomersCustomerIdPatchRequest
+ @return ApiUpdateCustomerRequest
 */
-func (a *CustomersAPIService) PatchCustomerApiV1CustomersCustomerIdPatch(ctx context.Context, customerId string) ApiPatchCustomerApiV1CustomersCustomerIdPatchRequest {
-	return ApiPatchCustomerApiV1CustomersCustomerIdPatchRequest{
+func (a *CustomersAPIService) UpdateCustomer(ctx context.Context, customerId string) ApiUpdateCustomerRequest {
+	return ApiUpdateCustomerRequest{
 		ApiService: a,
 		ctx: ctx,
 		customerId: customerId,
@@ -539,7 +539,7 @@ func (a *CustomersAPIService) PatchCustomerApiV1CustomersCustomerIdPatch(ctx con
 
 // Execute executes the request
 //  @return CustomerResponse
-func (a *CustomersAPIService) PatchCustomerApiV1CustomersCustomerIdPatchExecute(r ApiPatchCustomerApiV1CustomersCustomerIdPatchRequest) (*CustomerResponse, *http.Response, error) {
+func (a *CustomersAPIService) UpdateCustomerExecute(r ApiUpdateCustomerRequest) (*CustomerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -547,7 +547,7 @@ func (a *CustomersAPIService) PatchCustomerApiV1CustomersCustomerIdPatchExecute(
 		localVarReturnValue  *CustomerResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomersAPIService.PatchCustomerApiV1CustomersCustomerIdPatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomersAPIService.UpdateCustomer")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

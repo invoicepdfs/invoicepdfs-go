@@ -23,25 +23,25 @@ import (
 // DeliveriesAPIService DeliveriesAPI service
 type DeliveriesAPIService service
 
-type ApiGetDeliveryApiV1DeliveriesDeliveryIdGetRequest struct {
+type ApiGetDeliveryRequest struct {
 	ctx context.Context
 	ApiService *DeliveriesAPIService
 	deliveryId string
 }
 
-func (r ApiGetDeliveryApiV1DeliveriesDeliveryIdGetRequest) Execute() (*DeliveryResponse, *http.Response, error) {
-	return r.ApiService.GetDeliveryApiV1DeliveriesDeliveryIdGetExecute(r)
+func (r ApiGetDeliveryRequest) Execute() (*DeliveryResponse, *http.Response, error) {
+	return r.ApiService.GetDeliveryExecute(r)
 }
 
 /*
-GetDeliveryApiV1DeliveriesDeliveryIdGet Get Delivery
+GetDelivery Get Delivery
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param deliveryId
- @return ApiGetDeliveryApiV1DeliveriesDeliveryIdGetRequest
+ @return ApiGetDeliveryRequest
 */
-func (a *DeliveriesAPIService) GetDeliveryApiV1DeliveriesDeliveryIdGet(ctx context.Context, deliveryId string) ApiGetDeliveryApiV1DeliveriesDeliveryIdGetRequest {
-	return ApiGetDeliveryApiV1DeliveriesDeliveryIdGetRequest{
+func (a *DeliveriesAPIService) GetDelivery(ctx context.Context, deliveryId string) ApiGetDeliveryRequest {
+	return ApiGetDeliveryRequest{
 		ApiService: a,
 		ctx: ctx,
 		deliveryId: deliveryId,
@@ -50,7 +50,7 @@ func (a *DeliveriesAPIService) GetDeliveryApiV1DeliveriesDeliveryIdGet(ctx conte
 
 // Execute executes the request
 //  @return DeliveryResponse
-func (a *DeliveriesAPIService) GetDeliveryApiV1DeliveriesDeliveryIdGetExecute(r ApiGetDeliveryApiV1DeliveriesDeliveryIdGetRequest) (*DeliveryResponse, *http.Response, error) {
+func (a *DeliveriesAPIService) GetDeliveryExecute(r ApiGetDeliveryRequest) (*DeliveryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -58,7 +58,7 @@ func (a *DeliveriesAPIService) GetDeliveryApiV1DeliveriesDeliveryIdGetExecute(r 
 		localVarReturnValue  *DeliveryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveriesAPIService.GetDeliveryApiV1DeliveriesDeliveryIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveriesAPIService.GetDelivery")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,25 +134,25 @@ func (a *DeliveriesAPIService) GetDeliveryApiV1DeliveriesDeliveryIdGetExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRetryDeliveryApiV1DeliveriesDeliveryIdRetryPostRequest struct {
+type ApiRetryDeliveryRequest struct {
 	ctx context.Context
 	ApiService *DeliveriesAPIService
 	deliveryId string
 }
 
-func (r ApiRetryDeliveryApiV1DeliveriesDeliveryIdRetryPostRequest) Execute() (*DeliveryResponse, *http.Response, error) {
-	return r.ApiService.RetryDeliveryApiV1DeliveriesDeliveryIdRetryPostExecute(r)
+func (r ApiRetryDeliveryRequest) Execute() (*DeliveryResponse, *http.Response, error) {
+	return r.ApiService.RetryDeliveryExecute(r)
 }
 
 /*
-RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost Retry Delivery
+RetryDelivery Retry Delivery
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param deliveryId
- @return ApiRetryDeliveryApiV1DeliveriesDeliveryIdRetryPostRequest
+ @return ApiRetryDeliveryRequest
 */
-func (a *DeliveriesAPIService) RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost(ctx context.Context, deliveryId string) ApiRetryDeliveryApiV1DeliveriesDeliveryIdRetryPostRequest {
-	return ApiRetryDeliveryApiV1DeliveriesDeliveryIdRetryPostRequest{
+func (a *DeliveriesAPIService) RetryDelivery(ctx context.Context, deliveryId string) ApiRetryDeliveryRequest {
+	return ApiRetryDeliveryRequest{
 		ApiService: a,
 		ctx: ctx,
 		deliveryId: deliveryId,
@@ -161,7 +161,7 @@ func (a *DeliveriesAPIService) RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost(c
 
 // Execute executes the request
 //  @return DeliveryResponse
-func (a *DeliveriesAPIService) RetryDeliveryApiV1DeliveriesDeliveryIdRetryPostExecute(r ApiRetryDeliveryApiV1DeliveriesDeliveryIdRetryPostRequest) (*DeliveryResponse, *http.Response, error) {
+func (a *DeliveriesAPIService) RetryDeliveryExecute(r ApiRetryDeliveryRequest) (*DeliveryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -169,7 +169,7 @@ func (a *DeliveriesAPIService) RetryDeliveryApiV1DeliveriesDeliveryIdRetryPostEx
 		localVarReturnValue  *DeliveryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveriesAPIService.RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveriesAPIService.RetryDelivery")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

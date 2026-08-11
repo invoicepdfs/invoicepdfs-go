@@ -23,25 +23,25 @@ import (
 // DocumentsAPIService DocumentsAPI service
 type DocumentsAPIService service
 
-type ApiArchiveDocumentApiV1DocumentsDocumentIdArchivePostRequest struct {
+type ApiArchiveDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentId string
 }
 
-func (r ApiArchiveDocumentApiV1DocumentsDocumentIdArchivePostRequest) Execute() (*DocumentResponse, *http.Response, error) {
-	return r.ApiService.ArchiveDocumentApiV1DocumentsDocumentIdArchivePostExecute(r)
+func (r ApiArchiveDocumentRequest) Execute() (*DocumentResponse, *http.Response, error) {
+	return r.ApiService.ArchiveDocumentExecute(r)
 }
 
 /*
-ArchiveDocumentApiV1DocumentsDocumentIdArchivePost Archive Document
+ArchiveDocument Archive Document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
- @return ApiArchiveDocumentApiV1DocumentsDocumentIdArchivePostRequest
+ @return ApiArchiveDocumentRequest
 */
-func (a *DocumentsAPIService) ArchiveDocumentApiV1DocumentsDocumentIdArchivePost(ctx context.Context, documentId string) ApiArchiveDocumentApiV1DocumentsDocumentIdArchivePostRequest {
-	return ApiArchiveDocumentApiV1DocumentsDocumentIdArchivePostRequest{
+func (a *DocumentsAPIService) ArchiveDocument(ctx context.Context, documentId string) ApiArchiveDocumentRequest {
+	return ApiArchiveDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 		documentId: documentId,
@@ -50,7 +50,7 @@ func (a *DocumentsAPIService) ArchiveDocumentApiV1DocumentsDocumentIdArchivePost
 
 // Execute executes the request
 //  @return DocumentResponse
-func (a *DocumentsAPIService) ArchiveDocumentApiV1DocumentsDocumentIdArchivePostExecute(r ApiArchiveDocumentApiV1DocumentsDocumentIdArchivePostRequest) (*DocumentResponse, *http.Response, error) {
+func (a *DocumentsAPIService) ArchiveDocumentExecute(r ApiArchiveDocumentRequest) (*DocumentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -58,7 +58,7 @@ func (a *DocumentsAPIService) ArchiveDocumentApiV1DocumentsDocumentIdArchivePost
 		localVarReturnValue  *DocumentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.ArchiveDocumentApiV1DocumentsDocumentIdArchivePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.ArchiveDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,29 +134,29 @@ func (a *DocumentsAPIService) ArchiveDocumentApiV1DocumentsDocumentIdArchivePost
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCalculateDocumentApiV1DocumentsCalculatePostRequest struct {
+type ApiCalculateDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentCalculateRequest *DocumentCalculateRequest
 }
 
-func (r ApiCalculateDocumentApiV1DocumentsCalculatePostRequest) DocumentCalculateRequest(documentCalculateRequest DocumentCalculateRequest) ApiCalculateDocumentApiV1DocumentsCalculatePostRequest {
+func (r ApiCalculateDocumentRequest) DocumentCalculateRequest(documentCalculateRequest DocumentCalculateRequest) ApiCalculateDocumentRequest {
 	r.documentCalculateRequest = &documentCalculateRequest
 	return r
 }
 
-func (r ApiCalculateDocumentApiV1DocumentsCalculatePostRequest) Execute() (*DocumentCalculateResponse, *http.Response, error) {
-	return r.ApiService.CalculateDocumentApiV1DocumentsCalculatePostExecute(r)
+func (r ApiCalculateDocumentRequest) Execute() (*DocumentCalculateResponse, *http.Response, error) {
+	return r.ApiService.CalculateDocumentExecute(r)
 }
 
 /*
-CalculateDocumentApiV1DocumentsCalculatePost Calculate Document
+CalculateDocument Calculate Document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCalculateDocumentApiV1DocumentsCalculatePostRequest
+ @return ApiCalculateDocumentRequest
 */
-func (a *DocumentsAPIService) CalculateDocumentApiV1DocumentsCalculatePost(ctx context.Context) ApiCalculateDocumentApiV1DocumentsCalculatePostRequest {
-	return ApiCalculateDocumentApiV1DocumentsCalculatePostRequest{
+func (a *DocumentsAPIService) CalculateDocument(ctx context.Context) ApiCalculateDocumentRequest {
+	return ApiCalculateDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -164,7 +164,7 @@ func (a *DocumentsAPIService) CalculateDocumentApiV1DocumentsCalculatePost(ctx c
 
 // Execute executes the request
 //  @return DocumentCalculateResponse
-func (a *DocumentsAPIService) CalculateDocumentApiV1DocumentsCalculatePostExecute(r ApiCalculateDocumentApiV1DocumentsCalculatePostRequest) (*DocumentCalculateResponse, *http.Response, error) {
+func (a *DocumentsAPIService) CalculateDocumentExecute(r ApiCalculateDocumentRequest) (*DocumentCalculateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -172,7 +172,7 @@ func (a *DocumentsAPIService) CalculateDocumentApiV1DocumentsCalculatePostExecut
 		localVarReturnValue  *DocumentCalculateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.CalculateDocumentApiV1DocumentsCalculatePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.CalculateDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -252,35 +252,35 @@ func (a *DocumentsAPIService) CalculateDocumentApiV1DocumentsCalculatePostExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateDocumentApiV1DocumentsPostRequest struct {
+type ApiCreateDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentCreateRequest *DocumentCreateRequest
 	idempotencyKey *string
 }
 
-func (r ApiCreateDocumentApiV1DocumentsPostRequest) DocumentCreateRequest(documentCreateRequest DocumentCreateRequest) ApiCreateDocumentApiV1DocumentsPostRequest {
+func (r ApiCreateDocumentRequest) DocumentCreateRequest(documentCreateRequest DocumentCreateRequest) ApiCreateDocumentRequest {
 	r.documentCreateRequest = &documentCreateRequest
 	return r
 }
 
-func (r ApiCreateDocumentApiV1DocumentsPostRequest) IdempotencyKey(idempotencyKey string) ApiCreateDocumentApiV1DocumentsPostRequest {
+func (r ApiCreateDocumentRequest) IdempotencyKey(idempotencyKey string) ApiCreateDocumentRequest {
 	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
-func (r ApiCreateDocumentApiV1DocumentsPostRequest) Execute() (*DocumentResponse, *http.Response, error) {
-	return r.ApiService.CreateDocumentApiV1DocumentsPostExecute(r)
+func (r ApiCreateDocumentRequest) Execute() (*DocumentResponse, *http.Response, error) {
+	return r.ApiService.CreateDocumentExecute(r)
 }
 
 /*
-CreateDocumentApiV1DocumentsPost Create Document
+CreateDocument Create Document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateDocumentApiV1DocumentsPostRequest
+ @return ApiCreateDocumentRequest
 */
-func (a *DocumentsAPIService) CreateDocumentApiV1DocumentsPost(ctx context.Context) ApiCreateDocumentApiV1DocumentsPostRequest {
-	return ApiCreateDocumentApiV1DocumentsPostRequest{
+func (a *DocumentsAPIService) CreateDocument(ctx context.Context) ApiCreateDocumentRequest {
+	return ApiCreateDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -288,7 +288,7 @@ func (a *DocumentsAPIService) CreateDocumentApiV1DocumentsPost(ctx context.Conte
 
 // Execute executes the request
 //  @return DocumentResponse
-func (a *DocumentsAPIService) CreateDocumentApiV1DocumentsPostExecute(r ApiCreateDocumentApiV1DocumentsPostRequest) (*DocumentResponse, *http.Response, error) {
+func (a *DocumentsAPIService) CreateDocumentExecute(r ApiCreateDocumentRequest) (*DocumentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -296,7 +296,7 @@ func (a *DocumentsAPIService) CreateDocumentApiV1DocumentsPostExecute(r ApiCreat
 		localVarReturnValue  *DocumentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.CreateDocumentApiV1DocumentsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.CreateDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -379,25 +379,156 @@ func (a *DocumentsAPIService) CreateDocumentApiV1DocumentsPostExecute(r ApiCreat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteDocumentApiV1DocumentsDocumentIdDeleteRequest struct {
+type ApiCreateDocumentRenderRequest struct {
+	ctx context.Context
+	ApiService *DocumentsAPIService
+	documentId string
+	documentRenderOptions *DocumentRenderOptions
+	idempotencyKey *string
+}
+
+func (r ApiCreateDocumentRenderRequest) DocumentRenderOptions(documentRenderOptions DocumentRenderOptions) ApiCreateDocumentRenderRequest {
+	r.documentRenderOptions = &documentRenderOptions
+	return r
+}
+
+func (r ApiCreateDocumentRenderRequest) IdempotencyKey(idempotencyKey string) ApiCreateDocumentRenderRequest {
+	r.idempotencyKey = &idempotencyKey
+	return r
+}
+
+func (r ApiCreateDocumentRenderRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.CreateDocumentRenderExecute(r)
+}
+
+/*
+CreateDocumentRender Create Document Render
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param documentId
+ @return ApiCreateDocumentRenderRequest
+*/
+func (a *DocumentsAPIService) CreateDocumentRender(ctx context.Context, documentId string) ApiCreateDocumentRenderRequest {
+	return ApiCreateDocumentRenderRequest{
+		ApiService: a,
+		ctx: ctx,
+		documentId: documentId,
+	}
+}
+
+// Execute executes the request
+//  @return interface{}
+func (a *DocumentsAPIService) CreateDocumentRenderExecute(r ApiCreateDocumentRenderRequest) (interface{}, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  interface{}
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.CreateDocumentRender")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/documents/{document_id}/renders"
+	localVarPath = strings.Replace(localVarPath, "{"+"document_id"+"}", url.PathEscape(parameterValueToString(r.documentId, "documentId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.documentRenderOptions == nil {
+		return localVarReturnValue, nil, reportError("documentRenderOptions is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.idempotencyKey != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Idempotency-Key", r.idempotencyKey, "")
+	}
+	// body params
+	localVarPostBody = r.documentRenderOptions
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeleteDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentId string
 }
 
-func (r ApiDeleteDocumentApiV1DocumentsDocumentIdDeleteRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
-	return r.ApiService.DeleteDocumentApiV1DocumentsDocumentIdDeleteExecute(r)
+func (r ApiDeleteDocumentRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
+	return r.ApiService.DeleteDocumentExecute(r)
 }
 
 /*
-DeleteDocumentApiV1DocumentsDocumentIdDelete Delete Document
+DeleteDocument Delete Document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
- @return ApiDeleteDocumentApiV1DocumentsDocumentIdDeleteRequest
+ @return ApiDeleteDocumentRequest
 */
-func (a *DocumentsAPIService) DeleteDocumentApiV1DocumentsDocumentIdDelete(ctx context.Context, documentId string) ApiDeleteDocumentApiV1DocumentsDocumentIdDeleteRequest {
-	return ApiDeleteDocumentApiV1DocumentsDocumentIdDeleteRequest{
+func (a *DocumentsAPIService) DeleteDocument(ctx context.Context, documentId string) ApiDeleteDocumentRequest {
+	return ApiDeleteDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 		documentId: documentId,
@@ -406,7 +537,7 @@ func (a *DocumentsAPIService) DeleteDocumentApiV1DocumentsDocumentIdDelete(ctx c
 
 // Execute executes the request
 //  @return SimpleBoolResponse
-func (a *DocumentsAPIService) DeleteDocumentApiV1DocumentsDocumentIdDeleteExecute(r ApiDeleteDocumentApiV1DocumentsDocumentIdDeleteRequest) (*SimpleBoolResponse, *http.Response, error) {
+func (a *DocumentsAPIService) DeleteDocumentExecute(r ApiDeleteDocumentRequest) (*SimpleBoolResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -414,7 +545,7 @@ func (a *DocumentsAPIService) DeleteDocumentApiV1DocumentsDocumentIdDeleteExecut
 		localVarReturnValue  *SimpleBoolResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.DeleteDocumentApiV1DocumentsDocumentIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.DeleteDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -490,25 +621,25 @@ func (a *DocumentsAPIService) DeleteDocumentApiV1DocumentsDocumentIdDeleteExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDuplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest struct {
+type ApiDuplicateDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentId string
 }
 
-func (r ApiDuplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest) Execute() (*DocumentResponse, *http.Response, error) {
-	return r.ApiService.DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePostExecute(r)
+func (r ApiDuplicateDocumentRequest) Execute() (*DocumentResponse, *http.Response, error) {
+	return r.ApiService.DuplicateDocumentExecute(r)
 }
 
 /*
-DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost Duplicate Document
+DuplicateDocument Duplicate Document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
- @return ApiDuplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest
+ @return ApiDuplicateDocumentRequest
 */
-func (a *DocumentsAPIService) DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost(ctx context.Context, documentId string) ApiDuplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest {
-	return ApiDuplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest{
+func (a *DocumentsAPIService) DuplicateDocument(ctx context.Context, documentId string) ApiDuplicateDocumentRequest {
+	return ApiDuplicateDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 		documentId: documentId,
@@ -517,7 +648,7 @@ func (a *DocumentsAPIService) DuplicateDocumentApiV1DocumentsDocumentIdDuplicate
 
 // Execute executes the request
 //  @return DocumentResponse
-func (a *DocumentsAPIService) DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePostExecute(r ApiDuplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest) (*DocumentResponse, *http.Response, error) {
+func (a *DocumentsAPIService) DuplicateDocumentExecute(r ApiDuplicateDocumentRequest) (*DocumentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -525,7 +656,7 @@ func (a *DocumentsAPIService) DuplicateDocumentApiV1DocumentsDocumentIdDuplicate
 		localVarReturnValue  *DocumentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.DuplicateDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -601,25 +732,25 @@ func (a *DocumentsAPIService) DuplicateDocumentApiV1DocumentsDocumentIdDuplicate
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiFinalizeDocumentApiV1DocumentsDocumentIdFinalizePostRequest struct {
+type ApiFinalizeDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentId string
 }
 
-func (r ApiFinalizeDocumentApiV1DocumentsDocumentIdFinalizePostRequest) Execute() (*DocumentResponse, *http.Response, error) {
-	return r.ApiService.FinalizeDocumentApiV1DocumentsDocumentIdFinalizePostExecute(r)
+func (r ApiFinalizeDocumentRequest) Execute() (*DocumentResponse, *http.Response, error) {
+	return r.ApiService.FinalizeDocumentExecute(r)
 }
 
 /*
-FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost Finalize Document
+FinalizeDocument Finalize Document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
- @return ApiFinalizeDocumentApiV1DocumentsDocumentIdFinalizePostRequest
+ @return ApiFinalizeDocumentRequest
 */
-func (a *DocumentsAPIService) FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost(ctx context.Context, documentId string) ApiFinalizeDocumentApiV1DocumentsDocumentIdFinalizePostRequest {
-	return ApiFinalizeDocumentApiV1DocumentsDocumentIdFinalizePostRequest{
+func (a *DocumentsAPIService) FinalizeDocument(ctx context.Context, documentId string) ApiFinalizeDocumentRequest {
+	return ApiFinalizeDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 		documentId: documentId,
@@ -628,7 +759,7 @@ func (a *DocumentsAPIService) FinalizeDocumentApiV1DocumentsDocumentIdFinalizePo
 
 // Execute executes the request
 //  @return DocumentResponse
-func (a *DocumentsAPIService) FinalizeDocumentApiV1DocumentsDocumentIdFinalizePostExecute(r ApiFinalizeDocumentApiV1DocumentsDocumentIdFinalizePostRequest) (*DocumentResponse, *http.Response, error) {
+func (a *DocumentsAPIService) FinalizeDocumentExecute(r ApiFinalizeDocumentRequest) (*DocumentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -636,7 +767,7 @@ func (a *DocumentsAPIService) FinalizeDocumentApiV1DocumentsDocumentIdFinalizePo
 		localVarReturnValue  *DocumentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.FinalizeDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -712,25 +843,25 @@ func (a *DocumentsAPIService) FinalizeDocumentApiV1DocumentsDocumentIdFinalizePo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDocumentApiV1DocumentsDocumentIdGetRequest struct {
+type ApiGetDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentId string
 }
 
-func (r ApiGetDocumentApiV1DocumentsDocumentIdGetRequest) Execute() (*DocumentResponse, *http.Response, error) {
-	return r.ApiService.GetDocumentApiV1DocumentsDocumentIdGetExecute(r)
+func (r ApiGetDocumentRequest) Execute() (*DocumentResponse, *http.Response, error) {
+	return r.ApiService.GetDocumentExecute(r)
 }
 
 /*
-GetDocumentApiV1DocumentsDocumentIdGet Get Document
+GetDocument Get Document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
- @return ApiGetDocumentApiV1DocumentsDocumentIdGetRequest
+ @return ApiGetDocumentRequest
 */
-func (a *DocumentsAPIService) GetDocumentApiV1DocumentsDocumentIdGet(ctx context.Context, documentId string) ApiGetDocumentApiV1DocumentsDocumentIdGetRequest {
-	return ApiGetDocumentApiV1DocumentsDocumentIdGetRequest{
+func (a *DocumentsAPIService) GetDocument(ctx context.Context, documentId string) ApiGetDocumentRequest {
+	return ApiGetDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 		documentId: documentId,
@@ -739,7 +870,7 @@ func (a *DocumentsAPIService) GetDocumentApiV1DocumentsDocumentIdGet(ctx context
 
 // Execute executes the request
 //  @return DocumentResponse
-func (a *DocumentsAPIService) GetDocumentApiV1DocumentsDocumentIdGetExecute(r ApiGetDocumentApiV1DocumentsDocumentIdGetRequest) (*DocumentResponse, *http.Response, error) {
+func (a *DocumentsAPIService) GetDocumentExecute(r ApiGetDocumentRequest) (*DocumentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -747,7 +878,7 @@ func (a *DocumentsAPIService) GetDocumentApiV1DocumentsDocumentIdGetExecute(r Ap
 		localVarReturnValue  *DocumentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.GetDocumentApiV1DocumentsDocumentIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.GetDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -823,7 +954,7 @@ func (a *DocumentsAPIService) GetDocumentApiV1DocumentsDocumentIdGetExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest struct {
+type ApiListDocumentDeliveriesRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentId string
@@ -831,29 +962,29 @@ type ApiListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest struc
 	cursor *string
 }
 
-func (r ApiListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest) Limit(limit int32) ApiListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest {
+func (r ApiListDocumentDeliveriesRequest) Limit(limit int32) ApiListDocumentDeliveriesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest) Cursor(cursor string) ApiListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest {
+func (r ApiListDocumentDeliveriesRequest) Cursor(cursor string) ApiListDocumentDeliveriesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest) Execute() (*DeliveriesListResponse, *http.Response, error) {
-	return r.ApiService.ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetExecute(r)
+func (r ApiListDocumentDeliveriesRequest) Execute() (*DeliveriesListResponse, *http.Response, error) {
+	return r.ApiService.ListDocumentDeliveriesExecute(r)
 }
 
 /*
-ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet List Document Deliveries
+ListDocumentDeliveries List Document Deliveries
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
- @return ApiListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest
+ @return ApiListDocumentDeliveriesRequest
 */
-func (a *DocumentsAPIService) ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet(ctx context.Context, documentId string) ApiListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest {
-	return ApiListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest{
+func (a *DocumentsAPIService) ListDocumentDeliveries(ctx context.Context, documentId string) ApiListDocumentDeliveriesRequest {
+	return ApiListDocumentDeliveriesRequest{
 		ApiService: a,
 		ctx: ctx,
 		documentId: documentId,
@@ -862,7 +993,7 @@ func (a *DocumentsAPIService) ListDocumentDeliveriesApiV1DocumentsDocumentIdDeli
 
 // Execute executes the request
 //  @return DeliveriesListResponse
-func (a *DocumentsAPIService) ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetExecute(r ApiListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest) (*DeliveriesListResponse, *http.Response, error) {
+func (a *DocumentsAPIService) ListDocumentDeliveriesExecute(r ApiListDocumentDeliveriesRequest) (*DeliveriesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -870,7 +1001,7 @@ func (a *DocumentsAPIService) ListDocumentDeliveriesApiV1DocumentsDocumentIdDeli
 		localVarReturnValue  *DeliveriesListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.ListDocumentDeliveries")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -955,7 +1086,7 @@ func (a *DocumentsAPIService) ListDocumentDeliveriesApiV1DocumentsDocumentIdDeli
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListDocumentsApiV1DocumentsGetRequest struct {
+type ApiListDocumentsRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	limit *int32
@@ -964,38 +1095,38 @@ type ApiListDocumentsApiV1DocumentsGetRequest struct {
 	status *string
 }
 
-func (r ApiListDocumentsApiV1DocumentsGetRequest) Limit(limit int32) ApiListDocumentsApiV1DocumentsGetRequest {
+func (r ApiListDocumentsRequest) Limit(limit int32) ApiListDocumentsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListDocumentsApiV1DocumentsGetRequest) Cursor(cursor string) ApiListDocumentsApiV1DocumentsGetRequest {
+func (r ApiListDocumentsRequest) Cursor(cursor string) ApiListDocumentsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListDocumentsApiV1DocumentsGetRequest) DocumentType(documentType string) ApiListDocumentsApiV1DocumentsGetRequest {
+func (r ApiListDocumentsRequest) DocumentType(documentType string) ApiListDocumentsRequest {
 	r.documentType = &documentType
 	return r
 }
 
-func (r ApiListDocumentsApiV1DocumentsGetRequest) Status(status string) ApiListDocumentsApiV1DocumentsGetRequest {
+func (r ApiListDocumentsRequest) Status(status string) ApiListDocumentsRequest {
 	r.status = &status
 	return r
 }
 
-func (r ApiListDocumentsApiV1DocumentsGetRequest) Execute() (*DocumentsListResponse, *http.Response, error) {
-	return r.ApiService.ListDocumentsApiV1DocumentsGetExecute(r)
+func (r ApiListDocumentsRequest) Execute() (*DocumentsListResponse, *http.Response, error) {
+	return r.ApiService.ListDocumentsExecute(r)
 }
 
 /*
-ListDocumentsApiV1DocumentsGet List Documents
+ListDocuments List Documents
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListDocumentsApiV1DocumentsGetRequest
+ @return ApiListDocumentsRequest
 */
-func (a *DocumentsAPIService) ListDocumentsApiV1DocumentsGet(ctx context.Context) ApiListDocumentsApiV1DocumentsGetRequest {
-	return ApiListDocumentsApiV1DocumentsGetRequest{
+func (a *DocumentsAPIService) ListDocuments(ctx context.Context) ApiListDocumentsRequest {
+	return ApiListDocumentsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1003,7 +1134,7 @@ func (a *DocumentsAPIService) ListDocumentsApiV1DocumentsGet(ctx context.Context
 
 // Execute executes the request
 //  @return DocumentsListResponse
-func (a *DocumentsAPIService) ListDocumentsApiV1DocumentsGetExecute(r ApiListDocumentsApiV1DocumentsGetRequest) (*DocumentsListResponse, *http.Response, error) {
+func (a *DocumentsAPIService) ListDocumentsExecute(r ApiListDocumentsRequest) (*DocumentsListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1011,7 +1142,7 @@ func (a *DocumentsAPIService) ListDocumentsApiV1DocumentsGetExecute(r ApiListDoc
 		localVarReturnValue  *DocumentsListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.ListDocumentsApiV1DocumentsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.ListDocuments")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1101,25 +1232,25 @@ func (a *DocumentsAPIService) ListDocumentsApiV1DocumentsGetExecute(r ApiListDoc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiMarkPaidApiV1DocumentsDocumentIdMarkPaidPostRequest struct {
+type ApiMarkPaidRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentId string
 }
 
-func (r ApiMarkPaidApiV1DocumentsDocumentIdMarkPaidPostRequest) Execute() (*DocumentResponse, *http.Response, error) {
-	return r.ApiService.MarkPaidApiV1DocumentsDocumentIdMarkPaidPostExecute(r)
+func (r ApiMarkPaidRequest) Execute() (*DocumentResponse, *http.Response, error) {
+	return r.ApiService.MarkPaidExecute(r)
 }
 
 /*
-MarkPaidApiV1DocumentsDocumentIdMarkPaidPost Mark Paid
+MarkPaid Mark Paid
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
- @return ApiMarkPaidApiV1DocumentsDocumentIdMarkPaidPostRequest
+ @return ApiMarkPaidRequest
 */
-func (a *DocumentsAPIService) MarkPaidApiV1DocumentsDocumentIdMarkPaidPost(ctx context.Context, documentId string) ApiMarkPaidApiV1DocumentsDocumentIdMarkPaidPostRequest {
-	return ApiMarkPaidApiV1DocumentsDocumentIdMarkPaidPostRequest{
+func (a *DocumentsAPIService) MarkPaid(ctx context.Context, documentId string) ApiMarkPaidRequest {
+	return ApiMarkPaidRequest{
 		ApiService: a,
 		ctx: ctx,
 		documentId: documentId,
@@ -1128,7 +1259,7 @@ func (a *DocumentsAPIService) MarkPaidApiV1DocumentsDocumentIdMarkPaidPost(ctx c
 
 // Execute executes the request
 //  @return DocumentResponse
-func (a *DocumentsAPIService) MarkPaidApiV1DocumentsDocumentIdMarkPaidPostExecute(r ApiMarkPaidApiV1DocumentsDocumentIdMarkPaidPostRequest) (*DocumentResponse, *http.Response, error) {
+func (a *DocumentsAPIService) MarkPaidExecute(r ApiMarkPaidRequest) (*DocumentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1136,7 +1267,7 @@ func (a *DocumentsAPIService) MarkPaidApiV1DocumentsDocumentIdMarkPaidPostExecut
 		localVarReturnValue  *DocumentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.MarkPaidApiV1DocumentsDocumentIdMarkPaidPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.MarkPaid")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1212,25 +1343,25 @@ func (a *DocumentsAPIService) MarkPaidApiV1DocumentsDocumentIdMarkPaidPostExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiMarkSentApiV1DocumentsDocumentIdMarkSentPostRequest struct {
+type ApiMarkSentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentId string
 }
 
-func (r ApiMarkSentApiV1DocumentsDocumentIdMarkSentPostRequest) Execute() (*DocumentResponse, *http.Response, error) {
-	return r.ApiService.MarkSentApiV1DocumentsDocumentIdMarkSentPostExecute(r)
+func (r ApiMarkSentRequest) Execute() (*DocumentResponse, *http.Response, error) {
+	return r.ApiService.MarkSentExecute(r)
 }
 
 /*
-MarkSentApiV1DocumentsDocumentIdMarkSentPost Mark Sent
+MarkSent Mark Sent
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
- @return ApiMarkSentApiV1DocumentsDocumentIdMarkSentPostRequest
+ @return ApiMarkSentRequest
 */
-func (a *DocumentsAPIService) MarkSentApiV1DocumentsDocumentIdMarkSentPost(ctx context.Context, documentId string) ApiMarkSentApiV1DocumentsDocumentIdMarkSentPostRequest {
-	return ApiMarkSentApiV1DocumentsDocumentIdMarkSentPostRequest{
+func (a *DocumentsAPIService) MarkSent(ctx context.Context, documentId string) ApiMarkSentRequest {
+	return ApiMarkSentRequest{
 		ApiService: a,
 		ctx: ctx,
 		documentId: documentId,
@@ -1239,7 +1370,7 @@ func (a *DocumentsAPIService) MarkSentApiV1DocumentsDocumentIdMarkSentPost(ctx c
 
 // Execute executes the request
 //  @return DocumentResponse
-func (a *DocumentsAPIService) MarkSentApiV1DocumentsDocumentIdMarkSentPostExecute(r ApiMarkSentApiV1DocumentsDocumentIdMarkSentPostRequest) (*DocumentResponse, *http.Response, error) {
+func (a *DocumentsAPIService) MarkSentExecute(r ApiMarkSentRequest) (*DocumentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1247,7 +1378,7 @@ func (a *DocumentsAPIService) MarkSentApiV1DocumentsDocumentIdMarkSentPostExecut
 		localVarReturnValue  *DocumentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.MarkSentApiV1DocumentsDocumentIdMarkSentPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.MarkSent")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1323,25 +1454,25 @@ func (a *DocumentsAPIService) MarkSentApiV1DocumentsDocumentIdMarkSentPostExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiMarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostRequest struct {
+type ApiMarkUnpaidRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentId string
 }
 
-func (r ApiMarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostRequest) Execute() (*DocumentResponse, *http.Response, error) {
-	return r.ApiService.MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostExecute(r)
+func (r ApiMarkUnpaidRequest) Execute() (*DocumentResponse, *http.Response, error) {
+	return r.ApiService.MarkUnpaidExecute(r)
 }
 
 /*
-MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost Mark Unpaid
+MarkUnpaid Mark Unpaid
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
- @return ApiMarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostRequest
+ @return ApiMarkUnpaidRequest
 */
-func (a *DocumentsAPIService) MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost(ctx context.Context, documentId string) ApiMarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostRequest {
-	return ApiMarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostRequest{
+func (a *DocumentsAPIService) MarkUnpaid(ctx context.Context, documentId string) ApiMarkUnpaidRequest {
+	return ApiMarkUnpaidRequest{
 		ApiService: a,
 		ctx: ctx,
 		documentId: documentId,
@@ -1350,7 +1481,7 @@ func (a *DocumentsAPIService) MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost(c
 
 // Execute executes the request
 //  @return DocumentResponse
-func (a *DocumentsAPIService) MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostExecute(r ApiMarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostRequest) (*DocumentResponse, *http.Response, error) {
+func (a *DocumentsAPIService) MarkUnpaidExecute(r ApiMarkUnpaidRequest) (*DocumentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1358,7 +1489,7 @@ func (a *DocumentsAPIService) MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostEx
 		localVarReturnValue  *DocumentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.MarkUnpaid")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1434,288 +1565,35 @@ func (a *DocumentsAPIService) MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchDocumentApiV1DocumentsDocumentIdPatchRequest struct {
+type ApiRenderDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
-	documentId string
-	documentPatchRequest *DocumentPatchRequest
-}
-
-func (r ApiPatchDocumentApiV1DocumentsDocumentIdPatchRequest) DocumentPatchRequest(documentPatchRequest DocumentPatchRequest) ApiPatchDocumentApiV1DocumentsDocumentIdPatchRequest {
-	r.documentPatchRequest = &documentPatchRequest
-	return r
-}
-
-func (r ApiPatchDocumentApiV1DocumentsDocumentIdPatchRequest) Execute() (*DocumentResponse, *http.Response, error) {
-	return r.ApiService.PatchDocumentApiV1DocumentsDocumentIdPatchExecute(r)
-}
-
-/*
-PatchDocumentApiV1DocumentsDocumentIdPatch Patch Document
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param documentId
- @return ApiPatchDocumentApiV1DocumentsDocumentIdPatchRequest
-*/
-func (a *DocumentsAPIService) PatchDocumentApiV1DocumentsDocumentIdPatch(ctx context.Context, documentId string) ApiPatchDocumentApiV1DocumentsDocumentIdPatchRequest {
-	return ApiPatchDocumentApiV1DocumentsDocumentIdPatchRequest{
-		ApiService: a,
-		ctx: ctx,
-		documentId: documentId,
-	}
-}
-
-// Execute executes the request
-//  @return DocumentResponse
-func (a *DocumentsAPIService) PatchDocumentApiV1DocumentsDocumentIdPatchExecute(r ApiPatchDocumentApiV1DocumentsDocumentIdPatchRequest) (*DocumentResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DocumentResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.PatchDocumentApiV1DocumentsDocumentIdPatch")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/documents/{document_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"document_id"+"}", url.PathEscape(parameterValueToString(r.documentId, "documentId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.documentPatchRequest == nil {
-		return localVarReturnValue, nil, reportError("documentPatchRequest is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.documentPatchRequest
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ApiErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiRenderDocumentApiV1DocumentsDocumentIdRendersPostRequest struct {
-	ctx context.Context
-	ApiService *DocumentsAPIService
-	documentId string
-	appDocumentsSchemasDocumentRenderRequest *AppDocumentsSchemasDocumentRenderRequest
+	documentRenderRequest *DocumentRenderRequest
 	idempotencyKey *string
 }
 
-func (r ApiRenderDocumentApiV1DocumentsDocumentIdRendersPostRequest) AppDocumentsSchemasDocumentRenderRequest(appDocumentsSchemasDocumentRenderRequest AppDocumentsSchemasDocumentRenderRequest) ApiRenderDocumentApiV1DocumentsDocumentIdRendersPostRequest {
-	r.appDocumentsSchemasDocumentRenderRequest = &appDocumentsSchemasDocumentRenderRequest
+func (r ApiRenderDocumentRequest) DocumentRenderRequest(documentRenderRequest DocumentRenderRequest) ApiRenderDocumentRequest {
+	r.documentRenderRequest = &documentRenderRequest
 	return r
 }
 
-func (r ApiRenderDocumentApiV1DocumentsDocumentIdRendersPostRequest) IdempotencyKey(idempotencyKey string) ApiRenderDocumentApiV1DocumentsDocumentIdRendersPostRequest {
+func (r ApiRenderDocumentRequest) IdempotencyKey(idempotencyKey string) ApiRenderDocumentRequest {
 	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
-func (r ApiRenderDocumentApiV1DocumentsDocumentIdRendersPostRequest) Execute() (interface{}, *http.Response, error) {
-	return r.ApiService.RenderDocumentApiV1DocumentsDocumentIdRendersPostExecute(r)
+func (r ApiRenderDocumentRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.RenderDocumentExecute(r)
 }
 
 /*
-RenderDocumentApiV1DocumentsDocumentIdRendersPost Render Document
+RenderDocument Render Document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param documentId
- @return ApiRenderDocumentApiV1DocumentsDocumentIdRendersPostRequest
+ @return ApiRenderDocumentRequest
 */
-func (a *DocumentsAPIService) RenderDocumentApiV1DocumentsDocumentIdRendersPost(ctx context.Context, documentId string) ApiRenderDocumentApiV1DocumentsDocumentIdRendersPostRequest {
-	return ApiRenderDocumentApiV1DocumentsDocumentIdRendersPostRequest{
-		ApiService: a,
-		ctx: ctx,
-		documentId: documentId,
-	}
-}
-
-// Execute executes the request
-//  @return interface{}
-func (a *DocumentsAPIService) RenderDocumentApiV1DocumentsDocumentIdRendersPostExecute(r ApiRenderDocumentApiV1DocumentsDocumentIdRendersPostRequest) (interface{}, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  interface{}
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.RenderDocumentApiV1DocumentsDocumentIdRendersPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/documents/{document_id}/renders"
-	localVarPath = strings.Replace(localVarPath, "{"+"document_id"+"}", url.PathEscape(parameterValueToString(r.documentId, "documentId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.appDocumentsSchemasDocumentRenderRequest == nil {
-		return localVarReturnValue, nil, reportError("appDocumentsSchemasDocumentRenderRequest is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.idempotencyKey != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Idempotency-Key", r.idempotencyKey, "")
-	}
-	// body params
-	localVarPostBody = r.appDocumentsSchemasDocumentRenderRequest
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ApiErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiRenderDocumentApiV1DocumentsRenderPostRequest struct {
-	ctx context.Context
-	ApiService *DocumentsAPIService
-	appSchemasV1DocumentRenderRequest *AppSchemasV1DocumentRenderRequest
-	idempotencyKey *string
-}
-
-func (r ApiRenderDocumentApiV1DocumentsRenderPostRequest) AppSchemasV1DocumentRenderRequest(appSchemasV1DocumentRenderRequest AppSchemasV1DocumentRenderRequest) ApiRenderDocumentApiV1DocumentsRenderPostRequest {
-	r.appSchemasV1DocumentRenderRequest = &appSchemasV1DocumentRenderRequest
-	return r
-}
-
-func (r ApiRenderDocumentApiV1DocumentsRenderPostRequest) IdempotencyKey(idempotencyKey string) ApiRenderDocumentApiV1DocumentsRenderPostRequest {
-	r.idempotencyKey = &idempotencyKey
-	return r
-}
-
-func (r ApiRenderDocumentApiV1DocumentsRenderPostRequest) Execute() (interface{}, *http.Response, error) {
-	return r.ApiService.RenderDocumentApiV1DocumentsRenderPostExecute(r)
-}
-
-/*
-RenderDocumentApiV1DocumentsRenderPost Render Document
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiRenderDocumentApiV1DocumentsRenderPostRequest
-*/
-func (a *DocumentsAPIService) RenderDocumentApiV1DocumentsRenderPost(ctx context.Context) ApiRenderDocumentApiV1DocumentsRenderPostRequest {
-	return ApiRenderDocumentApiV1DocumentsRenderPostRequest{
+func (a *DocumentsAPIService) RenderDocument(ctx context.Context) ApiRenderDocumentRequest {
+	return ApiRenderDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1723,7 +1601,7 @@ func (a *DocumentsAPIService) RenderDocumentApiV1DocumentsRenderPost(ctx context
 
 // Execute executes the request
 //  @return interface{}
-func (a *DocumentsAPIService) RenderDocumentApiV1DocumentsRenderPostExecute(r ApiRenderDocumentApiV1DocumentsRenderPostRequest) (interface{}, *http.Response, error) {
+func (a *DocumentsAPIService) RenderDocumentExecute(r ApiRenderDocumentRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1731,7 +1609,7 @@ func (a *DocumentsAPIService) RenderDocumentApiV1DocumentsRenderPostExecute(r Ap
 		localVarReturnValue  interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.RenderDocumentApiV1DocumentsRenderPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.RenderDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1741,8 +1619,8 @@ func (a *DocumentsAPIService) RenderDocumentApiV1DocumentsRenderPostExecute(r Ap
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.appSchemasV1DocumentRenderRequest == nil {
-		return localVarReturnValue, nil, reportError("appSchemasV1DocumentRenderRequest is required and must be specified")
+	if r.documentRenderRequest == nil {
+		return localVarReturnValue, nil, reportError("documentRenderRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1766,7 +1644,7 @@ func (a *DocumentsAPIService) RenderDocumentApiV1DocumentsRenderPostExecute(r Ap
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Idempotency-Key", r.idempotencyKey, "")
 	}
 	// body params
-	localVarPostBody = r.appSchemasV1DocumentRenderRequest
+	localVarPostBody = r.documentRenderRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1814,25 +1692,25 @@ func (a *DocumentsAPIService) RenderDocumentApiV1DocumentsRenderPostExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRestoreDocumentApiV1DocumentsDocumentIdRestorePostRequest struct {
+type ApiRestoreDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentId string
 }
 
-func (r ApiRestoreDocumentApiV1DocumentsDocumentIdRestorePostRequest) Execute() (*DocumentResponse, *http.Response, error) {
-	return r.ApiService.RestoreDocumentApiV1DocumentsDocumentIdRestorePostExecute(r)
+func (r ApiRestoreDocumentRequest) Execute() (*DocumentResponse, *http.Response, error) {
+	return r.ApiService.RestoreDocumentExecute(r)
 }
 
 /*
-RestoreDocumentApiV1DocumentsDocumentIdRestorePost Restore Document
+RestoreDocument Restore Document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
- @return ApiRestoreDocumentApiV1DocumentsDocumentIdRestorePostRequest
+ @return ApiRestoreDocumentRequest
 */
-func (a *DocumentsAPIService) RestoreDocumentApiV1DocumentsDocumentIdRestorePost(ctx context.Context, documentId string) ApiRestoreDocumentApiV1DocumentsDocumentIdRestorePostRequest {
-	return ApiRestoreDocumentApiV1DocumentsDocumentIdRestorePostRequest{
+func (a *DocumentsAPIService) RestoreDocument(ctx context.Context, documentId string) ApiRestoreDocumentRequest {
+	return ApiRestoreDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 		documentId: documentId,
@@ -1841,7 +1719,7 @@ func (a *DocumentsAPIService) RestoreDocumentApiV1DocumentsDocumentIdRestorePost
 
 // Execute executes the request
 //  @return DocumentResponse
-func (a *DocumentsAPIService) RestoreDocumentApiV1DocumentsDocumentIdRestorePostExecute(r ApiRestoreDocumentApiV1DocumentsDocumentIdRestorePostRequest) (*DocumentResponse, *http.Response, error) {
+func (a *DocumentsAPIService) RestoreDocumentExecute(r ApiRestoreDocumentRequest) (*DocumentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1849,7 +1727,7 @@ func (a *DocumentsAPIService) RestoreDocumentApiV1DocumentsDocumentIdRestorePost
 		localVarReturnValue  *DocumentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.RestoreDocumentApiV1DocumentsDocumentIdRestorePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.RestoreDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1925,31 +1803,31 @@ func (a *DocumentsAPIService) RestoreDocumentApiV1DocumentsDocumentIdRestorePost
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSendDocumentApiV1DocumentsDocumentIdSendPostRequest struct {
+type ApiSendDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentId string
 	deliverySendRequest *DeliverySendRequest
 }
 
-func (r ApiSendDocumentApiV1DocumentsDocumentIdSendPostRequest) DeliverySendRequest(deliverySendRequest DeliverySendRequest) ApiSendDocumentApiV1DocumentsDocumentIdSendPostRequest {
+func (r ApiSendDocumentRequest) DeliverySendRequest(deliverySendRequest DeliverySendRequest) ApiSendDocumentRequest {
 	r.deliverySendRequest = &deliverySendRequest
 	return r
 }
 
-func (r ApiSendDocumentApiV1DocumentsDocumentIdSendPostRequest) Execute() (*DeliveryResponse, *http.Response, error) {
-	return r.ApiService.SendDocumentApiV1DocumentsDocumentIdSendPostExecute(r)
+func (r ApiSendDocumentRequest) Execute() (*DeliveryResponse, *http.Response, error) {
+	return r.ApiService.SendDocumentExecute(r)
 }
 
 /*
-SendDocumentApiV1DocumentsDocumentIdSendPost Send Document
+SendDocument Send Document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
- @return ApiSendDocumentApiV1DocumentsDocumentIdSendPostRequest
+ @return ApiSendDocumentRequest
 */
-func (a *DocumentsAPIService) SendDocumentApiV1DocumentsDocumentIdSendPost(ctx context.Context, documentId string) ApiSendDocumentApiV1DocumentsDocumentIdSendPostRequest {
-	return ApiSendDocumentApiV1DocumentsDocumentIdSendPostRequest{
+func (a *DocumentsAPIService) SendDocument(ctx context.Context, documentId string) ApiSendDocumentRequest {
+	return ApiSendDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 		documentId: documentId,
@@ -1958,7 +1836,7 @@ func (a *DocumentsAPIService) SendDocumentApiV1DocumentsDocumentIdSendPost(ctx c
 
 // Execute executes the request
 //  @return DeliveryResponse
-func (a *DocumentsAPIService) SendDocumentApiV1DocumentsDocumentIdSendPostExecute(r ApiSendDocumentApiV1DocumentsDocumentIdSendPostRequest) (*DeliveryResponse, *http.Response, error) {
+func (a *DocumentsAPIService) SendDocumentExecute(r ApiSendDocumentRequest) (*DeliveryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1966,7 +1844,7 @@ func (a *DocumentsAPIService) SendDocumentApiV1DocumentsDocumentIdSendPostExecut
 		localVarReturnValue  *DeliveryResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.SendDocumentApiV1DocumentsDocumentIdSendPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.SendDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2047,29 +1925,151 @@ func (a *DocumentsAPIService) SendDocumentApiV1DocumentsDocumentIdSendPostExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiValidateDocumentApiV1DocumentsValidatePostRequest struct {
+type ApiUpdateDocumentRequest struct {
+	ctx context.Context
+	ApiService *DocumentsAPIService
+	documentId string
+	documentPatchRequest *DocumentPatchRequest
+}
+
+func (r ApiUpdateDocumentRequest) DocumentPatchRequest(documentPatchRequest DocumentPatchRequest) ApiUpdateDocumentRequest {
+	r.documentPatchRequest = &documentPatchRequest
+	return r
+}
+
+func (r ApiUpdateDocumentRequest) Execute() (*DocumentResponse, *http.Response, error) {
+	return r.ApiService.UpdateDocumentExecute(r)
+}
+
+/*
+UpdateDocument Update Document
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param documentId
+ @return ApiUpdateDocumentRequest
+*/
+func (a *DocumentsAPIService) UpdateDocument(ctx context.Context, documentId string) ApiUpdateDocumentRequest {
+	return ApiUpdateDocumentRequest{
+		ApiService: a,
+		ctx: ctx,
+		documentId: documentId,
+	}
+}
+
+// Execute executes the request
+//  @return DocumentResponse
+func (a *DocumentsAPIService) UpdateDocumentExecute(r ApiUpdateDocumentRequest) (*DocumentResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DocumentResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.UpdateDocument")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/documents/{document_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"document_id"+"}", url.PathEscape(parameterValueToString(r.documentId, "documentId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.documentPatchRequest == nil {
+		return localVarReturnValue, nil, reportError("documentPatchRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.documentPatchRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiValidateDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentValidateRequest *DocumentValidateRequest
 }
 
-func (r ApiValidateDocumentApiV1DocumentsValidatePostRequest) DocumentValidateRequest(documentValidateRequest DocumentValidateRequest) ApiValidateDocumentApiV1DocumentsValidatePostRequest {
+func (r ApiValidateDocumentRequest) DocumentValidateRequest(documentValidateRequest DocumentValidateRequest) ApiValidateDocumentRequest {
 	r.documentValidateRequest = &documentValidateRequest
 	return r
 }
 
-func (r ApiValidateDocumentApiV1DocumentsValidatePostRequest) Execute() (*DocumentValidateResponse, *http.Response, error) {
-	return r.ApiService.ValidateDocumentApiV1DocumentsValidatePostExecute(r)
+func (r ApiValidateDocumentRequest) Execute() (*DocumentValidateResponse, *http.Response, error) {
+	return r.ApiService.ValidateDocumentExecute(r)
 }
 
 /*
-ValidateDocumentApiV1DocumentsValidatePost Validate Document
+ValidateDocument Validate Document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiValidateDocumentApiV1DocumentsValidatePostRequest
+ @return ApiValidateDocumentRequest
 */
-func (a *DocumentsAPIService) ValidateDocumentApiV1DocumentsValidatePost(ctx context.Context) ApiValidateDocumentApiV1DocumentsValidatePostRequest {
-	return ApiValidateDocumentApiV1DocumentsValidatePostRequest{
+func (a *DocumentsAPIService) ValidateDocument(ctx context.Context) ApiValidateDocumentRequest {
+	return ApiValidateDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2077,7 +2077,7 @@ func (a *DocumentsAPIService) ValidateDocumentApiV1DocumentsValidatePost(ctx con
 
 // Execute executes the request
 //  @return DocumentValidateResponse
-func (a *DocumentsAPIService) ValidateDocumentApiV1DocumentsValidatePostExecute(r ApiValidateDocumentApiV1DocumentsValidatePostRequest) (*DocumentValidateResponse, *http.Response, error) {
+func (a *DocumentsAPIService) ValidateDocumentExecute(r ApiValidateDocumentRequest) (*DocumentValidateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2085,7 +2085,7 @@ func (a *DocumentsAPIService) ValidateDocumentApiV1DocumentsValidatePostExecute(
 		localVarReturnValue  *DocumentValidateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.ValidateDocumentApiV1DocumentsValidatePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.ValidateDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2165,25 +2165,25 @@ func (a *DocumentsAPIService) ValidateDocumentApiV1DocumentsValidatePostExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiVoidDocumentApiV1DocumentsDocumentIdVoidPostRequest struct {
+type ApiVoidDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
 	documentId string
 }
 
-func (r ApiVoidDocumentApiV1DocumentsDocumentIdVoidPostRequest) Execute() (*DocumentResponse, *http.Response, error) {
-	return r.ApiService.VoidDocumentApiV1DocumentsDocumentIdVoidPostExecute(r)
+func (r ApiVoidDocumentRequest) Execute() (*DocumentResponse, *http.Response, error) {
+	return r.ApiService.VoidDocumentExecute(r)
 }
 
 /*
-VoidDocumentApiV1DocumentsDocumentIdVoidPost Void Document
+VoidDocument Void Document
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
- @return ApiVoidDocumentApiV1DocumentsDocumentIdVoidPostRequest
+ @return ApiVoidDocumentRequest
 */
-func (a *DocumentsAPIService) VoidDocumentApiV1DocumentsDocumentIdVoidPost(ctx context.Context, documentId string) ApiVoidDocumentApiV1DocumentsDocumentIdVoidPostRequest {
-	return ApiVoidDocumentApiV1DocumentsDocumentIdVoidPostRequest{
+func (a *DocumentsAPIService) VoidDocument(ctx context.Context, documentId string) ApiVoidDocumentRequest {
+	return ApiVoidDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 		documentId: documentId,
@@ -2192,7 +2192,7 @@ func (a *DocumentsAPIService) VoidDocumentApiV1DocumentsDocumentIdVoidPost(ctx c
 
 // Execute executes the request
 //  @return DocumentResponse
-func (a *DocumentsAPIService) VoidDocumentApiV1DocumentsDocumentIdVoidPostExecute(r ApiVoidDocumentApiV1DocumentsDocumentIdVoidPostRequest) (*DocumentResponse, *http.Response, error) {
+func (a *DocumentsAPIService) VoidDocumentExecute(r ApiVoidDocumentRequest) (*DocumentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2200,7 +2200,7 @@ func (a *DocumentsAPIService) VoidDocumentApiV1DocumentsDocumentIdVoidPostExecut
 		localVarReturnValue  *DocumentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.VoidDocumentApiV1DocumentsDocumentIdVoidPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.VoidDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

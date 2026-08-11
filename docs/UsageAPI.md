@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetLimitsApiV1UsageLimitsGet**](UsageAPI.md#GetLimitsApiV1UsageLimitsGet) | **Get** /api/v1/usage/limits | Get Limits
-[**ListUsageEventsApiV1UsageEventsGet**](UsageAPI.md#ListUsageEventsApiV1UsageEventsGet) | **Get** /api/v1/usage/events | List Usage Events
-[**UsageApiV1UsageGet**](UsageAPI.md#UsageApiV1UsageGet) | **Get** /api/v1/usage | Usage
+[**GetUsage**](UsageAPI.md#GetUsage) | **Get** /api/v1/usage | Get Usage
+[**GetUsageLimits**](UsageAPI.md#GetUsageLimits) | **Get** /api/v1/usage/limits | Get Usage Limits
+[**ListUsageEvents**](UsageAPI.md#ListUsageEvents) | **Get** /api/v1/usage/events | List Usage Events
 
 
 
-## GetLimitsApiV1UsageLimitsGet
+## GetUsage
 
-> map[string]interface{} GetLimitsApiV1UsageLimitsGet(ctx).Execute()
+> UsageResponse GetUsage(ctx).Execute()
 
-Get Limits
+Get Usage
 
 ### Example
 
@@ -32,13 +32,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsageAPI.GetLimitsApiV1UsageLimitsGet(context.Background()).Execute()
+	resp, r, err := apiClient.UsageAPI.GetUsage(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsageAPI.GetLimitsApiV1UsageLimitsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `UsageAPI.GetUsage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetLimitsApiV1UsageLimitsGet`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `UsageAPI.GetLimitsApiV1UsageLimitsGet`: %v\n", resp)
+	// response from `GetUsage`: UsageResponse
+	fmt.Fprintf(os.Stdout, "Response from `UsageAPI.GetUsage`: %v\n", resp)
 }
 ```
 
@@ -48,7 +48,66 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetLimitsApiV1UsageLimitsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetUsageRequest struct via the builder pattern
+
+
+### Return type
+
+[**UsageResponse**](UsageResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetUsageLimits
+
+> map[string]interface{} GetUsageLimits(ctx).Execute()
+
+Get Usage Limits
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UsageAPI.GetUsageLimits(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UsageAPI.GetUsageLimits``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetUsageLimits`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `UsageAPI.GetUsageLimits`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetUsageLimitsRequest struct via the builder pattern
 
 
 ### Return type
@@ -69,9 +128,9 @@ Other parameters are passed through a pointer to a apiGetLimitsApiV1UsageLimitsG
 [[Back to README]](../README.md)
 
 
-## ListUsageEventsApiV1UsageEventsGet
+## ListUsageEvents
 
-> map[string]interface{} ListUsageEventsApiV1UsageEventsGet(ctx).Limit(limit).Cursor(cursor).Execute()
+> map[string]interface{} ListUsageEvents(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List Usage Events
 
@@ -93,13 +152,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsageAPI.ListUsageEventsApiV1UsageEventsGet(context.Background()).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.UsageAPI.ListUsageEvents(context.Background()).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsageAPI.ListUsageEventsApiV1UsageEventsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `UsageAPI.ListUsageEvents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListUsageEventsApiV1UsageEventsGet`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `UsageAPI.ListUsageEventsApiV1UsageEventsGet`: %v\n", resp)
+	// response from `ListUsageEvents`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `UsageAPI.ListUsageEvents`: %v\n", resp)
 }
 ```
 
@@ -109,7 +168,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListUsageEventsApiV1UsageEventsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListUsageEventsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -120,65 +179,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **map[string]interface{}**
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## UsageApiV1UsageGet
-
-> UsageResponse UsageApiV1UsageGet(ctx).Execute()
-
-Usage
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
-)
-
-func main() {
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UsageAPI.UsageApiV1UsageGet(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UsageAPI.UsageApiV1UsageGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UsageApiV1UsageGet`: UsageResponse
-	fmt.Fprintf(os.Stdout, "Response from `UsageAPI.UsageApiV1UsageGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUsageApiV1UsageGetRequest struct via the builder pattern
-
-
-### Return type
-
-[**UsageResponse**](UsageResponse.md)
 
 ### Authorization
 

@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CancelImportApiV1ImportsImportIdCancelPost**](ImportsAPI.md#CancelImportApiV1ImportsImportIdCancelPost) | **Post** /api/v1/imports/{import_id}/cancel | Cancel Import
-[**ConfirmImportApiV1ImportsImportIdConfirmPost**](ImportsAPI.md#ConfirmImportApiV1ImportsImportIdConfirmPost) | **Post** /api/v1/imports/{import_id}/confirm | Confirm Import
-[**CreateImportApiV1ImportsPost**](ImportsAPI.md#CreateImportApiV1ImportsPost) | **Post** /api/v1/imports | Create Import
-[**GetImportApiV1ImportsImportIdGet**](ImportsAPI.md#GetImportApiV1ImportsImportIdGet) | **Get** /api/v1/imports/{import_id} | Get Import
+[**CancelImport**](ImportsAPI.md#CancelImport) | **Post** /api/v1/imports/{import_id}/cancel | Cancel Import
+[**ConfirmImport**](ImportsAPI.md#ConfirmImport) | **Post** /api/v1/imports/{import_id}/confirm | Confirm Import
+[**CreateImport**](ImportsAPI.md#CreateImport) | **Post** /api/v1/imports | Create Import
+[**GetImport**](ImportsAPI.md#GetImport) | **Get** /api/v1/imports/{import_id} | Get Import
 
 
 
-## CancelImportApiV1ImportsImportIdCancelPost
+## CancelImport
 
-> ImportResponse CancelImportApiV1ImportsImportIdCancelPost(ctx, importId).Execute()
+> ImportResponse CancelImport(ctx, importId).Execute()
 
 Cancel Import
 
@@ -34,13 +34,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImportsAPI.CancelImportApiV1ImportsImportIdCancelPost(context.Background(), importId).Execute()
+	resp, r, err := apiClient.ImportsAPI.CancelImport(context.Background(), importId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ImportsAPI.CancelImportApiV1ImportsImportIdCancelPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ImportsAPI.CancelImport``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CancelImportApiV1ImportsImportIdCancelPost`: ImportResponse
-	fmt.Fprintf(os.Stdout, "Response from `ImportsAPI.CancelImportApiV1ImportsImportIdCancelPost`: %v\n", resp)
+	// response from `CancelImport`: ImportResponse
+	fmt.Fprintf(os.Stdout, "Response from `ImportsAPI.CancelImport`: %v\n", resp)
 }
 ```
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCancelImportApiV1ImportsImportIdCancelPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCancelImportRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -79,9 +79,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ConfirmImportApiV1ImportsImportIdConfirmPost
+## ConfirmImport
 
-> ImportResponse ConfirmImportApiV1ImportsImportIdConfirmPost(ctx, importId).Execute()
+> ImportResponse ConfirmImport(ctx, importId).Execute()
 
 Confirm Import
 
@@ -102,13 +102,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImportsAPI.ConfirmImportApiV1ImportsImportIdConfirmPost(context.Background(), importId).Execute()
+	resp, r, err := apiClient.ImportsAPI.ConfirmImport(context.Background(), importId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ImportsAPI.ConfirmImportApiV1ImportsImportIdConfirmPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ImportsAPI.ConfirmImport``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ConfirmImportApiV1ImportsImportIdConfirmPost`: ImportResponse
-	fmt.Fprintf(os.Stdout, "Response from `ImportsAPI.ConfirmImportApiV1ImportsImportIdConfirmPost`: %v\n", resp)
+	// response from `ConfirmImport`: ImportResponse
+	fmt.Fprintf(os.Stdout, "Response from `ImportsAPI.ConfirmImport`: %v\n", resp)
 }
 ```
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiConfirmImportApiV1ImportsImportIdConfirmPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiConfirmImportRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -147,9 +147,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CreateImportApiV1ImportsPost
+## CreateImport
 
-> ImportResponse CreateImportApiV1ImportsPost(ctx).ImportCreateRequest(importCreateRequest).Execute()
+> ImportResponse CreateImport(ctx).ImportCreateRequest(importCreateRequest).Execute()
 
 Create Import
 
@@ -170,13 +170,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImportsAPI.CreateImportApiV1ImportsPost(context.Background()).ImportCreateRequest(importCreateRequest).Execute()
+	resp, r, err := apiClient.ImportsAPI.CreateImport(context.Background()).ImportCreateRequest(importCreateRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ImportsAPI.CreateImportApiV1ImportsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ImportsAPI.CreateImport``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateImportApiV1ImportsPost`: ImportResponse
-	fmt.Fprintf(os.Stdout, "Response from `ImportsAPI.CreateImportApiV1ImportsPost`: %v\n", resp)
+	// response from `CreateImport`: ImportResponse
+	fmt.Fprintf(os.Stdout, "Response from `ImportsAPI.CreateImport`: %v\n", resp)
 }
 ```
 
@@ -186,7 +186,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateImportApiV1ImportsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateImportRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -211,9 +211,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetImportApiV1ImportsImportIdGet
+## GetImport
 
-> ImportResponse GetImportApiV1ImportsImportIdGet(ctx, importId).Execute()
+> ImportResponse GetImport(ctx, importId).Execute()
 
 Get Import
 
@@ -234,13 +234,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImportsAPI.GetImportApiV1ImportsImportIdGet(context.Background(), importId).Execute()
+	resp, r, err := apiClient.ImportsAPI.GetImport(context.Background(), importId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ImportsAPI.GetImportApiV1ImportsImportIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ImportsAPI.GetImport``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetImportApiV1ImportsImportIdGet`: ImportResponse
-	fmt.Fprintf(os.Stdout, "Response from `ImportsAPI.GetImportApiV1ImportsImportIdGet`: %v\n", resp)
+	// response from `GetImport`: ImportResponse
+	fmt.Fprintf(os.Stdout, "Response from `ImportsAPI.GetImport`: %v\n", resp)
 }
 ```
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetImportApiV1ImportsImportIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetImportRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**HealthHealthGet**](HealthAPI.md#HealthHealthGet) | **Get** /health | Health
-[**ReadyReadyGet**](HealthAPI.md#ReadyReadyGet) | **Get** /ready | Ready
-[**VersionVersionGet**](HealthAPI.md#VersionVersionGet) | **Get** /version | Version
+[**GetHealth**](HealthAPI.md#GetHealth) | **Get** /health | Get Health
+[**GetReadiness**](HealthAPI.md#GetReadiness) | **Get** /ready | Get Readiness
+[**GetVersion**](HealthAPI.md#GetVersion) | **Get** /version | Get Version
 
 
 
-## HealthHealthGet
+## GetHealth
 
-> HealthResponse HealthHealthGet(ctx).Execute()
+> HealthResponse GetHealth(ctx).Execute()
 
-Health
+Get Health
 
 ### Example
 
@@ -32,13 +32,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.HealthAPI.HealthHealthGet(context.Background()).Execute()
+	resp, r, err := apiClient.HealthAPI.GetHealth(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `HealthAPI.HealthHealthGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `HealthAPI.GetHealth``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `HealthHealthGet`: HealthResponse
-	fmt.Fprintf(os.Stdout, "Response from `HealthAPI.HealthHealthGet`: %v\n", resp)
+	// response from `GetHealth`: HealthResponse
+	fmt.Fprintf(os.Stdout, "Response from `HealthAPI.GetHealth`: %v\n", resp)
 }
 ```
 
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiHealthHealthGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetHealthRequest struct via the builder pattern
 
 
 ### Return type
@@ -69,11 +69,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## ReadyReadyGet
+## GetReadiness
 
-> ReadyResponse ReadyReadyGet(ctx).Execute()
+> ReadyResponse GetReadiness(ctx).Execute()
 
-Ready
+Get Readiness
 
 ### Example
 
@@ -91,13 +91,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.HealthAPI.ReadyReadyGet(context.Background()).Execute()
+	resp, r, err := apiClient.HealthAPI.GetReadiness(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `HealthAPI.ReadyReadyGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `HealthAPI.GetReadiness``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ReadyReadyGet`: ReadyResponse
-	fmt.Fprintf(os.Stdout, "Response from `HealthAPI.ReadyReadyGet`: %v\n", resp)
+	// response from `GetReadiness`: ReadyResponse
+	fmt.Fprintf(os.Stdout, "Response from `HealthAPI.GetReadiness`: %v\n", resp)
 }
 ```
 
@@ -107,7 +107,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiReadyReadyGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetReadinessRequest struct via the builder pattern
 
 
 ### Return type
@@ -128,11 +128,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## VersionVersionGet
+## GetVersion
 
-> VersionResponse VersionVersionGet(ctx).Execute()
+> VersionResponse GetVersion(ctx).Execute()
 
-Version
+Get Version
 
 ### Example
 
@@ -150,13 +150,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.HealthAPI.VersionVersionGet(context.Background()).Execute()
+	resp, r, err := apiClient.HealthAPI.GetVersion(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `HealthAPI.VersionVersionGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `HealthAPI.GetVersion``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VersionVersionGet`: VersionResponse
-	fmt.Fprintf(os.Stdout, "Response from `HealthAPI.VersionVersionGet`: %v\n", resp)
+	// response from `GetVersion`: VersionResponse
+	fmt.Fprintf(os.Stdout, "Response from `HealthAPI.GetVersion`: %v\n", resp)
 }
 ```
 
@@ -166,7 +166,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiVersionVersionGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetVersionRequest struct via the builder pattern
 
 
 ### Return type

@@ -4,19 +4,19 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreatePaymentApiV1DocumentsInvoiceIdPaymentsPost**](PaymentsAPI.md#CreatePaymentApiV1DocumentsInvoiceIdPaymentsPost) | **Post** /api/v1/documents/{invoice_id}/payments | Create Payment
-[**DeletePaymentApiV1PaymentsPaymentIdDelete**](PaymentsAPI.md#DeletePaymentApiV1PaymentsPaymentIdDelete) | **Delete** /api/v1/payments/{payment_id} | Delete Payment
-[**GetPaymentApiV1PaymentsPaymentIdGet**](PaymentsAPI.md#GetPaymentApiV1PaymentsPaymentIdGet) | **Get** /api/v1/payments/{payment_id} | Get Payment
-[**ListInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet**](PaymentsAPI.md#ListInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet) | **Get** /api/v1/documents/{invoice_id}/payments | List Invoice Payments
-[**UpdatePaymentApiV1PaymentsPaymentIdPatch**](PaymentsAPI.md#UpdatePaymentApiV1PaymentsPaymentIdPatch) | **Patch** /api/v1/payments/{payment_id} | Update Payment
+[**CreateDocumentPayment**](PaymentsAPI.md#CreateDocumentPayment) | **Post** /api/v1/documents/{document_id}/payments | Create Document Payment
+[**DeletePayment**](PaymentsAPI.md#DeletePayment) | **Delete** /api/v1/payments/{payment_id} | Delete Payment
+[**GetPayment**](PaymentsAPI.md#GetPayment) | **Get** /api/v1/payments/{payment_id} | Get Payment
+[**ListDocumentPayments**](PaymentsAPI.md#ListDocumentPayments) | **Get** /api/v1/documents/{document_id}/payments | List Document Payments
+[**UpdatePayment**](PaymentsAPI.md#UpdatePayment) | **Patch** /api/v1/payments/{payment_id} | Update Payment
 
 
 
-## CreatePaymentApiV1DocumentsInvoiceIdPaymentsPost
+## CreateDocumentPayment
 
-> PaymentResponse CreatePaymentApiV1DocumentsInvoiceIdPaymentsPost(ctx, invoiceId).PaymentCreateRequest(paymentCreateRequest).Execute()
+> PaymentResponse CreateDocumentPayment(ctx, documentId).PaymentCreateRequest(paymentCreateRequest).Execute()
 
-Create Payment
+Create Document Payment
 
 ### Example
 
@@ -32,18 +32,18 @@ import (
 )
 
 func main() {
-	invoiceId := "invoiceId_example" // string | 
+	documentId := "documentId_example" // string | 
 	paymentCreateRequest := *openapiclient.NewPaymentCreateRequest("53.10", time.Now()) // PaymentCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.CreatePaymentApiV1DocumentsInvoiceIdPaymentsPost(context.Background(), invoiceId).PaymentCreateRequest(paymentCreateRequest).Execute()
+	resp, r, err := apiClient.PaymentsAPI.CreateDocumentPayment(context.Background(), documentId).PaymentCreateRequest(paymentCreateRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.CreatePaymentApiV1DocumentsInvoiceIdPaymentsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.CreateDocumentPayment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreatePaymentApiV1DocumentsInvoiceIdPaymentsPost`: PaymentResponse
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.CreatePaymentApiV1DocumentsInvoiceIdPaymentsPost`: %v\n", resp)
+	// response from `CreateDocumentPayment`: PaymentResponse
+	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.CreateDocumentPayment`: %v\n", resp)
 }
 ```
 
@@ -53,11 +53,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**invoiceId** | **string** |  | 
+**documentId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreatePaymentApiV1DocumentsInvoiceIdPaymentsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateDocumentPaymentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -83,9 +83,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeletePaymentApiV1PaymentsPaymentIdDelete
+## DeletePayment
 
-> SimpleBoolResponse DeletePaymentApiV1PaymentsPaymentIdDelete(ctx, paymentId).Execute()
+> SimpleBoolResponse DeletePayment(ctx, paymentId).Execute()
 
 Delete Payment
 
@@ -106,13 +106,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.DeletePaymentApiV1PaymentsPaymentIdDelete(context.Background(), paymentId).Execute()
+	resp, r, err := apiClient.PaymentsAPI.DeletePayment(context.Background(), paymentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.DeletePaymentApiV1PaymentsPaymentIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.DeletePayment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeletePaymentApiV1PaymentsPaymentIdDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.DeletePaymentApiV1PaymentsPaymentIdDelete`: %v\n", resp)
+	// response from `DeletePayment`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.DeletePayment`: %v\n", resp)
 }
 ```
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeletePaymentApiV1PaymentsPaymentIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeletePaymentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -151,9 +151,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetPaymentApiV1PaymentsPaymentIdGet
+## GetPayment
 
-> PaymentResponse GetPaymentApiV1PaymentsPaymentIdGet(ctx, paymentId).Execute()
+> PaymentResponse GetPayment(ctx, paymentId).Execute()
 
 Get Payment
 
@@ -174,13 +174,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.GetPaymentApiV1PaymentsPaymentIdGet(context.Background(), paymentId).Execute()
+	resp, r, err := apiClient.PaymentsAPI.GetPayment(context.Background(), paymentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.GetPaymentApiV1PaymentsPaymentIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.GetPayment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetPaymentApiV1PaymentsPaymentIdGet`: PaymentResponse
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.GetPaymentApiV1PaymentsPaymentIdGet`: %v\n", resp)
+	// response from `GetPayment`: PaymentResponse
+	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.GetPayment`: %v\n", resp)
 }
 ```
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetPaymentApiV1PaymentsPaymentIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetPaymentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -219,11 +219,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet
+## ListDocumentPayments
 
-> PaymentsListResponse ListInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet(ctx, invoiceId).Limit(limit).Cursor(cursor).Execute()
+> PaymentsListResponse ListDocumentPayments(ctx, documentId).Limit(limit).Cursor(cursor).Execute()
 
-List Invoice Payments
+List Document Payments
 
 ### Example
 
@@ -238,19 +238,19 @@ import (
 )
 
 func main() {
-	invoiceId := "invoiceId_example" // string | 
+	documentId := "documentId_example" // string | 
 	limit := int32(56) // int32 |  (optional) (default to 50)
 	cursor := "cursor_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.ListInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet(context.Background(), invoiceId).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.PaymentsAPI.ListDocumentPayments(context.Background(), documentId).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.ListInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.ListDocumentPayments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet`: PaymentsListResponse
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.ListInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet`: %v\n", resp)
+	// response from `ListDocumentPayments`: PaymentsListResponse
+	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.ListDocumentPayments`: %v\n", resp)
 }
 ```
 
@@ -260,11 +260,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**invoiceId** | **string** |  | 
+**documentId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListDocumentPaymentsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -291,9 +291,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UpdatePaymentApiV1PaymentsPaymentIdPatch
+## UpdatePayment
 
-> PaymentResponse UpdatePaymentApiV1PaymentsPaymentIdPatch(ctx, paymentId).PaymentPatchRequest(paymentPatchRequest).Execute()
+> PaymentResponse UpdatePayment(ctx, paymentId).PaymentPatchRequest(paymentPatchRequest).Execute()
 
 Update Payment
 
@@ -315,13 +315,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.UpdatePaymentApiV1PaymentsPaymentIdPatch(context.Background(), paymentId).PaymentPatchRequest(paymentPatchRequest).Execute()
+	resp, r, err := apiClient.PaymentsAPI.UpdatePayment(context.Background(), paymentId).PaymentPatchRequest(paymentPatchRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.UpdatePaymentApiV1PaymentsPaymentIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.UpdatePayment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdatePaymentApiV1PaymentsPaymentIdPatch`: PaymentResponse
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.UpdatePaymentApiV1PaymentsPaymentIdPatch`: %v\n", resp)
+	// response from `UpdatePayment`: PaymentResponse
+	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.UpdatePayment`: %v\n", resp)
 }
 ```
 
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdatePaymentApiV1PaymentsPaymentIdPatchRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdatePaymentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

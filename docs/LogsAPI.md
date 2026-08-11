@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListLogsApiV1LogsGet**](LogsAPI.md#ListLogsApiV1LogsGet) | **Get** /api/v1/logs | List Logs
+[**ListLogs**](LogsAPI.md#ListLogs) | **Get** /api/v1/logs | List Logs
 
 
 
-## ListLogsApiV1LogsGet
+## ListLogs
 
-> ApiRequestLogsListResponse ListLogsApiV1LogsGet(ctx).Status(status).Limit(limit).Execute()
+> ApiRequestLogsListResponse ListLogs(ctx).Status(status).Limit(limit).Execute()
 
 List Logs
 
@@ -32,13 +32,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LogsAPI.ListLogsApiV1LogsGet(context.Background()).Status(status).Limit(limit).Execute()
+	resp, r, err := apiClient.LogsAPI.ListLogs(context.Background()).Status(status).Limit(limit).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.ListLogsApiV1LogsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.ListLogs``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListLogsApiV1LogsGet`: ApiRequestLogsListResponse
-	fmt.Fprintf(os.Stdout, "Response from `LogsAPI.ListLogsApiV1LogsGet`: %v\n", resp)
+	// response from `ListLogs`: ApiRequestLogsListResponse
+	fmt.Fprintf(os.Stdout, "Response from `LogsAPI.ListLogs`: %v\n", resp)
 }
 ```
 
@@ -48,7 +48,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListLogsApiV1LogsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListLogsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

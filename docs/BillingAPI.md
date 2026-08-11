@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateCheckoutApiV1BillingCheckoutSessionPost**](BillingAPI.md#CreateCheckoutApiV1BillingCheckoutSessionPost) | **Post** /api/v1/billing/checkout-session | Create Checkout
-[**CreatePortalApiV1BillingPortalSessionPost**](BillingAPI.md#CreatePortalApiV1BillingPortalSessionPost) | **Post** /api/v1/billing/portal-session | Create Portal
-[**GetSubscriptionApiV1BillingSubscriptionGet**](BillingAPI.md#GetSubscriptionApiV1BillingSubscriptionGet) | **Get** /api/v1/billing/subscription | Get Subscription
-[**ListPlansApiV1BillingPlansGet**](BillingAPI.md#ListPlansApiV1BillingPlansGet) | **Get** /api/v1/billing/plans | List Plans
+[**CreateCheckoutSession**](BillingAPI.md#CreateCheckoutSession) | **Post** /api/v1/billing/checkout-session | Create Checkout Session
+[**CreatePortalSession**](BillingAPI.md#CreatePortalSession) | **Post** /api/v1/billing/portal-session | Create Portal Session
+[**GetSubscription**](BillingAPI.md#GetSubscription) | **Get** /api/v1/billing/subscription | Get Subscription
+[**ListPlans**](BillingAPI.md#ListPlans) | **Get** /api/v1/billing/plans | List Plans
 
 
 
-## CreateCheckoutApiV1BillingCheckoutSessionPost
+## CreateCheckoutSession
 
-> BillingCheckoutResponse CreateCheckoutApiV1BillingCheckoutSessionPost(ctx).BillingCheckoutRequest(billingCheckoutRequest).Execute()
+> BillingCheckoutResponse CreateCheckoutSession(ctx).BillingCheckoutRequest(billingCheckoutRequest).Execute()
 
-Create Checkout
+Create Checkout Session
 
 
 
@@ -36,13 +36,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillingAPI.CreateCheckoutApiV1BillingCheckoutSessionPost(context.Background()).BillingCheckoutRequest(billingCheckoutRequest).Execute()
+	resp, r, err := apiClient.BillingAPI.CreateCheckoutSession(context.Background()).BillingCheckoutRequest(billingCheckoutRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BillingAPI.CreateCheckoutApiV1BillingCheckoutSessionPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BillingAPI.CreateCheckoutSession``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateCheckoutApiV1BillingCheckoutSessionPost`: BillingCheckoutResponse
-	fmt.Fprintf(os.Stdout, "Response from `BillingAPI.CreateCheckoutApiV1BillingCheckoutSessionPost`: %v\n", resp)
+	// response from `CreateCheckoutSession`: BillingCheckoutResponse
+	fmt.Fprintf(os.Stdout, "Response from `BillingAPI.CreateCheckoutSession`: %v\n", resp)
 }
 ```
 
@@ -52,7 +52,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateCheckoutApiV1BillingCheckoutSessionPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateCheckoutSessionRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -77,11 +77,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CreatePortalApiV1BillingPortalSessionPost
+## CreatePortalSession
 
-> BillingPortalResponse CreatePortalApiV1BillingPortalSessionPost(ctx).Execute()
+> BillingPortalResponse CreatePortalSession(ctx).Execute()
 
-Create Portal
+Create Portal Session
 
 
 
@@ -101,13 +101,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillingAPI.CreatePortalApiV1BillingPortalSessionPost(context.Background()).Execute()
+	resp, r, err := apiClient.BillingAPI.CreatePortalSession(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BillingAPI.CreatePortalApiV1BillingPortalSessionPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BillingAPI.CreatePortalSession``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreatePortalApiV1BillingPortalSessionPost`: BillingPortalResponse
-	fmt.Fprintf(os.Stdout, "Response from `BillingAPI.CreatePortalApiV1BillingPortalSessionPost`: %v\n", resp)
+	// response from `CreatePortalSession`: BillingPortalResponse
+	fmt.Fprintf(os.Stdout, "Response from `BillingAPI.CreatePortalSession`: %v\n", resp)
 }
 ```
 
@@ -117,7 +117,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreatePortalApiV1BillingPortalSessionPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreatePortalSessionRequest struct via the builder pattern
 
 
 ### Return type
@@ -138,9 +138,9 @@ Other parameters are passed through a pointer to a apiCreatePortalApiV1BillingPo
 [[Back to README]](../README.md)
 
 
-## GetSubscriptionApiV1BillingSubscriptionGet
+## GetSubscription
 
-> BillingSubscriptionResponse GetSubscriptionApiV1BillingSubscriptionGet(ctx).Execute()
+> BillingSubscriptionResponse GetSubscription(ctx).Execute()
 
 Get Subscription
 
@@ -162,13 +162,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillingAPI.GetSubscriptionApiV1BillingSubscriptionGet(context.Background()).Execute()
+	resp, r, err := apiClient.BillingAPI.GetSubscription(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BillingAPI.GetSubscriptionApiV1BillingSubscriptionGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BillingAPI.GetSubscription``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetSubscriptionApiV1BillingSubscriptionGet`: BillingSubscriptionResponse
-	fmt.Fprintf(os.Stdout, "Response from `BillingAPI.GetSubscriptionApiV1BillingSubscriptionGet`: %v\n", resp)
+	// response from `GetSubscription`: BillingSubscriptionResponse
+	fmt.Fprintf(os.Stdout, "Response from `BillingAPI.GetSubscription`: %v\n", resp)
 }
 ```
 
@@ -178,7 +178,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetSubscriptionApiV1BillingSubscriptionGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetSubscriptionRequest struct via the builder pattern
 
 
 ### Return type
@@ -199,9 +199,9 @@ Other parameters are passed through a pointer to a apiGetSubscriptionApiV1Billin
 [[Back to README]](../README.md)
 
 
-## ListPlansApiV1BillingPlansGet
+## ListPlans
 
-> BillingPlansListResponse ListPlansApiV1BillingPlansGet(ctx).Execute()
+> BillingPlansListResponse ListPlans(ctx).Execute()
 
 List Plans
 
@@ -223,13 +223,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BillingAPI.ListPlansApiV1BillingPlansGet(context.Background()).Execute()
+	resp, r, err := apiClient.BillingAPI.ListPlans(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BillingAPI.ListPlansApiV1BillingPlansGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BillingAPI.ListPlans``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListPlansApiV1BillingPlansGet`: BillingPlansListResponse
-	fmt.Fprintf(os.Stdout, "Response from `BillingAPI.ListPlansApiV1BillingPlansGet`: %v\n", resp)
+	// response from `ListPlans`: BillingPlansListResponse
+	fmt.Fprintf(os.Stdout, "Response from `BillingAPI.ListPlans`: %v\n", resp)
 }
 ```
 
@@ -239,7 +239,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListPlansApiV1BillingPlansGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListPlansRequest struct via the builder pattern
 
 
 ### Return type

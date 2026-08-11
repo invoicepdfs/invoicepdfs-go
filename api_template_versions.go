@@ -23,31 +23,31 @@ import (
 // TemplateVersionsAPIService TemplateVersionsAPI service
 type TemplateVersionsAPIService service
 
-type ApiCreateTemplateVersionApiV1TemplatesTemplateIdVersionsPostRequest struct {
+type ApiCreateTemplateVersionRequest struct {
 	ctx context.Context
 	ApiService *TemplateVersionsAPIService
 	templateId string
 	templateVersionCreateRequest *TemplateVersionCreateRequest
 }
 
-func (r ApiCreateTemplateVersionApiV1TemplatesTemplateIdVersionsPostRequest) TemplateVersionCreateRequest(templateVersionCreateRequest TemplateVersionCreateRequest) ApiCreateTemplateVersionApiV1TemplatesTemplateIdVersionsPostRequest {
+func (r ApiCreateTemplateVersionRequest) TemplateVersionCreateRequest(templateVersionCreateRequest TemplateVersionCreateRequest) ApiCreateTemplateVersionRequest {
 	r.templateVersionCreateRequest = &templateVersionCreateRequest
 	return r
 }
 
-func (r ApiCreateTemplateVersionApiV1TemplatesTemplateIdVersionsPostRequest) Execute() (*TemplateVersionResponse, *http.Response, error) {
-	return r.ApiService.CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPostExecute(r)
+func (r ApiCreateTemplateVersionRequest) Execute() (*TemplateVersionResponse, *http.Response, error) {
+	return r.ApiService.CreateTemplateVersionExecute(r)
 }
 
 /*
-CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost Create Template Version
+CreateTemplateVersion Create Template Version
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
- @return ApiCreateTemplateVersionApiV1TemplatesTemplateIdVersionsPostRequest
+ @return ApiCreateTemplateVersionRequest
 */
-func (a *TemplateVersionsAPIService) CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost(ctx context.Context, templateId string) ApiCreateTemplateVersionApiV1TemplatesTemplateIdVersionsPostRequest {
-	return ApiCreateTemplateVersionApiV1TemplatesTemplateIdVersionsPostRequest{
+func (a *TemplateVersionsAPIService) CreateTemplateVersion(ctx context.Context, templateId string) ApiCreateTemplateVersionRequest {
+	return ApiCreateTemplateVersionRequest{
 		ApiService: a,
 		ctx: ctx,
 		templateId: templateId,
@@ -56,7 +56,7 @@ func (a *TemplateVersionsAPIService) CreateTemplateVersionApiV1TemplatesTemplate
 
 // Execute executes the request
 //  @return TemplateVersionResponse
-func (a *TemplateVersionsAPIService) CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPostExecute(r ApiCreateTemplateVersionApiV1TemplatesTemplateIdVersionsPostRequest) (*TemplateVersionResponse, *http.Response, error) {
+func (a *TemplateVersionsAPIService) CreateTemplateVersionExecute(r ApiCreateTemplateVersionRequest) (*TemplateVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -64,7 +64,7 @@ func (a *TemplateVersionsAPIService) CreateTemplateVersionApiV1TemplatesTemplate
 		localVarReturnValue  *TemplateVersionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplateVersionsAPIService.CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplateVersionsAPIService.CreateTemplateVersion")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -145,27 +145,27 @@ func (a *TemplateVersionsAPIService) CreateTemplateVersionApiV1TemplatesTemplate
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetRequest struct {
+type ApiGetTemplateVersionRequest struct {
 	ctx context.Context
 	ApiService *TemplateVersionsAPIService
 	templateId string
 	version int32
 }
 
-func (r ApiGetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetRequest) Execute() (*TemplateVersionResponse, *http.Response, error) {
-	return r.ApiService.GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetExecute(r)
+func (r ApiGetTemplateVersionRequest) Execute() (*TemplateVersionResponse, *http.Response, error) {
+	return r.ApiService.GetTemplateVersionExecute(r)
 }
 
 /*
-GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet Get Template Version
+GetTemplateVersion Get Template Version
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
  @param version
- @return ApiGetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetRequest
+ @return ApiGetTemplateVersionRequest
 */
-func (a *TemplateVersionsAPIService) GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet(ctx context.Context, templateId string, version int32) ApiGetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetRequest {
-	return ApiGetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetRequest{
+func (a *TemplateVersionsAPIService) GetTemplateVersion(ctx context.Context, templateId string, version int32) ApiGetTemplateVersionRequest {
+	return ApiGetTemplateVersionRequest{
 		ApiService: a,
 		ctx: ctx,
 		templateId: templateId,
@@ -175,7 +175,7 @@ func (a *TemplateVersionsAPIService) GetTemplateVersionApiV1TemplatesTemplateIdV
 
 // Execute executes the request
 //  @return TemplateVersionResponse
-func (a *TemplateVersionsAPIService) GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetExecute(r ApiGetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetRequest) (*TemplateVersionResponse, *http.Response, error) {
+func (a *TemplateVersionsAPIService) GetTemplateVersionExecute(r ApiGetTemplateVersionRequest) (*TemplateVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -183,7 +183,7 @@ func (a *TemplateVersionsAPIService) GetTemplateVersionApiV1TemplatesTemplateIdV
 		localVarReturnValue  *TemplateVersionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplateVersionsAPIService.GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplateVersionsAPIService.GetTemplateVersion")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -260,25 +260,25 @@ func (a *TemplateVersionsAPIService) GetTemplateVersionApiV1TemplatesTemplateIdV
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListTemplateVersionsApiV1TemplatesTemplateIdVersionsGetRequest struct {
+type ApiListTemplateVersionsRequest struct {
 	ctx context.Context
 	ApiService *TemplateVersionsAPIService
 	templateId string
 }
 
-func (r ApiListTemplateVersionsApiV1TemplatesTemplateIdVersionsGetRequest) Execute() (*TemplateVersionsListResponse, *http.Response, error) {
-	return r.ApiService.ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGetExecute(r)
+func (r ApiListTemplateVersionsRequest) Execute() (*TemplateVersionsListResponse, *http.Response, error) {
+	return r.ApiService.ListTemplateVersionsExecute(r)
 }
 
 /*
-ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet List Template Versions
+ListTemplateVersions List Template Versions
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
- @return ApiListTemplateVersionsApiV1TemplatesTemplateIdVersionsGetRequest
+ @return ApiListTemplateVersionsRequest
 */
-func (a *TemplateVersionsAPIService) ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet(ctx context.Context, templateId string) ApiListTemplateVersionsApiV1TemplatesTemplateIdVersionsGetRequest {
-	return ApiListTemplateVersionsApiV1TemplatesTemplateIdVersionsGetRequest{
+func (a *TemplateVersionsAPIService) ListTemplateVersions(ctx context.Context, templateId string) ApiListTemplateVersionsRequest {
+	return ApiListTemplateVersionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		templateId: templateId,
@@ -287,7 +287,7 @@ func (a *TemplateVersionsAPIService) ListTemplateVersionsApiV1TemplatesTemplateI
 
 // Execute executes the request
 //  @return TemplateVersionsListResponse
-func (a *TemplateVersionsAPIService) ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGetExecute(r ApiListTemplateVersionsApiV1TemplatesTemplateIdVersionsGetRequest) (*TemplateVersionsListResponse, *http.Response, error) {
+func (a *TemplateVersionsAPIService) ListTemplateVersionsExecute(r ApiListTemplateVersionsRequest) (*TemplateVersionsListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -295,7 +295,7 @@ func (a *TemplateVersionsAPIService) ListTemplateVersionsApiV1TemplatesTemplateI
 		localVarReturnValue  *TemplateVersionsListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplateVersionsAPIService.ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplateVersionsAPIService.ListTemplateVersions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

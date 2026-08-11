@@ -4,23 +4,23 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateMemberApiV1WorkspacesWorkspaceIdMembersPost**](WorkspacesAPI.md#CreateMemberApiV1WorkspacesWorkspaceIdMembersPost) | **Post** /api/v1/workspaces/{workspace_id}/members | Create Member
-[**CreateWorkspaceApiV1WorkspacesPost**](WorkspacesAPI.md#CreateWorkspaceApiV1WorkspacesPost) | **Post** /api/v1/workspaces | Create Workspace
-[**DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete**](WorkspacesAPI.md#DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete) | **Delete** /api/v1/workspaces/{workspace_id}/members/{member_id} | Delete Member
-[**DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete**](WorkspacesAPI.md#DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete) | **Delete** /api/v1/workspaces/{workspace_id} | Delete Workspace
-[**GetWorkspaceApiV1WorkspacesWorkspaceIdGet**](WorkspacesAPI.md#GetWorkspaceApiV1WorkspacesWorkspaceIdGet) | **Get** /api/v1/workspaces/{workspace_id} | Get Workspace
-[**ListMembersApiV1WorkspacesWorkspaceIdMembersGet**](WorkspacesAPI.md#ListMembersApiV1WorkspacesWorkspaceIdMembersGet) | **Get** /api/v1/workspaces/{workspace_id}/members | List Members
-[**ListWorkspacesApiV1WorkspacesGet**](WorkspacesAPI.md#ListWorkspacesApiV1WorkspacesGet) | **Get** /api/v1/workspaces | List Workspaces
-[**PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch**](WorkspacesAPI.md#PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch) | **Patch** /api/v1/workspaces/{workspace_id}/members/{member_id} | Patch Member
-[**PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch**](WorkspacesAPI.md#PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch) | **Patch** /api/v1/workspaces/{workspace_id} | Patch Workspace
+[**AddWorkspaceMember**](WorkspacesAPI.md#AddWorkspaceMember) | **Post** /api/v1/workspaces/{workspace_id}/members | Add Workspace Member
+[**CreateWorkspace**](WorkspacesAPI.md#CreateWorkspace) | **Post** /api/v1/workspaces | Create Workspace
+[**DeleteWorkspace**](WorkspacesAPI.md#DeleteWorkspace) | **Delete** /api/v1/workspaces/{workspace_id} | Delete Workspace
+[**GetWorkspace**](WorkspacesAPI.md#GetWorkspace) | **Get** /api/v1/workspaces/{workspace_id} | Get Workspace
+[**ListWorkspaceMembers**](WorkspacesAPI.md#ListWorkspaceMembers) | **Get** /api/v1/workspaces/{workspace_id}/members | List Workspace Members
+[**ListWorkspaces**](WorkspacesAPI.md#ListWorkspaces) | **Get** /api/v1/workspaces | List Workspaces
+[**RemoveWorkspaceMember**](WorkspacesAPI.md#RemoveWorkspaceMember) | **Delete** /api/v1/workspaces/{workspace_id}/members/{member_id} | Remove Workspace Member
+[**UpdateWorkspace**](WorkspacesAPI.md#UpdateWorkspace) | **Patch** /api/v1/workspaces/{workspace_id} | Update Workspace
+[**UpdateWorkspaceMember**](WorkspacesAPI.md#UpdateWorkspaceMember) | **Patch** /api/v1/workspaces/{workspace_id}/members/{member_id} | Update Workspace Member
 
 
 
-## CreateMemberApiV1WorkspacesWorkspaceIdMembersPost
+## AddWorkspaceMember
 
-> WorkspaceMembersListResponse CreateMemberApiV1WorkspacesWorkspaceIdMembersPost(ctx, workspaceId).WorkspaceMemberCreateRequest(workspaceMemberCreateRequest).IdempotencyKey(idempotencyKey).Execute()
+> WorkspaceMembersListResponse AddWorkspaceMember(ctx, workspaceId).WorkspaceMemberCreateRequest(workspaceMemberCreateRequest).IdempotencyKey(idempotencyKey).Execute()
 
-Create Member
+Add Workspace Member
 
 ### Example
 
@@ -41,13 +41,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkspacesAPI.CreateMemberApiV1WorkspacesWorkspaceIdMembersPost(context.Background(), workspaceId).WorkspaceMemberCreateRequest(workspaceMemberCreateRequest).IdempotencyKey(idempotencyKey).Execute()
+	resp, r, err := apiClient.WorkspacesAPI.AddWorkspaceMember(context.Background(), workspaceId).WorkspaceMemberCreateRequest(workspaceMemberCreateRequest).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.CreateMemberApiV1WorkspacesWorkspaceIdMembersPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.AddWorkspaceMember``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateMemberApiV1WorkspacesWorkspaceIdMembersPost`: WorkspaceMembersListResponse
-	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.CreateMemberApiV1WorkspacesWorkspaceIdMembersPost`: %v\n", resp)
+	// response from `AddWorkspaceMember`: WorkspaceMembersListResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.AddWorkspaceMember`: %v\n", resp)
 }
 ```
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateMemberApiV1WorkspacesWorkspaceIdMembersPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAddWorkspaceMemberRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -88,9 +88,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CreateWorkspaceApiV1WorkspacesPost
+## CreateWorkspace
 
-> WorkspaceResponse CreateWorkspaceApiV1WorkspacesPost(ctx).WorkspaceCreateRequest(workspaceCreateRequest).IdempotencyKey(idempotencyKey).Execute()
+> WorkspaceResponse CreateWorkspace(ctx).WorkspaceCreateRequest(workspaceCreateRequest).IdempotencyKey(idempotencyKey).Execute()
 
 Create Workspace
 
@@ -112,13 +112,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkspacesAPI.CreateWorkspaceApiV1WorkspacesPost(context.Background()).WorkspaceCreateRequest(workspaceCreateRequest).IdempotencyKey(idempotencyKey).Execute()
+	resp, r, err := apiClient.WorkspacesAPI.CreateWorkspace(context.Background()).WorkspaceCreateRequest(workspaceCreateRequest).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.CreateWorkspaceApiV1WorkspacesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.CreateWorkspace``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateWorkspaceApiV1WorkspacesPost`: WorkspaceResponse
-	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.CreateWorkspaceApiV1WorkspacesPost`: %v\n", resp)
+	// response from `CreateWorkspace`: WorkspaceResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.CreateWorkspace`: %v\n", resp)
 }
 ```
 
@@ -128,7 +128,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateWorkspaceApiV1WorkspacesPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateWorkspaceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -154,80 +154,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete
+## DeleteWorkspace
 
-> SimpleBoolResponse DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete(ctx, workspaceId, memberId).Execute()
-
-Delete Member
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
-)
-
-func main() {
-	workspaceId := "workspaceId_example" // string | 
-	memberId := "memberId_example" // string | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkspacesAPI.DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete(context.Background(), workspaceId, memberId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**workspaceId** | **string** |  | 
-**memberId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-### Return type
-
-[**SimpleBoolResponse**](SimpleBoolResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete
-
-> SimpleBoolResponse DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete(ctx, workspaceId).Execute()
+> SimpleBoolResponse DeleteWorkspace(ctx, workspaceId).Execute()
 
 Delete Workspace
 
@@ -248,13 +177,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkspacesAPI.DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete(context.Background(), workspaceId).Execute()
+	resp, r, err := apiClient.WorkspacesAPI.DeleteWorkspace(context.Background(), workspaceId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.DeleteWorkspace``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete`: %v\n", resp)
+	// response from `DeleteWorkspace`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.DeleteWorkspace`: %v\n", resp)
 }
 ```
 
@@ -268,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteWorkspaceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -293,9 +222,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetWorkspaceApiV1WorkspacesWorkspaceIdGet
+## GetWorkspace
 
-> WorkspaceResponse GetWorkspaceApiV1WorkspacesWorkspaceIdGet(ctx, workspaceId).Execute()
+> WorkspaceResponse GetWorkspace(ctx, workspaceId).Execute()
 
 Get Workspace
 
@@ -316,13 +245,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkspacesAPI.GetWorkspaceApiV1WorkspacesWorkspaceIdGet(context.Background(), workspaceId).Execute()
+	resp, r, err := apiClient.WorkspacesAPI.GetWorkspace(context.Background(), workspaceId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.GetWorkspaceApiV1WorkspacesWorkspaceIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.GetWorkspace``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetWorkspaceApiV1WorkspacesWorkspaceIdGet`: WorkspaceResponse
-	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.GetWorkspaceApiV1WorkspacesWorkspaceIdGet`: %v\n", resp)
+	// response from `GetWorkspace`: WorkspaceResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.GetWorkspace`: %v\n", resp)
 }
 ```
 
@@ -336,7 +265,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetWorkspaceApiV1WorkspacesWorkspaceIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetWorkspaceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -361,11 +290,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListMembersApiV1WorkspacesWorkspaceIdMembersGet
+## ListWorkspaceMembers
 
-> WorkspaceMembersListResponse ListMembersApiV1WorkspacesWorkspaceIdMembersGet(ctx, workspaceId).Execute()
+> WorkspaceMembersListResponse ListWorkspaceMembers(ctx, workspaceId).Execute()
 
-List Members
+List Workspace Members
 
 ### Example
 
@@ -384,13 +313,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkspacesAPI.ListMembersApiV1WorkspacesWorkspaceIdMembersGet(context.Background(), workspaceId).Execute()
+	resp, r, err := apiClient.WorkspacesAPI.ListWorkspaceMembers(context.Background(), workspaceId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.ListMembersApiV1WorkspacesWorkspaceIdMembersGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.ListWorkspaceMembers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListMembersApiV1WorkspacesWorkspaceIdMembersGet`: WorkspaceMembersListResponse
-	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.ListMembersApiV1WorkspacesWorkspaceIdMembersGet`: %v\n", resp)
+	// response from `ListWorkspaceMembers`: WorkspaceMembersListResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.ListWorkspaceMembers`: %v\n", resp)
 }
 ```
 
@@ -404,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListMembersApiV1WorkspacesWorkspaceIdMembersGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListWorkspaceMembersRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -429,9 +358,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListWorkspacesApiV1WorkspacesGet
+## ListWorkspaces
 
-> WorkspacesListResponse ListWorkspacesApiV1WorkspacesGet(ctx).Limit(limit).Cursor(cursor).Execute()
+> WorkspacesListResponse ListWorkspaces(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List Workspaces
 
@@ -453,13 +382,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkspacesAPI.ListWorkspacesApiV1WorkspacesGet(context.Background()).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.WorkspacesAPI.ListWorkspaces(context.Background()).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.ListWorkspacesApiV1WorkspacesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.ListWorkspaces``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListWorkspacesApiV1WorkspacesGet`: WorkspacesListResponse
-	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.ListWorkspacesApiV1WorkspacesGet`: %v\n", resp)
+	// response from `ListWorkspaces`: WorkspacesListResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.ListWorkspaces`: %v\n", resp)
 }
 ```
 
@@ -469,7 +398,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListWorkspacesApiV1WorkspacesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListWorkspacesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -495,11 +424,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch
+## RemoveWorkspaceMember
 
-> WorkspaceMemberOut PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch(ctx, workspaceId, memberId).WorkspaceMemberPatchRequest(workspaceMemberPatchRequest).Execute()
+> SimpleBoolResponse RemoveWorkspaceMember(ctx, workspaceId, memberId).Execute()
 
-Patch Member
+Remove Workspace Member
 
 ### Example
 
@@ -516,17 +445,16 @@ import (
 func main() {
 	workspaceId := "workspaceId_example" // string | 
 	memberId := "memberId_example" // string | 
-	workspaceMemberPatchRequest := *openapiclient.NewWorkspaceMemberPatchRequest() // WorkspaceMemberPatchRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkspacesAPI.PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch(context.Background(), workspaceId, memberId).WorkspaceMemberPatchRequest(workspaceMemberPatchRequest).Execute()
+	resp, r, err := apiClient.WorkspacesAPI.RemoveWorkspaceMember(context.Background(), workspaceId, memberId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.RemoveWorkspaceMember``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch`: WorkspaceMemberOut
-	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch`: %v\n", resp)
+	// response from `RemoveWorkspaceMember`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.RemoveWorkspaceMember`: %v\n", resp)
 }
 ```
 
@@ -541,18 +469,17 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRemoveWorkspaceMemberRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **workspaceMemberPatchRequest** | [**WorkspaceMemberPatchRequest**](WorkspaceMemberPatchRequest.md) |  | 
 
 ### Return type
 
-[**WorkspaceMemberOut**](WorkspaceMemberOut.md)
+[**SimpleBoolResponse**](SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -560,7 +487,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -568,11 +495,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch
+## UpdateWorkspace
 
-> WorkspaceResponse PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch(ctx, workspaceId).WorkspacePatchRequest(workspacePatchRequest).IdempotencyKey(idempotencyKey).Execute()
+> WorkspaceResponse UpdateWorkspace(ctx, workspaceId).WorkspacePatchRequest(workspacePatchRequest).IdempotencyKey(idempotencyKey).Execute()
 
-Patch Workspace
+Update Workspace
 
 ### Example
 
@@ -593,13 +520,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkspacesAPI.PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch(context.Background(), workspaceId).WorkspacePatchRequest(workspacePatchRequest).IdempotencyKey(idempotencyKey).Execute()
+	resp, r, err := apiClient.WorkspacesAPI.UpdateWorkspace(context.Background(), workspaceId).WorkspacePatchRequest(workspacePatchRequest).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.UpdateWorkspace``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch`: WorkspaceResponse
-	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch`: %v\n", resp)
+	// response from `UpdateWorkspace`: WorkspaceResponse
+	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.UpdateWorkspace`: %v\n", resp)
 }
 ```
 
@@ -613,7 +540,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPatchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateWorkspaceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -625,6 +552,79 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WorkspaceResponse**](WorkspaceResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateWorkspaceMember
+
+> WorkspaceMemberOut UpdateWorkspaceMember(ctx, workspaceId, memberId).WorkspaceMemberPatchRequest(workspaceMemberPatchRequest).Execute()
+
+Update Workspace Member
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+	workspaceId := "workspaceId_example" // string | 
+	memberId := "memberId_example" // string | 
+	workspaceMemberPatchRequest := *openapiclient.NewWorkspaceMemberPatchRequest() // WorkspaceMemberPatchRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WorkspacesAPI.UpdateWorkspaceMember(context.Background(), workspaceId, memberId).WorkspaceMemberPatchRequest(workspaceMemberPatchRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkspacesAPI.UpdateWorkspaceMember``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateWorkspaceMember`: WorkspaceMemberOut
+	fmt.Fprintf(os.Stdout, "Response from `WorkspacesAPI.UpdateWorkspaceMember`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**workspaceId** | **string** |  | 
+**memberId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateWorkspaceMemberRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **workspaceMemberPatchRequest** | [**WorkspaceMemberPatchRequest**](WorkspaceMemberPatchRequest.md) |  | 
+
+### Return type
+
+[**WorkspaceMemberOut**](WorkspaceMemberOut.md)
 
 ### Authorization
 

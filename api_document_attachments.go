@@ -16,57 +16,71 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 
-// HealthAPIService HealthAPI service
-type HealthAPIService service
+// DocumentAttachmentsAPIService DocumentAttachmentsAPI service
+type DocumentAttachmentsAPIService service
 
-type ApiGetHealthRequest struct {
+type ApiCreateDocumentAttachmentRequest struct {
 	ctx context.Context
-	ApiService *HealthAPIService
+	ApiService *DocumentAttachmentsAPIService
+	documentId string
+	invoiceAttachmentCreateRequest *InvoiceAttachmentCreateRequest
 }
 
-func (r ApiGetHealthRequest) Execute() (*HealthResponse, *http.Response, error) {
-	return r.ApiService.GetHealthExecute(r)
+func (r ApiCreateDocumentAttachmentRequest) InvoiceAttachmentCreateRequest(invoiceAttachmentCreateRequest InvoiceAttachmentCreateRequest) ApiCreateDocumentAttachmentRequest {
+	r.invoiceAttachmentCreateRequest = &invoiceAttachmentCreateRequest
+	return r
+}
+
+func (r ApiCreateDocumentAttachmentRequest) Execute() (*InvoiceAttachmentResponse, *http.Response, error) {
+	return r.ApiService.CreateDocumentAttachmentExecute(r)
 }
 
 /*
-GetHealth Get Health
+CreateDocumentAttachment Create Document Attachment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetHealthRequest
+ @param documentId
+ @return ApiCreateDocumentAttachmentRequest
 */
-func (a *HealthAPIService) GetHealth(ctx context.Context) ApiGetHealthRequest {
-	return ApiGetHealthRequest{
+func (a *DocumentAttachmentsAPIService) CreateDocumentAttachment(ctx context.Context, documentId string) ApiCreateDocumentAttachmentRequest {
+	return ApiCreateDocumentAttachmentRequest{
 		ApiService: a,
 		ctx: ctx,
+		documentId: documentId,
 	}
 }
 
 // Execute executes the request
-//  @return HealthResponse
-func (a *HealthAPIService) GetHealthExecute(r ApiGetHealthRequest) (*HealthResponse, *http.Response, error) {
+//  @return InvoiceAttachmentResponse
+func (a *DocumentAttachmentsAPIService) CreateDocumentAttachmentExecute(r ApiCreateDocumentAttachmentRequest) (*InvoiceAttachmentResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *HealthResponse
+		localVarReturnValue  *InvoiceAttachmentResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HealthAPIService.GetHealth")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentAttachmentsAPIService.CreateDocumentAttachment")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/health"
+	localVarPath := localBasePath + "/api/v1/documents/{document_id}/attachments"
+	localVarPath = strings.Replace(localVarPath, "{"+"document_id"+"}", url.PathEscape(parameterValueToString(r.documentId, "documentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.invoiceAttachmentCreateRequest == nil {
+		return localVarReturnValue, nil, reportError("invoiceAttachmentCreateRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -82,6 +96,8 @@ func (a *HealthAPIService) GetHealthExecute(r ApiGetHealthRequest) (*HealthRespo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.invoiceAttachmentCreateRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -103,6 +119,16 @@ func (a *HealthAPIService) GetHealthExecute(r ApiGetHealthRequest) (*HealthRespo
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -119,44 +145,52 @@ func (a *HealthAPIService) GetHealthExecute(r ApiGetHealthRequest) (*HealthRespo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetReadinessRequest struct {
+type ApiDeleteDocumentAttachmentRequest struct {
 	ctx context.Context
-	ApiService *HealthAPIService
+	ApiService *DocumentAttachmentsAPIService
+	documentId string
+	attachmentId string
 }
 
-func (r ApiGetReadinessRequest) Execute() (*ReadyResponse, *http.Response, error) {
-	return r.ApiService.GetReadinessExecute(r)
+func (r ApiDeleteDocumentAttachmentRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
+	return r.ApiService.DeleteDocumentAttachmentExecute(r)
 }
 
 /*
-GetReadiness Get Readiness
+DeleteDocumentAttachment Delete Document Attachment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetReadinessRequest
+ @param documentId
+ @param attachmentId
+ @return ApiDeleteDocumentAttachmentRequest
 */
-func (a *HealthAPIService) GetReadiness(ctx context.Context) ApiGetReadinessRequest {
-	return ApiGetReadinessRequest{
+func (a *DocumentAttachmentsAPIService) DeleteDocumentAttachment(ctx context.Context, documentId string, attachmentId string) ApiDeleteDocumentAttachmentRequest {
+	return ApiDeleteDocumentAttachmentRequest{
 		ApiService: a,
 		ctx: ctx,
+		documentId: documentId,
+		attachmentId: attachmentId,
 	}
 }
 
 // Execute executes the request
-//  @return ReadyResponse
-func (a *HealthAPIService) GetReadinessExecute(r ApiGetReadinessRequest) (*ReadyResponse, *http.Response, error) {
+//  @return SimpleBoolResponse
+func (a *DocumentAttachmentsAPIService) DeleteDocumentAttachmentExecute(r ApiDeleteDocumentAttachmentRequest) (*SimpleBoolResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ReadyResponse
+		localVarReturnValue  *SimpleBoolResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HealthAPIService.GetReadiness")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentAttachmentsAPIService.DeleteDocumentAttachment")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/ready"
+	localVarPath := localBasePath + "/api/v1/documents/{document_id}/attachments/{attachment_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"document_id"+"}", url.PathEscape(parameterValueToString(r.documentId, "documentId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"attachment_id"+"}", url.PathEscape(parameterValueToString(r.attachmentId, "attachmentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -200,6 +234,16 @@ func (a *HealthAPIService) GetReadinessExecute(r ApiGetReadinessRequest) (*Ready
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -216,44 +260,48 @@ func (a *HealthAPIService) GetReadinessExecute(r ApiGetReadinessRequest) (*Ready
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetVersionRequest struct {
+type ApiListDocumentAttachmentsRequest struct {
 	ctx context.Context
-	ApiService *HealthAPIService
+	ApiService *DocumentAttachmentsAPIService
+	documentId string
 }
 
-func (r ApiGetVersionRequest) Execute() (*VersionResponse, *http.Response, error) {
-	return r.ApiService.GetVersionExecute(r)
+func (r ApiListDocumentAttachmentsRequest) Execute() (*InvoiceAttachmentsListResponse, *http.Response, error) {
+	return r.ApiService.ListDocumentAttachmentsExecute(r)
 }
 
 /*
-GetVersion Get Version
+ListDocumentAttachments List Document Attachments
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetVersionRequest
+ @param documentId
+ @return ApiListDocumentAttachmentsRequest
 */
-func (a *HealthAPIService) GetVersion(ctx context.Context) ApiGetVersionRequest {
-	return ApiGetVersionRequest{
+func (a *DocumentAttachmentsAPIService) ListDocumentAttachments(ctx context.Context, documentId string) ApiListDocumentAttachmentsRequest {
+	return ApiListDocumentAttachmentsRequest{
 		ApiService: a,
 		ctx: ctx,
+		documentId: documentId,
 	}
 }
 
 // Execute executes the request
-//  @return VersionResponse
-func (a *HealthAPIService) GetVersionExecute(r ApiGetVersionRequest) (*VersionResponse, *http.Response, error) {
+//  @return InvoiceAttachmentsListResponse
+func (a *DocumentAttachmentsAPIService) ListDocumentAttachmentsExecute(r ApiListDocumentAttachmentsRequest) (*InvoiceAttachmentsListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *VersionResponse
+		localVarReturnValue  *InvoiceAttachmentsListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HealthAPIService.GetVersion")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentAttachmentsAPIService.ListDocumentAttachments")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/version"
+	localVarPath := localBasePath + "/api/v1/documents/{document_id}/attachments"
+	localVarPath = strings.Replace(localVarPath, "{"+"document_id"+"}", url.PathEscape(parameterValueToString(r.documentId, "documentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -297,6 +345,16 @@ func (a *HealthAPIService) GetVersionExecute(r ApiGetVersionRequest) (*VersionRe
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

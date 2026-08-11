@@ -24,29 +24,29 @@ import (
 // BrandingProfilesAPIService BrandingProfilesAPI service
 type BrandingProfilesAPIService service
 
-type ApiCreateProfileApiV1BrandingProfilesPostRequest struct {
+type ApiCreateBrandingProfileRequest struct {
 	ctx context.Context
 	ApiService *BrandingProfilesAPIService
 	brandingProfileCreateRequest *BrandingProfileCreateRequest
 }
 
-func (r ApiCreateProfileApiV1BrandingProfilesPostRequest) BrandingProfileCreateRequest(brandingProfileCreateRequest BrandingProfileCreateRequest) ApiCreateProfileApiV1BrandingProfilesPostRequest {
+func (r ApiCreateBrandingProfileRequest) BrandingProfileCreateRequest(brandingProfileCreateRequest BrandingProfileCreateRequest) ApiCreateBrandingProfileRequest {
 	r.brandingProfileCreateRequest = &brandingProfileCreateRequest
 	return r
 }
 
-func (r ApiCreateProfileApiV1BrandingProfilesPostRequest) Execute() (*BrandingProfileResponse, *http.Response, error) {
-	return r.ApiService.CreateProfileApiV1BrandingProfilesPostExecute(r)
+func (r ApiCreateBrandingProfileRequest) Execute() (*BrandingProfileResponse, *http.Response, error) {
+	return r.ApiService.CreateBrandingProfileExecute(r)
 }
 
 /*
-CreateProfileApiV1BrandingProfilesPost Create Profile
+CreateBrandingProfile Create Branding Profile
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateProfileApiV1BrandingProfilesPostRequest
+ @return ApiCreateBrandingProfileRequest
 */
-func (a *BrandingProfilesAPIService) CreateProfileApiV1BrandingProfilesPost(ctx context.Context) ApiCreateProfileApiV1BrandingProfilesPostRequest {
-	return ApiCreateProfileApiV1BrandingProfilesPostRequest{
+func (a *BrandingProfilesAPIService) CreateBrandingProfile(ctx context.Context) ApiCreateBrandingProfileRequest {
+	return ApiCreateBrandingProfileRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -54,7 +54,7 @@ func (a *BrandingProfilesAPIService) CreateProfileApiV1BrandingProfilesPost(ctx 
 
 // Execute executes the request
 //  @return BrandingProfileResponse
-func (a *BrandingProfilesAPIService) CreateProfileApiV1BrandingProfilesPostExecute(r ApiCreateProfileApiV1BrandingProfilesPostRequest) (*BrandingProfileResponse, *http.Response, error) {
+func (a *BrandingProfilesAPIService) CreateBrandingProfileExecute(r ApiCreateBrandingProfileRequest) (*BrandingProfileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -62,7 +62,7 @@ func (a *BrandingProfilesAPIService) CreateProfileApiV1BrandingProfilesPostExecu
 		localVarReturnValue  *BrandingProfileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.CreateProfileApiV1BrandingProfilesPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.CreateBrandingProfile")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -142,25 +142,25 @@ func (a *BrandingProfilesAPIService) CreateProfileApiV1BrandingProfilesPostExecu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteLogoApiV1BrandingProfilesProfileIdLogoDeleteRequest struct {
+type ApiDeleteBrandingLogoRequest struct {
 	ctx context.Context
 	ApiService *BrandingProfilesAPIService
 	profileId string
 }
 
-func (r ApiDeleteLogoApiV1BrandingProfilesProfileIdLogoDeleteRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
-	return r.ApiService.DeleteLogoApiV1BrandingProfilesProfileIdLogoDeleteExecute(r)
+func (r ApiDeleteBrandingLogoRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
+	return r.ApiService.DeleteBrandingLogoExecute(r)
 }
 
 /*
-DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete Delete Logo
+DeleteBrandingLogo Delete Branding Logo
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param profileId
- @return ApiDeleteLogoApiV1BrandingProfilesProfileIdLogoDeleteRequest
+ @return ApiDeleteBrandingLogoRequest
 */
-func (a *BrandingProfilesAPIService) DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete(ctx context.Context, profileId string) ApiDeleteLogoApiV1BrandingProfilesProfileIdLogoDeleteRequest {
-	return ApiDeleteLogoApiV1BrandingProfilesProfileIdLogoDeleteRequest{
+func (a *BrandingProfilesAPIService) DeleteBrandingLogo(ctx context.Context, profileId string) ApiDeleteBrandingLogoRequest {
+	return ApiDeleteBrandingLogoRequest{
 		ApiService: a,
 		ctx: ctx,
 		profileId: profileId,
@@ -169,7 +169,7 @@ func (a *BrandingProfilesAPIService) DeleteLogoApiV1BrandingProfilesProfileIdLog
 
 // Execute executes the request
 //  @return SimpleBoolResponse
-func (a *BrandingProfilesAPIService) DeleteLogoApiV1BrandingProfilesProfileIdLogoDeleteExecute(r ApiDeleteLogoApiV1BrandingProfilesProfileIdLogoDeleteRequest) (*SimpleBoolResponse, *http.Response, error) {
+func (a *BrandingProfilesAPIService) DeleteBrandingLogoExecute(r ApiDeleteBrandingLogoRequest) (*SimpleBoolResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -177,7 +177,7 @@ func (a *BrandingProfilesAPIService) DeleteLogoApiV1BrandingProfilesProfileIdLog
 		localVarReturnValue  *SimpleBoolResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.DeleteBrandingLogo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -253,25 +253,25 @@ func (a *BrandingProfilesAPIService) DeleteLogoApiV1BrandingProfilesProfileIdLog
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProfileApiV1BrandingProfilesProfileIdDeleteRequest struct {
+type ApiDeleteBrandingProfileRequest struct {
 	ctx context.Context
 	ApiService *BrandingProfilesAPIService
 	profileId string
 }
 
-func (r ApiDeleteProfileApiV1BrandingProfilesProfileIdDeleteRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
-	return r.ApiService.DeleteProfileApiV1BrandingProfilesProfileIdDeleteExecute(r)
+func (r ApiDeleteBrandingProfileRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
+	return r.ApiService.DeleteBrandingProfileExecute(r)
 }
 
 /*
-DeleteProfileApiV1BrandingProfilesProfileIdDelete Delete Profile
+DeleteBrandingProfile Delete Branding Profile
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param profileId
- @return ApiDeleteProfileApiV1BrandingProfilesProfileIdDeleteRequest
+ @return ApiDeleteBrandingProfileRequest
 */
-func (a *BrandingProfilesAPIService) DeleteProfileApiV1BrandingProfilesProfileIdDelete(ctx context.Context, profileId string) ApiDeleteProfileApiV1BrandingProfilesProfileIdDeleteRequest {
-	return ApiDeleteProfileApiV1BrandingProfilesProfileIdDeleteRequest{
+func (a *BrandingProfilesAPIService) DeleteBrandingProfile(ctx context.Context, profileId string) ApiDeleteBrandingProfileRequest {
+	return ApiDeleteBrandingProfileRequest{
 		ApiService: a,
 		ctx: ctx,
 		profileId: profileId,
@@ -280,7 +280,7 @@ func (a *BrandingProfilesAPIService) DeleteProfileApiV1BrandingProfilesProfileId
 
 // Execute executes the request
 //  @return SimpleBoolResponse
-func (a *BrandingProfilesAPIService) DeleteProfileApiV1BrandingProfilesProfileIdDeleteExecute(r ApiDeleteProfileApiV1BrandingProfilesProfileIdDeleteRequest) (*SimpleBoolResponse, *http.Response, error) {
+func (a *BrandingProfilesAPIService) DeleteBrandingProfileExecute(r ApiDeleteBrandingProfileRequest) (*SimpleBoolResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -288,7 +288,7 @@ func (a *BrandingProfilesAPIService) DeleteProfileApiV1BrandingProfilesProfileId
 		localVarReturnValue  *SimpleBoolResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.DeleteProfileApiV1BrandingProfilesProfileIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.DeleteBrandingProfile")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -364,25 +364,25 @@ func (a *BrandingProfilesAPIService) DeleteProfileApiV1BrandingProfilesProfileId
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProfileApiV1BrandingProfilesProfileIdGetRequest struct {
+type ApiGetBrandingProfileRequest struct {
 	ctx context.Context
 	ApiService *BrandingProfilesAPIService
 	profileId string
 }
 
-func (r ApiGetProfileApiV1BrandingProfilesProfileIdGetRequest) Execute() (*BrandingProfileResponse, *http.Response, error) {
-	return r.ApiService.GetProfileApiV1BrandingProfilesProfileIdGetExecute(r)
+func (r ApiGetBrandingProfileRequest) Execute() (*BrandingProfileResponse, *http.Response, error) {
+	return r.ApiService.GetBrandingProfileExecute(r)
 }
 
 /*
-GetProfileApiV1BrandingProfilesProfileIdGet Get Profile
+GetBrandingProfile Get Branding Profile
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param profileId
- @return ApiGetProfileApiV1BrandingProfilesProfileIdGetRequest
+ @return ApiGetBrandingProfileRequest
 */
-func (a *BrandingProfilesAPIService) GetProfileApiV1BrandingProfilesProfileIdGet(ctx context.Context, profileId string) ApiGetProfileApiV1BrandingProfilesProfileIdGetRequest {
-	return ApiGetProfileApiV1BrandingProfilesProfileIdGetRequest{
+func (a *BrandingProfilesAPIService) GetBrandingProfile(ctx context.Context, profileId string) ApiGetBrandingProfileRequest {
+	return ApiGetBrandingProfileRequest{
 		ApiService: a,
 		ctx: ctx,
 		profileId: profileId,
@@ -391,7 +391,7 @@ func (a *BrandingProfilesAPIService) GetProfileApiV1BrandingProfilesProfileIdGet
 
 // Execute executes the request
 //  @return BrandingProfileResponse
-func (a *BrandingProfilesAPIService) GetProfileApiV1BrandingProfilesProfileIdGetExecute(r ApiGetProfileApiV1BrandingProfilesProfileIdGetRequest) (*BrandingProfileResponse, *http.Response, error) {
+func (a *BrandingProfilesAPIService) GetBrandingProfileExecute(r ApiGetBrandingProfileRequest) (*BrandingProfileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -399,7 +399,7 @@ func (a *BrandingProfilesAPIService) GetProfileApiV1BrandingProfilesProfileIdGet
 		localVarReturnValue  *BrandingProfileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.GetProfileApiV1BrandingProfilesProfileIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.GetBrandingProfile")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -475,23 +475,23 @@ func (a *BrandingProfilesAPIService) GetProfileApiV1BrandingProfilesProfileIdGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListProfilesApiV1BrandingProfilesGetRequest struct {
+type ApiListBrandingProfilesRequest struct {
 	ctx context.Context
 	ApiService *BrandingProfilesAPIService
 }
 
-func (r ApiListProfilesApiV1BrandingProfilesGetRequest) Execute() (*BrandingProfilesListResponse, *http.Response, error) {
-	return r.ApiService.ListProfilesApiV1BrandingProfilesGetExecute(r)
+func (r ApiListBrandingProfilesRequest) Execute() (*BrandingProfilesListResponse, *http.Response, error) {
+	return r.ApiService.ListBrandingProfilesExecute(r)
 }
 
 /*
-ListProfilesApiV1BrandingProfilesGet List Profiles
+ListBrandingProfiles List Branding Profiles
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListProfilesApiV1BrandingProfilesGetRequest
+ @return ApiListBrandingProfilesRequest
 */
-func (a *BrandingProfilesAPIService) ListProfilesApiV1BrandingProfilesGet(ctx context.Context) ApiListProfilesApiV1BrandingProfilesGetRequest {
-	return ApiListProfilesApiV1BrandingProfilesGetRequest{
+func (a *BrandingProfilesAPIService) ListBrandingProfiles(ctx context.Context) ApiListBrandingProfilesRequest {
+	return ApiListBrandingProfilesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -499,7 +499,7 @@ func (a *BrandingProfilesAPIService) ListProfilesApiV1BrandingProfilesGet(ctx co
 
 // Execute executes the request
 //  @return BrandingProfilesListResponse
-func (a *BrandingProfilesAPIService) ListProfilesApiV1BrandingProfilesGetExecute(r ApiListProfilesApiV1BrandingProfilesGetRequest) (*BrandingProfilesListResponse, *http.Response, error) {
+func (a *BrandingProfilesAPIService) ListBrandingProfilesExecute(r ApiListBrandingProfilesRequest) (*BrandingProfilesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -507,7 +507,7 @@ func (a *BrandingProfilesAPIService) ListProfilesApiV1BrandingProfilesGetExecute
 		localVarReturnValue  *BrandingProfilesListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.ListProfilesApiV1BrandingProfilesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.ListBrandingProfiles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -572,25 +572,25 @@ func (a *BrandingProfilesAPIService) ListProfilesApiV1BrandingProfilesGetExecute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSetDefaultApiV1BrandingProfilesProfileIdDefaultPostRequest struct {
+type ApiSetDefaultBrandingProfileRequest struct {
 	ctx context.Context
 	ApiService *BrandingProfilesAPIService
 	profileId string
 }
 
-func (r ApiSetDefaultApiV1BrandingProfilesProfileIdDefaultPostRequest) Execute() (*BrandingProfileResponse, *http.Response, error) {
-	return r.ApiService.SetDefaultApiV1BrandingProfilesProfileIdDefaultPostExecute(r)
+func (r ApiSetDefaultBrandingProfileRequest) Execute() (*BrandingProfileResponse, *http.Response, error) {
+	return r.ApiService.SetDefaultBrandingProfileExecute(r)
 }
 
 /*
-SetDefaultApiV1BrandingProfilesProfileIdDefaultPost Set Default
+SetDefaultBrandingProfile Set Default Branding Profile
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param profileId
- @return ApiSetDefaultApiV1BrandingProfilesProfileIdDefaultPostRequest
+ @return ApiSetDefaultBrandingProfileRequest
 */
-func (a *BrandingProfilesAPIService) SetDefaultApiV1BrandingProfilesProfileIdDefaultPost(ctx context.Context, profileId string) ApiSetDefaultApiV1BrandingProfilesProfileIdDefaultPostRequest {
-	return ApiSetDefaultApiV1BrandingProfilesProfileIdDefaultPostRequest{
+func (a *BrandingProfilesAPIService) SetDefaultBrandingProfile(ctx context.Context, profileId string) ApiSetDefaultBrandingProfileRequest {
+	return ApiSetDefaultBrandingProfileRequest{
 		ApiService: a,
 		ctx: ctx,
 		profileId: profileId,
@@ -599,7 +599,7 @@ func (a *BrandingProfilesAPIService) SetDefaultApiV1BrandingProfilesProfileIdDef
 
 // Execute executes the request
 //  @return BrandingProfileResponse
-func (a *BrandingProfilesAPIService) SetDefaultApiV1BrandingProfilesProfileIdDefaultPostExecute(r ApiSetDefaultApiV1BrandingProfilesProfileIdDefaultPostRequest) (*BrandingProfileResponse, *http.Response, error) {
+func (a *BrandingProfilesAPIService) SetDefaultBrandingProfileExecute(r ApiSetDefaultBrandingProfileRequest) (*BrandingProfileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -607,7 +607,7 @@ func (a *BrandingProfilesAPIService) SetDefaultApiV1BrandingProfilesProfileIdDef
 		localVarReturnValue  *BrandingProfileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.SetDefaultApiV1BrandingProfilesProfileIdDefaultPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.SetDefaultBrandingProfile")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -683,31 +683,31 @@ func (a *BrandingProfilesAPIService) SetDefaultApiV1BrandingProfilesProfileIdDef
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProfileApiV1BrandingProfilesProfileIdPatchRequest struct {
+type ApiUpdateBrandingProfileRequest struct {
 	ctx context.Context
 	ApiService *BrandingProfilesAPIService
 	profileId string
 	brandingProfilePatchRequest *BrandingProfilePatchRequest
 }
 
-func (r ApiUpdateProfileApiV1BrandingProfilesProfileIdPatchRequest) BrandingProfilePatchRequest(brandingProfilePatchRequest BrandingProfilePatchRequest) ApiUpdateProfileApiV1BrandingProfilesProfileIdPatchRequest {
+func (r ApiUpdateBrandingProfileRequest) BrandingProfilePatchRequest(brandingProfilePatchRequest BrandingProfilePatchRequest) ApiUpdateBrandingProfileRequest {
 	r.brandingProfilePatchRequest = &brandingProfilePatchRequest
 	return r
 }
 
-func (r ApiUpdateProfileApiV1BrandingProfilesProfileIdPatchRequest) Execute() (*BrandingProfileResponse, *http.Response, error) {
-	return r.ApiService.UpdateProfileApiV1BrandingProfilesProfileIdPatchExecute(r)
+func (r ApiUpdateBrandingProfileRequest) Execute() (*BrandingProfileResponse, *http.Response, error) {
+	return r.ApiService.UpdateBrandingProfileExecute(r)
 }
 
 /*
-UpdateProfileApiV1BrandingProfilesProfileIdPatch Update Profile
+UpdateBrandingProfile Update Branding Profile
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param profileId
- @return ApiUpdateProfileApiV1BrandingProfilesProfileIdPatchRequest
+ @return ApiUpdateBrandingProfileRequest
 */
-func (a *BrandingProfilesAPIService) UpdateProfileApiV1BrandingProfilesProfileIdPatch(ctx context.Context, profileId string) ApiUpdateProfileApiV1BrandingProfilesProfileIdPatchRequest {
-	return ApiUpdateProfileApiV1BrandingProfilesProfileIdPatchRequest{
+func (a *BrandingProfilesAPIService) UpdateBrandingProfile(ctx context.Context, profileId string) ApiUpdateBrandingProfileRequest {
+	return ApiUpdateBrandingProfileRequest{
 		ApiService: a,
 		ctx: ctx,
 		profileId: profileId,
@@ -716,7 +716,7 @@ func (a *BrandingProfilesAPIService) UpdateProfileApiV1BrandingProfilesProfileId
 
 // Execute executes the request
 //  @return BrandingProfileResponse
-func (a *BrandingProfilesAPIService) UpdateProfileApiV1BrandingProfilesProfileIdPatchExecute(r ApiUpdateProfileApiV1BrandingProfilesProfileIdPatchRequest) (*BrandingProfileResponse, *http.Response, error) {
+func (a *BrandingProfilesAPIService) UpdateBrandingProfileExecute(r ApiUpdateBrandingProfileRequest) (*BrandingProfileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -724,7 +724,7 @@ func (a *BrandingProfilesAPIService) UpdateProfileApiV1BrandingProfilesProfileId
 		localVarReturnValue  *BrandingProfileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.UpdateProfileApiV1BrandingProfilesProfileIdPatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.UpdateBrandingProfile")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -805,31 +805,31 @@ func (a *BrandingProfilesAPIService) UpdateProfileApiV1BrandingProfilesProfileId
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUploadLogoApiV1BrandingProfilesProfileIdLogoPostRequest struct {
+type ApiUploadBrandingLogoRequest struct {
 	ctx context.Context
 	ApiService *BrandingProfilesAPIService
 	profileId string
 	file *os.File
 }
 
-func (r ApiUploadLogoApiV1BrandingProfilesProfileIdLogoPostRequest) File(file *os.File) ApiUploadLogoApiV1BrandingProfilesProfileIdLogoPostRequest {
+func (r ApiUploadBrandingLogoRequest) File(file *os.File) ApiUploadBrandingLogoRequest {
 	r.file = file
 	return r
 }
 
-func (r ApiUploadLogoApiV1BrandingProfilesProfileIdLogoPostRequest) Execute() (*BrandingProfileResponse, *http.Response, error) {
-	return r.ApiService.UploadLogoApiV1BrandingProfilesProfileIdLogoPostExecute(r)
+func (r ApiUploadBrandingLogoRequest) Execute() (*BrandingProfileResponse, *http.Response, error) {
+	return r.ApiService.UploadBrandingLogoExecute(r)
 }
 
 /*
-UploadLogoApiV1BrandingProfilesProfileIdLogoPost Upload Logo
+UploadBrandingLogo Upload Branding Logo
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param profileId
- @return ApiUploadLogoApiV1BrandingProfilesProfileIdLogoPostRequest
+ @return ApiUploadBrandingLogoRequest
 */
-func (a *BrandingProfilesAPIService) UploadLogoApiV1BrandingProfilesProfileIdLogoPost(ctx context.Context, profileId string) ApiUploadLogoApiV1BrandingProfilesProfileIdLogoPostRequest {
-	return ApiUploadLogoApiV1BrandingProfilesProfileIdLogoPostRequest{
+func (a *BrandingProfilesAPIService) UploadBrandingLogo(ctx context.Context, profileId string) ApiUploadBrandingLogoRequest {
+	return ApiUploadBrandingLogoRequest{
 		ApiService: a,
 		ctx: ctx,
 		profileId: profileId,
@@ -838,7 +838,7 @@ func (a *BrandingProfilesAPIService) UploadLogoApiV1BrandingProfilesProfileIdLog
 
 // Execute executes the request
 //  @return BrandingProfileResponse
-func (a *BrandingProfilesAPIService) UploadLogoApiV1BrandingProfilesProfileIdLogoPostExecute(r ApiUploadLogoApiV1BrandingProfilesProfileIdLogoPostRequest) (*BrandingProfileResponse, *http.Response, error) {
+func (a *BrandingProfilesAPIService) UploadBrandingLogoExecute(r ApiUploadBrandingLogoRequest) (*BrandingProfileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -846,7 +846,7 @@ func (a *BrandingProfilesAPIService) UploadLogoApiV1BrandingProfilesProfileIdLog
 		localVarReturnValue  *BrandingProfileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.UploadLogoApiV1BrandingProfilesProfileIdLogoPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BrandingProfilesAPIService.UploadBrandingLogo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

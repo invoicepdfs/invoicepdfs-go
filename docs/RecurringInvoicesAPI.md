@@ -4,20 +4,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete**](RecurringInvoicesAPI.md#CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete) | **Delete** /api/v1/recurring-invoices/{recurring_id} | Cancel Recurring Invoice
-[**CreateRecurringInvoiceApiV1RecurringInvoicesPost**](RecurringInvoicesAPI.md#CreateRecurringInvoiceApiV1RecurringInvoicesPost) | **Post** /api/v1/recurring-invoices | Create Recurring Invoice
-[**GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet**](RecurringInvoicesAPI.md#GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet) | **Get** /api/v1/recurring-invoices/{recurring_id} | Get Recurring Invoice
-[**ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet**](RecurringInvoicesAPI.md#ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet) | **Get** /api/v1/recurring-invoices/{recurring_id}/invoices | List Generated Invoices
-[**ListRecurringInvoicesApiV1RecurringInvoicesGet**](RecurringInvoicesAPI.md#ListRecurringInvoicesApiV1RecurringInvoicesGet) | **Get** /api/v1/recurring-invoices | List Recurring Invoices
-[**PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch**](RecurringInvoicesAPI.md#PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch) | **Patch** /api/v1/recurring-invoices/{recurring_id} | Patch Recurring Invoice
-[**PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost**](RecurringInvoicesAPI.md#PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost) | **Post** /api/v1/recurring-invoices/{recurring_id}/pause | Pause Recurring Invoice
-[**ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost**](RecurringInvoicesAPI.md#ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost) | **Post** /api/v1/recurring-invoices/{recurring_id}/resume | Resume Recurring Invoice
+[**CancelRecurringInvoice**](RecurringInvoicesAPI.md#CancelRecurringInvoice) | **Delete** /api/v1/recurring-invoices/{recurring_id} | Cancel Recurring Invoice
+[**CreateRecurringInvoice**](RecurringInvoicesAPI.md#CreateRecurringInvoice) | **Post** /api/v1/recurring-invoices | Create Recurring Invoice
+[**GetRecurringInvoice**](RecurringInvoicesAPI.md#GetRecurringInvoice) | **Get** /api/v1/recurring-invoices/{recurring_id} | Get Recurring Invoice
+[**ListGeneratedInvoices**](RecurringInvoicesAPI.md#ListGeneratedInvoices) | **Get** /api/v1/recurring-invoices/{recurring_id}/invoices | List Generated Invoices
+[**ListRecurringInvoices**](RecurringInvoicesAPI.md#ListRecurringInvoices) | **Get** /api/v1/recurring-invoices | List Recurring Invoices
+[**PauseRecurringInvoice**](RecurringInvoicesAPI.md#PauseRecurringInvoice) | **Post** /api/v1/recurring-invoices/{recurring_id}/pause | Pause Recurring Invoice
+[**ResumeRecurringInvoice**](RecurringInvoicesAPI.md#ResumeRecurringInvoice) | **Post** /api/v1/recurring-invoices/{recurring_id}/resume | Resume Recurring Invoice
+[**UpdateRecurringInvoice**](RecurringInvoicesAPI.md#UpdateRecurringInvoice) | **Patch** /api/v1/recurring-invoices/{recurring_id} | Update Recurring Invoice
 
 
 
-## CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete
+## CancelRecurringInvoice
 
-> RecurringInvoiceResponse CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete(ctx, recurringId).Execute()
+> RecurringInvoiceResponse CancelRecurringInvoice(ctx, recurringId).Execute()
 
 Cancel Recurring Invoice
 
@@ -38,13 +38,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecurringInvoicesAPI.CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete(context.Background(), recurringId).Execute()
+	resp, r, err := apiClient.RecurringInvoicesAPI.CancelRecurringInvoice(context.Background(), recurringId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.CancelRecurringInvoice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete`: RecurringInvoiceResponse
-	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete`: %v\n", resp)
+	// response from `CancelRecurringInvoice`: RecurringInvoiceResponse
+	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.CancelRecurringInvoice`: %v\n", resp)
 }
 ```
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCancelRecurringInvoiceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -83,9 +83,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CreateRecurringInvoiceApiV1RecurringInvoicesPost
+## CreateRecurringInvoice
 
-> RecurringInvoiceResponse CreateRecurringInvoiceApiV1RecurringInvoicesPost(ctx).RecurringInvoiceCreateRequest(recurringInvoiceCreateRequest).Execute()
+> RecurringInvoiceResponse CreateRecurringInvoice(ctx).RecurringInvoiceCreateRequest(recurringInvoiceCreateRequest).Execute()
 
 Create Recurring Invoice
 
@@ -107,13 +107,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecurringInvoicesAPI.CreateRecurringInvoiceApiV1RecurringInvoicesPost(context.Background()).RecurringInvoiceCreateRequest(recurringInvoiceCreateRequest).Execute()
+	resp, r, err := apiClient.RecurringInvoicesAPI.CreateRecurringInvoice(context.Background()).RecurringInvoiceCreateRequest(recurringInvoiceCreateRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.CreateRecurringInvoiceApiV1RecurringInvoicesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.CreateRecurringInvoice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateRecurringInvoiceApiV1RecurringInvoicesPost`: RecurringInvoiceResponse
-	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.CreateRecurringInvoiceApiV1RecurringInvoicesPost`: %v\n", resp)
+	// response from `CreateRecurringInvoice`: RecurringInvoiceResponse
+	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.CreateRecurringInvoice`: %v\n", resp)
 }
 ```
 
@@ -123,7 +123,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateRecurringInvoiceApiV1RecurringInvoicesPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateRecurringInvoiceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -148,9 +148,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet
+## GetRecurringInvoice
 
-> RecurringInvoiceResponse GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet(ctx, recurringId).Execute()
+> RecurringInvoiceResponse GetRecurringInvoice(ctx, recurringId).Execute()
 
 Get Recurring Invoice
 
@@ -171,13 +171,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecurringInvoicesAPI.GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet(context.Background(), recurringId).Execute()
+	resp, r, err := apiClient.RecurringInvoicesAPI.GetRecurringInvoice(context.Background(), recurringId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.GetRecurringInvoice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet`: RecurringInvoiceResponse
-	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet`: %v\n", resp)
+	// response from `GetRecurringInvoice`: RecurringInvoiceResponse
+	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.GetRecurringInvoice`: %v\n", resp)
 }
 ```
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetRecurringInvoiceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -216,9 +216,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet
+## ListGeneratedInvoices
 
-> InvoicesListResponse ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet(ctx, recurringId).Limit(limit).Cursor(cursor).Execute()
+> InvoicesListResponse ListGeneratedInvoices(ctx, recurringId).Limit(limit).Cursor(cursor).Execute()
 
 List Generated Invoices
 
@@ -241,13 +241,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecurringInvoicesAPI.ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet(context.Background(), recurringId).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.RecurringInvoicesAPI.ListGeneratedInvoices(context.Background(), recurringId).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.ListGeneratedInvoices``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet`: InvoicesListResponse
-	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet`: %v\n", resp)
+	// response from `ListGeneratedInvoices`: InvoicesListResponse
+	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.ListGeneratedInvoices`: %v\n", resp)
 }
 ```
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListGeneratedInvoicesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -288,9 +288,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListRecurringInvoicesApiV1RecurringInvoicesGet
+## ListRecurringInvoices
 
-> RecurringInvoicesListResponse ListRecurringInvoicesApiV1RecurringInvoicesGet(ctx).Limit(limit).Cursor(cursor).Status(status).Execute()
+> RecurringInvoicesListResponse ListRecurringInvoices(ctx).Limit(limit).Cursor(cursor).Status(status).Execute()
 
 List Recurring Invoices
 
@@ -313,13 +313,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecurringInvoicesAPI.ListRecurringInvoicesApiV1RecurringInvoicesGet(context.Background()).Limit(limit).Cursor(cursor).Status(status).Execute()
+	resp, r, err := apiClient.RecurringInvoicesAPI.ListRecurringInvoices(context.Background()).Limit(limit).Cursor(cursor).Status(status).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.ListRecurringInvoicesApiV1RecurringInvoicesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.ListRecurringInvoices``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListRecurringInvoicesApiV1RecurringInvoicesGet`: RecurringInvoicesListResponse
-	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.ListRecurringInvoicesApiV1RecurringInvoicesGet`: %v\n", resp)
+	// response from `ListRecurringInvoices`: RecurringInvoicesListResponse
+	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.ListRecurringInvoices`: %v\n", resp)
 }
 ```
 
@@ -329,7 +329,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListRecurringInvoicesApiV1RecurringInvoicesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListRecurringInvoicesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -356,79 +356,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch
+## PauseRecurringInvoice
 
-> RecurringInvoiceResponse PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch(ctx, recurringId).RecurringInvoicePatchRequest(recurringInvoicePatchRequest).Execute()
-
-Patch Recurring Invoice
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
-)
-
-func main() {
-	recurringId := "recurringId_example" // string | 
-	recurringInvoicePatchRequest := *openapiclient.NewRecurringInvoicePatchRequest() // RecurringInvoicePatchRequest | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecurringInvoicesAPI.PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch(context.Background(), recurringId).RecurringInvoicePatchRequest(recurringInvoicePatchRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch`: RecurringInvoiceResponse
-	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**recurringId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **recurringInvoicePatchRequest** | [**RecurringInvoicePatchRequest**](RecurringInvoicePatchRequest.md) |  | 
-
-### Return type
-
-[**RecurringInvoiceResponse**](RecurringInvoiceResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost
-
-> RecurringInvoiceResponse PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost(ctx, recurringId).Execute()
+> RecurringInvoiceResponse PauseRecurringInvoice(ctx, recurringId).Execute()
 
 Pause Recurring Invoice
 
@@ -449,13 +379,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecurringInvoicesAPI.PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost(context.Background(), recurringId).Execute()
+	resp, r, err := apiClient.RecurringInvoicesAPI.PauseRecurringInvoice(context.Background(), recurringId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.PauseRecurringInvoice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost`: RecurringInvoiceResponse
-	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost`: %v\n", resp)
+	// response from `PauseRecurringInvoice`: RecurringInvoiceResponse
+	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.PauseRecurringInvoice`: %v\n", resp)
 }
 ```
 
@@ -469,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPauseRecurringInvoiceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -494,9 +424,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost
+## ResumeRecurringInvoice
 
-> RecurringInvoiceResponse ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost(ctx, recurringId).Execute()
+> RecurringInvoiceResponse ResumeRecurringInvoice(ctx, recurringId).Execute()
 
 Resume Recurring Invoice
 
@@ -517,13 +447,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecurringInvoicesAPI.ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost(context.Background(), recurringId).Execute()
+	resp, r, err := apiClient.RecurringInvoicesAPI.ResumeRecurringInvoice(context.Background(), recurringId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.ResumeRecurringInvoice``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost`: RecurringInvoiceResponse
-	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost`: %v\n", resp)
+	// response from `ResumeRecurringInvoice`: RecurringInvoiceResponse
+	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.ResumeRecurringInvoice`: %v\n", resp)
 }
 ```
 
@@ -537,7 +467,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiResumeRecurringInvoiceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -555,6 +485,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateRecurringInvoice
+
+> RecurringInvoiceResponse UpdateRecurringInvoice(ctx, recurringId).RecurringInvoicePatchRequest(recurringInvoicePatchRequest).Execute()
+
+Update Recurring Invoice
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+	recurringId := "recurringId_example" // string | 
+	recurringInvoicePatchRequest := *openapiclient.NewRecurringInvoicePatchRequest() // RecurringInvoicePatchRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RecurringInvoicesAPI.UpdateRecurringInvoice(context.Background(), recurringId).RecurringInvoicePatchRequest(recurringInvoicePatchRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RecurringInvoicesAPI.UpdateRecurringInvoice``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateRecurringInvoice`: RecurringInvoiceResponse
+	fmt.Fprintf(os.Stdout, "Response from `RecurringInvoicesAPI.UpdateRecurringInvoice`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**recurringId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateRecurringInvoiceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **recurringInvoicePatchRequest** | [**RecurringInvoicePatchRequest**](RecurringInvoicePatchRequest.md) |  | 
+
+### Return type
+
+[**RecurringInvoiceResponse**](RecurringInvoiceResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -23,35 +23,35 @@ import (
 // BusinessProfilesAPIService BusinessProfilesAPI service
 type BusinessProfilesAPIService service
 
-type ApiCreateBusinessProfileApiV1BusinessProfilesPostRequest struct {
+type ApiCreateBusinessProfileRequest struct {
 	ctx context.Context
 	ApiService *BusinessProfilesAPIService
 	businessProfileCreate *BusinessProfileCreate
 	idempotencyKey *string
 }
 
-func (r ApiCreateBusinessProfileApiV1BusinessProfilesPostRequest) BusinessProfileCreate(businessProfileCreate BusinessProfileCreate) ApiCreateBusinessProfileApiV1BusinessProfilesPostRequest {
+func (r ApiCreateBusinessProfileRequest) BusinessProfileCreate(businessProfileCreate BusinessProfileCreate) ApiCreateBusinessProfileRequest {
 	r.businessProfileCreate = &businessProfileCreate
 	return r
 }
 
-func (r ApiCreateBusinessProfileApiV1BusinessProfilesPostRequest) IdempotencyKey(idempotencyKey string) ApiCreateBusinessProfileApiV1BusinessProfilesPostRequest {
+func (r ApiCreateBusinessProfileRequest) IdempotencyKey(idempotencyKey string) ApiCreateBusinessProfileRequest {
 	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
-func (r ApiCreateBusinessProfileApiV1BusinessProfilesPostRequest) Execute() (*BusinessProfileResponse, *http.Response, error) {
-	return r.ApiService.CreateBusinessProfileApiV1BusinessProfilesPostExecute(r)
+func (r ApiCreateBusinessProfileRequest) Execute() (*BusinessProfileResponse, *http.Response, error) {
+	return r.ApiService.CreateBusinessProfileExecute(r)
 }
 
 /*
-CreateBusinessProfileApiV1BusinessProfilesPost Create Business Profile
+CreateBusinessProfile Create Business Profile
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateBusinessProfileApiV1BusinessProfilesPostRequest
+ @return ApiCreateBusinessProfileRequest
 */
-func (a *BusinessProfilesAPIService) CreateBusinessProfileApiV1BusinessProfilesPost(ctx context.Context) ApiCreateBusinessProfileApiV1BusinessProfilesPostRequest {
-	return ApiCreateBusinessProfileApiV1BusinessProfilesPostRequest{
+func (a *BusinessProfilesAPIService) CreateBusinessProfile(ctx context.Context) ApiCreateBusinessProfileRequest {
+	return ApiCreateBusinessProfileRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -59,7 +59,7 @@ func (a *BusinessProfilesAPIService) CreateBusinessProfileApiV1BusinessProfilesP
 
 // Execute executes the request
 //  @return BusinessProfileResponse
-func (a *BusinessProfilesAPIService) CreateBusinessProfileApiV1BusinessProfilesPostExecute(r ApiCreateBusinessProfileApiV1BusinessProfilesPostRequest) (*BusinessProfileResponse, *http.Response, error) {
+func (a *BusinessProfilesAPIService) CreateBusinessProfileExecute(r ApiCreateBusinessProfileRequest) (*BusinessProfileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -67,7 +67,7 @@ func (a *BusinessProfilesAPIService) CreateBusinessProfileApiV1BusinessProfilesP
 		localVarReturnValue  *BusinessProfileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessProfilesAPIService.CreateBusinessProfileApiV1BusinessProfilesPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessProfilesAPIService.CreateBusinessProfile")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -150,25 +150,25 @@ func (a *BusinessProfilesAPIService) CreateBusinessProfileApiV1BusinessProfilesP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteRequest struct {
+type ApiDeleteBusinessProfileRequest struct {
 	ctx context.Context
 	ApiService *BusinessProfilesAPIService
 	businessProfileId string
 }
 
-func (r ApiDeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
-	return r.ApiService.DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteExecute(r)
+func (r ApiDeleteBusinessProfileRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
+	return r.ApiService.DeleteBusinessProfileExecute(r)
 }
 
 /*
-DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete Delete Business Profile
+DeleteBusinessProfile Delete Business Profile
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param businessProfileId
- @return ApiDeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteRequest
+ @return ApiDeleteBusinessProfileRequest
 */
-func (a *BusinessProfilesAPIService) DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete(ctx context.Context, businessProfileId string) ApiDeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteRequest {
-	return ApiDeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteRequest{
+func (a *BusinessProfilesAPIService) DeleteBusinessProfile(ctx context.Context, businessProfileId string) ApiDeleteBusinessProfileRequest {
+	return ApiDeleteBusinessProfileRequest{
 		ApiService: a,
 		ctx: ctx,
 		businessProfileId: businessProfileId,
@@ -177,7 +177,7 @@ func (a *BusinessProfilesAPIService) DeleteBusinessProfileApiV1BusinessProfilesB
 
 // Execute executes the request
 //  @return SimpleBoolResponse
-func (a *BusinessProfilesAPIService) DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteExecute(r ApiDeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteRequest) (*SimpleBoolResponse, *http.Response, error) {
+func (a *BusinessProfilesAPIService) DeleteBusinessProfileExecute(r ApiDeleteBusinessProfileRequest) (*SimpleBoolResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -185,7 +185,7 @@ func (a *BusinessProfilesAPIService) DeleteBusinessProfileApiV1BusinessProfilesB
 		localVarReturnValue  *SimpleBoolResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessProfilesAPIService.DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessProfilesAPIService.DeleteBusinessProfile")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -261,25 +261,25 @@ func (a *BusinessProfilesAPIService) DeleteBusinessProfileApiV1BusinessProfilesB
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetRequest struct {
+type ApiGetBusinessProfileRequest struct {
 	ctx context.Context
 	ApiService *BusinessProfilesAPIService
 	businessProfileId string
 }
 
-func (r ApiGetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetRequest) Execute() (*BusinessProfileResponse, *http.Response, error) {
-	return r.ApiService.GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetExecute(r)
+func (r ApiGetBusinessProfileRequest) Execute() (*BusinessProfileResponse, *http.Response, error) {
+	return r.ApiService.GetBusinessProfileExecute(r)
 }
 
 /*
-GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet Get Business Profile
+GetBusinessProfile Get Business Profile
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param businessProfileId
- @return ApiGetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetRequest
+ @return ApiGetBusinessProfileRequest
 */
-func (a *BusinessProfilesAPIService) GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet(ctx context.Context, businessProfileId string) ApiGetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetRequest {
-	return ApiGetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetRequest{
+func (a *BusinessProfilesAPIService) GetBusinessProfile(ctx context.Context, businessProfileId string) ApiGetBusinessProfileRequest {
+	return ApiGetBusinessProfileRequest{
 		ApiService: a,
 		ctx: ctx,
 		businessProfileId: businessProfileId,
@@ -288,7 +288,7 @@ func (a *BusinessProfilesAPIService) GetBusinessProfileApiV1BusinessProfilesBusi
 
 // Execute executes the request
 //  @return BusinessProfileResponse
-func (a *BusinessProfilesAPIService) GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetExecute(r ApiGetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetRequest) (*BusinessProfileResponse, *http.Response, error) {
+func (a *BusinessProfilesAPIService) GetBusinessProfileExecute(r ApiGetBusinessProfileRequest) (*BusinessProfileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -296,7 +296,7 @@ func (a *BusinessProfilesAPIService) GetBusinessProfileApiV1BusinessProfilesBusi
 		localVarReturnValue  *BusinessProfileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessProfilesAPIService.GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessProfilesAPIService.GetBusinessProfile")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -372,35 +372,35 @@ func (a *BusinessProfilesAPIService) GetBusinessProfileApiV1BusinessProfilesBusi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListBusinessProfilesApiV1BusinessProfilesGetRequest struct {
+type ApiListBusinessProfilesRequest struct {
 	ctx context.Context
 	ApiService *BusinessProfilesAPIService
 	limit *int32
 	cursor *string
 }
 
-func (r ApiListBusinessProfilesApiV1BusinessProfilesGetRequest) Limit(limit int32) ApiListBusinessProfilesApiV1BusinessProfilesGetRequest {
+func (r ApiListBusinessProfilesRequest) Limit(limit int32) ApiListBusinessProfilesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListBusinessProfilesApiV1BusinessProfilesGetRequest) Cursor(cursor string) ApiListBusinessProfilesApiV1BusinessProfilesGetRequest {
+func (r ApiListBusinessProfilesRequest) Cursor(cursor string) ApiListBusinessProfilesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListBusinessProfilesApiV1BusinessProfilesGetRequest) Execute() (*BusinessProfilesListResponse, *http.Response, error) {
-	return r.ApiService.ListBusinessProfilesApiV1BusinessProfilesGetExecute(r)
+func (r ApiListBusinessProfilesRequest) Execute() (*BusinessProfilesListResponse, *http.Response, error) {
+	return r.ApiService.ListBusinessProfilesExecute(r)
 }
 
 /*
-ListBusinessProfilesApiV1BusinessProfilesGet List Business Profiles
+ListBusinessProfiles List Business Profiles
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListBusinessProfilesApiV1BusinessProfilesGetRequest
+ @return ApiListBusinessProfilesRequest
 */
-func (a *BusinessProfilesAPIService) ListBusinessProfilesApiV1BusinessProfilesGet(ctx context.Context) ApiListBusinessProfilesApiV1BusinessProfilesGetRequest {
-	return ApiListBusinessProfilesApiV1BusinessProfilesGetRequest{
+func (a *BusinessProfilesAPIService) ListBusinessProfiles(ctx context.Context) ApiListBusinessProfilesRequest {
+	return ApiListBusinessProfilesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -408,7 +408,7 @@ func (a *BusinessProfilesAPIService) ListBusinessProfilesApiV1BusinessProfilesGe
 
 // Execute executes the request
 //  @return BusinessProfilesListResponse
-func (a *BusinessProfilesAPIService) ListBusinessProfilesApiV1BusinessProfilesGetExecute(r ApiListBusinessProfilesApiV1BusinessProfilesGetRequest) (*BusinessProfilesListResponse, *http.Response, error) {
+func (a *BusinessProfilesAPIService) ListBusinessProfilesExecute(r ApiListBusinessProfilesRequest) (*BusinessProfilesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -416,7 +416,7 @@ func (a *BusinessProfilesAPIService) ListBusinessProfilesApiV1BusinessProfilesGe
 		localVarReturnValue  *BusinessProfilesListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessProfilesAPIService.ListBusinessProfilesApiV1BusinessProfilesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessProfilesAPIService.ListBusinessProfiles")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -500,7 +500,7 @@ func (a *BusinessProfilesAPIService) ListBusinessProfilesApiV1BusinessProfilesGe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest struct {
+type ApiUpdateBusinessProfileRequest struct {
 	ctx context.Context
 	ApiService *BusinessProfilesAPIService
 	businessProfileId string
@@ -508,29 +508,29 @@ type ApiPatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest s
 	idempotencyKey *string
 }
 
-func (r ApiPatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest) BusinessProfilePatch(businessProfilePatch BusinessProfilePatch) ApiPatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest {
+func (r ApiUpdateBusinessProfileRequest) BusinessProfilePatch(businessProfilePatch BusinessProfilePatch) ApiUpdateBusinessProfileRequest {
 	r.businessProfilePatch = &businessProfilePatch
 	return r
 }
 
-func (r ApiPatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest) IdempotencyKey(idempotencyKey string) ApiPatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest {
+func (r ApiUpdateBusinessProfileRequest) IdempotencyKey(idempotencyKey string) ApiUpdateBusinessProfileRequest {
 	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
-func (r ApiPatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest) Execute() (*BusinessProfileResponse, *http.Response, error) {
-	return r.ApiService.PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchExecute(r)
+func (r ApiUpdateBusinessProfileRequest) Execute() (*BusinessProfileResponse, *http.Response, error) {
+	return r.ApiService.UpdateBusinessProfileExecute(r)
 }
 
 /*
-PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch Patch Business Profile
+UpdateBusinessProfile Update Business Profile
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param businessProfileId
- @return ApiPatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest
+ @return ApiUpdateBusinessProfileRequest
 */
-func (a *BusinessProfilesAPIService) PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch(ctx context.Context, businessProfileId string) ApiPatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest {
-	return ApiPatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest{
+func (a *BusinessProfilesAPIService) UpdateBusinessProfile(ctx context.Context, businessProfileId string) ApiUpdateBusinessProfileRequest {
+	return ApiUpdateBusinessProfileRequest{
 		ApiService: a,
 		ctx: ctx,
 		businessProfileId: businessProfileId,
@@ -539,7 +539,7 @@ func (a *BusinessProfilesAPIService) PatchBusinessProfileApiV1BusinessProfilesBu
 
 // Execute executes the request
 //  @return BusinessProfileResponse
-func (a *BusinessProfilesAPIService) PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchExecute(r ApiPatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest) (*BusinessProfileResponse, *http.Response, error) {
+func (a *BusinessProfilesAPIService) UpdateBusinessProfileExecute(r ApiUpdateBusinessProfileRequest) (*BusinessProfileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -547,7 +547,7 @@ func (a *BusinessProfilesAPIService) PatchBusinessProfileApiV1BusinessProfilesBu
 		localVarReturnValue  *BusinessProfileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessProfilesAPIService.PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessProfilesAPIService.UpdateBusinessProfile")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

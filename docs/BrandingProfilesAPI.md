@@ -4,22 +4,22 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateProfileApiV1BrandingProfilesPost**](BrandingProfilesAPI.md#CreateProfileApiV1BrandingProfilesPost) | **Post** /api/v1/branding-profiles | Create Profile
-[**DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete**](BrandingProfilesAPI.md#DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete) | **Delete** /api/v1/branding-profiles/{profile_id}/logo | Delete Logo
-[**DeleteProfileApiV1BrandingProfilesProfileIdDelete**](BrandingProfilesAPI.md#DeleteProfileApiV1BrandingProfilesProfileIdDelete) | **Delete** /api/v1/branding-profiles/{profile_id} | Delete Profile
-[**GetProfileApiV1BrandingProfilesProfileIdGet**](BrandingProfilesAPI.md#GetProfileApiV1BrandingProfilesProfileIdGet) | **Get** /api/v1/branding-profiles/{profile_id} | Get Profile
-[**ListProfilesApiV1BrandingProfilesGet**](BrandingProfilesAPI.md#ListProfilesApiV1BrandingProfilesGet) | **Get** /api/v1/branding-profiles | List Profiles
-[**SetDefaultApiV1BrandingProfilesProfileIdDefaultPost**](BrandingProfilesAPI.md#SetDefaultApiV1BrandingProfilesProfileIdDefaultPost) | **Post** /api/v1/branding-profiles/{profile_id}/default | Set Default
-[**UpdateProfileApiV1BrandingProfilesProfileIdPatch**](BrandingProfilesAPI.md#UpdateProfileApiV1BrandingProfilesProfileIdPatch) | **Patch** /api/v1/branding-profiles/{profile_id} | Update Profile
-[**UploadLogoApiV1BrandingProfilesProfileIdLogoPost**](BrandingProfilesAPI.md#UploadLogoApiV1BrandingProfilesProfileIdLogoPost) | **Post** /api/v1/branding-profiles/{profile_id}/logo | Upload Logo
+[**CreateBrandingProfile**](BrandingProfilesAPI.md#CreateBrandingProfile) | **Post** /api/v1/branding-profiles | Create Branding Profile
+[**DeleteBrandingLogo**](BrandingProfilesAPI.md#DeleteBrandingLogo) | **Delete** /api/v1/branding-profiles/{profile_id}/logo | Delete Branding Logo
+[**DeleteBrandingProfile**](BrandingProfilesAPI.md#DeleteBrandingProfile) | **Delete** /api/v1/branding-profiles/{profile_id} | Delete Branding Profile
+[**GetBrandingProfile**](BrandingProfilesAPI.md#GetBrandingProfile) | **Get** /api/v1/branding-profiles/{profile_id} | Get Branding Profile
+[**ListBrandingProfiles**](BrandingProfilesAPI.md#ListBrandingProfiles) | **Get** /api/v1/branding-profiles | List Branding Profiles
+[**SetDefaultBrandingProfile**](BrandingProfilesAPI.md#SetDefaultBrandingProfile) | **Post** /api/v1/branding-profiles/{profile_id}/default | Set Default Branding Profile
+[**UpdateBrandingProfile**](BrandingProfilesAPI.md#UpdateBrandingProfile) | **Patch** /api/v1/branding-profiles/{profile_id} | Update Branding Profile
+[**UploadBrandingLogo**](BrandingProfilesAPI.md#UploadBrandingLogo) | **Post** /api/v1/branding-profiles/{profile_id}/logo | Upload Branding Logo
 
 
 
-## CreateProfileApiV1BrandingProfilesPost
+## CreateBrandingProfile
 
-> BrandingProfileResponse CreateProfileApiV1BrandingProfilesPost(ctx).BrandingProfileCreateRequest(brandingProfileCreateRequest).Execute()
+> BrandingProfileResponse CreateBrandingProfile(ctx).BrandingProfileCreateRequest(brandingProfileCreateRequest).Execute()
 
-Create Profile
+Create Branding Profile
 
 ### Example
 
@@ -38,13 +38,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BrandingProfilesAPI.CreateProfileApiV1BrandingProfilesPost(context.Background()).BrandingProfileCreateRequest(brandingProfileCreateRequest).Execute()
+	resp, r, err := apiClient.BrandingProfilesAPI.CreateBrandingProfile(context.Background()).BrandingProfileCreateRequest(brandingProfileCreateRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.CreateProfileApiV1BrandingProfilesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.CreateBrandingProfile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateProfileApiV1BrandingProfilesPost`: BrandingProfileResponse
-	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.CreateProfileApiV1BrandingProfilesPost`: %v\n", resp)
+	// response from `CreateBrandingProfile`: BrandingProfileResponse
+	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.CreateBrandingProfile`: %v\n", resp)
 }
 ```
 
@@ -54,7 +54,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateProfileApiV1BrandingProfilesPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateBrandingProfileRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -79,11 +79,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete
+## DeleteBrandingLogo
 
-> SimpleBoolResponse DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete(ctx, profileId).Execute()
+> SimpleBoolResponse DeleteBrandingLogo(ctx, profileId).Execute()
 
-Delete Logo
+Delete Branding Logo
 
 ### Example
 
@@ -102,13 +102,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BrandingProfilesAPI.DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete(context.Background(), profileId).Execute()
+	resp, r, err := apiClient.BrandingProfilesAPI.DeleteBrandingLogo(context.Background(), profileId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.DeleteBrandingLogo``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete`: %v\n", resp)
+	// response from `DeleteBrandingLogo`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.DeleteBrandingLogo`: %v\n", resp)
 }
 ```
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteLogoApiV1BrandingProfilesProfileIdLogoDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteBrandingLogoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -147,11 +147,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteProfileApiV1BrandingProfilesProfileIdDelete
+## DeleteBrandingProfile
 
-> SimpleBoolResponse DeleteProfileApiV1BrandingProfilesProfileIdDelete(ctx, profileId).Execute()
+> SimpleBoolResponse DeleteBrandingProfile(ctx, profileId).Execute()
 
-Delete Profile
+Delete Branding Profile
 
 ### Example
 
@@ -170,13 +170,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BrandingProfilesAPI.DeleteProfileApiV1BrandingProfilesProfileIdDelete(context.Background(), profileId).Execute()
+	resp, r, err := apiClient.BrandingProfilesAPI.DeleteBrandingProfile(context.Background(), profileId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.DeleteProfileApiV1BrandingProfilesProfileIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.DeleteBrandingProfile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteProfileApiV1BrandingProfilesProfileIdDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.DeleteProfileApiV1BrandingProfilesProfileIdDelete`: %v\n", resp)
+	// response from `DeleteBrandingProfile`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.DeleteBrandingProfile`: %v\n", resp)
 }
 ```
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteProfileApiV1BrandingProfilesProfileIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteBrandingProfileRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -215,11 +215,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetProfileApiV1BrandingProfilesProfileIdGet
+## GetBrandingProfile
 
-> BrandingProfileResponse GetProfileApiV1BrandingProfilesProfileIdGet(ctx, profileId).Execute()
+> BrandingProfileResponse GetBrandingProfile(ctx, profileId).Execute()
 
-Get Profile
+Get Branding Profile
 
 ### Example
 
@@ -238,13 +238,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BrandingProfilesAPI.GetProfileApiV1BrandingProfilesProfileIdGet(context.Background(), profileId).Execute()
+	resp, r, err := apiClient.BrandingProfilesAPI.GetBrandingProfile(context.Background(), profileId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.GetProfileApiV1BrandingProfilesProfileIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.GetBrandingProfile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetProfileApiV1BrandingProfilesProfileIdGet`: BrandingProfileResponse
-	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.GetProfileApiV1BrandingProfilesProfileIdGet`: %v\n", resp)
+	// response from `GetBrandingProfile`: BrandingProfileResponse
+	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.GetBrandingProfile`: %v\n", resp)
 }
 ```
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetProfileApiV1BrandingProfilesProfileIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetBrandingProfileRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -283,11 +283,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListProfilesApiV1BrandingProfilesGet
+## ListBrandingProfiles
 
-> BrandingProfilesListResponse ListProfilesApiV1BrandingProfilesGet(ctx).Execute()
+> BrandingProfilesListResponse ListBrandingProfiles(ctx).Execute()
 
-List Profiles
+List Branding Profiles
 
 ### Example
 
@@ -305,13 +305,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BrandingProfilesAPI.ListProfilesApiV1BrandingProfilesGet(context.Background()).Execute()
+	resp, r, err := apiClient.BrandingProfilesAPI.ListBrandingProfiles(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.ListProfilesApiV1BrandingProfilesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.ListBrandingProfiles``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListProfilesApiV1BrandingProfilesGet`: BrandingProfilesListResponse
-	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.ListProfilesApiV1BrandingProfilesGet`: %v\n", resp)
+	// response from `ListBrandingProfiles`: BrandingProfilesListResponse
+	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.ListBrandingProfiles`: %v\n", resp)
 }
 ```
 
@@ -321,7 +321,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListProfilesApiV1BrandingProfilesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListBrandingProfilesRequest struct via the builder pattern
 
 
 ### Return type
@@ -342,11 +342,11 @@ Other parameters are passed through a pointer to a apiListProfilesApiV1BrandingP
 [[Back to README]](../README.md)
 
 
-## SetDefaultApiV1BrandingProfilesProfileIdDefaultPost
+## SetDefaultBrandingProfile
 
-> BrandingProfileResponse SetDefaultApiV1BrandingProfilesProfileIdDefaultPost(ctx, profileId).Execute()
+> BrandingProfileResponse SetDefaultBrandingProfile(ctx, profileId).Execute()
 
-Set Default
+Set Default Branding Profile
 
 ### Example
 
@@ -365,13 +365,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BrandingProfilesAPI.SetDefaultApiV1BrandingProfilesProfileIdDefaultPost(context.Background(), profileId).Execute()
+	resp, r, err := apiClient.BrandingProfilesAPI.SetDefaultBrandingProfile(context.Background(), profileId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.SetDefaultApiV1BrandingProfilesProfileIdDefaultPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.SetDefaultBrandingProfile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SetDefaultApiV1BrandingProfilesProfileIdDefaultPost`: BrandingProfileResponse
-	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.SetDefaultApiV1BrandingProfilesProfileIdDefaultPost`: %v\n", resp)
+	// response from `SetDefaultBrandingProfile`: BrandingProfileResponse
+	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.SetDefaultBrandingProfile`: %v\n", resp)
 }
 ```
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiSetDefaultApiV1BrandingProfilesProfileIdDefaultPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSetDefaultBrandingProfileRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -410,11 +410,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UpdateProfileApiV1BrandingProfilesProfileIdPatch
+## UpdateBrandingProfile
 
-> BrandingProfileResponse UpdateProfileApiV1BrandingProfilesProfileIdPatch(ctx, profileId).BrandingProfilePatchRequest(brandingProfilePatchRequest).Execute()
+> BrandingProfileResponse UpdateBrandingProfile(ctx, profileId).BrandingProfilePatchRequest(brandingProfilePatchRequest).Execute()
 
-Update Profile
+Update Branding Profile
 
 ### Example
 
@@ -434,13 +434,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BrandingProfilesAPI.UpdateProfileApiV1BrandingProfilesProfileIdPatch(context.Background(), profileId).BrandingProfilePatchRequest(brandingProfilePatchRequest).Execute()
+	resp, r, err := apiClient.BrandingProfilesAPI.UpdateBrandingProfile(context.Background(), profileId).BrandingProfilePatchRequest(brandingProfilePatchRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.UpdateProfileApiV1BrandingProfilesProfileIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.UpdateBrandingProfile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateProfileApiV1BrandingProfilesProfileIdPatch`: BrandingProfileResponse
-	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.UpdateProfileApiV1BrandingProfilesProfileIdPatch`: %v\n", resp)
+	// response from `UpdateBrandingProfile`: BrandingProfileResponse
+	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.UpdateBrandingProfile`: %v\n", resp)
 }
 ```
 
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateProfileApiV1BrandingProfilesProfileIdPatchRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateBrandingProfileRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -480,11 +480,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UploadLogoApiV1BrandingProfilesProfileIdLogoPost
+## UploadBrandingLogo
 
-> BrandingProfileResponse UploadLogoApiV1BrandingProfilesProfileIdLogoPost(ctx, profileId).File(file).Execute()
+> BrandingProfileResponse UploadBrandingLogo(ctx, profileId).File(file).Execute()
 
-Upload Logo
+Upload Branding Logo
 
 ### Example
 
@@ -504,13 +504,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BrandingProfilesAPI.UploadLogoApiV1BrandingProfilesProfileIdLogoPost(context.Background(), profileId).File(file).Execute()
+	resp, r, err := apiClient.BrandingProfilesAPI.UploadBrandingLogo(context.Background(), profileId).File(file).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.UploadLogoApiV1BrandingProfilesProfileIdLogoPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BrandingProfilesAPI.UploadBrandingLogo``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UploadLogoApiV1BrandingProfilesProfileIdLogoPost`: BrandingProfileResponse
-	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.UploadLogoApiV1BrandingProfilesProfileIdLogoPost`: %v\n", resp)
+	// response from `UploadBrandingLogo`: BrandingProfileResponse
+	fmt.Fprintf(os.Stdout, "Response from `BrandingProfilesAPI.UploadBrandingLogo`: %v\n", resp)
 }
 ```
 
@@ -524,7 +524,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUploadLogoApiV1BrandingProfilesProfileIdLogoPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUploadBrandingLogoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

@@ -67,6 +67,8 @@ type APIClient struct {
 
 	DeliveriesAPI *DeliveriesAPIService
 
+	DocumentAttachmentsAPI *DocumentAttachmentsAPIService
+
 	DocumentsAPI *DocumentsAPIService
 
 	FilesAPI *FilesAPIService
@@ -74,8 +76,6 @@ type APIClient struct {
 	HealthAPI *HealthAPIService
 
 	ImportsAPI *ImportsAPIService
-
-	InvoiceAttachmentsAPI *InvoiceAttachmentsAPIService
 
 	JobsAPI *JobsAPIService
 
@@ -131,11 +131,11 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.BusinessProfilesAPI = (*BusinessProfilesAPIService)(&c.common)
 	c.CustomersAPI = (*CustomersAPIService)(&c.common)
 	c.DeliveriesAPI = (*DeliveriesAPIService)(&c.common)
+	c.DocumentAttachmentsAPI = (*DocumentAttachmentsAPIService)(&c.common)
 	c.DocumentsAPI = (*DocumentsAPIService)(&c.common)
 	c.FilesAPI = (*FilesAPIService)(&c.common)
 	c.HealthAPI = (*HealthAPIService)(&c.common)
 	c.ImportsAPI = (*ImportsAPIService)(&c.common)
-	c.InvoiceAttachmentsAPI = (*InvoiceAttachmentsAPIService)(&c.common)
 	c.JobsAPI = (*JobsAPIService)(&c.common)
 	c.LogsAPI = (*LogsAPIService)(&c.common)
 	c.NumberingSequencesAPI = (*NumberingSequencesAPIService)(&c.common)

@@ -10,11 +10,11 @@ api_branding_profiles.go
 api_business_profiles.go
 api_customers.go
 api_deliveries.go
+api_document_attachments.go
 api_documents.go
 api_files.go
 api_health.go
 api_imports.go
-api_invoice_attachments.go
 api_jobs.go
 api_logs.go
 api_numbering_sequences.go
@@ -45,8 +45,6 @@ docs/ApiKeyRotateResponse.md
 docs/ApiKeysAPI.md
 docs/ApiRequestLogOut.md
 docs/ApiRequestLogsListResponse.md
-docs/AppDocumentsSchemasDocumentRenderRequest.md
-docs/AppSchemasV1DocumentRenderRequest.md
 docs/AuditEventOut.md
 docs/AuditEventResponse.md
 docs/AuditEventsListResponse.md
@@ -114,6 +112,7 @@ docs/DeliveriesListResponse.md
 docs/DeliveryOut.md
 docs/DeliveryResponse.md
 docs/DeliverySendRequest.md
+docs/DocumentAttachmentsAPI.md
 docs/DocumentBrandingInput.md
 docs/DocumentCalculateRequest.md
 docs/DocumentCalculateResponse.md
@@ -128,6 +127,8 @@ docs/DocumentOutputOptions.md
 docs/DocumentPartyInput.md
 docs/DocumentPatchRequest.md
 docs/DocumentPaymentInput.md
+docs/DocumentRenderOptions.md
+docs/DocumentRenderRequest.md
 docs/DocumentResponse.md
 docs/DocumentShippingInput.md
 docs/DocumentTemplateRef.md
@@ -147,7 +148,6 @@ docs/ImportsAPI.md
 docs/InvoiceAttachmentCreateRequest.md
 docs/InvoiceAttachmentOut.md
 docs/InvoiceAttachmentResponse.md
-docs/InvoiceAttachmentsAPI.md
 docs/InvoiceAttachmentsListResponse.md
 docs/InvoiceBankAccountInput.md
 docs/InvoiceBrandingInput.md
@@ -262,8 +262,6 @@ model_api_key_revoke_response.go
 model_api_key_rotate_response.go
 model_api_request_log_out.go
 model_api_request_logs_list_response.go
-model_app__documents__schemas__document_render_request.go
-model_app__schemas__v1__document_render_request.go
 model_audit_event_out.go
 model_audit_event_response.go
 model_audit_events_list_response.go
@@ -337,6 +335,8 @@ model_document_output_options.go
 model_document_party_input.go
 model_document_patch_request.go
 model_document_payment_input.go
+model_document_render_options.go
+model_document_render_request.go
 model_document_response.go
 model_document_shipping_input.go
 model_document_template_ref.go
@@ -437,4 +437,5 @@ model_workspace_patch_request.go
 model_workspace_response.go
 model_workspaces_list_response.go
 response.go
+test/api_document_attachments_test.go
 utils.go

@@ -23,7 +23,7 @@ import (
 // WorkspacesAPIService WorkspacesAPI service
 type WorkspacesAPIService service
 
-type ApiCreateMemberApiV1WorkspacesWorkspaceIdMembersPostRequest struct {
+type ApiAddWorkspaceMemberRequest struct {
 	ctx context.Context
 	ApiService *WorkspacesAPIService
 	workspaceId string
@@ -31,29 +31,29 @@ type ApiCreateMemberApiV1WorkspacesWorkspaceIdMembersPostRequest struct {
 	idempotencyKey *string
 }
 
-func (r ApiCreateMemberApiV1WorkspacesWorkspaceIdMembersPostRequest) WorkspaceMemberCreateRequest(workspaceMemberCreateRequest WorkspaceMemberCreateRequest) ApiCreateMemberApiV1WorkspacesWorkspaceIdMembersPostRequest {
+func (r ApiAddWorkspaceMemberRequest) WorkspaceMemberCreateRequest(workspaceMemberCreateRequest WorkspaceMemberCreateRequest) ApiAddWorkspaceMemberRequest {
 	r.workspaceMemberCreateRequest = &workspaceMemberCreateRequest
 	return r
 }
 
-func (r ApiCreateMemberApiV1WorkspacesWorkspaceIdMembersPostRequest) IdempotencyKey(idempotencyKey string) ApiCreateMemberApiV1WorkspacesWorkspaceIdMembersPostRequest {
+func (r ApiAddWorkspaceMemberRequest) IdempotencyKey(idempotencyKey string) ApiAddWorkspaceMemberRequest {
 	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
-func (r ApiCreateMemberApiV1WorkspacesWorkspaceIdMembersPostRequest) Execute() (*WorkspaceMembersListResponse, *http.Response, error) {
-	return r.ApiService.CreateMemberApiV1WorkspacesWorkspaceIdMembersPostExecute(r)
+func (r ApiAddWorkspaceMemberRequest) Execute() (*WorkspaceMembersListResponse, *http.Response, error) {
+	return r.ApiService.AddWorkspaceMemberExecute(r)
 }
 
 /*
-CreateMemberApiV1WorkspacesWorkspaceIdMembersPost Create Member
+AddWorkspaceMember Add Workspace Member
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId
- @return ApiCreateMemberApiV1WorkspacesWorkspaceIdMembersPostRequest
+ @return ApiAddWorkspaceMemberRequest
 */
-func (a *WorkspacesAPIService) CreateMemberApiV1WorkspacesWorkspaceIdMembersPost(ctx context.Context, workspaceId string) ApiCreateMemberApiV1WorkspacesWorkspaceIdMembersPostRequest {
-	return ApiCreateMemberApiV1WorkspacesWorkspaceIdMembersPostRequest{
+func (a *WorkspacesAPIService) AddWorkspaceMember(ctx context.Context, workspaceId string) ApiAddWorkspaceMemberRequest {
+	return ApiAddWorkspaceMemberRequest{
 		ApiService: a,
 		ctx: ctx,
 		workspaceId: workspaceId,
@@ -62,7 +62,7 @@ func (a *WorkspacesAPIService) CreateMemberApiV1WorkspacesWorkspaceIdMembersPost
 
 // Execute executes the request
 //  @return WorkspaceMembersListResponse
-func (a *WorkspacesAPIService) CreateMemberApiV1WorkspacesWorkspaceIdMembersPostExecute(r ApiCreateMemberApiV1WorkspacesWorkspaceIdMembersPostRequest) (*WorkspaceMembersListResponse, *http.Response, error) {
+func (a *WorkspacesAPIService) AddWorkspaceMemberExecute(r ApiAddWorkspaceMemberRequest) (*WorkspaceMembersListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -70,7 +70,7 @@ func (a *WorkspacesAPIService) CreateMemberApiV1WorkspacesWorkspaceIdMembersPost
 		localVarReturnValue  *WorkspaceMembersListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.CreateMemberApiV1WorkspacesWorkspaceIdMembersPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.AddWorkspaceMember")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -154,35 +154,35 @@ func (a *WorkspacesAPIService) CreateMemberApiV1WorkspacesWorkspaceIdMembersPost
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateWorkspaceApiV1WorkspacesPostRequest struct {
+type ApiCreateWorkspaceRequest struct {
 	ctx context.Context
 	ApiService *WorkspacesAPIService
 	workspaceCreateRequest *WorkspaceCreateRequest
 	idempotencyKey *string
 }
 
-func (r ApiCreateWorkspaceApiV1WorkspacesPostRequest) WorkspaceCreateRequest(workspaceCreateRequest WorkspaceCreateRequest) ApiCreateWorkspaceApiV1WorkspacesPostRequest {
+func (r ApiCreateWorkspaceRequest) WorkspaceCreateRequest(workspaceCreateRequest WorkspaceCreateRequest) ApiCreateWorkspaceRequest {
 	r.workspaceCreateRequest = &workspaceCreateRequest
 	return r
 }
 
-func (r ApiCreateWorkspaceApiV1WorkspacesPostRequest) IdempotencyKey(idempotencyKey string) ApiCreateWorkspaceApiV1WorkspacesPostRequest {
+func (r ApiCreateWorkspaceRequest) IdempotencyKey(idempotencyKey string) ApiCreateWorkspaceRequest {
 	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
-func (r ApiCreateWorkspaceApiV1WorkspacesPostRequest) Execute() (*WorkspaceResponse, *http.Response, error) {
-	return r.ApiService.CreateWorkspaceApiV1WorkspacesPostExecute(r)
+func (r ApiCreateWorkspaceRequest) Execute() (*WorkspaceResponse, *http.Response, error) {
+	return r.ApiService.CreateWorkspaceExecute(r)
 }
 
 /*
-CreateWorkspaceApiV1WorkspacesPost Create Workspace
+CreateWorkspace Create Workspace
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateWorkspaceApiV1WorkspacesPostRequest
+ @return ApiCreateWorkspaceRequest
 */
-func (a *WorkspacesAPIService) CreateWorkspaceApiV1WorkspacesPost(ctx context.Context) ApiCreateWorkspaceApiV1WorkspacesPostRequest {
-	return ApiCreateWorkspaceApiV1WorkspacesPostRequest{
+func (a *WorkspacesAPIService) CreateWorkspace(ctx context.Context) ApiCreateWorkspaceRequest {
+	return ApiCreateWorkspaceRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -190,7 +190,7 @@ func (a *WorkspacesAPIService) CreateWorkspaceApiV1WorkspacesPost(ctx context.Co
 
 // Execute executes the request
 //  @return WorkspaceResponse
-func (a *WorkspacesAPIService) CreateWorkspaceApiV1WorkspacesPostExecute(r ApiCreateWorkspaceApiV1WorkspacesPostRequest) (*WorkspaceResponse, *http.Response, error) {
+func (a *WorkspacesAPIService) CreateWorkspaceExecute(r ApiCreateWorkspaceRequest) (*WorkspaceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -198,7 +198,7 @@ func (a *WorkspacesAPIService) CreateWorkspaceApiV1WorkspacesPostExecute(r ApiCr
 		localVarReturnValue  *WorkspaceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.CreateWorkspaceApiV1WorkspacesPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.CreateWorkspace")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -281,140 +281,25 @@ func (a *WorkspacesAPIService) CreateWorkspaceApiV1WorkspacesPostExecute(r ApiCr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteRequest struct {
-	ctx context.Context
-	ApiService *WorkspacesAPIService
-	workspaceId string
-	memberId string
-}
-
-func (r ApiDeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
-	return r.ApiService.DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteExecute(r)
-}
-
-/*
-DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete Delete Member
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param workspaceId
- @param memberId
- @return ApiDeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteRequest
-*/
-func (a *WorkspacesAPIService) DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete(ctx context.Context, workspaceId string, memberId string) ApiDeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteRequest {
-	return ApiDeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteRequest{
-		ApiService: a,
-		ctx: ctx,
-		workspaceId: workspaceId,
-		memberId: memberId,
-	}
-}
-
-// Execute executes the request
-//  @return SimpleBoolResponse
-func (a *WorkspacesAPIService) DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteExecute(r ApiDeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteRequest) (*SimpleBoolResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SimpleBoolResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/workspaces/{workspace_id}/members/{member_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"workspace_id"+"}", url.PathEscape(parameterValueToString(r.workspaceId, "workspaceId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"member_id"+"}", url.PathEscape(parameterValueToString(r.memberId, "memberId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ApiErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiDeleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteRequest struct {
+type ApiDeleteWorkspaceRequest struct {
 	ctx context.Context
 	ApiService *WorkspacesAPIService
 	workspaceId string
 }
 
-func (r ApiDeleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
-	return r.ApiService.DeleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteExecute(r)
+func (r ApiDeleteWorkspaceRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
+	return r.ApiService.DeleteWorkspaceExecute(r)
 }
 
 /*
-DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete Delete Workspace
+DeleteWorkspace Delete Workspace
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId
- @return ApiDeleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteRequest
+ @return ApiDeleteWorkspaceRequest
 */
-func (a *WorkspacesAPIService) DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete(ctx context.Context, workspaceId string) ApiDeleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteRequest {
-	return ApiDeleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteRequest{
+func (a *WorkspacesAPIService) DeleteWorkspace(ctx context.Context, workspaceId string) ApiDeleteWorkspaceRequest {
+	return ApiDeleteWorkspaceRequest{
 		ApiService: a,
 		ctx: ctx,
 		workspaceId: workspaceId,
@@ -423,7 +308,7 @@ func (a *WorkspacesAPIService) DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete(c
 
 // Execute executes the request
 //  @return SimpleBoolResponse
-func (a *WorkspacesAPIService) DeleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteExecute(r ApiDeleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteRequest) (*SimpleBoolResponse, *http.Response, error) {
+func (a *WorkspacesAPIService) DeleteWorkspaceExecute(r ApiDeleteWorkspaceRequest) (*SimpleBoolResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -431,7 +316,7 @@ func (a *WorkspacesAPIService) DeleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteEx
 		localVarReturnValue  *SimpleBoolResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.DeleteWorkspace")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -507,25 +392,25 @@ func (a *WorkspacesAPIService) DeleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetWorkspaceApiV1WorkspacesWorkspaceIdGetRequest struct {
+type ApiGetWorkspaceRequest struct {
 	ctx context.Context
 	ApiService *WorkspacesAPIService
 	workspaceId string
 }
 
-func (r ApiGetWorkspaceApiV1WorkspacesWorkspaceIdGetRequest) Execute() (*WorkspaceResponse, *http.Response, error) {
-	return r.ApiService.GetWorkspaceApiV1WorkspacesWorkspaceIdGetExecute(r)
+func (r ApiGetWorkspaceRequest) Execute() (*WorkspaceResponse, *http.Response, error) {
+	return r.ApiService.GetWorkspaceExecute(r)
 }
 
 /*
-GetWorkspaceApiV1WorkspacesWorkspaceIdGet Get Workspace
+GetWorkspace Get Workspace
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId
- @return ApiGetWorkspaceApiV1WorkspacesWorkspaceIdGetRequest
+ @return ApiGetWorkspaceRequest
 */
-func (a *WorkspacesAPIService) GetWorkspaceApiV1WorkspacesWorkspaceIdGet(ctx context.Context, workspaceId string) ApiGetWorkspaceApiV1WorkspacesWorkspaceIdGetRequest {
-	return ApiGetWorkspaceApiV1WorkspacesWorkspaceIdGetRequest{
+func (a *WorkspacesAPIService) GetWorkspace(ctx context.Context, workspaceId string) ApiGetWorkspaceRequest {
+	return ApiGetWorkspaceRequest{
 		ApiService: a,
 		ctx: ctx,
 		workspaceId: workspaceId,
@@ -534,7 +419,7 @@ func (a *WorkspacesAPIService) GetWorkspaceApiV1WorkspacesWorkspaceIdGet(ctx con
 
 // Execute executes the request
 //  @return WorkspaceResponse
-func (a *WorkspacesAPIService) GetWorkspaceApiV1WorkspacesWorkspaceIdGetExecute(r ApiGetWorkspaceApiV1WorkspacesWorkspaceIdGetRequest) (*WorkspaceResponse, *http.Response, error) {
+func (a *WorkspacesAPIService) GetWorkspaceExecute(r ApiGetWorkspaceRequest) (*WorkspaceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -542,7 +427,7 @@ func (a *WorkspacesAPIService) GetWorkspaceApiV1WorkspacesWorkspaceIdGetExecute(
 		localVarReturnValue  *WorkspaceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.GetWorkspaceApiV1WorkspacesWorkspaceIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.GetWorkspace")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -618,25 +503,25 @@ func (a *WorkspacesAPIService) GetWorkspaceApiV1WorkspacesWorkspaceIdGetExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListMembersApiV1WorkspacesWorkspaceIdMembersGetRequest struct {
+type ApiListWorkspaceMembersRequest struct {
 	ctx context.Context
 	ApiService *WorkspacesAPIService
 	workspaceId string
 }
 
-func (r ApiListMembersApiV1WorkspacesWorkspaceIdMembersGetRequest) Execute() (*WorkspaceMembersListResponse, *http.Response, error) {
-	return r.ApiService.ListMembersApiV1WorkspacesWorkspaceIdMembersGetExecute(r)
+func (r ApiListWorkspaceMembersRequest) Execute() (*WorkspaceMembersListResponse, *http.Response, error) {
+	return r.ApiService.ListWorkspaceMembersExecute(r)
 }
 
 /*
-ListMembersApiV1WorkspacesWorkspaceIdMembersGet List Members
+ListWorkspaceMembers List Workspace Members
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId
- @return ApiListMembersApiV1WorkspacesWorkspaceIdMembersGetRequest
+ @return ApiListWorkspaceMembersRequest
 */
-func (a *WorkspacesAPIService) ListMembersApiV1WorkspacesWorkspaceIdMembersGet(ctx context.Context, workspaceId string) ApiListMembersApiV1WorkspacesWorkspaceIdMembersGetRequest {
-	return ApiListMembersApiV1WorkspacesWorkspaceIdMembersGetRequest{
+func (a *WorkspacesAPIService) ListWorkspaceMembers(ctx context.Context, workspaceId string) ApiListWorkspaceMembersRequest {
+	return ApiListWorkspaceMembersRequest{
 		ApiService: a,
 		ctx: ctx,
 		workspaceId: workspaceId,
@@ -645,7 +530,7 @@ func (a *WorkspacesAPIService) ListMembersApiV1WorkspacesWorkspaceIdMembersGet(c
 
 // Execute executes the request
 //  @return WorkspaceMembersListResponse
-func (a *WorkspacesAPIService) ListMembersApiV1WorkspacesWorkspaceIdMembersGetExecute(r ApiListMembersApiV1WorkspacesWorkspaceIdMembersGetRequest) (*WorkspaceMembersListResponse, *http.Response, error) {
+func (a *WorkspacesAPIService) ListWorkspaceMembersExecute(r ApiListWorkspaceMembersRequest) (*WorkspaceMembersListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -653,7 +538,7 @@ func (a *WorkspacesAPIService) ListMembersApiV1WorkspacesWorkspaceIdMembersGetEx
 		localVarReturnValue  *WorkspaceMembersListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.ListMembersApiV1WorkspacesWorkspaceIdMembersGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.ListWorkspaceMembers")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -729,35 +614,35 @@ func (a *WorkspacesAPIService) ListMembersApiV1WorkspacesWorkspaceIdMembersGetEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListWorkspacesApiV1WorkspacesGetRequest struct {
+type ApiListWorkspacesRequest struct {
 	ctx context.Context
 	ApiService *WorkspacesAPIService
 	limit *int32
 	cursor *string
 }
 
-func (r ApiListWorkspacesApiV1WorkspacesGetRequest) Limit(limit int32) ApiListWorkspacesApiV1WorkspacesGetRequest {
+func (r ApiListWorkspacesRequest) Limit(limit int32) ApiListWorkspacesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListWorkspacesApiV1WorkspacesGetRequest) Cursor(cursor string) ApiListWorkspacesApiV1WorkspacesGetRequest {
+func (r ApiListWorkspacesRequest) Cursor(cursor string) ApiListWorkspacesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListWorkspacesApiV1WorkspacesGetRequest) Execute() (*WorkspacesListResponse, *http.Response, error) {
-	return r.ApiService.ListWorkspacesApiV1WorkspacesGetExecute(r)
+func (r ApiListWorkspacesRequest) Execute() (*WorkspacesListResponse, *http.Response, error) {
+	return r.ApiService.ListWorkspacesExecute(r)
 }
 
 /*
-ListWorkspacesApiV1WorkspacesGet List Workspaces
+ListWorkspaces List Workspaces
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListWorkspacesApiV1WorkspacesGetRequest
+ @return ApiListWorkspacesRequest
 */
-func (a *WorkspacesAPIService) ListWorkspacesApiV1WorkspacesGet(ctx context.Context) ApiListWorkspacesApiV1WorkspacesGetRequest {
-	return ApiListWorkspacesApiV1WorkspacesGetRequest{
+func (a *WorkspacesAPIService) ListWorkspaces(ctx context.Context) ApiListWorkspacesRequest {
+	return ApiListWorkspacesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -765,7 +650,7 @@ func (a *WorkspacesAPIService) ListWorkspacesApiV1WorkspacesGet(ctx context.Cont
 
 // Execute executes the request
 //  @return WorkspacesListResponse
-func (a *WorkspacesAPIService) ListWorkspacesApiV1WorkspacesGetExecute(r ApiListWorkspacesApiV1WorkspacesGetRequest) (*WorkspacesListResponse, *http.Response, error) {
+func (a *WorkspacesAPIService) ListWorkspacesExecute(r ApiListWorkspacesRequest) (*WorkspacesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -773,7 +658,7 @@ func (a *WorkspacesAPIService) ListWorkspacesApiV1WorkspacesGetExecute(r ApiList
 		localVarReturnValue  *WorkspacesListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.ListWorkspacesApiV1WorkspacesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.ListWorkspaces")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -857,33 +742,27 @@ func (a *WorkspacesAPIService) ListWorkspacesApiV1WorkspacesGetExecute(r ApiList
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest struct {
+type ApiRemoveWorkspaceMemberRequest struct {
 	ctx context.Context
 	ApiService *WorkspacesAPIService
 	workspaceId string
 	memberId string
-	workspaceMemberPatchRequest *WorkspaceMemberPatchRequest
 }
 
-func (r ApiPatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest) WorkspaceMemberPatchRequest(workspaceMemberPatchRequest WorkspaceMemberPatchRequest) ApiPatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest {
-	r.workspaceMemberPatchRequest = &workspaceMemberPatchRequest
-	return r
-}
-
-func (r ApiPatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest) Execute() (*WorkspaceMemberOut, *http.Response, error) {
-	return r.ApiService.PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchExecute(r)
+func (r ApiRemoveWorkspaceMemberRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
+	return r.ApiService.RemoveWorkspaceMemberExecute(r)
 }
 
 /*
-PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch Patch Member
+RemoveWorkspaceMember Remove Workspace Member
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId
  @param memberId
- @return ApiPatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest
+ @return ApiRemoveWorkspaceMemberRequest
 */
-func (a *WorkspacesAPIService) PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch(ctx context.Context, workspaceId string, memberId string) ApiPatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest {
-	return ApiPatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest{
+func (a *WorkspacesAPIService) RemoveWorkspaceMember(ctx context.Context, workspaceId string, memberId string) ApiRemoveWorkspaceMemberRequest {
+	return ApiRemoveWorkspaceMemberRequest{
 		ApiService: a,
 		ctx: ctx,
 		workspaceId: workspaceId,
@@ -892,16 +771,16 @@ func (a *WorkspacesAPIService) PatchMemberApiV1WorkspacesWorkspaceIdMembersMembe
 }
 
 // Execute executes the request
-//  @return WorkspaceMemberOut
-func (a *WorkspacesAPIService) PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchExecute(r ApiPatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest) (*WorkspaceMemberOut, *http.Response, error) {
+//  @return SimpleBoolResponse
+func (a *WorkspacesAPIService) RemoveWorkspaceMemberExecute(r ApiRemoveWorkspaceMemberRequest) (*SimpleBoolResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
+		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WorkspaceMemberOut
+		localVarReturnValue  *SimpleBoolResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.RemoveWorkspaceMember")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -913,12 +792,9 @@ func (a *WorkspacesAPIService) PatchMemberApiV1WorkspacesWorkspaceIdMembersMembe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.workspaceMemberPatchRequest == nil {
-		return localVarReturnValue, nil, reportError("workspaceMemberPatchRequest is required and must be specified")
-	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -934,8 +810,6 @@ func (a *WorkspacesAPIService) PatchMemberApiV1WorkspacesWorkspaceIdMembersMembe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.workspaceMemberPatchRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -983,7 +857,7 @@ func (a *WorkspacesAPIService) PatchMemberApiV1WorkspacesWorkspaceIdMembersMembe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest struct {
+type ApiUpdateWorkspaceRequest struct {
 	ctx context.Context
 	ApiService *WorkspacesAPIService
 	workspaceId string
@@ -991,29 +865,29 @@ type ApiPatchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest struct {
 	idempotencyKey *string
 }
 
-func (r ApiPatchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest) WorkspacePatchRequest(workspacePatchRequest WorkspacePatchRequest) ApiPatchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest {
+func (r ApiUpdateWorkspaceRequest) WorkspacePatchRequest(workspacePatchRequest WorkspacePatchRequest) ApiUpdateWorkspaceRequest {
 	r.workspacePatchRequest = &workspacePatchRequest
 	return r
 }
 
-func (r ApiPatchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest) IdempotencyKey(idempotencyKey string) ApiPatchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest {
+func (r ApiUpdateWorkspaceRequest) IdempotencyKey(idempotencyKey string) ApiUpdateWorkspaceRequest {
 	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
-func (r ApiPatchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest) Execute() (*WorkspaceResponse, *http.Response, error) {
-	return r.ApiService.PatchWorkspaceApiV1WorkspacesWorkspaceIdPatchExecute(r)
+func (r ApiUpdateWorkspaceRequest) Execute() (*WorkspaceResponse, *http.Response, error) {
+	return r.ApiService.UpdateWorkspaceExecute(r)
 }
 
 /*
-PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch Patch Workspace
+UpdateWorkspace Update Workspace
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId
- @return ApiPatchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest
+ @return ApiUpdateWorkspaceRequest
 */
-func (a *WorkspacesAPIService) PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch(ctx context.Context, workspaceId string) ApiPatchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest {
-	return ApiPatchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest{
+func (a *WorkspacesAPIService) UpdateWorkspace(ctx context.Context, workspaceId string) ApiUpdateWorkspaceRequest {
+	return ApiUpdateWorkspaceRequest{
 		ApiService: a,
 		ctx: ctx,
 		workspaceId: workspaceId,
@@ -1022,7 +896,7 @@ func (a *WorkspacesAPIService) PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch(ctx
 
 // Execute executes the request
 //  @return WorkspaceResponse
-func (a *WorkspacesAPIService) PatchWorkspaceApiV1WorkspacesWorkspaceIdPatchExecute(r ApiPatchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest) (*WorkspaceResponse, *http.Response, error) {
+func (a *WorkspacesAPIService) UpdateWorkspaceExecute(r ApiUpdateWorkspaceRequest) (*WorkspaceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -1030,7 +904,7 @@ func (a *WorkspacesAPIService) PatchWorkspaceApiV1WorkspacesWorkspaceIdPatchExec
 		localVarReturnValue  *WorkspaceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.UpdateWorkspace")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1067,6 +941,132 @@ func (a *WorkspacesAPIService) PatchWorkspaceApiV1WorkspacesWorkspaceIdPatchExec
 	}
 	// body params
 	localVarPostBody = r.workspacePatchRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateWorkspaceMemberRequest struct {
+	ctx context.Context
+	ApiService *WorkspacesAPIService
+	workspaceId string
+	memberId string
+	workspaceMemberPatchRequest *WorkspaceMemberPatchRequest
+}
+
+func (r ApiUpdateWorkspaceMemberRequest) WorkspaceMemberPatchRequest(workspaceMemberPatchRequest WorkspaceMemberPatchRequest) ApiUpdateWorkspaceMemberRequest {
+	r.workspaceMemberPatchRequest = &workspaceMemberPatchRequest
+	return r
+}
+
+func (r ApiUpdateWorkspaceMemberRequest) Execute() (*WorkspaceMemberOut, *http.Response, error) {
+	return r.ApiService.UpdateWorkspaceMemberExecute(r)
+}
+
+/*
+UpdateWorkspaceMember Update Workspace Member
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param workspaceId
+ @param memberId
+ @return ApiUpdateWorkspaceMemberRequest
+*/
+func (a *WorkspacesAPIService) UpdateWorkspaceMember(ctx context.Context, workspaceId string, memberId string) ApiUpdateWorkspaceMemberRequest {
+	return ApiUpdateWorkspaceMemberRequest{
+		ApiService: a,
+		ctx: ctx,
+		workspaceId: workspaceId,
+		memberId: memberId,
+	}
+}
+
+// Execute executes the request
+//  @return WorkspaceMemberOut
+func (a *WorkspacesAPIService) UpdateWorkspaceMemberExecute(r ApiUpdateWorkspaceMemberRequest) (*WorkspaceMemberOut, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WorkspaceMemberOut
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspacesAPIService.UpdateWorkspaceMember")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/workspaces/{workspace_id}/members/{member_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"workspace_id"+"}", url.PathEscape(parameterValueToString(r.workspaceId, "workspaceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"member_id"+"}", url.PathEscape(parameterValueToString(r.memberId, "memberId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.workspaceMemberPatchRequest == nil {
+		return localVarReturnValue, nil, reportError("workspaceMemberPatchRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.workspaceMemberPatchRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

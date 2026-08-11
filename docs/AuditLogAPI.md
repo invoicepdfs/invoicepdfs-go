@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAuditEventApiV1AuditEventsAuditEventIdGet**](AuditLogAPI.md#GetAuditEventApiV1AuditEventsAuditEventIdGet) | **Get** /api/v1/audit-events/{audit_event_id} | Get Audit Event
-[**ListAuditEventsApiV1AuditEventsGet**](AuditLogAPI.md#ListAuditEventsApiV1AuditEventsGet) | **Get** /api/v1/audit-events | List Audit Events
+[**GetAuditEvent**](AuditLogAPI.md#GetAuditEvent) | **Get** /api/v1/audit-events/{audit_event_id} | Get Audit Event
+[**ListAuditEvents**](AuditLogAPI.md#ListAuditEvents) | **Get** /api/v1/audit-events | List Audit Events
 
 
 
-## GetAuditEventApiV1AuditEventsAuditEventIdGet
+## GetAuditEvent
 
-> AuditEventResponse GetAuditEventApiV1AuditEventsAuditEventIdGet(ctx, auditEventId).Execute()
+> AuditEventResponse GetAuditEvent(ctx, auditEventId).Execute()
 
 Get Audit Event
 
@@ -32,13 +32,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AuditLogAPI.GetAuditEventApiV1AuditEventsAuditEventIdGet(context.Background(), auditEventId).Execute()
+	resp, r, err := apiClient.AuditLogAPI.GetAuditEvent(context.Background(), auditEventId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AuditLogAPI.GetAuditEventApiV1AuditEventsAuditEventIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AuditLogAPI.GetAuditEvent``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAuditEventApiV1AuditEventsAuditEventIdGet`: AuditEventResponse
-	fmt.Fprintf(os.Stdout, "Response from `AuditLogAPI.GetAuditEventApiV1AuditEventsAuditEventIdGet`: %v\n", resp)
+	// response from `GetAuditEvent`: AuditEventResponse
+	fmt.Fprintf(os.Stdout, "Response from `AuditLogAPI.GetAuditEvent`: %v\n", resp)
 }
 ```
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetAuditEventApiV1AuditEventsAuditEventIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetAuditEventRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -77,9 +77,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListAuditEventsApiV1AuditEventsGet
+## ListAuditEvents
 
-> AuditEventsListResponse ListAuditEventsApiV1AuditEventsGet(ctx).Limit(limit).Cursor(cursor).Action(action).ResourceType(resourceType).ResourceId(resourceId).Execute()
+> AuditEventsListResponse ListAuditEvents(ctx).Limit(limit).Cursor(cursor).Action(action).ResourceType(resourceType).ResourceId(resourceId).Execute()
 
 List Audit Events
 
@@ -104,13 +104,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AuditLogAPI.ListAuditEventsApiV1AuditEventsGet(context.Background()).Limit(limit).Cursor(cursor).Action(action).ResourceType(resourceType).ResourceId(resourceId).Execute()
+	resp, r, err := apiClient.AuditLogAPI.ListAuditEvents(context.Background()).Limit(limit).Cursor(cursor).Action(action).ResourceType(resourceType).ResourceId(resourceId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AuditLogAPI.ListAuditEventsApiV1AuditEventsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AuditLogAPI.ListAuditEvents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListAuditEventsApiV1AuditEventsGet`: AuditEventsListResponse
-	fmt.Fprintf(os.Stdout, "Response from `AuditLogAPI.ListAuditEventsApiV1AuditEventsGet`: %v\n", resp)
+	// response from `ListAuditEvents`: AuditEventsListResponse
+	fmt.Fprintf(os.Stdout, "Response from `AuditLogAPI.ListAuditEvents`: %v\n", resp)
 }
 ```
 
@@ -120,7 +120,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListAuditEventsApiV1AuditEventsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListAuditEventsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

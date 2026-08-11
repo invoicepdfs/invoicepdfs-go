@@ -23,29 +23,29 @@ import (
 // TaxRatesAPIService TaxRatesAPI service
 type TaxRatesAPIService service
 
-type ApiCreateTaxRateApiV1TaxRatesPostRequest struct {
+type ApiCreateTaxRateRequest struct {
 	ctx context.Context
 	ApiService *TaxRatesAPIService
 	taxRateCreateRequest *TaxRateCreateRequest
 }
 
-func (r ApiCreateTaxRateApiV1TaxRatesPostRequest) TaxRateCreateRequest(taxRateCreateRequest TaxRateCreateRequest) ApiCreateTaxRateApiV1TaxRatesPostRequest {
+func (r ApiCreateTaxRateRequest) TaxRateCreateRequest(taxRateCreateRequest TaxRateCreateRequest) ApiCreateTaxRateRequest {
 	r.taxRateCreateRequest = &taxRateCreateRequest
 	return r
 }
 
-func (r ApiCreateTaxRateApiV1TaxRatesPostRequest) Execute() (*TaxRateResponse, *http.Response, error) {
-	return r.ApiService.CreateTaxRateApiV1TaxRatesPostExecute(r)
+func (r ApiCreateTaxRateRequest) Execute() (*TaxRateResponse, *http.Response, error) {
+	return r.ApiService.CreateTaxRateExecute(r)
 }
 
 /*
-CreateTaxRateApiV1TaxRatesPost Create Tax Rate
+CreateTaxRate Create Tax Rate
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateTaxRateApiV1TaxRatesPostRequest
+ @return ApiCreateTaxRateRequest
 */
-func (a *TaxRatesAPIService) CreateTaxRateApiV1TaxRatesPost(ctx context.Context) ApiCreateTaxRateApiV1TaxRatesPostRequest {
-	return ApiCreateTaxRateApiV1TaxRatesPostRequest{
+func (a *TaxRatesAPIService) CreateTaxRate(ctx context.Context) ApiCreateTaxRateRequest {
+	return ApiCreateTaxRateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -53,7 +53,7 @@ func (a *TaxRatesAPIService) CreateTaxRateApiV1TaxRatesPost(ctx context.Context)
 
 // Execute executes the request
 //  @return TaxRateResponse
-func (a *TaxRatesAPIService) CreateTaxRateApiV1TaxRatesPostExecute(r ApiCreateTaxRateApiV1TaxRatesPostRequest) (*TaxRateResponse, *http.Response, error) {
+func (a *TaxRatesAPIService) CreateTaxRateExecute(r ApiCreateTaxRateRequest) (*TaxRateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -61,7 +61,7 @@ func (a *TaxRatesAPIService) CreateTaxRateApiV1TaxRatesPostExecute(r ApiCreateTa
 		localVarReturnValue  *TaxRateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaxRatesAPIService.CreateTaxRateApiV1TaxRatesPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaxRatesAPIService.CreateTaxRate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,25 +141,25 @@ func (a *TaxRatesAPIService) CreateTaxRateApiV1TaxRatesPostExecute(r ApiCreateTa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteTaxRateApiV1TaxRatesTaxRateIdDeleteRequest struct {
+type ApiDeleteTaxRateRequest struct {
 	ctx context.Context
 	ApiService *TaxRatesAPIService
 	taxRateId string
 }
 
-func (r ApiDeleteTaxRateApiV1TaxRatesTaxRateIdDeleteRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
-	return r.ApiService.DeleteTaxRateApiV1TaxRatesTaxRateIdDeleteExecute(r)
+func (r ApiDeleteTaxRateRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
+	return r.ApiService.DeleteTaxRateExecute(r)
 }
 
 /*
-DeleteTaxRateApiV1TaxRatesTaxRateIdDelete Delete Tax Rate
+DeleteTaxRate Delete Tax Rate
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taxRateId
- @return ApiDeleteTaxRateApiV1TaxRatesTaxRateIdDeleteRequest
+ @return ApiDeleteTaxRateRequest
 */
-func (a *TaxRatesAPIService) DeleteTaxRateApiV1TaxRatesTaxRateIdDelete(ctx context.Context, taxRateId string) ApiDeleteTaxRateApiV1TaxRatesTaxRateIdDeleteRequest {
-	return ApiDeleteTaxRateApiV1TaxRatesTaxRateIdDeleteRequest{
+func (a *TaxRatesAPIService) DeleteTaxRate(ctx context.Context, taxRateId string) ApiDeleteTaxRateRequest {
+	return ApiDeleteTaxRateRequest{
 		ApiService: a,
 		ctx: ctx,
 		taxRateId: taxRateId,
@@ -168,7 +168,7 @@ func (a *TaxRatesAPIService) DeleteTaxRateApiV1TaxRatesTaxRateIdDelete(ctx conte
 
 // Execute executes the request
 //  @return SimpleBoolResponse
-func (a *TaxRatesAPIService) DeleteTaxRateApiV1TaxRatesTaxRateIdDeleteExecute(r ApiDeleteTaxRateApiV1TaxRatesTaxRateIdDeleteRequest) (*SimpleBoolResponse, *http.Response, error) {
+func (a *TaxRatesAPIService) DeleteTaxRateExecute(r ApiDeleteTaxRateRequest) (*SimpleBoolResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -176,7 +176,7 @@ func (a *TaxRatesAPIService) DeleteTaxRateApiV1TaxRatesTaxRateIdDeleteExecute(r 
 		localVarReturnValue  *SimpleBoolResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaxRatesAPIService.DeleteTaxRateApiV1TaxRatesTaxRateIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaxRatesAPIService.DeleteTaxRate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -252,25 +252,25 @@ func (a *TaxRatesAPIService) DeleteTaxRateApiV1TaxRatesTaxRateIdDeleteExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTaxRateApiV1TaxRatesTaxRateIdGetRequest struct {
+type ApiGetTaxRateRequest struct {
 	ctx context.Context
 	ApiService *TaxRatesAPIService
 	taxRateId string
 }
 
-func (r ApiGetTaxRateApiV1TaxRatesTaxRateIdGetRequest) Execute() (*TaxRateResponse, *http.Response, error) {
-	return r.ApiService.GetTaxRateApiV1TaxRatesTaxRateIdGetExecute(r)
+func (r ApiGetTaxRateRequest) Execute() (*TaxRateResponse, *http.Response, error) {
+	return r.ApiService.GetTaxRateExecute(r)
 }
 
 /*
-GetTaxRateApiV1TaxRatesTaxRateIdGet Get Tax Rate
+GetTaxRate Get Tax Rate
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taxRateId
- @return ApiGetTaxRateApiV1TaxRatesTaxRateIdGetRequest
+ @return ApiGetTaxRateRequest
 */
-func (a *TaxRatesAPIService) GetTaxRateApiV1TaxRatesTaxRateIdGet(ctx context.Context, taxRateId string) ApiGetTaxRateApiV1TaxRatesTaxRateIdGetRequest {
-	return ApiGetTaxRateApiV1TaxRatesTaxRateIdGetRequest{
+func (a *TaxRatesAPIService) GetTaxRate(ctx context.Context, taxRateId string) ApiGetTaxRateRequest {
+	return ApiGetTaxRateRequest{
 		ApiService: a,
 		ctx: ctx,
 		taxRateId: taxRateId,
@@ -279,7 +279,7 @@ func (a *TaxRatesAPIService) GetTaxRateApiV1TaxRatesTaxRateIdGet(ctx context.Con
 
 // Execute executes the request
 //  @return TaxRateResponse
-func (a *TaxRatesAPIService) GetTaxRateApiV1TaxRatesTaxRateIdGetExecute(r ApiGetTaxRateApiV1TaxRatesTaxRateIdGetRequest) (*TaxRateResponse, *http.Response, error) {
+func (a *TaxRatesAPIService) GetTaxRateExecute(r ApiGetTaxRateRequest) (*TaxRateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -287,7 +287,7 @@ func (a *TaxRatesAPIService) GetTaxRateApiV1TaxRatesTaxRateIdGetExecute(r ApiGet
 		localVarReturnValue  *TaxRateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaxRatesAPIService.GetTaxRateApiV1TaxRatesTaxRateIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaxRatesAPIService.GetTaxRate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -363,35 +363,35 @@ func (a *TaxRatesAPIService) GetTaxRateApiV1TaxRatesTaxRateIdGetExecute(r ApiGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListTaxRatesApiV1TaxRatesGetRequest struct {
+type ApiListTaxRatesRequest struct {
 	ctx context.Context
 	ApiService *TaxRatesAPIService
 	limit *int32
 	cursor *string
 }
 
-func (r ApiListTaxRatesApiV1TaxRatesGetRequest) Limit(limit int32) ApiListTaxRatesApiV1TaxRatesGetRequest {
+func (r ApiListTaxRatesRequest) Limit(limit int32) ApiListTaxRatesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListTaxRatesApiV1TaxRatesGetRequest) Cursor(cursor string) ApiListTaxRatesApiV1TaxRatesGetRequest {
+func (r ApiListTaxRatesRequest) Cursor(cursor string) ApiListTaxRatesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListTaxRatesApiV1TaxRatesGetRequest) Execute() (*TaxRatesListResponse, *http.Response, error) {
-	return r.ApiService.ListTaxRatesApiV1TaxRatesGetExecute(r)
+func (r ApiListTaxRatesRequest) Execute() (*TaxRatesListResponse, *http.Response, error) {
+	return r.ApiService.ListTaxRatesExecute(r)
 }
 
 /*
-ListTaxRatesApiV1TaxRatesGet List Tax Rates
+ListTaxRates List Tax Rates
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListTaxRatesApiV1TaxRatesGetRequest
+ @return ApiListTaxRatesRequest
 */
-func (a *TaxRatesAPIService) ListTaxRatesApiV1TaxRatesGet(ctx context.Context) ApiListTaxRatesApiV1TaxRatesGetRequest {
-	return ApiListTaxRatesApiV1TaxRatesGetRequest{
+func (a *TaxRatesAPIService) ListTaxRates(ctx context.Context) ApiListTaxRatesRequest {
+	return ApiListTaxRatesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -399,7 +399,7 @@ func (a *TaxRatesAPIService) ListTaxRatesApiV1TaxRatesGet(ctx context.Context) A
 
 // Execute executes the request
 //  @return TaxRatesListResponse
-func (a *TaxRatesAPIService) ListTaxRatesApiV1TaxRatesGetExecute(r ApiListTaxRatesApiV1TaxRatesGetRequest) (*TaxRatesListResponse, *http.Response, error) {
+func (a *TaxRatesAPIService) ListTaxRatesExecute(r ApiListTaxRatesRequest) (*TaxRatesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -407,7 +407,7 @@ func (a *TaxRatesAPIService) ListTaxRatesApiV1TaxRatesGetExecute(r ApiListTaxRat
 		localVarReturnValue  *TaxRatesListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaxRatesAPIService.ListTaxRatesApiV1TaxRatesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaxRatesAPIService.ListTaxRates")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -491,31 +491,31 @@ func (a *TaxRatesAPIService) ListTaxRatesApiV1TaxRatesGetExecute(r ApiListTaxRat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateTaxRateApiV1TaxRatesTaxRateIdPatchRequest struct {
+type ApiUpdateTaxRateRequest struct {
 	ctx context.Context
 	ApiService *TaxRatesAPIService
 	taxRateId string
 	taxRatePatchRequest *TaxRatePatchRequest
 }
 
-func (r ApiUpdateTaxRateApiV1TaxRatesTaxRateIdPatchRequest) TaxRatePatchRequest(taxRatePatchRequest TaxRatePatchRequest) ApiUpdateTaxRateApiV1TaxRatesTaxRateIdPatchRequest {
+func (r ApiUpdateTaxRateRequest) TaxRatePatchRequest(taxRatePatchRequest TaxRatePatchRequest) ApiUpdateTaxRateRequest {
 	r.taxRatePatchRequest = &taxRatePatchRequest
 	return r
 }
 
-func (r ApiUpdateTaxRateApiV1TaxRatesTaxRateIdPatchRequest) Execute() (*TaxRateResponse, *http.Response, error) {
-	return r.ApiService.UpdateTaxRateApiV1TaxRatesTaxRateIdPatchExecute(r)
+func (r ApiUpdateTaxRateRequest) Execute() (*TaxRateResponse, *http.Response, error) {
+	return r.ApiService.UpdateTaxRateExecute(r)
 }
 
 /*
-UpdateTaxRateApiV1TaxRatesTaxRateIdPatch Update Tax Rate
+UpdateTaxRate Update Tax Rate
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taxRateId
- @return ApiUpdateTaxRateApiV1TaxRatesTaxRateIdPatchRequest
+ @return ApiUpdateTaxRateRequest
 */
-func (a *TaxRatesAPIService) UpdateTaxRateApiV1TaxRatesTaxRateIdPatch(ctx context.Context, taxRateId string) ApiUpdateTaxRateApiV1TaxRatesTaxRateIdPatchRequest {
-	return ApiUpdateTaxRateApiV1TaxRatesTaxRateIdPatchRequest{
+func (a *TaxRatesAPIService) UpdateTaxRate(ctx context.Context, taxRateId string) ApiUpdateTaxRateRequest {
+	return ApiUpdateTaxRateRequest{
 		ApiService: a,
 		ctx: ctx,
 		taxRateId: taxRateId,
@@ -524,7 +524,7 @@ func (a *TaxRatesAPIService) UpdateTaxRateApiV1TaxRatesTaxRateIdPatch(ctx contex
 
 // Execute executes the request
 //  @return TaxRateResponse
-func (a *TaxRatesAPIService) UpdateTaxRateApiV1TaxRatesTaxRateIdPatchExecute(r ApiUpdateTaxRateApiV1TaxRatesTaxRateIdPatchRequest) (*TaxRateResponse, *http.Response, error) {
+func (a *TaxRatesAPIService) UpdateTaxRateExecute(r ApiUpdateTaxRateRequest) (*TaxRateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -532,7 +532,7 @@ func (a *TaxRatesAPIService) UpdateTaxRateApiV1TaxRatesTaxRateIdPatchExecute(r A
 		localVarReturnValue  *TaxRateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaxRatesAPIService.UpdateTaxRateApiV1TaxRatesTaxRateIdPatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaxRatesAPIService.UpdateTaxRate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

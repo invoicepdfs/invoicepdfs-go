@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost**](TemplateVersionsAPI.md#CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost) | **Post** /api/v1/templates/{template_id}/versions | Create Template Version
-[**GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet**](TemplateVersionsAPI.md#GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet) | **Get** /api/v1/templates/{template_id}/versions/{version} | Get Template Version
-[**ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet**](TemplateVersionsAPI.md#ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet) | **Get** /api/v1/templates/{template_id}/versions | List Template Versions
+[**CreateTemplateVersion**](TemplateVersionsAPI.md#CreateTemplateVersion) | **Post** /api/v1/templates/{template_id}/versions | Create Template Version
+[**GetTemplateVersion**](TemplateVersionsAPI.md#GetTemplateVersion) | **Get** /api/v1/templates/{template_id}/versions/{version} | Get Template Version
+[**ListTemplateVersions**](TemplateVersionsAPI.md#ListTemplateVersions) | **Get** /api/v1/templates/{template_id}/versions | List Template Versions
 
 
 
-## CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost
+## CreateTemplateVersion
 
-> TemplateVersionResponse CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost(ctx, templateId).TemplateVersionCreateRequest(templateVersionCreateRequest).Execute()
+> TemplateVersionResponse CreateTemplateVersion(ctx, templateId).TemplateVersionCreateRequest(templateVersionCreateRequest).Execute()
 
 Create Template Version
 
@@ -34,13 +34,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TemplateVersionsAPI.CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost(context.Background(), templateId).TemplateVersionCreateRequest(templateVersionCreateRequest).Execute()
+	resp, r, err := apiClient.TemplateVersionsAPI.CreateTemplateVersion(context.Background(), templateId).TemplateVersionCreateRequest(templateVersionCreateRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TemplateVersionsAPI.CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TemplateVersionsAPI.CreateTemplateVersion``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost`: TemplateVersionResponse
-	fmt.Fprintf(os.Stdout, "Response from `TemplateVersionsAPI.CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost`: %v\n", resp)
+	// response from `CreateTemplateVersion`: TemplateVersionResponse
+	fmt.Fprintf(os.Stdout, "Response from `TemplateVersionsAPI.CreateTemplateVersion`: %v\n", resp)
 }
 ```
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateTemplateVersionApiV1TemplatesTemplateIdVersionsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateTemplateVersionRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -80,9 +80,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet
+## GetTemplateVersion
 
-> TemplateVersionResponse GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet(ctx, templateId, version).Execute()
+> TemplateVersionResponse GetTemplateVersion(ctx, templateId, version).Execute()
 
 Get Template Version
 
@@ -104,13 +104,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TemplateVersionsAPI.GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet(context.Background(), templateId, version).Execute()
+	resp, r, err := apiClient.TemplateVersionsAPI.GetTemplateVersion(context.Background(), templateId, version).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TemplateVersionsAPI.GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TemplateVersionsAPI.GetTemplateVersion``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet`: TemplateVersionResponse
-	fmt.Fprintf(os.Stdout, "Response from `TemplateVersionsAPI.GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet`: %v\n", resp)
+	// response from `GetTemplateVersion`: TemplateVersionResponse
+	fmt.Fprintf(os.Stdout, "Response from `TemplateVersionsAPI.GetTemplateVersion`: %v\n", resp)
 }
 ```
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTemplateVersionRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -151,9 +151,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet
+## ListTemplateVersions
 
-> TemplateVersionsListResponse ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet(ctx, templateId).Execute()
+> TemplateVersionsListResponse ListTemplateVersions(ctx, templateId).Execute()
 
 List Template Versions
 
@@ -174,13 +174,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TemplateVersionsAPI.ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet(context.Background(), templateId).Execute()
+	resp, r, err := apiClient.TemplateVersionsAPI.ListTemplateVersions(context.Background(), templateId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TemplateVersionsAPI.ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TemplateVersionsAPI.ListTemplateVersions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet`: TemplateVersionsListResponse
-	fmt.Fprintf(os.Stdout, "Response from `TemplateVersionsAPI.ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet`: %v\n", resp)
+	// response from `ListTemplateVersions`: TemplateVersionsListResponse
+	fmt.Fprintf(os.Stdout, "Response from `TemplateVersionsAPI.ListTemplateVersions`: %v\n", resp)
 }
 ```
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListTemplateVersionsApiV1TemplatesTemplateIdVersionsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListTemplateVersionsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

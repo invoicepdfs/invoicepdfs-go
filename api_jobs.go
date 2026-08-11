@@ -23,25 +23,25 @@ import (
 // JobsAPIService JobsAPI service
 type JobsAPIService service
 
-type ApiCancelJobApiV1JobsJobIdCancelPostRequest struct {
+type ApiCancelJobRequest struct {
 	ctx context.Context
 	ApiService *JobsAPIService
 	jobId string
 }
 
-func (r ApiCancelJobApiV1JobsJobIdCancelPostRequest) Execute() (*JobResponse, *http.Response, error) {
-	return r.ApiService.CancelJobApiV1JobsJobIdCancelPostExecute(r)
+func (r ApiCancelJobRequest) Execute() (*JobResponse, *http.Response, error) {
+	return r.ApiService.CancelJobExecute(r)
 }
 
 /*
-CancelJobApiV1JobsJobIdCancelPost Cancel Job
+CancelJob Cancel Job
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param jobId
- @return ApiCancelJobApiV1JobsJobIdCancelPostRequest
+ @return ApiCancelJobRequest
 */
-func (a *JobsAPIService) CancelJobApiV1JobsJobIdCancelPost(ctx context.Context, jobId string) ApiCancelJobApiV1JobsJobIdCancelPostRequest {
-	return ApiCancelJobApiV1JobsJobIdCancelPostRequest{
+func (a *JobsAPIService) CancelJob(ctx context.Context, jobId string) ApiCancelJobRequest {
+	return ApiCancelJobRequest{
 		ApiService: a,
 		ctx: ctx,
 		jobId: jobId,
@@ -50,7 +50,7 @@ func (a *JobsAPIService) CancelJobApiV1JobsJobIdCancelPost(ctx context.Context, 
 
 // Execute executes the request
 //  @return JobResponse
-func (a *JobsAPIService) CancelJobApiV1JobsJobIdCancelPostExecute(r ApiCancelJobApiV1JobsJobIdCancelPostRequest) (*JobResponse, *http.Response, error) {
+func (a *JobsAPIService) CancelJobExecute(r ApiCancelJobRequest) (*JobResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -58,7 +58,7 @@ func (a *JobsAPIService) CancelJobApiV1JobsJobIdCancelPostExecute(r ApiCancelJob
 		localVarReturnValue  *JobResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JobsAPIService.CancelJobApiV1JobsJobIdCancelPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JobsAPIService.CancelJob")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,25 +134,25 @@ func (a *JobsAPIService) CancelJobApiV1JobsJobIdCancelPostExecute(r ApiCancelJob
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetJobApiV1JobsJobIdGetRequest struct {
+type ApiGetJobRequest struct {
 	ctx context.Context
 	ApiService *JobsAPIService
 	jobId string
 }
 
-func (r ApiGetJobApiV1JobsJobIdGetRequest) Execute() (*JobResponse, *http.Response, error) {
-	return r.ApiService.GetJobApiV1JobsJobIdGetExecute(r)
+func (r ApiGetJobRequest) Execute() (*JobResponse, *http.Response, error) {
+	return r.ApiService.GetJobExecute(r)
 }
 
 /*
-GetJobApiV1JobsJobIdGet Get Job
+GetJob Get Job
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param jobId
- @return ApiGetJobApiV1JobsJobIdGetRequest
+ @return ApiGetJobRequest
 */
-func (a *JobsAPIService) GetJobApiV1JobsJobIdGet(ctx context.Context, jobId string) ApiGetJobApiV1JobsJobIdGetRequest {
-	return ApiGetJobApiV1JobsJobIdGetRequest{
+func (a *JobsAPIService) GetJob(ctx context.Context, jobId string) ApiGetJobRequest {
+	return ApiGetJobRequest{
 		ApiService: a,
 		ctx: ctx,
 		jobId: jobId,
@@ -161,7 +161,7 @@ func (a *JobsAPIService) GetJobApiV1JobsJobIdGet(ctx context.Context, jobId stri
 
 // Execute executes the request
 //  @return JobResponse
-func (a *JobsAPIService) GetJobApiV1JobsJobIdGetExecute(r ApiGetJobApiV1JobsJobIdGetRequest) (*JobResponse, *http.Response, error) {
+func (a *JobsAPIService) GetJobExecute(r ApiGetJobRequest) (*JobResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -169,7 +169,7 @@ func (a *JobsAPIService) GetJobApiV1JobsJobIdGetExecute(r ApiGetJobApiV1JobsJobI
 		localVarReturnValue  *JobResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JobsAPIService.GetJobApiV1JobsJobIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JobsAPIService.GetJob")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -245,25 +245,25 @@ func (a *JobsAPIService) GetJobApiV1JobsJobIdGetExecute(r ApiGetJobApiV1JobsJobI
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiRetryJobApiV1JobsJobIdRetryPostRequest struct {
+type ApiRetryJobRequest struct {
 	ctx context.Context
 	ApiService *JobsAPIService
 	jobId string
 }
 
-func (r ApiRetryJobApiV1JobsJobIdRetryPostRequest) Execute() (*JobResponse, *http.Response, error) {
-	return r.ApiService.RetryJobApiV1JobsJobIdRetryPostExecute(r)
+func (r ApiRetryJobRequest) Execute() (*JobResponse, *http.Response, error) {
+	return r.ApiService.RetryJobExecute(r)
 }
 
 /*
-RetryJobApiV1JobsJobIdRetryPost Retry Job
+RetryJob Retry Job
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param jobId
- @return ApiRetryJobApiV1JobsJobIdRetryPostRequest
+ @return ApiRetryJobRequest
 */
-func (a *JobsAPIService) RetryJobApiV1JobsJobIdRetryPost(ctx context.Context, jobId string) ApiRetryJobApiV1JobsJobIdRetryPostRequest {
-	return ApiRetryJobApiV1JobsJobIdRetryPostRequest{
+func (a *JobsAPIService) RetryJob(ctx context.Context, jobId string) ApiRetryJobRequest {
+	return ApiRetryJobRequest{
 		ApiService: a,
 		ctx: ctx,
 		jobId: jobId,
@@ -272,7 +272,7 @@ func (a *JobsAPIService) RetryJobApiV1JobsJobIdRetryPost(ctx context.Context, jo
 
 // Execute executes the request
 //  @return JobResponse
-func (a *JobsAPIService) RetryJobApiV1JobsJobIdRetryPostExecute(r ApiRetryJobApiV1JobsJobIdRetryPostRequest) (*JobResponse, *http.Response, error) {
+func (a *JobsAPIService) RetryJobExecute(r ApiRetryJobRequest) (*JobResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -280,7 +280,7 @@ func (a *JobsAPIService) RetryJobApiV1JobsJobIdRetryPostExecute(r ApiRetryJobApi
 		localVarReturnValue  *JobResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JobsAPIService.RetryJobApiV1JobsJobIdRetryPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JobsAPIService.RetryJob")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

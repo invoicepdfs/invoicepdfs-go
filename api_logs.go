@@ -22,35 +22,35 @@ import (
 // LogsAPIService LogsAPI service
 type LogsAPIService service
 
-type ApiListLogsApiV1LogsGetRequest struct {
+type ApiListLogsRequest struct {
 	ctx context.Context
 	ApiService *LogsAPIService
 	status *string
 	limit *int32
 }
 
-func (r ApiListLogsApiV1LogsGetRequest) Status(status string) ApiListLogsApiV1LogsGetRequest {
+func (r ApiListLogsRequest) Status(status string) ApiListLogsRequest {
 	r.status = &status
 	return r
 }
 
-func (r ApiListLogsApiV1LogsGetRequest) Limit(limit int32) ApiListLogsApiV1LogsGetRequest {
+func (r ApiListLogsRequest) Limit(limit int32) ApiListLogsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListLogsApiV1LogsGetRequest) Execute() (*ApiRequestLogsListResponse, *http.Response, error) {
-	return r.ApiService.ListLogsApiV1LogsGetExecute(r)
+func (r ApiListLogsRequest) Execute() (*ApiRequestLogsListResponse, *http.Response, error) {
+	return r.ApiService.ListLogsExecute(r)
 }
 
 /*
-ListLogsApiV1LogsGet List Logs
+ListLogs List Logs
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListLogsApiV1LogsGetRequest
+ @return ApiListLogsRequest
 */
-func (a *LogsAPIService) ListLogsApiV1LogsGet(ctx context.Context) ApiListLogsApiV1LogsGetRequest {
-	return ApiListLogsApiV1LogsGetRequest{
+func (a *LogsAPIService) ListLogs(ctx context.Context) ApiListLogsRequest {
+	return ApiListLogsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -58,7 +58,7 @@ func (a *LogsAPIService) ListLogsApiV1LogsGet(ctx context.Context) ApiListLogsAp
 
 // Execute executes the request
 //  @return ApiRequestLogsListResponse
-func (a *LogsAPIService) ListLogsApiV1LogsGetExecute(r ApiListLogsApiV1LogsGetRequest) (*ApiRequestLogsListResponse, *http.Response, error) {
+func (a *LogsAPIService) ListLogsExecute(r ApiListLogsRequest) (*ApiRequestLogsListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -66,7 +66,7 @@ func (a *LogsAPIService) ListLogsApiV1LogsGetExecute(r ApiListLogsApiV1LogsGetRe
 		localVarReturnValue  *ApiRequestLogsListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LogsAPIService.ListLogsApiV1LogsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LogsAPIService.ListLogs")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

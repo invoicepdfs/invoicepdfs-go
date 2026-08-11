@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ListCountriesApiV1ReferenceCountriesGet**](ReferenceAPI.md#ListCountriesApiV1ReferenceCountriesGet) | **Get** /api/v1/reference/countries | List Countries
-[**ListCurrenciesApiV1ReferenceCurrenciesGet**](ReferenceAPI.md#ListCurrenciesApiV1ReferenceCurrenciesGet) | **Get** /api/v1/reference/currencies | List Currencies
-[**ListDocumentTypesApiV1ReferenceDocumentTypesGet**](ReferenceAPI.md#ListDocumentTypesApiV1ReferenceDocumentTypesGet) | **Get** /api/v1/reference/document-types | List Document Types
-[**ListLocalesApiV1ReferenceLocalesGet**](ReferenceAPI.md#ListLocalesApiV1ReferenceLocalesGet) | **Get** /api/v1/reference/locales | List Locales
-[**ListPageSizesApiV1ReferencePageSizesGet**](ReferenceAPI.md#ListPageSizesApiV1ReferencePageSizesGet) | **Get** /api/v1/reference/page-sizes | List Page Sizes
-[**ListTimezonesApiV1ReferenceTimezonesGet**](ReferenceAPI.md#ListTimezonesApiV1ReferenceTimezonesGet) | **Get** /api/v1/reference/timezones | List Timezones
+[**ListCountries**](ReferenceAPI.md#ListCountries) | **Get** /api/v1/reference/countries | List Countries
+[**ListCurrencies**](ReferenceAPI.md#ListCurrencies) | **Get** /api/v1/reference/currencies | List Currencies
+[**ListDocumentTypes**](ReferenceAPI.md#ListDocumentTypes) | **Get** /api/v1/reference/document-types | List Document Types
+[**ListLocales**](ReferenceAPI.md#ListLocales) | **Get** /api/v1/reference/locales | List Locales
+[**ListPageSizes**](ReferenceAPI.md#ListPageSizes) | **Get** /api/v1/reference/page-sizes | List Page Sizes
+[**ListTimezones**](ReferenceAPI.md#ListTimezones) | **Get** /api/v1/reference/timezones | List Timezones
 
 
 
-## ListCountriesApiV1ReferenceCountriesGet
+## ListCountries
 
-> map[string]interface{} ListCountriesApiV1ReferenceCountriesGet(ctx).Execute()
+> map[string]interface{} ListCountries(ctx).Execute()
 
 List Countries
 
@@ -35,13 +35,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ReferenceAPI.ListCountriesApiV1ReferenceCountriesGet(context.Background()).Execute()
+	resp, r, err := apiClient.ReferenceAPI.ListCountries(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListCountriesApiV1ReferenceCountriesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListCountries``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListCountriesApiV1ReferenceCountriesGet`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListCountriesApiV1ReferenceCountriesGet`: %v\n", resp)
+	// response from `ListCountries`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListCountries`: %v\n", resp)
 }
 ```
 
@@ -51,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListCountriesApiV1ReferenceCountriesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListCountriesRequest struct via the builder pattern
 
 
 ### Return type
@@ -72,9 +72,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## ListCurrenciesApiV1ReferenceCurrenciesGet
+## ListCurrencies
 
-> map[string]interface{} ListCurrenciesApiV1ReferenceCurrenciesGet(ctx).Execute()
+> map[string]interface{} ListCurrencies(ctx).Execute()
 
 List Currencies
 
@@ -94,13 +94,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ReferenceAPI.ListCurrenciesApiV1ReferenceCurrenciesGet(context.Background()).Execute()
+	resp, r, err := apiClient.ReferenceAPI.ListCurrencies(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListCurrenciesApiV1ReferenceCurrenciesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListCurrencies``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListCurrenciesApiV1ReferenceCurrenciesGet`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListCurrenciesApiV1ReferenceCurrenciesGet`: %v\n", resp)
+	// response from `ListCurrencies`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListCurrencies`: %v\n", resp)
 }
 ```
 
@@ -110,7 +110,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListCurrenciesApiV1ReferenceCurrenciesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListCurrenciesRequest struct via the builder pattern
 
 
 ### Return type
@@ -131,9 +131,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## ListDocumentTypesApiV1ReferenceDocumentTypesGet
+## ListDocumentTypes
 
-> map[string]interface{} ListDocumentTypesApiV1ReferenceDocumentTypesGet(ctx).Execute()
+> map[string]interface{} ListDocumentTypes(ctx).Execute()
 
 List Document Types
 
@@ -155,13 +155,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ReferenceAPI.ListDocumentTypesApiV1ReferenceDocumentTypesGet(context.Background()).Execute()
+	resp, r, err := apiClient.ReferenceAPI.ListDocumentTypes(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListDocumentTypesApiV1ReferenceDocumentTypesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListDocumentTypes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListDocumentTypesApiV1ReferenceDocumentTypesGet`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListDocumentTypesApiV1ReferenceDocumentTypesGet`: %v\n", resp)
+	// response from `ListDocumentTypes`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListDocumentTypes`: %v\n", resp)
 }
 ```
 
@@ -171,7 +171,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListDocumentTypesApiV1ReferenceDocumentTypesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListDocumentTypesRequest struct via the builder pattern
 
 
 ### Return type
@@ -192,9 +192,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## ListLocalesApiV1ReferenceLocalesGet
+## ListLocales
 
-> map[string]interface{} ListLocalesApiV1ReferenceLocalesGet(ctx).Execute()
+> map[string]interface{} ListLocales(ctx).Execute()
 
 List Locales
 
@@ -214,13 +214,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ReferenceAPI.ListLocalesApiV1ReferenceLocalesGet(context.Background()).Execute()
+	resp, r, err := apiClient.ReferenceAPI.ListLocales(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListLocalesApiV1ReferenceLocalesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListLocales``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListLocalesApiV1ReferenceLocalesGet`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListLocalesApiV1ReferenceLocalesGet`: %v\n", resp)
+	// response from `ListLocales`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListLocales`: %v\n", resp)
 }
 ```
 
@@ -230,7 +230,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListLocalesApiV1ReferenceLocalesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListLocalesRequest struct via the builder pattern
 
 
 ### Return type
@@ -251,9 +251,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## ListPageSizesApiV1ReferencePageSizesGet
+## ListPageSizes
 
-> map[string]interface{} ListPageSizesApiV1ReferencePageSizesGet(ctx).Execute()
+> map[string]interface{} ListPageSizes(ctx).Execute()
 
 List Page Sizes
 
@@ -273,13 +273,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ReferenceAPI.ListPageSizesApiV1ReferencePageSizesGet(context.Background()).Execute()
+	resp, r, err := apiClient.ReferenceAPI.ListPageSizes(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListPageSizesApiV1ReferencePageSizesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListPageSizes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListPageSizesApiV1ReferencePageSizesGet`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListPageSizesApiV1ReferencePageSizesGet`: %v\n", resp)
+	// response from `ListPageSizes`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListPageSizes`: %v\n", resp)
 }
 ```
 
@@ -289,7 +289,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListPageSizesApiV1ReferencePageSizesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListPageSizesRequest struct via the builder pattern
 
 
 ### Return type
@@ -310,9 +310,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## ListTimezonesApiV1ReferenceTimezonesGet
+## ListTimezones
 
-> map[string]interface{} ListTimezonesApiV1ReferenceTimezonesGet(ctx).Execute()
+> map[string]interface{} ListTimezones(ctx).Execute()
 
 List Timezones
 
@@ -332,13 +332,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ReferenceAPI.ListTimezonesApiV1ReferenceTimezonesGet(context.Background()).Execute()
+	resp, r, err := apiClient.ReferenceAPI.ListTimezones(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListTimezonesApiV1ReferenceTimezonesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListTimezones``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListTimezonesApiV1ReferenceTimezonesGet`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListTimezonesApiV1ReferenceTimezonesGet`: %v\n", resp)
+	// response from `ListTimezones`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListTimezones`: %v\n", resp)
 }
 ```
 
@@ -348,7 +348,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListTimezonesApiV1ReferenceTimezonesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListTimezonesRequest struct via the builder pattern
 
 
 ### Return type

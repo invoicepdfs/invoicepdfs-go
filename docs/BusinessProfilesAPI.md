@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateBusinessProfileApiV1BusinessProfilesPost**](BusinessProfilesAPI.md#CreateBusinessProfileApiV1BusinessProfilesPost) | **Post** /api/v1/business-profiles | Create Business Profile
-[**DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete**](BusinessProfilesAPI.md#DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete) | **Delete** /api/v1/business-profiles/{business_profile_id} | Delete Business Profile
-[**GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet**](BusinessProfilesAPI.md#GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet) | **Get** /api/v1/business-profiles/{business_profile_id} | Get Business Profile
-[**ListBusinessProfilesApiV1BusinessProfilesGet**](BusinessProfilesAPI.md#ListBusinessProfilesApiV1BusinessProfilesGet) | **Get** /api/v1/business-profiles | List Business Profiles
-[**PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch**](BusinessProfilesAPI.md#PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch) | **Patch** /api/v1/business-profiles/{business_profile_id} | Patch Business Profile
+[**CreateBusinessProfile**](BusinessProfilesAPI.md#CreateBusinessProfile) | **Post** /api/v1/business-profiles | Create Business Profile
+[**DeleteBusinessProfile**](BusinessProfilesAPI.md#DeleteBusinessProfile) | **Delete** /api/v1/business-profiles/{business_profile_id} | Delete Business Profile
+[**GetBusinessProfile**](BusinessProfilesAPI.md#GetBusinessProfile) | **Get** /api/v1/business-profiles/{business_profile_id} | Get Business Profile
+[**ListBusinessProfiles**](BusinessProfilesAPI.md#ListBusinessProfiles) | **Get** /api/v1/business-profiles | List Business Profiles
+[**UpdateBusinessProfile**](BusinessProfilesAPI.md#UpdateBusinessProfile) | **Patch** /api/v1/business-profiles/{business_profile_id} | Update Business Profile
 
 
 
-## CreateBusinessProfileApiV1BusinessProfilesPost
+## CreateBusinessProfile
 
-> BusinessProfileResponse CreateBusinessProfileApiV1BusinessProfilesPost(ctx).BusinessProfileCreate(businessProfileCreate).IdempotencyKey(idempotencyKey).Execute()
+> BusinessProfileResponse CreateBusinessProfile(ctx).BusinessProfileCreate(businessProfileCreate).IdempotencyKey(idempotencyKey).Execute()
 
 Create Business Profile
 
@@ -36,13 +36,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BusinessProfilesAPI.CreateBusinessProfileApiV1BusinessProfilesPost(context.Background()).BusinessProfileCreate(businessProfileCreate).IdempotencyKey(idempotencyKey).Execute()
+	resp, r, err := apiClient.BusinessProfilesAPI.CreateBusinessProfile(context.Background()).BusinessProfileCreate(businessProfileCreate).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BusinessProfilesAPI.CreateBusinessProfileApiV1BusinessProfilesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BusinessProfilesAPI.CreateBusinessProfile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateBusinessProfileApiV1BusinessProfilesPost`: BusinessProfileResponse
-	fmt.Fprintf(os.Stdout, "Response from `BusinessProfilesAPI.CreateBusinessProfileApiV1BusinessProfilesPost`: %v\n", resp)
+	// response from `CreateBusinessProfile`: BusinessProfileResponse
+	fmt.Fprintf(os.Stdout, "Response from `BusinessProfilesAPI.CreateBusinessProfile`: %v\n", resp)
 }
 ```
 
@@ -52,7 +52,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateBusinessProfileApiV1BusinessProfilesPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateBusinessProfileRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -78,9 +78,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete
+## DeleteBusinessProfile
 
-> SimpleBoolResponse DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete(ctx, businessProfileId).Execute()
+> SimpleBoolResponse DeleteBusinessProfile(ctx, businessProfileId).Execute()
 
 Delete Business Profile
 
@@ -101,13 +101,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BusinessProfilesAPI.DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete(context.Background(), businessProfileId).Execute()
+	resp, r, err := apiClient.BusinessProfilesAPI.DeleteBusinessProfile(context.Background(), businessProfileId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BusinessProfilesAPI.DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BusinessProfilesAPI.DeleteBusinessProfile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `BusinessProfilesAPI.DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete`: %v\n", resp)
+	// response from `DeleteBusinessProfile`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `BusinessProfilesAPI.DeleteBusinessProfile`: %v\n", resp)
 }
 ```
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteBusinessProfileRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -146,9 +146,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet
+## GetBusinessProfile
 
-> BusinessProfileResponse GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet(ctx, businessProfileId).Execute()
+> BusinessProfileResponse GetBusinessProfile(ctx, businessProfileId).Execute()
 
 Get Business Profile
 
@@ -169,13 +169,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BusinessProfilesAPI.GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet(context.Background(), businessProfileId).Execute()
+	resp, r, err := apiClient.BusinessProfilesAPI.GetBusinessProfile(context.Background(), businessProfileId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BusinessProfilesAPI.GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BusinessProfilesAPI.GetBusinessProfile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet`: BusinessProfileResponse
-	fmt.Fprintf(os.Stdout, "Response from `BusinessProfilesAPI.GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet`: %v\n", resp)
+	// response from `GetBusinessProfile`: BusinessProfileResponse
+	fmt.Fprintf(os.Stdout, "Response from `BusinessProfilesAPI.GetBusinessProfile`: %v\n", resp)
 }
 ```
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetBusinessProfileRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -214,9 +214,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListBusinessProfilesApiV1BusinessProfilesGet
+## ListBusinessProfiles
 
-> BusinessProfilesListResponse ListBusinessProfilesApiV1BusinessProfilesGet(ctx).Limit(limit).Cursor(cursor).Execute()
+> BusinessProfilesListResponse ListBusinessProfiles(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List Business Profiles
 
@@ -238,13 +238,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BusinessProfilesAPI.ListBusinessProfilesApiV1BusinessProfilesGet(context.Background()).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.BusinessProfilesAPI.ListBusinessProfiles(context.Background()).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BusinessProfilesAPI.ListBusinessProfilesApiV1BusinessProfilesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BusinessProfilesAPI.ListBusinessProfiles``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListBusinessProfilesApiV1BusinessProfilesGet`: BusinessProfilesListResponse
-	fmt.Fprintf(os.Stdout, "Response from `BusinessProfilesAPI.ListBusinessProfilesApiV1BusinessProfilesGet`: %v\n", resp)
+	// response from `ListBusinessProfiles`: BusinessProfilesListResponse
+	fmt.Fprintf(os.Stdout, "Response from `BusinessProfilesAPI.ListBusinessProfiles`: %v\n", resp)
 }
 ```
 
@@ -254,7 +254,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListBusinessProfilesApiV1BusinessProfilesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListBusinessProfilesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -280,11 +280,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch
+## UpdateBusinessProfile
 
-> BusinessProfileResponse PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch(ctx, businessProfileId).BusinessProfilePatch(businessProfilePatch).IdempotencyKey(idempotencyKey).Execute()
+> BusinessProfileResponse UpdateBusinessProfile(ctx, businessProfileId).BusinessProfilePatch(businessProfilePatch).IdempotencyKey(idempotencyKey).Execute()
 
-Patch Business Profile
+Update Business Profile
 
 ### Example
 
@@ -305,13 +305,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BusinessProfilesAPI.PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch(context.Background(), businessProfileId).BusinessProfilePatch(businessProfilePatch).IdempotencyKey(idempotencyKey).Execute()
+	resp, r, err := apiClient.BusinessProfilesAPI.UpdateBusinessProfile(context.Background(), businessProfileId).BusinessProfilePatch(businessProfilePatch).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BusinessProfilesAPI.PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BusinessProfilesAPI.UpdateBusinessProfile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch`: BusinessProfileResponse
-	fmt.Fprintf(os.Stdout, "Response from `BusinessProfilesAPI.PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch`: %v\n", resp)
+	// response from `UpdateBusinessProfile`: BusinessProfileResponse
+	fmt.Fprintf(os.Stdout, "Response from `BusinessProfilesAPI.UpdateBusinessProfile`: %v\n", resp)
 }
 ```
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateBusinessProfileRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

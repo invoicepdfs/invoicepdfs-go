@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDeliveryApiV1DeliveriesDeliveryIdGet**](DeliveriesAPI.md#GetDeliveryApiV1DeliveriesDeliveryIdGet) | **Get** /api/v1/deliveries/{delivery_id} | Get Delivery
-[**RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost**](DeliveriesAPI.md#RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost) | **Post** /api/v1/deliveries/{delivery_id}/retry | Retry Delivery
+[**GetDelivery**](DeliveriesAPI.md#GetDelivery) | **Get** /api/v1/deliveries/{delivery_id} | Get Delivery
+[**RetryDelivery**](DeliveriesAPI.md#RetryDelivery) | **Post** /api/v1/deliveries/{delivery_id}/retry | Retry Delivery
 
 
 
-## GetDeliveryApiV1DeliveriesDeliveryIdGet
+## GetDelivery
 
-> DeliveryResponse GetDeliveryApiV1DeliveriesDeliveryIdGet(ctx, deliveryId).Execute()
+> DeliveryResponse GetDelivery(ctx, deliveryId).Execute()
 
 Get Delivery
 
@@ -32,13 +32,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DeliveriesAPI.GetDeliveryApiV1DeliveriesDeliveryIdGet(context.Background(), deliveryId).Execute()
+	resp, r, err := apiClient.DeliveriesAPI.GetDelivery(context.Background(), deliveryId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DeliveriesAPI.GetDeliveryApiV1DeliveriesDeliveryIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DeliveriesAPI.GetDelivery``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetDeliveryApiV1DeliveriesDeliveryIdGet`: DeliveryResponse
-	fmt.Fprintf(os.Stdout, "Response from `DeliveriesAPI.GetDeliveryApiV1DeliveriesDeliveryIdGet`: %v\n", resp)
+	// response from `GetDelivery`: DeliveryResponse
+	fmt.Fprintf(os.Stdout, "Response from `DeliveriesAPI.GetDelivery`: %v\n", resp)
 }
 ```
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetDeliveryApiV1DeliveriesDeliveryIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetDeliveryRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -77,9 +77,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost
+## RetryDelivery
 
-> DeliveryResponse RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost(ctx, deliveryId).Execute()
+> DeliveryResponse RetryDelivery(ctx, deliveryId).Execute()
 
 Retry Delivery
 
@@ -100,13 +100,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DeliveriesAPI.RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost(context.Background(), deliveryId).Execute()
+	resp, r, err := apiClient.DeliveriesAPI.RetryDelivery(context.Background(), deliveryId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DeliveriesAPI.RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DeliveriesAPI.RetryDelivery``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost`: DeliveryResponse
-	fmt.Fprintf(os.Stdout, "Response from `DeliveriesAPI.RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost`: %v\n", resp)
+	// response from `RetryDelivery`: DeliveryResponse
+	fmt.Fprintf(os.Stdout, "Response from `DeliveriesAPI.RetryDelivery`: %v\n", resp)
 }
 ```
 
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiRetryDeliveryApiV1DeliveriesDeliveryIdRetryPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRetryDeliveryRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

@@ -22,23 +22,120 @@ import (
 // UsageAPIService UsageAPI service
 type UsageAPIService service
 
-type ApiGetLimitsApiV1UsageLimitsGetRequest struct {
+type ApiGetUsageRequest struct {
 	ctx context.Context
 	ApiService *UsageAPIService
 }
 
-func (r ApiGetLimitsApiV1UsageLimitsGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.GetLimitsApiV1UsageLimitsGetExecute(r)
+func (r ApiGetUsageRequest) Execute() (*UsageResponse, *http.Response, error) {
+	return r.ApiService.GetUsageExecute(r)
 }
 
 /*
-GetLimitsApiV1UsageLimitsGet Get Limits
+GetUsage Get Usage
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetLimitsApiV1UsageLimitsGetRequest
+ @return ApiGetUsageRequest
 */
-func (a *UsageAPIService) GetLimitsApiV1UsageLimitsGet(ctx context.Context) ApiGetLimitsApiV1UsageLimitsGetRequest {
-	return ApiGetLimitsApiV1UsageLimitsGetRequest{
+func (a *UsageAPIService) GetUsage(ctx context.Context) ApiGetUsageRequest {
+	return ApiGetUsageRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return UsageResponse
+func (a *UsageAPIService) GetUsageExecute(r ApiGetUsageRequest) (*UsageResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UsageResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsageAPIService.GetUsage")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/usage"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetUsageLimitsRequest struct {
+	ctx context.Context
+	ApiService *UsageAPIService
+}
+
+func (r ApiGetUsageLimitsRequest) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.GetUsageLimitsExecute(r)
+}
+
+/*
+GetUsageLimits Get Usage Limits
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetUsageLimitsRequest
+*/
+func (a *UsageAPIService) GetUsageLimits(ctx context.Context) ApiGetUsageLimitsRequest {
+	return ApiGetUsageLimitsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -46,7 +143,7 @@ func (a *UsageAPIService) GetLimitsApiV1UsageLimitsGet(ctx context.Context) ApiG
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *UsageAPIService) GetLimitsApiV1UsageLimitsGetExecute(r ApiGetLimitsApiV1UsageLimitsGetRequest) (map[string]interface{}, *http.Response, error) {
+func (a *UsageAPIService) GetUsageLimitsExecute(r ApiGetUsageLimitsRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -54,7 +151,7 @@ func (a *UsageAPIService) GetLimitsApiV1UsageLimitsGetExecute(r ApiGetLimitsApiV
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsageAPIService.GetLimitsApiV1UsageLimitsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsageAPIService.GetUsageLimits")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -119,35 +216,35 @@ func (a *UsageAPIService) GetLimitsApiV1UsageLimitsGetExecute(r ApiGetLimitsApiV
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListUsageEventsApiV1UsageEventsGetRequest struct {
+type ApiListUsageEventsRequest struct {
 	ctx context.Context
 	ApiService *UsageAPIService
 	limit *int32
 	cursor *string
 }
 
-func (r ApiListUsageEventsApiV1UsageEventsGetRequest) Limit(limit int32) ApiListUsageEventsApiV1UsageEventsGetRequest {
+func (r ApiListUsageEventsRequest) Limit(limit int32) ApiListUsageEventsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListUsageEventsApiV1UsageEventsGetRequest) Cursor(cursor string) ApiListUsageEventsApiV1UsageEventsGetRequest {
+func (r ApiListUsageEventsRequest) Cursor(cursor string) ApiListUsageEventsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListUsageEventsApiV1UsageEventsGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.ListUsageEventsApiV1UsageEventsGetExecute(r)
+func (r ApiListUsageEventsRequest) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.ListUsageEventsExecute(r)
 }
 
 /*
-ListUsageEventsApiV1UsageEventsGet List Usage Events
+ListUsageEvents List Usage Events
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListUsageEventsApiV1UsageEventsGetRequest
+ @return ApiListUsageEventsRequest
 */
-func (a *UsageAPIService) ListUsageEventsApiV1UsageEventsGet(ctx context.Context) ApiListUsageEventsApiV1UsageEventsGetRequest {
-	return ApiListUsageEventsApiV1UsageEventsGetRequest{
+func (a *UsageAPIService) ListUsageEvents(ctx context.Context) ApiListUsageEventsRequest {
+	return ApiListUsageEventsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -155,7 +252,7 @@ func (a *UsageAPIService) ListUsageEventsApiV1UsageEventsGet(ctx context.Context
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *UsageAPIService) ListUsageEventsApiV1UsageEventsGetExecute(r ApiListUsageEventsApiV1UsageEventsGetRequest) (map[string]interface{}, *http.Response, error) {
+func (a *UsageAPIService) ListUsageEventsExecute(r ApiListUsageEventsRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -163,7 +260,7 @@ func (a *UsageAPIService) ListUsageEventsApiV1UsageEventsGetExecute(r ApiListUsa
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsageAPIService.ListUsageEventsApiV1UsageEventsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsageAPIService.ListUsageEvents")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -231,103 +328,6 @@ func (a *UsageAPIService) ListUsageEventsApiV1UsageEventsGetExecute(r ApiListUsa
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiUsageApiV1UsageGetRequest struct {
-	ctx context.Context
-	ApiService *UsageAPIService
-}
-
-func (r ApiUsageApiV1UsageGetRequest) Execute() (*UsageResponse, *http.Response, error) {
-	return r.ApiService.UsageApiV1UsageGetExecute(r)
-}
-
-/*
-UsageApiV1UsageGet Usage
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUsageApiV1UsageGetRequest
-*/
-func (a *UsageAPIService) UsageApiV1UsageGet(ctx context.Context) ApiUsageApiV1UsageGetRequest {
-	return ApiUsageApiV1UsageGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return UsageResponse
-func (a *UsageAPIService) UsageApiV1UsageGetExecute(r ApiUsageApiV1UsageGetRequest) (*UsageResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UsageResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsageAPIService.UsageApiV1UsageGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/usage"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

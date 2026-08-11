@@ -23,27 +23,27 @@ import (
 // NumberingSequencesAPIService NumberingSequencesAPI service
 type NumberingSequencesAPIService service
 
-type ApiConsumeNextApiV1NumberingSequencesSequenceIdNextPostRequest struct {
+type ApiConsumeSequenceNumberRequest struct {
 	ctx context.Context
 	ApiService *NumberingSequencesAPIService
 	sequenceId string
 }
 
-func (r ApiConsumeNextApiV1NumberingSequencesSequenceIdNextPostRequest) Execute() (*NumberingSequenceResponse, *http.Response, error) {
-	return r.ApiService.ConsumeNextApiV1NumberingSequencesSequenceIdNextPostExecute(r)
+func (r ApiConsumeSequenceNumberRequest) Execute() (*NumberingSequenceResponse, *http.Response, error) {
+	return r.ApiService.ConsumeSequenceNumberExecute(r)
 }
 
 /*
-ConsumeNextApiV1NumberingSequencesSequenceIdNextPost Consume Next
+ConsumeSequenceNumber Consume Sequence Number
 
 Consume and return the next number, incrementing the counter.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param sequenceId
- @return ApiConsumeNextApiV1NumberingSequencesSequenceIdNextPostRequest
+ @return ApiConsumeSequenceNumberRequest
 */
-func (a *NumberingSequencesAPIService) ConsumeNextApiV1NumberingSequencesSequenceIdNextPost(ctx context.Context, sequenceId string) ApiConsumeNextApiV1NumberingSequencesSequenceIdNextPostRequest {
-	return ApiConsumeNextApiV1NumberingSequencesSequenceIdNextPostRequest{
+func (a *NumberingSequencesAPIService) ConsumeSequenceNumber(ctx context.Context, sequenceId string) ApiConsumeSequenceNumberRequest {
+	return ApiConsumeSequenceNumberRequest{
 		ApiService: a,
 		ctx: ctx,
 		sequenceId: sequenceId,
@@ -52,7 +52,7 @@ func (a *NumberingSequencesAPIService) ConsumeNextApiV1NumberingSequencesSequenc
 
 // Execute executes the request
 //  @return NumberingSequenceResponse
-func (a *NumberingSequencesAPIService) ConsumeNextApiV1NumberingSequencesSequenceIdNextPostExecute(r ApiConsumeNextApiV1NumberingSequencesSequenceIdNextPostRequest) (*NumberingSequenceResponse, *http.Response, error) {
+func (a *NumberingSequencesAPIService) ConsumeSequenceNumberExecute(r ApiConsumeSequenceNumberRequest) (*NumberingSequenceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -60,7 +60,7 @@ func (a *NumberingSequencesAPIService) ConsumeNextApiV1NumberingSequencesSequenc
 		localVarReturnValue  *NumberingSequenceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.ConsumeNextApiV1NumberingSequencesSequenceIdNextPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.ConsumeSequenceNumber")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -136,29 +136,29 @@ func (a *NumberingSequencesAPIService) ConsumeNextApiV1NumberingSequencesSequenc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateSequenceApiV1NumberingSequencesPostRequest struct {
+type ApiCreateSequenceRequest struct {
 	ctx context.Context
 	ApiService *NumberingSequencesAPIService
 	numberingSequenceCreateRequest *NumberingSequenceCreateRequest
 }
 
-func (r ApiCreateSequenceApiV1NumberingSequencesPostRequest) NumberingSequenceCreateRequest(numberingSequenceCreateRequest NumberingSequenceCreateRequest) ApiCreateSequenceApiV1NumberingSequencesPostRequest {
+func (r ApiCreateSequenceRequest) NumberingSequenceCreateRequest(numberingSequenceCreateRequest NumberingSequenceCreateRequest) ApiCreateSequenceRequest {
 	r.numberingSequenceCreateRequest = &numberingSequenceCreateRequest
 	return r
 }
 
-func (r ApiCreateSequenceApiV1NumberingSequencesPostRequest) Execute() (*NumberingSequenceResponse, *http.Response, error) {
-	return r.ApiService.CreateSequenceApiV1NumberingSequencesPostExecute(r)
+func (r ApiCreateSequenceRequest) Execute() (*NumberingSequenceResponse, *http.Response, error) {
+	return r.ApiService.CreateSequenceExecute(r)
 }
 
 /*
-CreateSequenceApiV1NumberingSequencesPost Create Sequence
+CreateSequence Create Sequence
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateSequenceApiV1NumberingSequencesPostRequest
+ @return ApiCreateSequenceRequest
 */
-func (a *NumberingSequencesAPIService) CreateSequenceApiV1NumberingSequencesPost(ctx context.Context) ApiCreateSequenceApiV1NumberingSequencesPostRequest {
-	return ApiCreateSequenceApiV1NumberingSequencesPostRequest{
+func (a *NumberingSequencesAPIService) CreateSequence(ctx context.Context) ApiCreateSequenceRequest {
+	return ApiCreateSequenceRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -166,7 +166,7 @@ func (a *NumberingSequencesAPIService) CreateSequenceApiV1NumberingSequencesPost
 
 // Execute executes the request
 //  @return NumberingSequenceResponse
-func (a *NumberingSequencesAPIService) CreateSequenceApiV1NumberingSequencesPostExecute(r ApiCreateSequenceApiV1NumberingSequencesPostRequest) (*NumberingSequenceResponse, *http.Response, error) {
+func (a *NumberingSequencesAPIService) CreateSequenceExecute(r ApiCreateSequenceRequest) (*NumberingSequenceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -174,7 +174,7 @@ func (a *NumberingSequencesAPIService) CreateSequenceApiV1NumberingSequencesPost
 		localVarReturnValue  *NumberingSequenceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.CreateSequenceApiV1NumberingSequencesPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.CreateSequence")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -254,25 +254,25 @@ func (a *NumberingSequencesAPIService) CreateSequenceApiV1NumberingSequencesPost
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteSequenceApiV1NumberingSequencesSequenceIdDeleteRequest struct {
+type ApiDeleteSequenceRequest struct {
 	ctx context.Context
 	ApiService *NumberingSequencesAPIService
 	sequenceId string
 }
 
-func (r ApiDeleteSequenceApiV1NumberingSequencesSequenceIdDeleteRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
-	return r.ApiService.DeleteSequenceApiV1NumberingSequencesSequenceIdDeleteExecute(r)
+func (r ApiDeleteSequenceRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
+	return r.ApiService.DeleteSequenceExecute(r)
 }
 
 /*
-DeleteSequenceApiV1NumberingSequencesSequenceIdDelete Delete Sequence
+DeleteSequence Delete Sequence
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param sequenceId
- @return ApiDeleteSequenceApiV1NumberingSequencesSequenceIdDeleteRequest
+ @return ApiDeleteSequenceRequest
 */
-func (a *NumberingSequencesAPIService) DeleteSequenceApiV1NumberingSequencesSequenceIdDelete(ctx context.Context, sequenceId string) ApiDeleteSequenceApiV1NumberingSequencesSequenceIdDeleteRequest {
-	return ApiDeleteSequenceApiV1NumberingSequencesSequenceIdDeleteRequest{
+func (a *NumberingSequencesAPIService) DeleteSequence(ctx context.Context, sequenceId string) ApiDeleteSequenceRequest {
+	return ApiDeleteSequenceRequest{
 		ApiService: a,
 		ctx: ctx,
 		sequenceId: sequenceId,
@@ -281,7 +281,7 @@ func (a *NumberingSequencesAPIService) DeleteSequenceApiV1NumberingSequencesSequ
 
 // Execute executes the request
 //  @return SimpleBoolResponse
-func (a *NumberingSequencesAPIService) DeleteSequenceApiV1NumberingSequencesSequenceIdDeleteExecute(r ApiDeleteSequenceApiV1NumberingSequencesSequenceIdDeleteRequest) (*SimpleBoolResponse, *http.Response, error) {
+func (a *NumberingSequencesAPIService) DeleteSequenceExecute(r ApiDeleteSequenceRequest) (*SimpleBoolResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -289,7 +289,7 @@ func (a *NumberingSequencesAPIService) DeleteSequenceApiV1NumberingSequencesSequ
 		localVarReturnValue  *SimpleBoolResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.DeleteSequenceApiV1NumberingSequencesSequenceIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.DeleteSequence")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -365,25 +365,25 @@ func (a *NumberingSequencesAPIService) DeleteSequenceApiV1NumberingSequencesSequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetSequenceApiV1NumberingSequencesSequenceIdGetRequest struct {
+type ApiGetSequenceRequest struct {
 	ctx context.Context
 	ApiService *NumberingSequencesAPIService
 	sequenceId string
 }
 
-func (r ApiGetSequenceApiV1NumberingSequencesSequenceIdGetRequest) Execute() (*NumberingSequenceResponse, *http.Response, error) {
-	return r.ApiService.GetSequenceApiV1NumberingSequencesSequenceIdGetExecute(r)
+func (r ApiGetSequenceRequest) Execute() (*NumberingSequenceResponse, *http.Response, error) {
+	return r.ApiService.GetSequenceExecute(r)
 }
 
 /*
-GetSequenceApiV1NumberingSequencesSequenceIdGet Get Sequence
+GetSequence Get Sequence
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param sequenceId
- @return ApiGetSequenceApiV1NumberingSequencesSequenceIdGetRequest
+ @return ApiGetSequenceRequest
 */
-func (a *NumberingSequencesAPIService) GetSequenceApiV1NumberingSequencesSequenceIdGet(ctx context.Context, sequenceId string) ApiGetSequenceApiV1NumberingSequencesSequenceIdGetRequest {
-	return ApiGetSequenceApiV1NumberingSequencesSequenceIdGetRequest{
+func (a *NumberingSequencesAPIService) GetSequence(ctx context.Context, sequenceId string) ApiGetSequenceRequest {
+	return ApiGetSequenceRequest{
 		ApiService: a,
 		ctx: ctx,
 		sequenceId: sequenceId,
@@ -392,7 +392,7 @@ func (a *NumberingSequencesAPIService) GetSequenceApiV1NumberingSequencesSequenc
 
 // Execute executes the request
 //  @return NumberingSequenceResponse
-func (a *NumberingSequencesAPIService) GetSequenceApiV1NumberingSequencesSequenceIdGetExecute(r ApiGetSequenceApiV1NumberingSequencesSequenceIdGetRequest) (*NumberingSequenceResponse, *http.Response, error) {
+func (a *NumberingSequencesAPIService) GetSequenceExecute(r ApiGetSequenceRequest) (*NumberingSequenceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -400,7 +400,7 @@ func (a *NumberingSequencesAPIService) GetSequenceApiV1NumberingSequencesSequenc
 		localVarReturnValue  *NumberingSequenceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.GetSequenceApiV1NumberingSequencesSequenceIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.GetSequence")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -476,35 +476,35 @@ func (a *NumberingSequencesAPIService) GetSequenceApiV1NumberingSequencesSequenc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListSequencesApiV1NumberingSequencesGetRequest struct {
+type ApiListSequencesRequest struct {
 	ctx context.Context
 	ApiService *NumberingSequencesAPIService
 	limit *int32
 	cursor *string
 }
 
-func (r ApiListSequencesApiV1NumberingSequencesGetRequest) Limit(limit int32) ApiListSequencesApiV1NumberingSequencesGetRequest {
+func (r ApiListSequencesRequest) Limit(limit int32) ApiListSequencesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListSequencesApiV1NumberingSequencesGetRequest) Cursor(cursor string) ApiListSequencesApiV1NumberingSequencesGetRequest {
+func (r ApiListSequencesRequest) Cursor(cursor string) ApiListSequencesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListSequencesApiV1NumberingSequencesGetRequest) Execute() (*NumberingSequencesListResponse, *http.Response, error) {
-	return r.ApiService.ListSequencesApiV1NumberingSequencesGetExecute(r)
+func (r ApiListSequencesRequest) Execute() (*NumberingSequencesListResponse, *http.Response, error) {
+	return r.ApiService.ListSequencesExecute(r)
 }
 
 /*
-ListSequencesApiV1NumberingSequencesGet List Sequences
+ListSequences List Sequences
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListSequencesApiV1NumberingSequencesGetRequest
+ @return ApiListSequencesRequest
 */
-func (a *NumberingSequencesAPIService) ListSequencesApiV1NumberingSequencesGet(ctx context.Context) ApiListSequencesApiV1NumberingSequencesGetRequest {
-	return ApiListSequencesApiV1NumberingSequencesGetRequest{
+func (a *NumberingSequencesAPIService) ListSequences(ctx context.Context) ApiListSequencesRequest {
+	return ApiListSequencesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -512,7 +512,7 @@ func (a *NumberingSequencesAPIService) ListSequencesApiV1NumberingSequencesGet(c
 
 // Execute executes the request
 //  @return NumberingSequencesListResponse
-func (a *NumberingSequencesAPIService) ListSequencesApiV1NumberingSequencesGetExecute(r ApiListSequencesApiV1NumberingSequencesGetRequest) (*NumberingSequencesListResponse, *http.Response, error) {
+func (a *NumberingSequencesAPIService) ListSequencesExecute(r ApiListSequencesRequest) (*NumberingSequencesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -520,7 +520,7 @@ func (a *NumberingSequencesAPIService) ListSequencesApiV1NumberingSequencesGetEx
 		localVarReturnValue  *NumberingSequencesListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.ListSequencesApiV1NumberingSequencesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.ListSequences")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -604,25 +604,25 @@ func (a *NumberingSequencesAPIService) ListSequencesApiV1NumberingSequencesGetEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPostRequest struct {
+type ApiPreviewSequenceRequest struct {
 	ctx context.Context
 	ApiService *NumberingSequencesAPIService
 	sequenceId string
 }
 
-func (r ApiPreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPostRequest) Execute() (*NumberingSequencePreviewResponse, *http.Response, error) {
-	return r.ApiService.PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPostExecute(r)
+func (r ApiPreviewSequenceRequest) Execute() (*NumberingSequencePreviewResponse, *http.Response, error) {
+	return r.ApiService.PreviewSequenceExecute(r)
 }
 
 /*
-PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost Preview Sequence
+PreviewSequence Preview Sequence
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param sequenceId
- @return ApiPreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPostRequest
+ @return ApiPreviewSequenceRequest
 */
-func (a *NumberingSequencesAPIService) PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost(ctx context.Context, sequenceId string) ApiPreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPostRequest {
-	return ApiPreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPostRequest{
+func (a *NumberingSequencesAPIService) PreviewSequence(ctx context.Context, sequenceId string) ApiPreviewSequenceRequest {
+	return ApiPreviewSequenceRequest{
 		ApiService: a,
 		ctx: ctx,
 		sequenceId: sequenceId,
@@ -631,7 +631,7 @@ func (a *NumberingSequencesAPIService) PreviewSequenceApiV1NumberingSequencesSeq
 
 // Execute executes the request
 //  @return NumberingSequencePreviewResponse
-func (a *NumberingSequencesAPIService) PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPostExecute(r ApiPreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPostRequest) (*NumberingSequencePreviewResponse, *http.Response, error) {
+func (a *NumberingSequencesAPIService) PreviewSequenceExecute(r ApiPreviewSequenceRequest) (*NumberingSequencePreviewResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -639,7 +639,7 @@ func (a *NumberingSequencesAPIService) PreviewSequenceApiV1NumberingSequencesSeq
 		localVarReturnValue  *NumberingSequencePreviewResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.PreviewSequence")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -715,31 +715,31 @@ func (a *NumberingSequencesAPIService) PreviewSequenceApiV1NumberingSequencesSeq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateSequenceApiV1NumberingSequencesSequenceIdPatchRequest struct {
+type ApiUpdateSequenceRequest struct {
 	ctx context.Context
 	ApiService *NumberingSequencesAPIService
 	sequenceId string
 	numberingSequencePatchRequest *NumberingSequencePatchRequest
 }
 
-func (r ApiUpdateSequenceApiV1NumberingSequencesSequenceIdPatchRequest) NumberingSequencePatchRequest(numberingSequencePatchRequest NumberingSequencePatchRequest) ApiUpdateSequenceApiV1NumberingSequencesSequenceIdPatchRequest {
+func (r ApiUpdateSequenceRequest) NumberingSequencePatchRequest(numberingSequencePatchRequest NumberingSequencePatchRequest) ApiUpdateSequenceRequest {
 	r.numberingSequencePatchRequest = &numberingSequencePatchRequest
 	return r
 }
 
-func (r ApiUpdateSequenceApiV1NumberingSequencesSequenceIdPatchRequest) Execute() (*NumberingSequenceResponse, *http.Response, error) {
-	return r.ApiService.UpdateSequenceApiV1NumberingSequencesSequenceIdPatchExecute(r)
+func (r ApiUpdateSequenceRequest) Execute() (*NumberingSequenceResponse, *http.Response, error) {
+	return r.ApiService.UpdateSequenceExecute(r)
 }
 
 /*
-UpdateSequenceApiV1NumberingSequencesSequenceIdPatch Update Sequence
+UpdateSequence Update Sequence
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param sequenceId
- @return ApiUpdateSequenceApiV1NumberingSequencesSequenceIdPatchRequest
+ @return ApiUpdateSequenceRequest
 */
-func (a *NumberingSequencesAPIService) UpdateSequenceApiV1NumberingSequencesSequenceIdPatch(ctx context.Context, sequenceId string) ApiUpdateSequenceApiV1NumberingSequencesSequenceIdPatchRequest {
-	return ApiUpdateSequenceApiV1NumberingSequencesSequenceIdPatchRequest{
+func (a *NumberingSequencesAPIService) UpdateSequence(ctx context.Context, sequenceId string) ApiUpdateSequenceRequest {
+	return ApiUpdateSequenceRequest{
 		ApiService: a,
 		ctx: ctx,
 		sequenceId: sequenceId,
@@ -748,7 +748,7 @@ func (a *NumberingSequencesAPIService) UpdateSequenceApiV1NumberingSequencesSequ
 
 // Execute executes the request
 //  @return NumberingSequenceResponse
-func (a *NumberingSequencesAPIService) UpdateSequenceApiV1NumberingSequencesSequenceIdPatchExecute(r ApiUpdateSequenceApiV1NumberingSequencesSequenceIdPatchRequest) (*NumberingSequenceResponse, *http.Response, error) {
+func (a *NumberingSequencesAPIService) UpdateSequenceExecute(r ApiUpdateSequenceRequest) (*NumberingSequenceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -756,7 +756,7 @@ func (a *NumberingSequencesAPIService) UpdateSequenceApiV1NumberingSequencesSequ
 		localVarReturnValue  *NumberingSequenceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.UpdateSequenceApiV1NumberingSequencesSequenceIdPatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.UpdateSequence")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -23,29 +23,29 @@ import (
 // TemplatesAPIService TemplatesAPI service
 type TemplatesAPIService service
 
-type ApiCreateTemplateApiV1TemplatesCustomPostRequest struct {
+type ApiCreateTemplateRequest struct {
 	ctx context.Context
 	ApiService *TemplatesAPIService
 	templateCreateRequest *TemplateCreateRequest
 }
 
-func (r ApiCreateTemplateApiV1TemplatesCustomPostRequest) TemplateCreateRequest(templateCreateRequest TemplateCreateRequest) ApiCreateTemplateApiV1TemplatesCustomPostRequest {
+func (r ApiCreateTemplateRequest) TemplateCreateRequest(templateCreateRequest TemplateCreateRequest) ApiCreateTemplateRequest {
 	r.templateCreateRequest = &templateCreateRequest
 	return r
 }
 
-func (r ApiCreateTemplateApiV1TemplatesCustomPostRequest) Execute() (*CustomTemplateResponse, *http.Response, error) {
-	return r.ApiService.CreateTemplateApiV1TemplatesCustomPostExecute(r)
+func (r ApiCreateTemplateRequest) Execute() (*CustomTemplateResponse, *http.Response, error) {
+	return r.ApiService.CreateTemplateExecute(r)
 }
 
 /*
-CreateTemplateApiV1TemplatesCustomPost Create Template
+CreateTemplate Create Template
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateTemplateApiV1TemplatesCustomPostRequest
+ @return ApiCreateTemplateRequest
 */
-func (a *TemplatesAPIService) CreateTemplateApiV1TemplatesCustomPost(ctx context.Context) ApiCreateTemplateApiV1TemplatesCustomPostRequest {
-	return ApiCreateTemplateApiV1TemplatesCustomPostRequest{
+func (a *TemplatesAPIService) CreateTemplate(ctx context.Context) ApiCreateTemplateRequest {
+	return ApiCreateTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -53,7 +53,7 @@ func (a *TemplatesAPIService) CreateTemplateApiV1TemplatesCustomPost(ctx context
 
 // Execute executes the request
 //  @return CustomTemplateResponse
-func (a *TemplatesAPIService) CreateTemplateApiV1TemplatesCustomPostExecute(r ApiCreateTemplateApiV1TemplatesCustomPostRequest) (*CustomTemplateResponse, *http.Response, error) {
+func (a *TemplatesAPIService) CreateTemplateExecute(r ApiCreateTemplateRequest) (*CustomTemplateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -61,7 +61,7 @@ func (a *TemplatesAPIService) CreateTemplateApiV1TemplatesCustomPostExecute(r Ap
 		localVarReturnValue  *CustomTemplateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.CreateTemplateApiV1TemplatesCustomPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.CreateTemplate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,25 +141,25 @@ func (a *TemplatesAPIService) CreateTemplateApiV1TemplatesCustomPostExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteTemplateApiV1TemplatesCustomTemplateIdDeleteRequest struct {
+type ApiDeleteTemplateRequest struct {
 	ctx context.Context
 	ApiService *TemplatesAPIService
 	templateId string
 }
 
-func (r ApiDeleteTemplateApiV1TemplatesCustomTemplateIdDeleteRequest) Execute() (*http.Response, error) {
-	return r.ApiService.DeleteTemplateApiV1TemplatesCustomTemplateIdDeleteExecute(r)
+func (r ApiDeleteTemplateRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeleteTemplateExecute(r)
 }
 
 /*
-DeleteTemplateApiV1TemplatesCustomTemplateIdDelete Delete Template
+DeleteTemplate Delete Template
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
- @return ApiDeleteTemplateApiV1TemplatesCustomTemplateIdDeleteRequest
+ @return ApiDeleteTemplateRequest
 */
-func (a *TemplatesAPIService) DeleteTemplateApiV1TemplatesCustomTemplateIdDelete(ctx context.Context, templateId string) ApiDeleteTemplateApiV1TemplatesCustomTemplateIdDeleteRequest {
-	return ApiDeleteTemplateApiV1TemplatesCustomTemplateIdDeleteRequest{
+func (a *TemplatesAPIService) DeleteTemplate(ctx context.Context, templateId string) ApiDeleteTemplateRequest {
+	return ApiDeleteTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
 		templateId: templateId,
@@ -167,14 +167,14 @@ func (a *TemplatesAPIService) DeleteTemplateApiV1TemplatesCustomTemplateIdDelete
 }
 
 // Execute executes the request
-func (a *TemplatesAPIService) DeleteTemplateApiV1TemplatesCustomTemplateIdDeleteExecute(r ApiDeleteTemplateApiV1TemplatesCustomTemplateIdDeleteRequest) (*http.Response, error) {
+func (a *TemplatesAPIService) DeleteTemplateExecute(r ApiDeleteTemplateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.DeleteTemplateApiV1TemplatesCustomTemplateIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.DeleteTemplate")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -241,25 +241,25 @@ func (a *TemplatesAPIService) DeleteTemplateApiV1TemplatesCustomTemplateIdDelete
 	return localVarHTTPResponse, nil
 }
 
-type ApiDuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostRequest struct {
+type ApiDuplicateTemplateRequest struct {
 	ctx context.Context
 	ApiService *TemplatesAPIService
 	templateId string
 }
 
-func (r ApiDuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostRequest) Execute() (*CustomTemplateResponse, *http.Response, error) {
-	return r.ApiService.DuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostExecute(r)
+func (r ApiDuplicateTemplateRequest) Execute() (*CustomTemplateResponse, *http.Response, error) {
+	return r.ApiService.DuplicateTemplateExecute(r)
 }
 
 /*
-DuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost Duplicate Template
+DuplicateTemplate Duplicate Template
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
- @return ApiDuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostRequest
+ @return ApiDuplicateTemplateRequest
 */
-func (a *TemplatesAPIService) DuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost(ctx context.Context, templateId string) ApiDuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostRequest {
-	return ApiDuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostRequest{
+func (a *TemplatesAPIService) DuplicateTemplate(ctx context.Context, templateId string) ApiDuplicateTemplateRequest {
+	return ApiDuplicateTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
 		templateId: templateId,
@@ -268,7 +268,7 @@ func (a *TemplatesAPIService) DuplicateTemplateApiV1TemplatesCustomTemplateIdDup
 
 // Execute executes the request
 //  @return CustomTemplateResponse
-func (a *TemplatesAPIService) DuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostExecute(r ApiDuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostRequest) (*CustomTemplateResponse, *http.Response, error) {
+func (a *TemplatesAPIService) DuplicateTemplateExecute(r ApiDuplicateTemplateRequest) (*CustomTemplateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -276,7 +276,7 @@ func (a *TemplatesAPIService) DuplicateTemplateApiV1TemplatesCustomTemplateIdDup
 		localVarReturnValue  *CustomTemplateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.DuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.DuplicateTemplate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -352,25 +352,25 @@ func (a *TemplatesAPIService) DuplicateTemplateApiV1TemplatesCustomTemplateIdDup
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetRequest struct {
+type ApiGetBuiltinTemplateRequest struct {
 	ctx context.Context
 	ApiService *TemplatesAPIService
 	templateId string
 }
 
-func (r ApiGetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetRequest) Execute() (*TemplateDetailResponse, *http.Response, error) {
-	return r.ApiService.GetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetExecute(r)
+func (r ApiGetBuiltinTemplateRequest) Execute() (*TemplateDetailResponse, *http.Response, error) {
+	return r.ApiService.GetBuiltinTemplateExecute(r)
 }
 
 /*
-GetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet Get Builtin Template
+GetBuiltinTemplate Get Builtin Template
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
- @return ApiGetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetRequest
+ @return ApiGetBuiltinTemplateRequest
 */
-func (a *TemplatesAPIService) GetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet(ctx context.Context, templateId string) ApiGetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetRequest {
-	return ApiGetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetRequest{
+func (a *TemplatesAPIService) GetBuiltinTemplate(ctx context.Context, templateId string) ApiGetBuiltinTemplateRequest {
+	return ApiGetBuiltinTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
 		templateId: templateId,
@@ -379,7 +379,7 @@ func (a *TemplatesAPIService) GetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdG
 
 // Execute executes the request
 //  @return TemplateDetailResponse
-func (a *TemplatesAPIService) GetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetExecute(r ApiGetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetRequest) (*TemplateDetailResponse, *http.Response, error) {
+func (a *TemplatesAPIService) GetBuiltinTemplateExecute(r ApiGetBuiltinTemplateRequest) (*TemplateDetailResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -387,7 +387,7 @@ func (a *TemplatesAPIService) GetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdG
 		localVarReturnValue  *TemplateDetailResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.GetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.GetBuiltinTemplate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -463,25 +463,25 @@ func (a *TemplatesAPIService) GetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetCustomTemplateApiV1TemplatesCustomTemplateIdGetRequest struct {
+type ApiGetCustomTemplateRequest struct {
 	ctx context.Context
 	ApiService *TemplatesAPIService
 	templateId string
 }
 
-func (r ApiGetCustomTemplateApiV1TemplatesCustomTemplateIdGetRequest) Execute() (*CustomTemplateResponse, *http.Response, error) {
-	return r.ApiService.GetCustomTemplateApiV1TemplatesCustomTemplateIdGetExecute(r)
+func (r ApiGetCustomTemplateRequest) Execute() (*CustomTemplateResponse, *http.Response, error) {
+	return r.ApiService.GetCustomTemplateExecute(r)
 }
 
 /*
-GetCustomTemplateApiV1TemplatesCustomTemplateIdGet Get Custom Template
+GetCustomTemplate Get Custom Template
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
- @return ApiGetCustomTemplateApiV1TemplatesCustomTemplateIdGetRequest
+ @return ApiGetCustomTemplateRequest
 */
-func (a *TemplatesAPIService) GetCustomTemplateApiV1TemplatesCustomTemplateIdGet(ctx context.Context, templateId string) ApiGetCustomTemplateApiV1TemplatesCustomTemplateIdGetRequest {
-	return ApiGetCustomTemplateApiV1TemplatesCustomTemplateIdGetRequest{
+func (a *TemplatesAPIService) GetCustomTemplate(ctx context.Context, templateId string) ApiGetCustomTemplateRequest {
+	return ApiGetCustomTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
 		templateId: templateId,
@@ -490,7 +490,7 @@ func (a *TemplatesAPIService) GetCustomTemplateApiV1TemplatesCustomTemplateIdGet
 
 // Execute executes the request
 //  @return CustomTemplateResponse
-func (a *TemplatesAPIService) GetCustomTemplateApiV1TemplatesCustomTemplateIdGetExecute(r ApiGetCustomTemplateApiV1TemplatesCustomTemplateIdGetRequest) (*CustomTemplateResponse, *http.Response, error) {
+func (a *TemplatesAPIService) GetCustomTemplateExecute(r ApiGetCustomTemplateRequest) (*CustomTemplateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -498,7 +498,7 @@ func (a *TemplatesAPIService) GetCustomTemplateApiV1TemplatesCustomTemplateIdGet
 		localVarReturnValue  *CustomTemplateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.GetCustomTemplateApiV1TemplatesCustomTemplateIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.GetCustomTemplate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -574,25 +574,25 @@ func (a *TemplatesAPIService) GetCustomTemplateApiV1TemplatesCustomTemplateIdGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTemplateApiV1TemplatesTemplateIdGetRequest struct {
+type ApiGetTemplateRequest struct {
 	ctx context.Context
 	ApiService *TemplatesAPIService
 	templateId string
 }
 
-func (r ApiGetTemplateApiV1TemplatesTemplateIdGetRequest) Execute() (*TemplateDetailResponse, *http.Response, error) {
-	return r.ApiService.GetTemplateApiV1TemplatesTemplateIdGetExecute(r)
+func (r ApiGetTemplateRequest) Execute() (*TemplateDetailResponse, *http.Response, error) {
+	return r.ApiService.GetTemplateExecute(r)
 }
 
 /*
-GetTemplateApiV1TemplatesTemplateIdGet Get Template
+GetTemplate Get Template
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
- @return ApiGetTemplateApiV1TemplatesTemplateIdGetRequest
+ @return ApiGetTemplateRequest
 */
-func (a *TemplatesAPIService) GetTemplateApiV1TemplatesTemplateIdGet(ctx context.Context, templateId string) ApiGetTemplateApiV1TemplatesTemplateIdGetRequest {
-	return ApiGetTemplateApiV1TemplatesTemplateIdGetRequest{
+func (a *TemplatesAPIService) GetTemplate(ctx context.Context, templateId string) ApiGetTemplateRequest {
+	return ApiGetTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
 		templateId: templateId,
@@ -601,7 +601,7 @@ func (a *TemplatesAPIService) GetTemplateApiV1TemplatesTemplateIdGet(ctx context
 
 // Execute executes the request
 //  @return TemplateDetailResponse
-func (a *TemplatesAPIService) GetTemplateApiV1TemplatesTemplateIdGetExecute(r ApiGetTemplateApiV1TemplatesTemplateIdGetRequest) (*TemplateDetailResponse, *http.Response, error) {
+func (a *TemplatesAPIService) GetTemplateExecute(r ApiGetTemplateRequest) (*TemplateDetailResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -609,7 +609,7 @@ func (a *TemplatesAPIService) GetTemplateApiV1TemplatesTemplateIdGetExecute(r Ap
 		localVarReturnValue  *TemplateDetailResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.GetTemplateApiV1TemplatesTemplateIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.GetTemplate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -685,35 +685,35 @@ func (a *TemplatesAPIService) GetTemplateApiV1TemplatesTemplateIdGetExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListCustomTemplatesApiV1TemplatesCustomGetRequest struct {
+type ApiListCustomTemplatesRequest struct {
 	ctx context.Context
 	ApiService *TemplatesAPIService
 	limit *int32
 	cursor *string
 }
 
-func (r ApiListCustomTemplatesApiV1TemplatesCustomGetRequest) Limit(limit int32) ApiListCustomTemplatesApiV1TemplatesCustomGetRequest {
+func (r ApiListCustomTemplatesRequest) Limit(limit int32) ApiListCustomTemplatesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListCustomTemplatesApiV1TemplatesCustomGetRequest) Cursor(cursor string) ApiListCustomTemplatesApiV1TemplatesCustomGetRequest {
+func (r ApiListCustomTemplatesRequest) Cursor(cursor string) ApiListCustomTemplatesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListCustomTemplatesApiV1TemplatesCustomGetRequest) Execute() (*CustomTemplatesListResponse, *http.Response, error) {
-	return r.ApiService.ListCustomTemplatesApiV1TemplatesCustomGetExecute(r)
+func (r ApiListCustomTemplatesRequest) Execute() (*CustomTemplatesListResponse, *http.Response, error) {
+	return r.ApiService.ListCustomTemplatesExecute(r)
 }
 
 /*
-ListCustomTemplatesApiV1TemplatesCustomGet List Custom Templates
+ListCustomTemplates List Custom Templates
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListCustomTemplatesApiV1TemplatesCustomGetRequest
+ @return ApiListCustomTemplatesRequest
 */
-func (a *TemplatesAPIService) ListCustomTemplatesApiV1TemplatesCustomGet(ctx context.Context) ApiListCustomTemplatesApiV1TemplatesCustomGetRequest {
-	return ApiListCustomTemplatesApiV1TemplatesCustomGetRequest{
+func (a *TemplatesAPIService) ListCustomTemplates(ctx context.Context) ApiListCustomTemplatesRequest {
+	return ApiListCustomTemplatesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -721,7 +721,7 @@ func (a *TemplatesAPIService) ListCustomTemplatesApiV1TemplatesCustomGet(ctx con
 
 // Execute executes the request
 //  @return CustomTemplatesListResponse
-func (a *TemplatesAPIService) ListCustomTemplatesApiV1TemplatesCustomGetExecute(r ApiListCustomTemplatesApiV1TemplatesCustomGetRequest) (*CustomTemplatesListResponse, *http.Response, error) {
+func (a *TemplatesAPIService) ListCustomTemplatesExecute(r ApiListCustomTemplatesRequest) (*CustomTemplatesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -729,7 +729,7 @@ func (a *TemplatesAPIService) ListCustomTemplatesApiV1TemplatesCustomGetExecute(
 		localVarReturnValue  *CustomTemplatesListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.ListCustomTemplatesApiV1TemplatesCustomGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.ListCustomTemplates")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -813,64 +813,51 @@ func (a *TemplatesAPIService) ListCustomTemplatesApiV1TemplatesCustomGetExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchTemplateApiV1TemplatesCustomTemplateIdPatchRequest struct {
+type ApiListTemplatesRequest struct {
 	ctx context.Context
 	ApiService *TemplatesAPIService
-	templateId string
-	templatePatchRequest *TemplatePatchRequest
 }
 
-func (r ApiPatchTemplateApiV1TemplatesCustomTemplateIdPatchRequest) TemplatePatchRequest(templatePatchRequest TemplatePatchRequest) ApiPatchTemplateApiV1TemplatesCustomTemplateIdPatchRequest {
-	r.templatePatchRequest = &templatePatchRequest
-	return r
-}
-
-func (r ApiPatchTemplateApiV1TemplatesCustomTemplateIdPatchRequest) Execute() (*CustomTemplateResponse, *http.Response, error) {
-	return r.ApiService.PatchTemplateApiV1TemplatesCustomTemplateIdPatchExecute(r)
+func (r ApiListTemplatesRequest) Execute() (*TemplatesListResponse, *http.Response, error) {
+	return r.ApiService.ListTemplatesExecute(r)
 }
 
 /*
-PatchTemplateApiV1TemplatesCustomTemplateIdPatch Patch Template
+ListTemplates List Templates
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param templateId
- @return ApiPatchTemplateApiV1TemplatesCustomTemplateIdPatchRequest
+ @return ApiListTemplatesRequest
 */
-func (a *TemplatesAPIService) PatchTemplateApiV1TemplatesCustomTemplateIdPatch(ctx context.Context, templateId string) ApiPatchTemplateApiV1TemplatesCustomTemplateIdPatchRequest {
-	return ApiPatchTemplateApiV1TemplatesCustomTemplateIdPatchRequest{
+func (a *TemplatesAPIService) ListTemplates(ctx context.Context) ApiListTemplatesRequest {
+	return ApiListTemplatesRequest{
 		ApiService: a,
 		ctx: ctx,
-		templateId: templateId,
 	}
 }
 
 // Execute executes the request
-//  @return CustomTemplateResponse
-func (a *TemplatesAPIService) PatchTemplateApiV1TemplatesCustomTemplateIdPatchExecute(r ApiPatchTemplateApiV1TemplatesCustomTemplateIdPatchRequest) (*CustomTemplateResponse, *http.Response, error) {
+//  @return TemplatesListResponse
+func (a *TemplatesAPIService) ListTemplatesExecute(r ApiListTemplatesRequest) (*TemplatesListResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CustomTemplateResponse
+		localVarReturnValue  *TemplatesListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.PatchTemplateApiV1TemplatesCustomTemplateIdPatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.ListTemplates")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/templates/custom/{template_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"template_id"+"}", url.PathEscape(parameterValueToString(r.templateId, "templateId")), -1)
+	localVarPath := localBasePath + "/api/v1/templates"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.templatePatchRequest == nil {
-		return localVarReturnValue, nil, reportError("templatePatchRequest is required and must be specified")
-	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -886,8 +873,6 @@ func (a *TemplatesAPIService) PatchTemplateApiV1TemplatesCustomTemplateIdPatchEx
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	// body params
-	localVarPostBody = r.templatePatchRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -910,16 +895,6 @@ func (a *TemplatesAPIService) PatchTemplateApiV1TemplatesCustomTemplateIdPatchEx
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ApiErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -935,37 +910,37 @@ func (a *TemplatesAPIService) PatchTemplateApiV1TemplatesCustomTemplateIdPatchEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPreviewTemplateApiV1TemplatesTemplateIdPreviewPostRequest struct {
+type ApiPreviewTemplateRequest struct {
 	ctx context.Context
 	ApiService *TemplatesAPIService
 	templateId string
-	appSchemasV1DocumentRenderRequest *AppSchemasV1DocumentRenderRequest
+	documentRenderRequest *DocumentRenderRequest
 	idempotencyKey *string
 }
 
-func (r ApiPreviewTemplateApiV1TemplatesTemplateIdPreviewPostRequest) AppSchemasV1DocumentRenderRequest(appSchemasV1DocumentRenderRequest AppSchemasV1DocumentRenderRequest) ApiPreviewTemplateApiV1TemplatesTemplateIdPreviewPostRequest {
-	r.appSchemasV1DocumentRenderRequest = &appSchemasV1DocumentRenderRequest
+func (r ApiPreviewTemplateRequest) DocumentRenderRequest(documentRenderRequest DocumentRenderRequest) ApiPreviewTemplateRequest {
+	r.documentRenderRequest = &documentRenderRequest
 	return r
 }
 
-func (r ApiPreviewTemplateApiV1TemplatesTemplateIdPreviewPostRequest) IdempotencyKey(idempotencyKey string) ApiPreviewTemplateApiV1TemplatesTemplateIdPreviewPostRequest {
+func (r ApiPreviewTemplateRequest) IdempotencyKey(idempotencyKey string) ApiPreviewTemplateRequest {
 	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
-func (r ApiPreviewTemplateApiV1TemplatesTemplateIdPreviewPostRequest) Execute() (interface{}, *http.Response, error) {
-	return r.ApiService.PreviewTemplateApiV1TemplatesTemplateIdPreviewPostExecute(r)
+func (r ApiPreviewTemplateRequest) Execute() (interface{}, *http.Response, error) {
+	return r.ApiService.PreviewTemplateExecute(r)
 }
 
 /*
-PreviewTemplateApiV1TemplatesTemplateIdPreviewPost Preview Template
+PreviewTemplate Preview Template
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
- @return ApiPreviewTemplateApiV1TemplatesTemplateIdPreviewPostRequest
+ @return ApiPreviewTemplateRequest
 */
-func (a *TemplatesAPIService) PreviewTemplateApiV1TemplatesTemplateIdPreviewPost(ctx context.Context, templateId string) ApiPreviewTemplateApiV1TemplatesTemplateIdPreviewPostRequest {
-	return ApiPreviewTemplateApiV1TemplatesTemplateIdPreviewPostRequest{
+func (a *TemplatesAPIService) PreviewTemplate(ctx context.Context, templateId string) ApiPreviewTemplateRequest {
+	return ApiPreviewTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
 		templateId: templateId,
@@ -974,7 +949,7 @@ func (a *TemplatesAPIService) PreviewTemplateApiV1TemplatesTemplateIdPreviewPost
 
 // Execute executes the request
 //  @return interface{}
-func (a *TemplatesAPIService) PreviewTemplateApiV1TemplatesTemplateIdPreviewPostExecute(r ApiPreviewTemplateApiV1TemplatesTemplateIdPreviewPostRequest) (interface{}, *http.Response, error) {
+func (a *TemplatesAPIService) PreviewTemplateExecute(r ApiPreviewTemplateRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -982,7 +957,7 @@ func (a *TemplatesAPIService) PreviewTemplateApiV1TemplatesTemplateIdPreviewPost
 		localVarReturnValue  interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.PreviewTemplateApiV1TemplatesTemplateIdPreviewPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.PreviewTemplate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -993,8 +968,8 @@ func (a *TemplatesAPIService) PreviewTemplateApiV1TemplatesTemplateIdPreviewPost
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.appSchemasV1DocumentRenderRequest == nil {
-		return localVarReturnValue, nil, reportError("appSchemasV1DocumentRenderRequest is required and must be specified")
+	if r.documentRenderRequest == nil {
+		return localVarReturnValue, nil, reportError("documentRenderRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1018,7 +993,7 @@ func (a *TemplatesAPIService) PreviewTemplateApiV1TemplatesTemplateIdPreviewPost
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Idempotency-Key", r.idempotencyKey, "")
 	}
 	// body params
-	localVarPostBody = r.appSchemasV1DocumentRenderRequest
+	localVarPostBody = r.documentRenderRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1066,25 +1041,25 @@ func (a *TemplatesAPIService) PreviewTemplateApiV1TemplatesTemplateIdPreviewPost
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPublishTemplateApiV1TemplatesCustomTemplateIdPublishPostRequest struct {
+type ApiPublishTemplateRequest struct {
 	ctx context.Context
 	ApiService *TemplatesAPIService
 	templateId string
 }
 
-func (r ApiPublishTemplateApiV1TemplatesCustomTemplateIdPublishPostRequest) Execute() (*CustomTemplateResponse, *http.Response, error) {
-	return r.ApiService.PublishTemplateApiV1TemplatesCustomTemplateIdPublishPostExecute(r)
+func (r ApiPublishTemplateRequest) Execute() (*CustomTemplateResponse, *http.Response, error) {
+	return r.ApiService.PublishTemplateExecute(r)
 }
 
 /*
-PublishTemplateApiV1TemplatesCustomTemplateIdPublishPost Publish Template
+PublishTemplate Publish Template
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
- @return ApiPublishTemplateApiV1TemplatesCustomTemplateIdPublishPostRequest
+ @return ApiPublishTemplateRequest
 */
-func (a *TemplatesAPIService) PublishTemplateApiV1TemplatesCustomTemplateIdPublishPost(ctx context.Context, templateId string) ApiPublishTemplateApiV1TemplatesCustomTemplateIdPublishPostRequest {
-	return ApiPublishTemplateApiV1TemplatesCustomTemplateIdPublishPostRequest{
+func (a *TemplatesAPIService) PublishTemplate(ctx context.Context, templateId string) ApiPublishTemplateRequest {
+	return ApiPublishTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
 		templateId: templateId,
@@ -1093,7 +1068,7 @@ func (a *TemplatesAPIService) PublishTemplateApiV1TemplatesCustomTemplateIdPubli
 
 // Execute executes the request
 //  @return CustomTemplateResponse
-func (a *TemplatesAPIService) PublishTemplateApiV1TemplatesCustomTemplateIdPublishPostExecute(r ApiPublishTemplateApiV1TemplatesCustomTemplateIdPublishPostRequest) (*CustomTemplateResponse, *http.Response, error) {
+func (a *TemplatesAPIService) PublishTemplateExecute(r ApiPublishTemplateRequest) (*CustomTemplateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1101,7 +1076,7 @@ func (a *TemplatesAPIService) PublishTemplateApiV1TemplatesCustomTemplateIdPubli
 		localVarReturnValue  *CustomTemplateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.PublishTemplateApiV1TemplatesCustomTemplateIdPublishPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.PublishTemplate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1177,51 +1152,64 @@ func (a *TemplatesAPIService) PublishTemplateApiV1TemplatesCustomTemplateIdPubli
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiTemplatesApiV1TemplatesGetRequest struct {
+type ApiUpdateTemplateRequest struct {
 	ctx context.Context
 	ApiService *TemplatesAPIService
+	templateId string
+	templatePatchRequest *TemplatePatchRequest
 }
 
-func (r ApiTemplatesApiV1TemplatesGetRequest) Execute() (*TemplatesListResponse, *http.Response, error) {
-	return r.ApiService.TemplatesApiV1TemplatesGetExecute(r)
+func (r ApiUpdateTemplateRequest) TemplatePatchRequest(templatePatchRequest TemplatePatchRequest) ApiUpdateTemplateRequest {
+	r.templatePatchRequest = &templatePatchRequest
+	return r
+}
+
+func (r ApiUpdateTemplateRequest) Execute() (*CustomTemplateResponse, *http.Response, error) {
+	return r.ApiService.UpdateTemplateExecute(r)
 }
 
 /*
-TemplatesApiV1TemplatesGet Templates
+UpdateTemplate Update Template
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiTemplatesApiV1TemplatesGetRequest
+ @param templateId
+ @return ApiUpdateTemplateRequest
 */
-func (a *TemplatesAPIService) TemplatesApiV1TemplatesGet(ctx context.Context) ApiTemplatesApiV1TemplatesGetRequest {
-	return ApiTemplatesApiV1TemplatesGetRequest{
+func (a *TemplatesAPIService) UpdateTemplate(ctx context.Context, templateId string) ApiUpdateTemplateRequest {
+	return ApiUpdateTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
+		templateId: templateId,
 	}
 }
 
 // Execute executes the request
-//  @return TemplatesListResponse
-func (a *TemplatesAPIService) TemplatesApiV1TemplatesGetExecute(r ApiTemplatesApiV1TemplatesGetRequest) (*TemplatesListResponse, *http.Response, error) {
+//  @return CustomTemplateResponse
+func (a *TemplatesAPIService) UpdateTemplateExecute(r ApiUpdateTemplateRequest) (*CustomTemplateResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TemplatesListResponse
+		localVarReturnValue  *CustomTemplateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.TemplatesApiV1TemplatesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.UpdateTemplate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/v1/templates"
+	localVarPath := localBasePath + "/api/v1/templates/custom/{template_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"template_id"+"}", url.PathEscape(parameterValueToString(r.templateId, "templateId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.templatePatchRequest == nil {
+		return localVarReturnValue, nil, reportError("templatePatchRequest is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1237,6 +1225,8 @@ func (a *TemplatesAPIService) TemplatesApiV1TemplatesGetExecute(r ApiTemplatesAp
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.templatePatchRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1258,6 +1248,16 @@ func (a *TemplatesAPIService) TemplatesApiV1TemplatesGetExecute(r ApiTemplatesAp
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

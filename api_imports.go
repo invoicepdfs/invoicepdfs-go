@@ -23,25 +23,25 @@ import (
 // ImportsAPIService ImportsAPI service
 type ImportsAPIService service
 
-type ApiCancelImportApiV1ImportsImportIdCancelPostRequest struct {
+type ApiCancelImportRequest struct {
 	ctx context.Context
 	ApiService *ImportsAPIService
 	importId string
 }
 
-func (r ApiCancelImportApiV1ImportsImportIdCancelPostRequest) Execute() (*ImportResponse, *http.Response, error) {
-	return r.ApiService.CancelImportApiV1ImportsImportIdCancelPostExecute(r)
+func (r ApiCancelImportRequest) Execute() (*ImportResponse, *http.Response, error) {
+	return r.ApiService.CancelImportExecute(r)
 }
 
 /*
-CancelImportApiV1ImportsImportIdCancelPost Cancel Import
+CancelImport Cancel Import
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param importId
- @return ApiCancelImportApiV1ImportsImportIdCancelPostRequest
+ @return ApiCancelImportRequest
 */
-func (a *ImportsAPIService) CancelImportApiV1ImportsImportIdCancelPost(ctx context.Context, importId string) ApiCancelImportApiV1ImportsImportIdCancelPostRequest {
-	return ApiCancelImportApiV1ImportsImportIdCancelPostRequest{
+func (a *ImportsAPIService) CancelImport(ctx context.Context, importId string) ApiCancelImportRequest {
+	return ApiCancelImportRequest{
 		ApiService: a,
 		ctx: ctx,
 		importId: importId,
@@ -50,7 +50,7 @@ func (a *ImportsAPIService) CancelImportApiV1ImportsImportIdCancelPost(ctx conte
 
 // Execute executes the request
 //  @return ImportResponse
-func (a *ImportsAPIService) CancelImportApiV1ImportsImportIdCancelPostExecute(r ApiCancelImportApiV1ImportsImportIdCancelPostRequest) (*ImportResponse, *http.Response, error) {
+func (a *ImportsAPIService) CancelImportExecute(r ApiCancelImportRequest) (*ImportResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -58,7 +58,7 @@ func (a *ImportsAPIService) CancelImportApiV1ImportsImportIdCancelPostExecute(r 
 		localVarReturnValue  *ImportResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportsAPIService.CancelImportApiV1ImportsImportIdCancelPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportsAPIService.CancelImport")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,25 +134,25 @@ func (a *ImportsAPIService) CancelImportApiV1ImportsImportIdCancelPostExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiConfirmImportApiV1ImportsImportIdConfirmPostRequest struct {
+type ApiConfirmImportRequest struct {
 	ctx context.Context
 	ApiService *ImportsAPIService
 	importId string
 }
 
-func (r ApiConfirmImportApiV1ImportsImportIdConfirmPostRequest) Execute() (*ImportResponse, *http.Response, error) {
-	return r.ApiService.ConfirmImportApiV1ImportsImportIdConfirmPostExecute(r)
+func (r ApiConfirmImportRequest) Execute() (*ImportResponse, *http.Response, error) {
+	return r.ApiService.ConfirmImportExecute(r)
 }
 
 /*
-ConfirmImportApiV1ImportsImportIdConfirmPost Confirm Import
+ConfirmImport Confirm Import
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param importId
- @return ApiConfirmImportApiV1ImportsImportIdConfirmPostRequest
+ @return ApiConfirmImportRequest
 */
-func (a *ImportsAPIService) ConfirmImportApiV1ImportsImportIdConfirmPost(ctx context.Context, importId string) ApiConfirmImportApiV1ImportsImportIdConfirmPostRequest {
-	return ApiConfirmImportApiV1ImportsImportIdConfirmPostRequest{
+func (a *ImportsAPIService) ConfirmImport(ctx context.Context, importId string) ApiConfirmImportRequest {
+	return ApiConfirmImportRequest{
 		ApiService: a,
 		ctx: ctx,
 		importId: importId,
@@ -161,7 +161,7 @@ func (a *ImportsAPIService) ConfirmImportApiV1ImportsImportIdConfirmPost(ctx con
 
 // Execute executes the request
 //  @return ImportResponse
-func (a *ImportsAPIService) ConfirmImportApiV1ImportsImportIdConfirmPostExecute(r ApiConfirmImportApiV1ImportsImportIdConfirmPostRequest) (*ImportResponse, *http.Response, error) {
+func (a *ImportsAPIService) ConfirmImportExecute(r ApiConfirmImportRequest) (*ImportResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -169,7 +169,7 @@ func (a *ImportsAPIService) ConfirmImportApiV1ImportsImportIdConfirmPostExecute(
 		localVarReturnValue  *ImportResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportsAPIService.ConfirmImportApiV1ImportsImportIdConfirmPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportsAPIService.ConfirmImport")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -245,29 +245,29 @@ func (a *ImportsAPIService) ConfirmImportApiV1ImportsImportIdConfirmPostExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateImportApiV1ImportsPostRequest struct {
+type ApiCreateImportRequest struct {
 	ctx context.Context
 	ApiService *ImportsAPIService
 	importCreateRequest *ImportCreateRequest
 }
 
-func (r ApiCreateImportApiV1ImportsPostRequest) ImportCreateRequest(importCreateRequest ImportCreateRequest) ApiCreateImportApiV1ImportsPostRequest {
+func (r ApiCreateImportRequest) ImportCreateRequest(importCreateRequest ImportCreateRequest) ApiCreateImportRequest {
 	r.importCreateRequest = &importCreateRequest
 	return r
 }
 
-func (r ApiCreateImportApiV1ImportsPostRequest) Execute() (*ImportResponse, *http.Response, error) {
-	return r.ApiService.CreateImportApiV1ImportsPostExecute(r)
+func (r ApiCreateImportRequest) Execute() (*ImportResponse, *http.Response, error) {
+	return r.ApiService.CreateImportExecute(r)
 }
 
 /*
-CreateImportApiV1ImportsPost Create Import
+CreateImport Create Import
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateImportApiV1ImportsPostRequest
+ @return ApiCreateImportRequest
 */
-func (a *ImportsAPIService) CreateImportApiV1ImportsPost(ctx context.Context) ApiCreateImportApiV1ImportsPostRequest {
-	return ApiCreateImportApiV1ImportsPostRequest{
+func (a *ImportsAPIService) CreateImport(ctx context.Context) ApiCreateImportRequest {
+	return ApiCreateImportRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -275,7 +275,7 @@ func (a *ImportsAPIService) CreateImportApiV1ImportsPost(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return ImportResponse
-func (a *ImportsAPIService) CreateImportApiV1ImportsPostExecute(r ApiCreateImportApiV1ImportsPostRequest) (*ImportResponse, *http.Response, error) {
+func (a *ImportsAPIService) CreateImportExecute(r ApiCreateImportRequest) (*ImportResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -283,7 +283,7 @@ func (a *ImportsAPIService) CreateImportApiV1ImportsPostExecute(r ApiCreateImpor
 		localVarReturnValue  *ImportResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportsAPIService.CreateImportApiV1ImportsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportsAPIService.CreateImport")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -363,25 +363,25 @@ func (a *ImportsAPIService) CreateImportApiV1ImportsPostExecute(r ApiCreateImpor
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetImportApiV1ImportsImportIdGetRequest struct {
+type ApiGetImportRequest struct {
 	ctx context.Context
 	ApiService *ImportsAPIService
 	importId string
 }
 
-func (r ApiGetImportApiV1ImportsImportIdGetRequest) Execute() (*ImportResponse, *http.Response, error) {
-	return r.ApiService.GetImportApiV1ImportsImportIdGetExecute(r)
+func (r ApiGetImportRequest) Execute() (*ImportResponse, *http.Response, error) {
+	return r.ApiService.GetImportExecute(r)
 }
 
 /*
-GetImportApiV1ImportsImportIdGet Get Import
+GetImport Get Import
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param importId
- @return ApiGetImportApiV1ImportsImportIdGetRequest
+ @return ApiGetImportRequest
 */
-func (a *ImportsAPIService) GetImportApiV1ImportsImportIdGet(ctx context.Context, importId string) ApiGetImportApiV1ImportsImportIdGetRequest {
-	return ApiGetImportApiV1ImportsImportIdGetRequest{
+func (a *ImportsAPIService) GetImport(ctx context.Context, importId string) ApiGetImportRequest {
+	return ApiGetImportRequest{
 		ApiService: a,
 		ctx: ctx,
 		importId: importId,
@@ -390,7 +390,7 @@ func (a *ImportsAPIService) GetImportApiV1ImportsImportIdGet(ctx context.Context
 
 // Execute executes the request
 //  @return ImportResponse
-func (a *ImportsAPIService) GetImportApiV1ImportsImportIdGetExecute(r ApiGetImportApiV1ImportsImportIdGetRequest) (*ImportResponse, *http.Response, error) {
+func (a *ImportsAPIService) GetImportExecute(r ApiGetImportRequest) (*ImportResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -398,7 +398,7 @@ func (a *ImportsAPIService) GetImportApiV1ImportsImportIdGetExecute(r ApiGetImpo
 		localVarReturnValue  *ImportResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportsAPIService.GetImportApiV1ImportsImportIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImportsAPIService.GetImport")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

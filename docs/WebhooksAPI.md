@@ -4,22 +4,22 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateWebhookEndpointApiV1WebhookEndpointsPost**](WebhooksAPI.md#CreateWebhookEndpointApiV1WebhookEndpointsPost) | **Post** /api/v1/webhook-endpoints | Create Webhook Endpoint
-[**DeleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete**](WebhooksAPI.md#DeleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete) | **Delete** /api/v1/webhook-endpoints/{endpoint_id} | Delete Webhook Endpoint
-[**GetWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet**](WebhooksAPI.md#GetWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet) | **Get** /api/v1/webhook-deliveries/{delivery_id} | Get Webhook Delivery
-[**GetWebhookEndpointApiV1WebhookEndpointsEndpointIdGet**](WebhooksAPI.md#GetWebhookEndpointApiV1WebhookEndpointsEndpointIdGet) | **Get** /api/v1/webhook-endpoints/{endpoint_id} | Get Webhook Endpoint
-[**ListWebhookDeliveriesApiV1WebhookDeliveriesGet**](WebhooksAPI.md#ListWebhookDeliveriesApiV1WebhookDeliveriesGet) | **Get** /api/v1/webhook-deliveries | List Webhook Deliveries
-[**ListWebhookEndpointsApiV1WebhookEndpointsGet**](WebhooksAPI.md#ListWebhookEndpointsApiV1WebhookEndpointsGet) | **Get** /api/v1/webhook-endpoints | List Webhook Endpoints
-[**RetryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost**](WebhooksAPI.md#RetryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost) | **Post** /api/v1/webhook-deliveries/{delivery_id}/retry | Retry Webhook Delivery
-[**RotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost**](WebhooksAPI.md#RotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost) | **Post** /api/v1/webhook-endpoints/{endpoint_id}/rotate-secret | Rotate Webhook Secret
-[**TestWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost**](WebhooksAPI.md#TestWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost) | **Post** /api/v1/webhook-endpoints/{endpoint_id}/test | Test Webhook Endpoint
-[**UpdateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch**](WebhooksAPI.md#UpdateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch) | **Patch** /api/v1/webhook-endpoints/{endpoint_id} | Update Webhook Endpoint
+[**CreateWebhookEndpoint**](WebhooksAPI.md#CreateWebhookEndpoint) | **Post** /api/v1/webhook-endpoints | Create Webhook Endpoint
+[**DeleteWebhookEndpoint**](WebhooksAPI.md#DeleteWebhookEndpoint) | **Delete** /api/v1/webhook-endpoints/{endpoint_id} | Delete Webhook Endpoint
+[**GetWebhookDelivery**](WebhooksAPI.md#GetWebhookDelivery) | **Get** /api/v1/webhook-deliveries/{delivery_id} | Get Webhook Delivery
+[**GetWebhookEndpoint**](WebhooksAPI.md#GetWebhookEndpoint) | **Get** /api/v1/webhook-endpoints/{endpoint_id} | Get Webhook Endpoint
+[**ListWebhookDeliveries**](WebhooksAPI.md#ListWebhookDeliveries) | **Get** /api/v1/webhook-deliveries | List Webhook Deliveries
+[**ListWebhookEndpoints**](WebhooksAPI.md#ListWebhookEndpoints) | **Get** /api/v1/webhook-endpoints | List Webhook Endpoints
+[**RetryWebhookDelivery**](WebhooksAPI.md#RetryWebhookDelivery) | **Post** /api/v1/webhook-deliveries/{delivery_id}/retry | Retry Webhook Delivery
+[**RotateWebhookSecret**](WebhooksAPI.md#RotateWebhookSecret) | **Post** /api/v1/webhook-endpoints/{endpoint_id}/rotate-secret | Rotate Webhook Secret
+[**TestWebhookEndpoint**](WebhooksAPI.md#TestWebhookEndpoint) | **Post** /api/v1/webhook-endpoints/{endpoint_id}/test | Test Webhook Endpoint
+[**UpdateWebhookEndpoint**](WebhooksAPI.md#UpdateWebhookEndpoint) | **Patch** /api/v1/webhook-endpoints/{endpoint_id} | Update Webhook Endpoint
 
 
 
-## CreateWebhookEndpointApiV1WebhookEndpointsPost
+## CreateWebhookEndpoint
 
-> WebhookEndpointResponse CreateWebhookEndpointApiV1WebhookEndpointsPost(ctx).WebhookEndpointCreateRequest(webhookEndpointCreateRequest).Execute()
+> WebhookEndpointResponse CreateWebhookEndpoint(ctx).WebhookEndpointCreateRequest(webhookEndpointCreateRequest).Execute()
 
 Create Webhook Endpoint
 
@@ -40,13 +40,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebhooksAPI.CreateWebhookEndpointApiV1WebhookEndpointsPost(context.Background()).WebhookEndpointCreateRequest(webhookEndpointCreateRequest).Execute()
+	resp, r, err := apiClient.WebhooksAPI.CreateWebhookEndpoint(context.Background()).WebhookEndpointCreateRequest(webhookEndpointCreateRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.CreateWebhookEndpointApiV1WebhookEndpointsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.CreateWebhookEndpoint``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateWebhookEndpointApiV1WebhookEndpointsPost`: WebhookEndpointResponse
-	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.CreateWebhookEndpointApiV1WebhookEndpointsPost`: %v\n", resp)
+	// response from `CreateWebhookEndpoint`: WebhookEndpointResponse
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.CreateWebhookEndpoint`: %v\n", resp)
 }
 ```
 
@@ -56,7 +56,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateWebhookEndpointApiV1WebhookEndpointsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateWebhookEndpointRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -81,9 +81,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete
+## DeleteWebhookEndpoint
 
-> SimpleBoolResponse DeleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete(ctx, endpointId).Execute()
+> SimpleBoolResponse DeleteWebhookEndpoint(ctx, endpointId).Execute()
 
 Delete Webhook Endpoint
 
@@ -104,13 +104,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebhooksAPI.DeleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete(context.Background(), endpointId).Execute()
+	resp, r, err := apiClient.WebhooksAPI.DeleteWebhookEndpoint(context.Background(), endpointId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.DeleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.DeleteWebhookEndpoint``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.DeleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete`: %v\n", resp)
+	// response from `DeleteWebhookEndpoint`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.DeleteWebhookEndpoint`: %v\n", resp)
 }
 ```
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteWebhookEndpointRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -149,9 +149,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet
+## GetWebhookDelivery
 
-> WebhookDeliveryResponse GetWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet(ctx, deliveryId).Execute()
+> WebhookDeliveryResponse GetWebhookDelivery(ctx, deliveryId).Execute()
 
 Get Webhook Delivery
 
@@ -172,13 +172,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebhooksAPI.GetWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet(context.Background(), deliveryId).Execute()
+	resp, r, err := apiClient.WebhooksAPI.GetWebhookDelivery(context.Background(), deliveryId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.GetWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.GetWebhookDelivery``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet`: WebhookDeliveryResponse
-	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.GetWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet`: %v\n", resp)
+	// response from `GetWebhookDelivery`: WebhookDeliveryResponse
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.GetWebhookDelivery`: %v\n", resp)
 }
 ```
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetWebhookDeliveryRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -217,9 +217,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetWebhookEndpointApiV1WebhookEndpointsEndpointIdGet
+## GetWebhookEndpoint
 
-> WebhookEndpointResponse GetWebhookEndpointApiV1WebhookEndpointsEndpointIdGet(ctx, endpointId).Execute()
+> WebhookEndpointResponse GetWebhookEndpoint(ctx, endpointId).Execute()
 
 Get Webhook Endpoint
 
@@ -240,13 +240,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebhooksAPI.GetWebhookEndpointApiV1WebhookEndpointsEndpointIdGet(context.Background(), endpointId).Execute()
+	resp, r, err := apiClient.WebhooksAPI.GetWebhookEndpoint(context.Background(), endpointId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.GetWebhookEndpointApiV1WebhookEndpointsEndpointIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.GetWebhookEndpoint``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetWebhookEndpointApiV1WebhookEndpointsEndpointIdGet`: WebhookEndpointResponse
-	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.GetWebhookEndpointApiV1WebhookEndpointsEndpointIdGet`: %v\n", resp)
+	// response from `GetWebhookEndpoint`: WebhookEndpointResponse
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.GetWebhookEndpoint`: %v\n", resp)
 }
 ```
 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetWebhookEndpointApiV1WebhookEndpointsEndpointIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetWebhookEndpointRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -285,9 +285,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListWebhookDeliveriesApiV1WebhookDeliveriesGet
+## ListWebhookDeliveries
 
-> WebhookDeliveriesListResponse ListWebhookDeliveriesApiV1WebhookDeliveriesGet(ctx).Limit(limit).Cursor(cursor).Execute()
+> WebhookDeliveriesListResponse ListWebhookDeliveries(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List Webhook Deliveries
 
@@ -309,13 +309,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebhooksAPI.ListWebhookDeliveriesApiV1WebhookDeliveriesGet(context.Background()).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.WebhooksAPI.ListWebhookDeliveries(context.Background()).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ListWebhookDeliveriesApiV1WebhookDeliveriesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ListWebhookDeliveries``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListWebhookDeliveriesApiV1WebhookDeliveriesGet`: WebhookDeliveriesListResponse
-	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ListWebhookDeliveriesApiV1WebhookDeliveriesGet`: %v\n", resp)
+	// response from `ListWebhookDeliveries`: WebhookDeliveriesListResponse
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ListWebhookDeliveries`: %v\n", resp)
 }
 ```
 
@@ -325,7 +325,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListWebhookDeliveriesApiV1WebhookDeliveriesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListWebhookDeliveriesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -351,9 +351,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListWebhookEndpointsApiV1WebhookEndpointsGet
+## ListWebhookEndpoints
 
-> WebhookEndpointsListResponse ListWebhookEndpointsApiV1WebhookEndpointsGet(ctx).Limit(limit).Cursor(cursor).Execute()
+> WebhookEndpointsListResponse ListWebhookEndpoints(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List Webhook Endpoints
 
@@ -375,13 +375,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebhooksAPI.ListWebhookEndpointsApiV1WebhookEndpointsGet(context.Background()).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.WebhooksAPI.ListWebhookEndpoints(context.Background()).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ListWebhookEndpointsApiV1WebhookEndpointsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ListWebhookEndpoints``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListWebhookEndpointsApiV1WebhookEndpointsGet`: WebhookEndpointsListResponse
-	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ListWebhookEndpointsApiV1WebhookEndpointsGet`: %v\n", resp)
+	// response from `ListWebhookEndpoints`: WebhookEndpointsListResponse
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ListWebhookEndpoints`: %v\n", resp)
 }
 ```
 
@@ -391,7 +391,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListWebhookEndpointsApiV1WebhookEndpointsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListWebhookEndpointsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -417,9 +417,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## RetryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost
+## RetryWebhookDelivery
 
-> WebhookDeliveryResponse RetryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost(ctx, deliveryId).Execute()
+> WebhookDeliveryResponse RetryWebhookDelivery(ctx, deliveryId).Execute()
 
 Retry Webhook Delivery
 
@@ -440,13 +440,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebhooksAPI.RetryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost(context.Background(), deliveryId).Execute()
+	resp, r, err := apiClient.WebhooksAPI.RetryWebhookDelivery(context.Background(), deliveryId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.RetryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.RetryWebhookDelivery``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RetryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost`: WebhookDeliveryResponse
-	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.RetryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost`: %v\n", resp)
+	// response from `RetryWebhookDelivery`: WebhookDeliveryResponse
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.RetryWebhookDelivery`: %v\n", resp)
 }
 ```
 
@@ -460,7 +460,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiRetryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRetryWebhookDeliveryRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -485,9 +485,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## RotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost
+## RotateWebhookSecret
 
-> WebhookSecretResponse RotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost(ctx, endpointId).Execute()
+> WebhookSecretResponse RotateWebhookSecret(ctx, endpointId).Execute()
 
 Rotate Webhook Secret
 
@@ -508,13 +508,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebhooksAPI.RotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost(context.Background(), endpointId).Execute()
+	resp, r, err := apiClient.WebhooksAPI.RotateWebhookSecret(context.Background(), endpointId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.RotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.RotateWebhookSecret``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost`: WebhookSecretResponse
-	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.RotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost`: %v\n", resp)
+	// response from `RotateWebhookSecret`: WebhookSecretResponse
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.RotateWebhookSecret`: %v\n", resp)
 }
 ```
 
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiRotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRotateWebhookSecretRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -553,9 +553,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## TestWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost
+## TestWebhookEndpoint
 
-> WebhookDeliveryResponse TestWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost(ctx, endpointId).Execute()
+> WebhookDeliveryResponse TestWebhookEndpoint(ctx, endpointId).Execute()
 
 Test Webhook Endpoint
 
@@ -576,13 +576,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebhooksAPI.TestWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost(context.Background(), endpointId).Execute()
+	resp, r, err := apiClient.WebhooksAPI.TestWebhookEndpoint(context.Background(), endpointId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.TestWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.TestWebhookEndpoint``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `TestWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost`: WebhookDeliveryResponse
-	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.TestWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost`: %v\n", resp)
+	// response from `TestWebhookEndpoint`: WebhookDeliveryResponse
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.TestWebhookEndpoint`: %v\n", resp)
 }
 ```
 
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiTestWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiTestWebhookEndpointRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -621,9 +621,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UpdateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch
+## UpdateWebhookEndpoint
 
-> WebhookEndpointResponse UpdateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch(ctx, endpointId).WebhookEndpointPatchRequest(webhookEndpointPatchRequest).Execute()
+> WebhookEndpointResponse UpdateWebhookEndpoint(ctx, endpointId).WebhookEndpointPatchRequest(webhookEndpointPatchRequest).Execute()
 
 Update Webhook Endpoint
 
@@ -645,13 +645,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebhooksAPI.UpdateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch(context.Background(), endpointId).WebhookEndpointPatchRequest(webhookEndpointPatchRequest).Execute()
+	resp, r, err := apiClient.WebhooksAPI.UpdateWebhookEndpoint(context.Background(), endpointId).WebhookEndpointPatchRequest(webhookEndpointPatchRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.UpdateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.UpdateWebhookEndpoint``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch`: WebhookEndpointResponse
-	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.UpdateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch`: %v\n", resp)
+	// response from `UpdateWebhookEndpoint`: WebhookEndpointResponse
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.UpdateWebhookEndpoint`: %v\n", resp)
 }
 ```
 
@@ -665,7 +665,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateWebhookEndpointRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

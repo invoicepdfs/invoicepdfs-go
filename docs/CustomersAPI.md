@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateCustomerApiV1CustomersPost**](CustomersAPI.md#CreateCustomerApiV1CustomersPost) | **Post** /api/v1/customers | Create Customer
-[**DeleteCustomerApiV1CustomersCustomerIdDelete**](CustomersAPI.md#DeleteCustomerApiV1CustomersCustomerIdDelete) | **Delete** /api/v1/customers/{customer_id} | Delete Customer
-[**GetCustomerApiV1CustomersCustomerIdGet**](CustomersAPI.md#GetCustomerApiV1CustomersCustomerIdGet) | **Get** /api/v1/customers/{customer_id} | Get Customer
-[**ListCustomersApiV1CustomersGet**](CustomersAPI.md#ListCustomersApiV1CustomersGet) | **Get** /api/v1/customers | List Customers
-[**PatchCustomerApiV1CustomersCustomerIdPatch**](CustomersAPI.md#PatchCustomerApiV1CustomersCustomerIdPatch) | **Patch** /api/v1/customers/{customer_id} | Patch Customer
+[**CreateCustomer**](CustomersAPI.md#CreateCustomer) | **Post** /api/v1/customers | Create Customer
+[**DeleteCustomer**](CustomersAPI.md#DeleteCustomer) | **Delete** /api/v1/customers/{customer_id} | Delete Customer
+[**GetCustomer**](CustomersAPI.md#GetCustomer) | **Get** /api/v1/customers/{customer_id} | Get Customer
+[**ListCustomers**](CustomersAPI.md#ListCustomers) | **Get** /api/v1/customers | List Customers
+[**UpdateCustomer**](CustomersAPI.md#UpdateCustomer) | **Patch** /api/v1/customers/{customer_id} | Update Customer
 
 
 
-## CreateCustomerApiV1CustomersPost
+## CreateCustomer
 
-> CustomerResponse CreateCustomerApiV1CustomersPost(ctx).CustomerCreate(customerCreate).IdempotencyKey(idempotencyKey).Execute()
+> CustomerResponse CreateCustomer(ctx).CustomerCreate(customerCreate).IdempotencyKey(idempotencyKey).Execute()
 
 Create Customer
 
@@ -36,13 +36,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomersAPI.CreateCustomerApiV1CustomersPost(context.Background()).CustomerCreate(customerCreate).IdempotencyKey(idempotencyKey).Execute()
+	resp, r, err := apiClient.CustomersAPI.CreateCustomer(context.Background()).CustomerCreate(customerCreate).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomersAPI.CreateCustomerApiV1CustomersPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CustomersAPI.CreateCustomer``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateCustomerApiV1CustomersPost`: CustomerResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomersAPI.CreateCustomerApiV1CustomersPost`: %v\n", resp)
+	// response from `CreateCustomer`: CustomerResponse
+	fmt.Fprintf(os.Stdout, "Response from `CustomersAPI.CreateCustomer`: %v\n", resp)
 }
 ```
 
@@ -52,7 +52,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateCustomerApiV1CustomersPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateCustomerRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -78,9 +78,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteCustomerApiV1CustomersCustomerIdDelete
+## DeleteCustomer
 
-> SimpleBoolResponse DeleteCustomerApiV1CustomersCustomerIdDelete(ctx, customerId).Execute()
+> SimpleBoolResponse DeleteCustomer(ctx, customerId).Execute()
 
 Delete Customer
 
@@ -101,13 +101,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomersAPI.DeleteCustomerApiV1CustomersCustomerIdDelete(context.Background(), customerId).Execute()
+	resp, r, err := apiClient.CustomersAPI.DeleteCustomer(context.Background(), customerId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomersAPI.DeleteCustomerApiV1CustomersCustomerIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CustomersAPI.DeleteCustomer``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteCustomerApiV1CustomersCustomerIdDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomersAPI.DeleteCustomerApiV1CustomersCustomerIdDelete`: %v\n", resp)
+	// response from `DeleteCustomer`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `CustomersAPI.DeleteCustomer`: %v\n", resp)
 }
 ```
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteCustomerApiV1CustomersCustomerIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteCustomerRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -146,9 +146,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetCustomerApiV1CustomersCustomerIdGet
+## GetCustomer
 
-> CustomerResponse GetCustomerApiV1CustomersCustomerIdGet(ctx, customerId).Execute()
+> CustomerResponse GetCustomer(ctx, customerId).Execute()
 
 Get Customer
 
@@ -169,13 +169,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomersAPI.GetCustomerApiV1CustomersCustomerIdGet(context.Background(), customerId).Execute()
+	resp, r, err := apiClient.CustomersAPI.GetCustomer(context.Background(), customerId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomersAPI.GetCustomerApiV1CustomersCustomerIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CustomersAPI.GetCustomer``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetCustomerApiV1CustomersCustomerIdGet`: CustomerResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomersAPI.GetCustomerApiV1CustomersCustomerIdGet`: %v\n", resp)
+	// response from `GetCustomer`: CustomerResponse
+	fmt.Fprintf(os.Stdout, "Response from `CustomersAPI.GetCustomer`: %v\n", resp)
 }
 ```
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetCustomerApiV1CustomersCustomerIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetCustomerRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -214,9 +214,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListCustomersApiV1CustomersGet
+## ListCustomers
 
-> CustomersListResponse ListCustomersApiV1CustomersGet(ctx).Limit(limit).Cursor(cursor).Execute()
+> CustomersListResponse ListCustomers(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List Customers
 
@@ -238,13 +238,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomersAPI.ListCustomersApiV1CustomersGet(context.Background()).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.CustomersAPI.ListCustomers(context.Background()).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomersAPI.ListCustomersApiV1CustomersGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CustomersAPI.ListCustomers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListCustomersApiV1CustomersGet`: CustomersListResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomersAPI.ListCustomersApiV1CustomersGet`: %v\n", resp)
+	// response from `ListCustomers`: CustomersListResponse
+	fmt.Fprintf(os.Stdout, "Response from `CustomersAPI.ListCustomers`: %v\n", resp)
 }
 ```
 
@@ -254,7 +254,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListCustomersApiV1CustomersGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListCustomersRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -280,11 +280,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PatchCustomerApiV1CustomersCustomerIdPatch
+## UpdateCustomer
 
-> CustomerResponse PatchCustomerApiV1CustomersCustomerIdPatch(ctx, customerId).CustomerPatch(customerPatch).IdempotencyKey(idempotencyKey).Execute()
+> CustomerResponse UpdateCustomer(ctx, customerId).CustomerPatch(customerPatch).IdempotencyKey(idempotencyKey).Execute()
 
-Patch Customer
+Update Customer
 
 ### Example
 
@@ -305,13 +305,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomersAPI.PatchCustomerApiV1CustomersCustomerIdPatch(context.Background(), customerId).CustomerPatch(customerPatch).IdempotencyKey(idempotencyKey).Execute()
+	resp, r, err := apiClient.CustomersAPI.UpdateCustomer(context.Background(), customerId).CustomerPatch(customerPatch).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomersAPI.PatchCustomerApiV1CustomersCustomerIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `CustomersAPI.UpdateCustomer``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PatchCustomerApiV1CustomersCustomerIdPatch`: CustomerResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomersAPI.PatchCustomerApiV1CustomersCustomerIdPatch`: %v\n", resp)
+	// response from `UpdateCustomer`: CustomerResponse
+	fmt.Fprintf(os.Stdout, "Response from `CustomersAPI.UpdateCustomer`: %v\n", resp)
 }
 ```
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPatchCustomerApiV1CustomersCustomerIdPatchRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateCustomerRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

@@ -22,23 +22,23 @@ import (
 // StatsAPIService StatsAPI service
 type StatsAPIService service
 
-type ApiGetStatsApiV1StatsGetRequest struct {
+type ApiGetStatsRequest struct {
 	ctx context.Context
 	ApiService *StatsAPIService
 }
 
-func (r ApiGetStatsApiV1StatsGetRequest) Execute() (*StatsResponse, *http.Response, error) {
-	return r.ApiService.GetStatsApiV1StatsGetExecute(r)
+func (r ApiGetStatsRequest) Execute() (*StatsResponse, *http.Response, error) {
+	return r.ApiService.GetStatsExecute(r)
 }
 
 /*
-GetStatsApiV1StatsGet Get Stats
+GetStats Get Stats
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetStatsApiV1StatsGetRequest
+ @return ApiGetStatsRequest
 */
-func (a *StatsAPIService) GetStatsApiV1StatsGet(ctx context.Context) ApiGetStatsApiV1StatsGetRequest {
-	return ApiGetStatsApiV1StatsGetRequest{
+func (a *StatsAPIService) GetStats(ctx context.Context) ApiGetStatsRequest {
+	return ApiGetStatsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -46,7 +46,7 @@ func (a *StatsAPIService) GetStatsApiV1StatsGet(ctx context.Context) ApiGetStats
 
 // Execute executes the request
 //  @return StatsResponse
-func (a *StatsAPIService) GetStatsApiV1StatsGetExecute(r ApiGetStatsApiV1StatsGetRequest) (*StatsResponse, *http.Response, error) {
+func (a *StatsAPIService) GetStatsExecute(r ApiGetStatsRequest) (*StatsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -54,7 +54,7 @@ func (a *StatsAPIService) GetStatsApiV1StatsGetExecute(r ApiGetStatsApiV1StatsGe
 		localVarReturnValue  *StatsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatsAPIService.GetStatsApiV1StatsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatsAPIService.GetStats")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

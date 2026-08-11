@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DownloadRenderApiV1RendersRenderIdDownloadGet**](RendersAPI.md#DownloadRenderApiV1RendersRenderIdDownloadGet) | **Get** /api/v1/renders/{render_id}/download | Download Render
-[**GetRenderApiV1RendersRenderIdGet**](RendersAPI.md#GetRenderApiV1RendersRenderIdGet) | **Get** /api/v1/renders/{render_id} | Get Render
+[**DownloadRender**](RendersAPI.md#DownloadRender) | **Get** /api/v1/renders/{render_id}/download | Download Render
+[**GetRender**](RendersAPI.md#GetRender) | **Get** /api/v1/renders/{render_id} | Get Render
 
 
 
-## DownloadRenderApiV1RendersRenderIdDownloadGet
+## DownloadRender
 
-> *os.File DownloadRenderApiV1RendersRenderIdDownloadGet(ctx, renderId).Execute()
+> *os.File DownloadRender(ctx, renderId).Execute()
 
 Download Render
 
@@ -32,13 +32,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RendersAPI.DownloadRenderApiV1RendersRenderIdDownloadGet(context.Background(), renderId).Execute()
+	resp, r, err := apiClient.RendersAPI.DownloadRender(context.Background(), renderId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RendersAPI.DownloadRenderApiV1RendersRenderIdDownloadGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RendersAPI.DownloadRender``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DownloadRenderApiV1RendersRenderIdDownloadGet`: *os.File
-	fmt.Fprintf(os.Stdout, "Response from `RendersAPI.DownloadRenderApiV1RendersRenderIdDownloadGet`: %v\n", resp)
+	// response from `DownloadRender`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `RendersAPI.DownloadRender`: %v\n", resp)
 }
 ```
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDownloadRenderApiV1RendersRenderIdDownloadGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDownloadRenderRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -77,9 +77,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetRenderApiV1RendersRenderIdGet
+## GetRender
 
-> map[string]interface{} GetRenderApiV1RendersRenderIdGet(ctx, renderId).Execute()
+> map[string]interface{} GetRender(ctx, renderId).Execute()
 
 Get Render
 
@@ -100,13 +100,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RendersAPI.GetRenderApiV1RendersRenderIdGet(context.Background(), renderId).Execute()
+	resp, r, err := apiClient.RendersAPI.GetRender(context.Background(), renderId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RendersAPI.GetRenderApiV1RendersRenderIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `RendersAPI.GetRender``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetRenderApiV1RendersRenderIdGet`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `RendersAPI.GetRenderApiV1RendersRenderIdGet`: %v\n", resp)
+	// response from `GetRender`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `RendersAPI.GetRender`: %v\n", resp)
 }
 ```
 
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetRenderApiV1RendersRenderIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetRenderRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

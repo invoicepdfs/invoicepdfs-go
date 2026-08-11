@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CancelJobApiV1JobsJobIdCancelPost**](JobsAPI.md#CancelJobApiV1JobsJobIdCancelPost) | **Post** /api/v1/jobs/{job_id}/cancel | Cancel Job
-[**GetJobApiV1JobsJobIdGet**](JobsAPI.md#GetJobApiV1JobsJobIdGet) | **Get** /api/v1/jobs/{job_id} | Get Job
-[**RetryJobApiV1JobsJobIdRetryPost**](JobsAPI.md#RetryJobApiV1JobsJobIdRetryPost) | **Post** /api/v1/jobs/{job_id}/retry | Retry Job
+[**CancelJob**](JobsAPI.md#CancelJob) | **Post** /api/v1/jobs/{job_id}/cancel | Cancel Job
+[**GetJob**](JobsAPI.md#GetJob) | **Get** /api/v1/jobs/{job_id} | Get Job
+[**RetryJob**](JobsAPI.md#RetryJob) | **Post** /api/v1/jobs/{job_id}/retry | Retry Job
 
 
 
-## CancelJobApiV1JobsJobIdCancelPost
+## CancelJob
 
-> JobResponse CancelJobApiV1JobsJobIdCancelPost(ctx, jobId).Execute()
+> JobResponse CancelJob(ctx, jobId).Execute()
 
 Cancel Job
 
@@ -33,13 +33,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JobsAPI.CancelJobApiV1JobsJobIdCancelPost(context.Background(), jobId).Execute()
+	resp, r, err := apiClient.JobsAPI.CancelJob(context.Background(), jobId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPI.CancelJobApiV1JobsJobIdCancelPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPI.CancelJob``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CancelJobApiV1JobsJobIdCancelPost`: JobResponse
-	fmt.Fprintf(os.Stdout, "Response from `JobsAPI.CancelJobApiV1JobsJobIdCancelPost`: %v\n", resp)
+	// response from `CancelJob`: JobResponse
+	fmt.Fprintf(os.Stdout, "Response from `JobsAPI.CancelJob`: %v\n", resp)
 }
 ```
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCancelJobApiV1JobsJobIdCancelPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCancelJobRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -78,9 +78,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetJobApiV1JobsJobIdGet
+## GetJob
 
-> JobResponse GetJobApiV1JobsJobIdGet(ctx, jobId).Execute()
+> JobResponse GetJob(ctx, jobId).Execute()
 
 Get Job
 
@@ -101,13 +101,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JobsAPI.GetJobApiV1JobsJobIdGet(context.Background(), jobId).Execute()
+	resp, r, err := apiClient.JobsAPI.GetJob(context.Background(), jobId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPI.GetJobApiV1JobsJobIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPI.GetJob``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetJobApiV1JobsJobIdGet`: JobResponse
-	fmt.Fprintf(os.Stdout, "Response from `JobsAPI.GetJobApiV1JobsJobIdGet`: %v\n", resp)
+	// response from `GetJob`: JobResponse
+	fmt.Fprintf(os.Stdout, "Response from `JobsAPI.GetJob`: %v\n", resp)
 }
 ```
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetJobApiV1JobsJobIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetJobRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -146,9 +146,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## RetryJobApiV1JobsJobIdRetryPost
+## RetryJob
 
-> JobResponse RetryJobApiV1JobsJobIdRetryPost(ctx, jobId).Execute()
+> JobResponse RetryJob(ctx, jobId).Execute()
 
 Retry Job
 
@@ -169,13 +169,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JobsAPI.RetryJobApiV1JobsJobIdRetryPost(context.Background(), jobId).Execute()
+	resp, r, err := apiClient.JobsAPI.RetryJob(context.Background(), jobId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPI.RetryJobApiV1JobsJobIdRetryPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPI.RetryJob``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RetryJobApiV1JobsJobIdRetryPost`: JobResponse
-	fmt.Fprintf(os.Stdout, "Response from `JobsAPI.RetryJobApiV1JobsJobIdRetryPost`: %v\n", resp)
+	// response from `RetryJob`: JobResponse
+	fmt.Fprintf(os.Stdout, "Response from `JobsAPI.RetryJob`: %v\n", resp)
 }
 ```
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiRetryJobApiV1JobsJobIdRetryPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRetryJobRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateTaxRateApiV1TaxRatesPost**](TaxRatesAPI.md#CreateTaxRateApiV1TaxRatesPost) | **Post** /api/v1/tax-rates | Create Tax Rate
-[**DeleteTaxRateApiV1TaxRatesTaxRateIdDelete**](TaxRatesAPI.md#DeleteTaxRateApiV1TaxRatesTaxRateIdDelete) | **Delete** /api/v1/tax-rates/{tax_rate_id} | Delete Tax Rate
-[**GetTaxRateApiV1TaxRatesTaxRateIdGet**](TaxRatesAPI.md#GetTaxRateApiV1TaxRatesTaxRateIdGet) | **Get** /api/v1/tax-rates/{tax_rate_id} | Get Tax Rate
-[**ListTaxRatesApiV1TaxRatesGet**](TaxRatesAPI.md#ListTaxRatesApiV1TaxRatesGet) | **Get** /api/v1/tax-rates | List Tax Rates
-[**UpdateTaxRateApiV1TaxRatesTaxRateIdPatch**](TaxRatesAPI.md#UpdateTaxRateApiV1TaxRatesTaxRateIdPatch) | **Patch** /api/v1/tax-rates/{tax_rate_id} | Update Tax Rate
+[**CreateTaxRate**](TaxRatesAPI.md#CreateTaxRate) | **Post** /api/v1/tax-rates | Create Tax Rate
+[**DeleteTaxRate**](TaxRatesAPI.md#DeleteTaxRate) | **Delete** /api/v1/tax-rates/{tax_rate_id} | Delete Tax Rate
+[**GetTaxRate**](TaxRatesAPI.md#GetTaxRate) | **Get** /api/v1/tax-rates/{tax_rate_id} | Get Tax Rate
+[**ListTaxRates**](TaxRatesAPI.md#ListTaxRates) | **Get** /api/v1/tax-rates | List Tax Rates
+[**UpdateTaxRate**](TaxRatesAPI.md#UpdateTaxRate) | **Patch** /api/v1/tax-rates/{tax_rate_id} | Update Tax Rate
 
 
 
-## CreateTaxRateApiV1TaxRatesPost
+## CreateTaxRate
 
-> TaxRateResponse CreateTaxRateApiV1TaxRatesPost(ctx).TaxRateCreateRequest(taxRateCreateRequest).Execute()
+> TaxRateResponse CreateTaxRate(ctx).TaxRateCreateRequest(taxRateCreateRequest).Execute()
 
 Create Tax Rate
 
@@ -35,13 +35,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxRatesAPI.CreateTaxRateApiV1TaxRatesPost(context.Background()).TaxRateCreateRequest(taxRateCreateRequest).Execute()
+	resp, r, err := apiClient.TaxRatesAPI.CreateTaxRate(context.Background()).TaxRateCreateRequest(taxRateCreateRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaxRatesAPI.CreateTaxRateApiV1TaxRatesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TaxRatesAPI.CreateTaxRate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateTaxRateApiV1TaxRatesPost`: TaxRateResponse
-	fmt.Fprintf(os.Stdout, "Response from `TaxRatesAPI.CreateTaxRateApiV1TaxRatesPost`: %v\n", resp)
+	// response from `CreateTaxRate`: TaxRateResponse
+	fmt.Fprintf(os.Stdout, "Response from `TaxRatesAPI.CreateTaxRate`: %v\n", resp)
 }
 ```
 
@@ -51,7 +51,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateTaxRateApiV1TaxRatesPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateTaxRateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -76,9 +76,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteTaxRateApiV1TaxRatesTaxRateIdDelete
+## DeleteTaxRate
 
-> SimpleBoolResponse DeleteTaxRateApiV1TaxRatesTaxRateIdDelete(ctx, taxRateId).Execute()
+> SimpleBoolResponse DeleteTaxRate(ctx, taxRateId).Execute()
 
 Delete Tax Rate
 
@@ -99,13 +99,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxRatesAPI.DeleteTaxRateApiV1TaxRatesTaxRateIdDelete(context.Background(), taxRateId).Execute()
+	resp, r, err := apiClient.TaxRatesAPI.DeleteTaxRate(context.Background(), taxRateId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaxRatesAPI.DeleteTaxRateApiV1TaxRatesTaxRateIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TaxRatesAPI.DeleteTaxRate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteTaxRateApiV1TaxRatesTaxRateIdDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `TaxRatesAPI.DeleteTaxRateApiV1TaxRatesTaxRateIdDelete`: %v\n", resp)
+	// response from `DeleteTaxRate`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `TaxRatesAPI.DeleteTaxRate`: %v\n", resp)
 }
 ```
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteTaxRateApiV1TaxRatesTaxRateIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteTaxRateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -144,9 +144,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetTaxRateApiV1TaxRatesTaxRateIdGet
+## GetTaxRate
 
-> TaxRateResponse GetTaxRateApiV1TaxRatesTaxRateIdGet(ctx, taxRateId).Execute()
+> TaxRateResponse GetTaxRate(ctx, taxRateId).Execute()
 
 Get Tax Rate
 
@@ -167,13 +167,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxRatesAPI.GetTaxRateApiV1TaxRatesTaxRateIdGet(context.Background(), taxRateId).Execute()
+	resp, r, err := apiClient.TaxRatesAPI.GetTaxRate(context.Background(), taxRateId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaxRatesAPI.GetTaxRateApiV1TaxRatesTaxRateIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TaxRatesAPI.GetTaxRate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTaxRateApiV1TaxRatesTaxRateIdGet`: TaxRateResponse
-	fmt.Fprintf(os.Stdout, "Response from `TaxRatesAPI.GetTaxRateApiV1TaxRatesTaxRateIdGet`: %v\n", resp)
+	// response from `GetTaxRate`: TaxRateResponse
+	fmt.Fprintf(os.Stdout, "Response from `TaxRatesAPI.GetTaxRate`: %v\n", resp)
 }
 ```
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetTaxRateApiV1TaxRatesTaxRateIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetTaxRateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -212,9 +212,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListTaxRatesApiV1TaxRatesGet
+## ListTaxRates
 
-> TaxRatesListResponse ListTaxRatesApiV1TaxRatesGet(ctx).Limit(limit).Cursor(cursor).Execute()
+> TaxRatesListResponse ListTaxRates(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List Tax Rates
 
@@ -236,13 +236,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxRatesAPI.ListTaxRatesApiV1TaxRatesGet(context.Background()).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.TaxRatesAPI.ListTaxRates(context.Background()).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaxRatesAPI.ListTaxRatesApiV1TaxRatesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TaxRatesAPI.ListTaxRates``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListTaxRatesApiV1TaxRatesGet`: TaxRatesListResponse
-	fmt.Fprintf(os.Stdout, "Response from `TaxRatesAPI.ListTaxRatesApiV1TaxRatesGet`: %v\n", resp)
+	// response from `ListTaxRates`: TaxRatesListResponse
+	fmt.Fprintf(os.Stdout, "Response from `TaxRatesAPI.ListTaxRates`: %v\n", resp)
 }
 ```
 
@@ -252,7 +252,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListTaxRatesApiV1TaxRatesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListTaxRatesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -278,9 +278,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UpdateTaxRateApiV1TaxRatesTaxRateIdPatch
+## UpdateTaxRate
 
-> TaxRateResponse UpdateTaxRateApiV1TaxRatesTaxRateIdPatch(ctx, taxRateId).TaxRatePatchRequest(taxRatePatchRequest).Execute()
+> TaxRateResponse UpdateTaxRate(ctx, taxRateId).TaxRatePatchRequest(taxRatePatchRequest).Execute()
 
 Update Tax Rate
 
@@ -302,13 +302,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TaxRatesAPI.UpdateTaxRateApiV1TaxRatesTaxRateIdPatch(context.Background(), taxRateId).TaxRatePatchRequest(taxRatePatchRequest).Execute()
+	resp, r, err := apiClient.TaxRatesAPI.UpdateTaxRate(context.Background(), taxRateId).TaxRatePatchRequest(taxRatePatchRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaxRatesAPI.UpdateTaxRateApiV1TaxRatesTaxRateIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `TaxRatesAPI.UpdateTaxRate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateTaxRateApiV1TaxRatesTaxRateIdPatch`: TaxRateResponse
-	fmt.Fprintf(os.Stdout, "Response from `TaxRatesAPI.UpdateTaxRateApiV1TaxRatesTaxRateIdPatch`: %v\n", resp)
+	// response from `UpdateTaxRate`: TaxRateResponse
+	fmt.Fprintf(os.Stdout, "Response from `TaxRatesAPI.UpdateTaxRate`: %v\n", resp)
 }
 ```
 
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateTaxRateApiV1TaxRatesTaxRateIdPatchRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateTaxRateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

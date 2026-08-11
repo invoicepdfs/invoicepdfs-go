@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CancelBatchApiV1BatchesBatchIdCancelPost**](BatchesAPI.md#CancelBatchApiV1BatchesBatchIdCancelPost) | **Post** /api/v1/batches/{batch_id}/cancel | Cancel Batch
-[**CreateBatchApiV1BatchesPost**](BatchesAPI.md#CreateBatchApiV1BatchesPost) | **Post** /api/v1/batches | Create Batch
-[**DownloadBatchApiV1BatchesBatchIdDownloadGet**](BatchesAPI.md#DownloadBatchApiV1BatchesBatchIdDownloadGet) | **Get** /api/v1/batches/{batch_id}/download | Download Batch
-[**GetBatchApiV1BatchesBatchIdGet**](BatchesAPI.md#GetBatchApiV1BatchesBatchIdGet) | **Get** /api/v1/batches/{batch_id} | Get Batch
-[**ListBatchItemsApiV1BatchesBatchIdItemsGet**](BatchesAPI.md#ListBatchItemsApiV1BatchesBatchIdItemsGet) | **Get** /api/v1/batches/{batch_id}/items | List Batch Items
-[**ListBatchesApiV1BatchesGet**](BatchesAPI.md#ListBatchesApiV1BatchesGet) | **Get** /api/v1/batches | List Batches
+[**CancelBatch**](BatchesAPI.md#CancelBatch) | **Post** /api/v1/batches/{batch_id}/cancel | Cancel Batch
+[**CreateBatch**](BatchesAPI.md#CreateBatch) | **Post** /api/v1/batches | Create Batch
+[**DownloadBatch**](BatchesAPI.md#DownloadBatch) | **Get** /api/v1/batches/{batch_id}/download | Download Batch
+[**GetBatch**](BatchesAPI.md#GetBatch) | **Get** /api/v1/batches/{batch_id} | Get Batch
+[**ListBatchItems**](BatchesAPI.md#ListBatchItems) | **Get** /api/v1/batches/{batch_id}/items | List Batch Items
+[**ListBatches**](BatchesAPI.md#ListBatches) | **Get** /api/v1/batches | List Batches
 
 
 
-## CancelBatchApiV1BatchesBatchIdCancelPost
+## CancelBatch
 
-> BatchResponse CancelBatchApiV1BatchesBatchIdCancelPost(ctx, batchId).Execute()
+> BatchResponse CancelBatch(ctx, batchId).Execute()
 
 Cancel Batch
 
@@ -36,13 +36,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BatchesAPI.CancelBatchApiV1BatchesBatchIdCancelPost(context.Background(), batchId).Execute()
+	resp, r, err := apiClient.BatchesAPI.CancelBatch(context.Background(), batchId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BatchesAPI.CancelBatchApiV1BatchesBatchIdCancelPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BatchesAPI.CancelBatch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CancelBatchApiV1BatchesBatchIdCancelPost`: BatchResponse
-	fmt.Fprintf(os.Stdout, "Response from `BatchesAPI.CancelBatchApiV1BatchesBatchIdCancelPost`: %v\n", resp)
+	// response from `CancelBatch`: BatchResponse
+	fmt.Fprintf(os.Stdout, "Response from `BatchesAPI.CancelBatch`: %v\n", resp)
 }
 ```
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCancelBatchApiV1BatchesBatchIdCancelPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCancelBatchRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -81,9 +81,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CreateBatchApiV1BatchesPost
+## CreateBatch
 
-> BatchResponse CreateBatchApiV1BatchesPost(ctx).BatchCreateRequest(batchCreateRequest).Execute()
+> BatchResponse CreateBatch(ctx).BatchCreateRequest(batchCreateRequest).Execute()
 
 Create Batch
 
@@ -104,13 +104,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BatchesAPI.CreateBatchApiV1BatchesPost(context.Background()).BatchCreateRequest(batchCreateRequest).Execute()
+	resp, r, err := apiClient.BatchesAPI.CreateBatch(context.Background()).BatchCreateRequest(batchCreateRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BatchesAPI.CreateBatchApiV1BatchesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BatchesAPI.CreateBatch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateBatchApiV1BatchesPost`: BatchResponse
-	fmt.Fprintf(os.Stdout, "Response from `BatchesAPI.CreateBatchApiV1BatchesPost`: %v\n", resp)
+	// response from `CreateBatch`: BatchResponse
+	fmt.Fprintf(os.Stdout, "Response from `BatchesAPI.CreateBatch`: %v\n", resp)
 }
 ```
 
@@ -120,7 +120,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateBatchApiV1BatchesPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateBatchRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -145,9 +145,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DownloadBatchApiV1BatchesBatchIdDownloadGet
+## DownloadBatch
 
-> interface{} DownloadBatchApiV1BatchesBatchIdDownloadGet(ctx, batchId).Execute()
+> interface{} DownloadBatch(ctx, batchId).Execute()
 
 Download Batch
 
@@ -168,13 +168,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BatchesAPI.DownloadBatchApiV1BatchesBatchIdDownloadGet(context.Background(), batchId).Execute()
+	resp, r, err := apiClient.BatchesAPI.DownloadBatch(context.Background(), batchId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BatchesAPI.DownloadBatchApiV1BatchesBatchIdDownloadGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BatchesAPI.DownloadBatch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DownloadBatchApiV1BatchesBatchIdDownloadGet`: interface{}
-	fmt.Fprintf(os.Stdout, "Response from `BatchesAPI.DownloadBatchApiV1BatchesBatchIdDownloadGet`: %v\n", resp)
+	// response from `DownloadBatch`: interface{}
+	fmt.Fprintf(os.Stdout, "Response from `BatchesAPI.DownloadBatch`: %v\n", resp)
 }
 ```
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDownloadBatchApiV1BatchesBatchIdDownloadGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDownloadBatchRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -213,9 +213,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetBatchApiV1BatchesBatchIdGet
+## GetBatch
 
-> BatchResponse GetBatchApiV1BatchesBatchIdGet(ctx, batchId).Execute()
+> BatchResponse GetBatch(ctx, batchId).Execute()
 
 Get Batch
 
@@ -236,13 +236,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BatchesAPI.GetBatchApiV1BatchesBatchIdGet(context.Background(), batchId).Execute()
+	resp, r, err := apiClient.BatchesAPI.GetBatch(context.Background(), batchId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BatchesAPI.GetBatchApiV1BatchesBatchIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BatchesAPI.GetBatch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetBatchApiV1BatchesBatchIdGet`: BatchResponse
-	fmt.Fprintf(os.Stdout, "Response from `BatchesAPI.GetBatchApiV1BatchesBatchIdGet`: %v\n", resp)
+	// response from `GetBatch`: BatchResponse
+	fmt.Fprintf(os.Stdout, "Response from `BatchesAPI.GetBatch`: %v\n", resp)
 }
 ```
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetBatchApiV1BatchesBatchIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetBatchRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -281,9 +281,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListBatchItemsApiV1BatchesBatchIdItemsGet
+## ListBatchItems
 
-> BatchItemsListResponse ListBatchItemsApiV1BatchesBatchIdItemsGet(ctx, batchId).Limit(limit).Cursor(cursor).Execute()
+> BatchItemsListResponse ListBatchItems(ctx, batchId).Limit(limit).Cursor(cursor).Execute()
 
 List Batch Items
 
@@ -306,13 +306,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BatchesAPI.ListBatchItemsApiV1BatchesBatchIdItemsGet(context.Background(), batchId).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.BatchesAPI.ListBatchItems(context.Background(), batchId).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BatchesAPI.ListBatchItemsApiV1BatchesBatchIdItemsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BatchesAPI.ListBatchItems``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListBatchItemsApiV1BatchesBatchIdItemsGet`: BatchItemsListResponse
-	fmt.Fprintf(os.Stdout, "Response from `BatchesAPI.ListBatchItemsApiV1BatchesBatchIdItemsGet`: %v\n", resp)
+	// response from `ListBatchItems`: BatchItemsListResponse
+	fmt.Fprintf(os.Stdout, "Response from `BatchesAPI.ListBatchItems`: %v\n", resp)
 }
 ```
 
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListBatchItemsApiV1BatchesBatchIdItemsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListBatchItemsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -353,9 +353,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListBatchesApiV1BatchesGet
+## ListBatches
 
-> BatchesListResponse ListBatchesApiV1BatchesGet(ctx).Limit(limit).Cursor(cursor).Execute()
+> BatchesListResponse ListBatches(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List Batches
 
@@ -377,13 +377,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BatchesAPI.ListBatchesApiV1BatchesGet(context.Background()).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.BatchesAPI.ListBatches(context.Background()).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `BatchesAPI.ListBatchesApiV1BatchesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `BatchesAPI.ListBatches``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListBatchesApiV1BatchesGet`: BatchesListResponse
-	fmt.Fprintf(os.Stdout, "Response from `BatchesAPI.ListBatchesApiV1BatchesGet`: %v\n", resp)
+	// response from `ListBatches`: BatchesListResponse
+	fmt.Fprintf(os.Stdout, "Response from `BatchesAPI.ListBatches`: %v\n", resp)
 }
 ```
 
@@ -393,7 +393,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListBatchesApiV1BatchesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListBatchesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

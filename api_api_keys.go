@@ -23,29 +23,29 @@ import (
 // ApiKeysAPIService ApiKeysAPI service
 type ApiKeysAPIService service
 
-type ApiCreateApiKeyApiV1ApiKeysPostRequest struct {
+type ApiCreateApiKeyRequest struct {
 	ctx context.Context
 	ApiService *ApiKeysAPIService
 	apiKeyCreateRequest *ApiKeyCreateRequest
 }
 
-func (r ApiCreateApiKeyApiV1ApiKeysPostRequest) ApiKeyCreateRequest(apiKeyCreateRequest ApiKeyCreateRequest) ApiCreateApiKeyApiV1ApiKeysPostRequest {
+func (r ApiCreateApiKeyRequest) ApiKeyCreateRequest(apiKeyCreateRequest ApiKeyCreateRequest) ApiCreateApiKeyRequest {
 	r.apiKeyCreateRequest = &apiKeyCreateRequest
 	return r
 }
 
-func (r ApiCreateApiKeyApiV1ApiKeysPostRequest) Execute() (*ApiKeyCreateResponse, *http.Response, error) {
-	return r.ApiService.CreateApiKeyApiV1ApiKeysPostExecute(r)
+func (r ApiCreateApiKeyRequest) Execute() (*ApiKeyCreateResponse, *http.Response, error) {
+	return r.ApiService.CreateApiKeyExecute(r)
 }
 
 /*
-CreateApiKeyApiV1ApiKeysPost Create Api Key
+CreateApiKey Create Api Key
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateApiKeyApiV1ApiKeysPostRequest
+ @return ApiCreateApiKeyRequest
 */
-func (a *ApiKeysAPIService) CreateApiKeyApiV1ApiKeysPost(ctx context.Context) ApiCreateApiKeyApiV1ApiKeysPostRequest {
-	return ApiCreateApiKeyApiV1ApiKeysPostRequest{
+func (a *ApiKeysAPIService) CreateApiKey(ctx context.Context) ApiCreateApiKeyRequest {
+	return ApiCreateApiKeyRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -53,7 +53,7 @@ func (a *ApiKeysAPIService) CreateApiKeyApiV1ApiKeysPost(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return ApiKeyCreateResponse
-func (a *ApiKeysAPIService) CreateApiKeyApiV1ApiKeysPostExecute(r ApiCreateApiKeyApiV1ApiKeysPostRequest) (*ApiKeyCreateResponse, *http.Response, error) {
+func (a *ApiKeysAPIService) CreateApiKeyExecute(r ApiCreateApiKeyRequest) (*ApiKeyCreateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -61,7 +61,7 @@ func (a *ApiKeysAPIService) CreateApiKeyApiV1ApiKeysPostExecute(r ApiCreateApiKe
 		localVarReturnValue  *ApiKeyCreateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeysAPIService.CreateApiKeyApiV1ApiKeysPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeysAPIService.CreateApiKey")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,25 +141,25 @@ func (a *ApiKeysAPIService) CreateApiKeyApiV1ApiKeysPostExecute(r ApiCreateApiKe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetApiKeyApiV1ApiKeysApiKeyIdGetRequest struct {
+type ApiGetApiKeyRequest struct {
 	ctx context.Context
 	ApiService *ApiKeysAPIService
 	apiKeyId string
 }
 
-func (r ApiGetApiKeyApiV1ApiKeysApiKeyIdGetRequest) Execute() (*ApiKeyDetailResponse, *http.Response, error) {
-	return r.ApiService.GetApiKeyApiV1ApiKeysApiKeyIdGetExecute(r)
+func (r ApiGetApiKeyRequest) Execute() (*ApiKeyDetailResponse, *http.Response, error) {
+	return r.ApiService.GetApiKeyExecute(r)
 }
 
 /*
-GetApiKeyApiV1ApiKeysApiKeyIdGet Get Api Key
+GetApiKey Get Api Key
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param apiKeyId
- @return ApiGetApiKeyApiV1ApiKeysApiKeyIdGetRequest
+ @return ApiGetApiKeyRequest
 */
-func (a *ApiKeysAPIService) GetApiKeyApiV1ApiKeysApiKeyIdGet(ctx context.Context, apiKeyId string) ApiGetApiKeyApiV1ApiKeysApiKeyIdGetRequest {
-	return ApiGetApiKeyApiV1ApiKeysApiKeyIdGetRequest{
+func (a *ApiKeysAPIService) GetApiKey(ctx context.Context, apiKeyId string) ApiGetApiKeyRequest {
+	return ApiGetApiKeyRequest{
 		ApiService: a,
 		ctx: ctx,
 		apiKeyId: apiKeyId,
@@ -168,7 +168,7 @@ func (a *ApiKeysAPIService) GetApiKeyApiV1ApiKeysApiKeyIdGet(ctx context.Context
 
 // Execute executes the request
 //  @return ApiKeyDetailResponse
-func (a *ApiKeysAPIService) GetApiKeyApiV1ApiKeysApiKeyIdGetExecute(r ApiGetApiKeyApiV1ApiKeysApiKeyIdGetRequest) (*ApiKeyDetailResponse, *http.Response, error) {
+func (a *ApiKeysAPIService) GetApiKeyExecute(r ApiGetApiKeyRequest) (*ApiKeyDetailResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -176,7 +176,7 @@ func (a *ApiKeysAPIService) GetApiKeyApiV1ApiKeysApiKeyIdGetExecute(r ApiGetApiK
 		localVarReturnValue  *ApiKeyDetailResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeysAPIService.GetApiKeyApiV1ApiKeysApiKeyIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeysAPIService.GetApiKey")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -252,23 +252,23 @@ func (a *ApiKeysAPIService) GetApiKeyApiV1ApiKeysApiKeyIdGetExecute(r ApiGetApiK
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListApiKeysApiV1ApiKeysGetRequest struct {
+type ApiListApiKeysRequest struct {
 	ctx context.Context
 	ApiService *ApiKeysAPIService
 }
 
-func (r ApiListApiKeysApiV1ApiKeysGetRequest) Execute() (*ApiKeyListResponse, *http.Response, error) {
-	return r.ApiService.ListApiKeysApiV1ApiKeysGetExecute(r)
+func (r ApiListApiKeysRequest) Execute() (*ApiKeyListResponse, *http.Response, error) {
+	return r.ApiService.ListApiKeysExecute(r)
 }
 
 /*
-ListApiKeysApiV1ApiKeysGet List Api Keys
+ListApiKeys List Api Keys
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListApiKeysApiV1ApiKeysGetRequest
+ @return ApiListApiKeysRequest
 */
-func (a *ApiKeysAPIService) ListApiKeysApiV1ApiKeysGet(ctx context.Context) ApiListApiKeysApiV1ApiKeysGetRequest {
-	return ApiListApiKeysApiV1ApiKeysGetRequest{
+func (a *ApiKeysAPIService) ListApiKeys(ctx context.Context) ApiListApiKeysRequest {
+	return ApiListApiKeysRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -276,7 +276,7 @@ func (a *ApiKeysAPIService) ListApiKeysApiV1ApiKeysGet(ctx context.Context) ApiL
 
 // Execute executes the request
 //  @return ApiKeyListResponse
-func (a *ApiKeysAPIService) ListApiKeysApiV1ApiKeysGetExecute(r ApiListApiKeysApiV1ApiKeysGetRequest) (*ApiKeyListResponse, *http.Response, error) {
+func (a *ApiKeysAPIService) ListApiKeysExecute(r ApiListApiKeysRequest) (*ApiKeyListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -284,7 +284,7 @@ func (a *ApiKeysAPIService) ListApiKeysApiV1ApiKeysGetExecute(r ApiListApiKeysAp
 		localVarReturnValue  *ApiKeyListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeysAPIService.ListApiKeysApiV1ApiKeysGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeysAPIService.ListApiKeys")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -349,31 +349,255 @@ func (a *ApiKeysAPIService) ListApiKeysApiV1ApiKeysGetExecute(r ApiListApiKeysAp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchApiKeyApiV1ApiKeysApiKeyIdPatchRequest struct {
+type ApiRevokeApiKeyRequest struct {
+	ctx context.Context
+	ApiService *ApiKeysAPIService
+	apiKeyId string
+}
+
+func (r ApiRevokeApiKeyRequest) Execute() (*ApiKeyRevokeResponse, *http.Response, error) {
+	return r.ApiService.RevokeApiKeyExecute(r)
+}
+
+/*
+RevokeApiKey Revoke Api Key
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param apiKeyId
+ @return ApiRevokeApiKeyRequest
+*/
+func (a *ApiKeysAPIService) RevokeApiKey(ctx context.Context, apiKeyId string) ApiRevokeApiKeyRequest {
+	return ApiRevokeApiKeyRequest{
+		ApiService: a,
+		ctx: ctx,
+		apiKeyId: apiKeyId,
+	}
+}
+
+// Execute executes the request
+//  @return ApiKeyRevokeResponse
+func (a *ApiKeysAPIService) RevokeApiKeyExecute(r ApiRevokeApiKeyRequest) (*ApiKeyRevokeResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiKeyRevokeResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeysAPIService.RevokeApiKey")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/api-keys/{api_key_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"api_key_id"+"}", url.PathEscape(parameterValueToString(r.apiKeyId, "apiKeyId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiRotateApiKeyRequest struct {
+	ctx context.Context
+	ApiService *ApiKeysAPIService
+	apiKeyId string
+}
+
+func (r ApiRotateApiKeyRequest) Execute() (*ApiKeyRotateResponse, *http.Response, error) {
+	return r.ApiService.RotateApiKeyExecute(r)
+}
+
+/*
+RotateApiKey Rotate Api Key
+
+Revoke the existing key and create a new one with the same name.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param apiKeyId
+ @return ApiRotateApiKeyRequest
+*/
+func (a *ApiKeysAPIService) RotateApiKey(ctx context.Context, apiKeyId string) ApiRotateApiKeyRequest {
+	return ApiRotateApiKeyRequest{
+		ApiService: a,
+		ctx: ctx,
+		apiKeyId: apiKeyId,
+	}
+}
+
+// Execute executes the request
+//  @return ApiKeyRotateResponse
+func (a *ApiKeysAPIService) RotateApiKeyExecute(r ApiRotateApiKeyRequest) (*ApiKeyRotateResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApiKeyRotateResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeysAPIService.RotateApiKey")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/api-keys/{api_key_id}/rotate"
+	localVarPath = strings.Replace(localVarPath, "{"+"api_key_id"+"}", url.PathEscape(parameterValueToString(r.apiKeyId, "apiKeyId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateApiKeyRequest struct {
 	ctx context.Context
 	ApiService *ApiKeysAPIService
 	apiKeyId string
 	apiKeyPatchRequest *ApiKeyPatchRequest
 }
 
-func (r ApiPatchApiKeyApiV1ApiKeysApiKeyIdPatchRequest) ApiKeyPatchRequest(apiKeyPatchRequest ApiKeyPatchRequest) ApiPatchApiKeyApiV1ApiKeysApiKeyIdPatchRequest {
+func (r ApiUpdateApiKeyRequest) ApiKeyPatchRequest(apiKeyPatchRequest ApiKeyPatchRequest) ApiUpdateApiKeyRequest {
 	r.apiKeyPatchRequest = &apiKeyPatchRequest
 	return r
 }
 
-func (r ApiPatchApiKeyApiV1ApiKeysApiKeyIdPatchRequest) Execute() (*ApiKeyDetailResponse, *http.Response, error) {
-	return r.ApiService.PatchApiKeyApiV1ApiKeysApiKeyIdPatchExecute(r)
+func (r ApiUpdateApiKeyRequest) Execute() (*ApiKeyDetailResponse, *http.Response, error) {
+	return r.ApiService.UpdateApiKeyExecute(r)
 }
 
 /*
-PatchApiKeyApiV1ApiKeysApiKeyIdPatch Patch Api Key
+UpdateApiKey Update Api Key
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param apiKeyId
- @return ApiPatchApiKeyApiV1ApiKeysApiKeyIdPatchRequest
+ @return ApiUpdateApiKeyRequest
 */
-func (a *ApiKeysAPIService) PatchApiKeyApiV1ApiKeysApiKeyIdPatch(ctx context.Context, apiKeyId string) ApiPatchApiKeyApiV1ApiKeysApiKeyIdPatchRequest {
-	return ApiPatchApiKeyApiV1ApiKeysApiKeyIdPatchRequest{
+func (a *ApiKeysAPIService) UpdateApiKey(ctx context.Context, apiKeyId string) ApiUpdateApiKeyRequest {
+	return ApiUpdateApiKeyRequest{
 		ApiService: a,
 		ctx: ctx,
 		apiKeyId: apiKeyId,
@@ -382,7 +606,7 @@ func (a *ApiKeysAPIService) PatchApiKeyApiV1ApiKeysApiKeyIdPatch(ctx context.Con
 
 // Execute executes the request
 //  @return ApiKeyDetailResponse
-func (a *ApiKeysAPIService) PatchApiKeyApiV1ApiKeysApiKeyIdPatchExecute(r ApiPatchApiKeyApiV1ApiKeysApiKeyIdPatchRequest) (*ApiKeyDetailResponse, *http.Response, error) {
+func (a *ApiKeysAPIService) UpdateApiKeyExecute(r ApiUpdateApiKeyRequest) (*ApiKeyDetailResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -390,7 +614,7 @@ func (a *ApiKeysAPIService) PatchApiKeyApiV1ApiKeysApiKeyIdPatchExecute(r ApiPat
 		localVarReturnValue  *ApiKeyDetailResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeysAPIService.PatchApiKeyApiV1ApiKeysApiKeyIdPatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeysAPIService.UpdateApiKey")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -424,230 +648,6 @@ func (a *ApiKeysAPIService) PatchApiKeyApiV1ApiKeysApiKeyIdPatchExecute(r ApiPat
 	}
 	// body params
 	localVarPostBody = r.apiKeyPatchRequest
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ApiErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiRevokeApiKeyApiV1ApiKeysApiKeyIdDeleteRequest struct {
-	ctx context.Context
-	ApiService *ApiKeysAPIService
-	apiKeyId string
-}
-
-func (r ApiRevokeApiKeyApiV1ApiKeysApiKeyIdDeleteRequest) Execute() (*ApiKeyRevokeResponse, *http.Response, error) {
-	return r.ApiService.RevokeApiKeyApiV1ApiKeysApiKeyIdDeleteExecute(r)
-}
-
-/*
-RevokeApiKeyApiV1ApiKeysApiKeyIdDelete Revoke Api Key
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param apiKeyId
- @return ApiRevokeApiKeyApiV1ApiKeysApiKeyIdDeleteRequest
-*/
-func (a *ApiKeysAPIService) RevokeApiKeyApiV1ApiKeysApiKeyIdDelete(ctx context.Context, apiKeyId string) ApiRevokeApiKeyApiV1ApiKeysApiKeyIdDeleteRequest {
-	return ApiRevokeApiKeyApiV1ApiKeysApiKeyIdDeleteRequest{
-		ApiService: a,
-		ctx: ctx,
-		apiKeyId: apiKeyId,
-	}
-}
-
-// Execute executes the request
-//  @return ApiKeyRevokeResponse
-func (a *ApiKeysAPIService) RevokeApiKeyApiV1ApiKeysApiKeyIdDeleteExecute(r ApiRevokeApiKeyApiV1ApiKeysApiKeyIdDeleteRequest) (*ApiKeyRevokeResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiKeyRevokeResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeysAPIService.RevokeApiKeyApiV1ApiKeysApiKeyIdDelete")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/api-keys/{api_key_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"api_key_id"+"}", url.PathEscape(parameterValueToString(r.apiKeyId, "apiKeyId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ApiErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiRotateApiKeyApiV1ApiKeysApiKeyIdRotatePostRequest struct {
-	ctx context.Context
-	ApiService *ApiKeysAPIService
-	apiKeyId string
-}
-
-func (r ApiRotateApiKeyApiV1ApiKeysApiKeyIdRotatePostRequest) Execute() (*ApiKeyRotateResponse, *http.Response, error) {
-	return r.ApiService.RotateApiKeyApiV1ApiKeysApiKeyIdRotatePostExecute(r)
-}
-
-/*
-RotateApiKeyApiV1ApiKeysApiKeyIdRotatePost Rotate Api Key
-
-Revoke the existing key and create a new one with the same name.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param apiKeyId
- @return ApiRotateApiKeyApiV1ApiKeysApiKeyIdRotatePostRequest
-*/
-func (a *ApiKeysAPIService) RotateApiKeyApiV1ApiKeysApiKeyIdRotatePost(ctx context.Context, apiKeyId string) ApiRotateApiKeyApiV1ApiKeysApiKeyIdRotatePostRequest {
-	return ApiRotateApiKeyApiV1ApiKeysApiKeyIdRotatePostRequest{
-		ApiService: a,
-		ctx: ctx,
-		apiKeyId: apiKeyId,
-	}
-}
-
-// Execute executes the request
-//  @return ApiKeyRotateResponse
-func (a *ApiKeysAPIService) RotateApiKeyApiV1ApiKeysApiKeyIdRotatePostExecute(r ApiRotateApiKeyApiV1ApiKeysApiKeyIdRotatePostRequest) (*ApiKeyRotateResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiKeyRotateResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApiKeysAPIService.RotateApiKeyApiV1ApiKeysApiKeyIdRotatePost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/api-keys/{api_key_id}/rotate"
-	localVarPath = strings.Replace(localVarPath, "{"+"api_key_id"+"}", url.PathEscape(parameterValueToString(r.apiKeyId, "apiKeyId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

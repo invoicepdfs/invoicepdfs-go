@@ -4,21 +4,21 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ConsumeNextApiV1NumberingSequencesSequenceIdNextPost**](NumberingSequencesAPI.md#ConsumeNextApiV1NumberingSequencesSequenceIdNextPost) | **Post** /api/v1/numbering-sequences/{sequence_id}/next | Consume Next
-[**CreateSequenceApiV1NumberingSequencesPost**](NumberingSequencesAPI.md#CreateSequenceApiV1NumberingSequencesPost) | **Post** /api/v1/numbering-sequences | Create Sequence
-[**DeleteSequenceApiV1NumberingSequencesSequenceIdDelete**](NumberingSequencesAPI.md#DeleteSequenceApiV1NumberingSequencesSequenceIdDelete) | **Delete** /api/v1/numbering-sequences/{sequence_id} | Delete Sequence
-[**GetSequenceApiV1NumberingSequencesSequenceIdGet**](NumberingSequencesAPI.md#GetSequenceApiV1NumberingSequencesSequenceIdGet) | **Get** /api/v1/numbering-sequences/{sequence_id} | Get Sequence
-[**ListSequencesApiV1NumberingSequencesGet**](NumberingSequencesAPI.md#ListSequencesApiV1NumberingSequencesGet) | **Get** /api/v1/numbering-sequences | List Sequences
-[**PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost**](NumberingSequencesAPI.md#PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost) | **Post** /api/v1/numbering-sequences/{sequence_id}/preview | Preview Sequence
-[**UpdateSequenceApiV1NumberingSequencesSequenceIdPatch**](NumberingSequencesAPI.md#UpdateSequenceApiV1NumberingSequencesSequenceIdPatch) | **Patch** /api/v1/numbering-sequences/{sequence_id} | Update Sequence
+[**ConsumeSequenceNumber**](NumberingSequencesAPI.md#ConsumeSequenceNumber) | **Post** /api/v1/numbering-sequences/{sequence_id}/next | Consume Sequence Number
+[**CreateSequence**](NumberingSequencesAPI.md#CreateSequence) | **Post** /api/v1/numbering-sequences | Create Sequence
+[**DeleteSequence**](NumberingSequencesAPI.md#DeleteSequence) | **Delete** /api/v1/numbering-sequences/{sequence_id} | Delete Sequence
+[**GetSequence**](NumberingSequencesAPI.md#GetSequence) | **Get** /api/v1/numbering-sequences/{sequence_id} | Get Sequence
+[**ListSequences**](NumberingSequencesAPI.md#ListSequences) | **Get** /api/v1/numbering-sequences | List Sequences
+[**PreviewSequence**](NumberingSequencesAPI.md#PreviewSequence) | **Post** /api/v1/numbering-sequences/{sequence_id}/preview | Preview Sequence
+[**UpdateSequence**](NumberingSequencesAPI.md#UpdateSequence) | **Patch** /api/v1/numbering-sequences/{sequence_id} | Update Sequence
 
 
 
-## ConsumeNextApiV1NumberingSequencesSequenceIdNextPost
+## ConsumeSequenceNumber
 
-> NumberingSequenceResponse ConsumeNextApiV1NumberingSequencesSequenceIdNextPost(ctx, sequenceId).Execute()
+> NumberingSequenceResponse ConsumeSequenceNumber(ctx, sequenceId).Execute()
 
-Consume Next
+Consume Sequence Number
 
 
 
@@ -39,13 +39,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NumberingSequencesAPI.ConsumeNextApiV1NumberingSequencesSequenceIdNextPost(context.Background(), sequenceId).Execute()
+	resp, r, err := apiClient.NumberingSequencesAPI.ConsumeSequenceNumber(context.Background(), sequenceId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.ConsumeNextApiV1NumberingSequencesSequenceIdNextPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.ConsumeSequenceNumber``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ConsumeNextApiV1NumberingSequencesSequenceIdNextPost`: NumberingSequenceResponse
-	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.ConsumeNextApiV1NumberingSequencesSequenceIdNextPost`: %v\n", resp)
+	// response from `ConsumeSequenceNumber`: NumberingSequenceResponse
+	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.ConsumeSequenceNumber`: %v\n", resp)
 }
 ```
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiConsumeNextApiV1NumberingSequencesSequenceIdNextPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiConsumeSequenceNumberRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -84,9 +84,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CreateSequenceApiV1NumberingSequencesPost
+## CreateSequence
 
-> NumberingSequenceResponse CreateSequenceApiV1NumberingSequencesPost(ctx).NumberingSequenceCreateRequest(numberingSequenceCreateRequest).Execute()
+> NumberingSequenceResponse CreateSequence(ctx).NumberingSequenceCreateRequest(numberingSequenceCreateRequest).Execute()
 
 Create Sequence
 
@@ -107,13 +107,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NumberingSequencesAPI.CreateSequenceApiV1NumberingSequencesPost(context.Background()).NumberingSequenceCreateRequest(numberingSequenceCreateRequest).Execute()
+	resp, r, err := apiClient.NumberingSequencesAPI.CreateSequence(context.Background()).NumberingSequenceCreateRequest(numberingSequenceCreateRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.CreateSequenceApiV1NumberingSequencesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.CreateSequence``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateSequenceApiV1NumberingSequencesPost`: NumberingSequenceResponse
-	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.CreateSequenceApiV1NumberingSequencesPost`: %v\n", resp)
+	// response from `CreateSequence`: NumberingSequenceResponse
+	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.CreateSequence`: %v\n", resp)
 }
 ```
 
@@ -123,7 +123,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateSequenceApiV1NumberingSequencesPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateSequenceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -148,9 +148,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteSequenceApiV1NumberingSequencesSequenceIdDelete
+## DeleteSequence
 
-> SimpleBoolResponse DeleteSequenceApiV1NumberingSequencesSequenceIdDelete(ctx, sequenceId).Execute()
+> SimpleBoolResponse DeleteSequence(ctx, sequenceId).Execute()
 
 Delete Sequence
 
@@ -171,13 +171,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NumberingSequencesAPI.DeleteSequenceApiV1NumberingSequencesSequenceIdDelete(context.Background(), sequenceId).Execute()
+	resp, r, err := apiClient.NumberingSequencesAPI.DeleteSequence(context.Background(), sequenceId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.DeleteSequenceApiV1NumberingSequencesSequenceIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.DeleteSequence``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteSequenceApiV1NumberingSequencesSequenceIdDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.DeleteSequenceApiV1NumberingSequencesSequenceIdDelete`: %v\n", resp)
+	// response from `DeleteSequence`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.DeleteSequence`: %v\n", resp)
 }
 ```
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteSequenceApiV1NumberingSequencesSequenceIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteSequenceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -216,9 +216,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetSequenceApiV1NumberingSequencesSequenceIdGet
+## GetSequence
 
-> NumberingSequenceResponse GetSequenceApiV1NumberingSequencesSequenceIdGet(ctx, sequenceId).Execute()
+> NumberingSequenceResponse GetSequence(ctx, sequenceId).Execute()
 
 Get Sequence
 
@@ -239,13 +239,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NumberingSequencesAPI.GetSequenceApiV1NumberingSequencesSequenceIdGet(context.Background(), sequenceId).Execute()
+	resp, r, err := apiClient.NumberingSequencesAPI.GetSequence(context.Background(), sequenceId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.GetSequenceApiV1NumberingSequencesSequenceIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.GetSequence``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetSequenceApiV1NumberingSequencesSequenceIdGet`: NumberingSequenceResponse
-	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.GetSequenceApiV1NumberingSequencesSequenceIdGet`: %v\n", resp)
+	// response from `GetSequence`: NumberingSequenceResponse
+	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.GetSequence`: %v\n", resp)
 }
 ```
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetSequenceApiV1NumberingSequencesSequenceIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetSequenceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -284,9 +284,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListSequencesApiV1NumberingSequencesGet
+## ListSequences
 
-> NumberingSequencesListResponse ListSequencesApiV1NumberingSequencesGet(ctx).Limit(limit).Cursor(cursor).Execute()
+> NumberingSequencesListResponse ListSequences(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List Sequences
 
@@ -308,13 +308,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NumberingSequencesAPI.ListSequencesApiV1NumberingSequencesGet(context.Background()).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.NumberingSequencesAPI.ListSequences(context.Background()).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.ListSequencesApiV1NumberingSequencesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.ListSequences``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListSequencesApiV1NumberingSequencesGet`: NumberingSequencesListResponse
-	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.ListSequencesApiV1NumberingSequencesGet`: %v\n", resp)
+	// response from `ListSequences`: NumberingSequencesListResponse
+	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.ListSequences`: %v\n", resp)
 }
 ```
 
@@ -324,7 +324,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListSequencesApiV1NumberingSequencesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListSequencesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -350,9 +350,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost
+## PreviewSequence
 
-> NumberingSequencePreviewResponse PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost(ctx, sequenceId).Execute()
+> NumberingSequencePreviewResponse PreviewSequence(ctx, sequenceId).Execute()
 
 Preview Sequence
 
@@ -373,13 +373,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NumberingSequencesAPI.PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost(context.Background(), sequenceId).Execute()
+	resp, r, err := apiClient.NumberingSequencesAPI.PreviewSequence(context.Background(), sequenceId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.PreviewSequence``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost`: NumberingSequencePreviewResponse
-	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost`: %v\n", resp)
+	// response from `PreviewSequence`: NumberingSequencePreviewResponse
+	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.PreviewSequence`: %v\n", resp)
 }
 ```
 
@@ -393,7 +393,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPreviewSequenceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -418,9 +418,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UpdateSequenceApiV1NumberingSequencesSequenceIdPatch
+## UpdateSequence
 
-> NumberingSequenceResponse UpdateSequenceApiV1NumberingSequencesSequenceIdPatch(ctx, sequenceId).NumberingSequencePatchRequest(numberingSequencePatchRequest).Execute()
+> NumberingSequenceResponse UpdateSequence(ctx, sequenceId).NumberingSequencePatchRequest(numberingSequencePatchRequest).Execute()
 
 Update Sequence
 
@@ -442,13 +442,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NumberingSequencesAPI.UpdateSequenceApiV1NumberingSequencesSequenceIdPatch(context.Background(), sequenceId).NumberingSequencePatchRequest(numberingSequencePatchRequest).Execute()
+	resp, r, err := apiClient.NumberingSequencesAPI.UpdateSequence(context.Background(), sequenceId).NumberingSequencePatchRequest(numberingSequencePatchRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.UpdateSequenceApiV1NumberingSequencesSequenceIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.UpdateSequence``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateSequenceApiV1NumberingSequencesSequenceIdPatch`: NumberingSequenceResponse
-	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.UpdateSequenceApiV1NumberingSequencesSequenceIdPatch`: %v\n", resp)
+	// response from `UpdateSequence`: NumberingSequenceResponse
+	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.UpdateSequence`: %v\n", resp)
 }
 ```
 
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateSequenceApiV1NumberingSequencesSequenceIdPatchRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateSequenceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

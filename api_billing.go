@@ -22,31 +22,31 @@ import (
 // BillingAPIService BillingAPI service
 type BillingAPIService service
 
-type ApiCreateCheckoutApiV1BillingCheckoutSessionPostRequest struct {
+type ApiCreateCheckoutSessionRequest struct {
 	ctx context.Context
 	ApiService *BillingAPIService
 	billingCheckoutRequest *BillingCheckoutRequest
 }
 
-func (r ApiCreateCheckoutApiV1BillingCheckoutSessionPostRequest) BillingCheckoutRequest(billingCheckoutRequest BillingCheckoutRequest) ApiCreateCheckoutApiV1BillingCheckoutSessionPostRequest {
+func (r ApiCreateCheckoutSessionRequest) BillingCheckoutRequest(billingCheckoutRequest BillingCheckoutRequest) ApiCreateCheckoutSessionRequest {
 	r.billingCheckoutRequest = &billingCheckoutRequest
 	return r
 }
 
-func (r ApiCreateCheckoutApiV1BillingCheckoutSessionPostRequest) Execute() (*BillingCheckoutResponse, *http.Response, error) {
-	return r.ApiService.CreateCheckoutApiV1BillingCheckoutSessionPostExecute(r)
+func (r ApiCreateCheckoutSessionRequest) Execute() (*BillingCheckoutResponse, *http.Response, error) {
+	return r.ApiService.CreateCheckoutSessionExecute(r)
 }
 
 /*
-CreateCheckoutApiV1BillingCheckoutSessionPost Create Checkout
+CreateCheckoutSession Create Checkout Session
 
 Create a Stripe Checkout session for a subscription.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateCheckoutApiV1BillingCheckoutSessionPostRequest
+ @return ApiCreateCheckoutSessionRequest
 */
-func (a *BillingAPIService) CreateCheckoutApiV1BillingCheckoutSessionPost(ctx context.Context) ApiCreateCheckoutApiV1BillingCheckoutSessionPostRequest {
-	return ApiCreateCheckoutApiV1BillingCheckoutSessionPostRequest{
+func (a *BillingAPIService) CreateCheckoutSession(ctx context.Context) ApiCreateCheckoutSessionRequest {
+	return ApiCreateCheckoutSessionRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -54,7 +54,7 @@ func (a *BillingAPIService) CreateCheckoutApiV1BillingCheckoutSessionPost(ctx co
 
 // Execute executes the request
 //  @return BillingCheckoutResponse
-func (a *BillingAPIService) CreateCheckoutApiV1BillingCheckoutSessionPostExecute(r ApiCreateCheckoutApiV1BillingCheckoutSessionPostRequest) (*BillingCheckoutResponse, *http.Response, error) {
+func (a *BillingAPIService) CreateCheckoutSessionExecute(r ApiCreateCheckoutSessionRequest) (*BillingCheckoutResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -62,7 +62,7 @@ func (a *BillingAPIService) CreateCheckoutApiV1BillingCheckoutSessionPostExecute
 		localVarReturnValue  *BillingCheckoutResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BillingAPIService.CreateCheckoutApiV1BillingCheckoutSessionPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BillingAPIService.CreateCheckoutSession")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -142,25 +142,25 @@ func (a *BillingAPIService) CreateCheckoutApiV1BillingCheckoutSessionPostExecute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreatePortalApiV1BillingPortalSessionPostRequest struct {
+type ApiCreatePortalSessionRequest struct {
 	ctx context.Context
 	ApiService *BillingAPIService
 }
 
-func (r ApiCreatePortalApiV1BillingPortalSessionPostRequest) Execute() (*BillingPortalResponse, *http.Response, error) {
-	return r.ApiService.CreatePortalApiV1BillingPortalSessionPostExecute(r)
+func (r ApiCreatePortalSessionRequest) Execute() (*BillingPortalResponse, *http.Response, error) {
+	return r.ApiService.CreatePortalSessionExecute(r)
 }
 
 /*
-CreatePortalApiV1BillingPortalSessionPost Create Portal
+CreatePortalSession Create Portal Session
 
 Create a Stripe Customer Portal session for self-service management.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreatePortalApiV1BillingPortalSessionPostRequest
+ @return ApiCreatePortalSessionRequest
 */
-func (a *BillingAPIService) CreatePortalApiV1BillingPortalSessionPost(ctx context.Context) ApiCreatePortalApiV1BillingPortalSessionPostRequest {
-	return ApiCreatePortalApiV1BillingPortalSessionPostRequest{
+func (a *BillingAPIService) CreatePortalSession(ctx context.Context) ApiCreatePortalSessionRequest {
+	return ApiCreatePortalSessionRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -168,7 +168,7 @@ func (a *BillingAPIService) CreatePortalApiV1BillingPortalSessionPost(ctx contex
 
 // Execute executes the request
 //  @return BillingPortalResponse
-func (a *BillingAPIService) CreatePortalApiV1BillingPortalSessionPostExecute(r ApiCreatePortalApiV1BillingPortalSessionPostRequest) (*BillingPortalResponse, *http.Response, error) {
+func (a *BillingAPIService) CreatePortalSessionExecute(r ApiCreatePortalSessionRequest) (*BillingPortalResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -176,7 +176,7 @@ func (a *BillingAPIService) CreatePortalApiV1BillingPortalSessionPostExecute(r A
 		localVarReturnValue  *BillingPortalResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BillingAPIService.CreatePortalApiV1BillingPortalSessionPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BillingAPIService.CreatePortalSession")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -241,25 +241,25 @@ func (a *BillingAPIService) CreatePortalApiV1BillingPortalSessionPostExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetSubscriptionApiV1BillingSubscriptionGetRequest struct {
+type ApiGetSubscriptionRequest struct {
 	ctx context.Context
 	ApiService *BillingAPIService
 }
 
-func (r ApiGetSubscriptionApiV1BillingSubscriptionGetRequest) Execute() (*BillingSubscriptionResponse, *http.Response, error) {
-	return r.ApiService.GetSubscriptionApiV1BillingSubscriptionGetExecute(r)
+func (r ApiGetSubscriptionRequest) Execute() (*BillingSubscriptionResponse, *http.Response, error) {
+	return r.ApiService.GetSubscriptionExecute(r)
 }
 
 /*
-GetSubscriptionApiV1BillingSubscriptionGet Get Subscription
+GetSubscription Get Subscription
 
 Get current subscription status (from DB, no Stripe API call).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetSubscriptionApiV1BillingSubscriptionGetRequest
+ @return ApiGetSubscriptionRequest
 */
-func (a *BillingAPIService) GetSubscriptionApiV1BillingSubscriptionGet(ctx context.Context) ApiGetSubscriptionApiV1BillingSubscriptionGetRequest {
-	return ApiGetSubscriptionApiV1BillingSubscriptionGetRequest{
+func (a *BillingAPIService) GetSubscription(ctx context.Context) ApiGetSubscriptionRequest {
+	return ApiGetSubscriptionRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -267,7 +267,7 @@ func (a *BillingAPIService) GetSubscriptionApiV1BillingSubscriptionGet(ctx conte
 
 // Execute executes the request
 //  @return BillingSubscriptionResponse
-func (a *BillingAPIService) GetSubscriptionApiV1BillingSubscriptionGetExecute(r ApiGetSubscriptionApiV1BillingSubscriptionGetRequest) (*BillingSubscriptionResponse, *http.Response, error) {
+func (a *BillingAPIService) GetSubscriptionExecute(r ApiGetSubscriptionRequest) (*BillingSubscriptionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -275,7 +275,7 @@ func (a *BillingAPIService) GetSubscriptionApiV1BillingSubscriptionGetExecute(r 
 		localVarReturnValue  *BillingSubscriptionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BillingAPIService.GetSubscriptionApiV1BillingSubscriptionGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BillingAPIService.GetSubscription")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -340,25 +340,25 @@ func (a *BillingAPIService) GetSubscriptionApiV1BillingSubscriptionGetExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListPlansApiV1BillingPlansGetRequest struct {
+type ApiListPlansRequest struct {
 	ctx context.Context
 	ApiService *BillingAPIService
 }
 
-func (r ApiListPlansApiV1BillingPlansGetRequest) Execute() (*BillingPlansListResponse, *http.Response, error) {
-	return r.ApiService.ListPlansApiV1BillingPlansGetExecute(r)
+func (r ApiListPlansRequest) Execute() (*BillingPlansListResponse, *http.Response, error) {
+	return r.ApiService.ListPlansExecute(r)
 }
 
 /*
-ListPlansApiV1BillingPlansGet List Plans
+ListPlans List Plans
 
 Purchasable plans — the ones wired to a Stripe price.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListPlansApiV1BillingPlansGetRequest
+ @return ApiListPlansRequest
 */
-func (a *BillingAPIService) ListPlansApiV1BillingPlansGet(ctx context.Context) ApiListPlansApiV1BillingPlansGetRequest {
-	return ApiListPlansApiV1BillingPlansGetRequest{
+func (a *BillingAPIService) ListPlans(ctx context.Context) ApiListPlansRequest {
+	return ApiListPlansRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -366,7 +366,7 @@ func (a *BillingAPIService) ListPlansApiV1BillingPlansGet(ctx context.Context) A
 
 // Execute executes the request
 //  @return BillingPlansListResponse
-func (a *BillingAPIService) ListPlansApiV1BillingPlansGetExecute(r ApiListPlansApiV1BillingPlansGetRequest) (*BillingPlansListResponse, *http.Response, error) {
+func (a *BillingAPIService) ListPlansExecute(r ApiListPlansRequest) (*BillingPlansListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -374,7 +374,7 @@ func (a *BillingAPIService) ListPlansApiV1BillingPlansGetExecute(r ApiListPlansA
 		localVarReturnValue  *BillingPlansListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BillingAPIService.ListPlansApiV1BillingPlansGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BillingAPIService.ListPlans")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetStatsApiV1StatsGet**](StatsAPI.md#GetStatsApiV1StatsGet) | **Get** /api/v1/stats | Get Stats
+[**GetStats**](StatsAPI.md#GetStats) | **Get** /api/v1/stats | Get Stats
 
 
 
-## GetStatsApiV1StatsGet
+## GetStats
 
-> StatsResponse GetStatsApiV1StatsGet(ctx).Execute()
+> StatsResponse GetStats(ctx).Execute()
 
 Get Stats
 
@@ -30,13 +30,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.StatsAPI.GetStatsApiV1StatsGet(context.Background()).Execute()
+	resp, r, err := apiClient.StatsAPI.GetStats(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `StatsAPI.GetStatsApiV1StatsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `StatsAPI.GetStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetStatsApiV1StatsGet`: StatsResponse
-	fmt.Fprintf(os.Stdout, "Response from `StatsAPI.GetStatsApiV1StatsGet`: %v\n", resp)
+	// response from `GetStats`: StatsResponse
+	fmt.Fprintf(os.Stdout, "Response from `StatsAPI.GetStats`: %v\n", resp)
 }
 ```
 
@@ -46,7 +46,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetStatsApiV1StatsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetStatsRequest struct via the builder pattern
 
 
 ### Return type

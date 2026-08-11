@@ -4,31 +4,31 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ArchiveDocumentApiV1DocumentsDocumentIdArchivePost**](DocumentsAPI.md#ArchiveDocumentApiV1DocumentsDocumentIdArchivePost) | **Post** /api/v1/documents/{document_id}/archive | Archive Document
-[**CalculateDocumentApiV1DocumentsCalculatePost**](DocumentsAPI.md#CalculateDocumentApiV1DocumentsCalculatePost) | **Post** /api/v1/documents/calculate | Calculate Document
-[**CreateDocumentApiV1DocumentsPost**](DocumentsAPI.md#CreateDocumentApiV1DocumentsPost) | **Post** /api/v1/documents | Create Document
-[**DeleteDocumentApiV1DocumentsDocumentIdDelete**](DocumentsAPI.md#DeleteDocumentApiV1DocumentsDocumentIdDelete) | **Delete** /api/v1/documents/{document_id} | Delete Document
-[**DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost**](DocumentsAPI.md#DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost) | **Post** /api/v1/documents/{document_id}/duplicate | Duplicate Document
-[**FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost**](DocumentsAPI.md#FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost) | **Post** /api/v1/documents/{document_id}/finalize | Finalize Document
-[**GetDocumentApiV1DocumentsDocumentIdGet**](DocumentsAPI.md#GetDocumentApiV1DocumentsDocumentIdGet) | **Get** /api/v1/documents/{document_id} | Get Document
-[**ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet**](DocumentsAPI.md#ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet) | **Get** /api/v1/documents/{document_id}/deliveries | List Document Deliveries
-[**ListDocumentsApiV1DocumentsGet**](DocumentsAPI.md#ListDocumentsApiV1DocumentsGet) | **Get** /api/v1/documents | List Documents
-[**MarkPaidApiV1DocumentsDocumentIdMarkPaidPost**](DocumentsAPI.md#MarkPaidApiV1DocumentsDocumentIdMarkPaidPost) | **Post** /api/v1/documents/{document_id}/mark-paid | Mark Paid
-[**MarkSentApiV1DocumentsDocumentIdMarkSentPost**](DocumentsAPI.md#MarkSentApiV1DocumentsDocumentIdMarkSentPost) | **Post** /api/v1/documents/{document_id}/mark-sent | Mark Sent
-[**MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost**](DocumentsAPI.md#MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost) | **Post** /api/v1/documents/{document_id}/mark-unpaid | Mark Unpaid
-[**PatchDocumentApiV1DocumentsDocumentIdPatch**](DocumentsAPI.md#PatchDocumentApiV1DocumentsDocumentIdPatch) | **Patch** /api/v1/documents/{document_id} | Patch Document
-[**RenderDocumentApiV1DocumentsDocumentIdRendersPost**](DocumentsAPI.md#RenderDocumentApiV1DocumentsDocumentIdRendersPost) | **Post** /api/v1/documents/{document_id}/renders | Render Document
-[**RenderDocumentApiV1DocumentsRenderPost**](DocumentsAPI.md#RenderDocumentApiV1DocumentsRenderPost) | **Post** /api/v1/documents/render | Render Document
-[**RestoreDocumentApiV1DocumentsDocumentIdRestorePost**](DocumentsAPI.md#RestoreDocumentApiV1DocumentsDocumentIdRestorePost) | **Post** /api/v1/documents/{document_id}/restore | Restore Document
-[**SendDocumentApiV1DocumentsDocumentIdSendPost**](DocumentsAPI.md#SendDocumentApiV1DocumentsDocumentIdSendPost) | **Post** /api/v1/documents/{document_id}/send | Send Document
-[**ValidateDocumentApiV1DocumentsValidatePost**](DocumentsAPI.md#ValidateDocumentApiV1DocumentsValidatePost) | **Post** /api/v1/documents/validate | Validate Document
-[**VoidDocumentApiV1DocumentsDocumentIdVoidPost**](DocumentsAPI.md#VoidDocumentApiV1DocumentsDocumentIdVoidPost) | **Post** /api/v1/documents/{document_id}/void | Void Document
+[**ArchiveDocument**](DocumentsAPI.md#ArchiveDocument) | **Post** /api/v1/documents/{document_id}/archive | Archive Document
+[**CalculateDocument**](DocumentsAPI.md#CalculateDocument) | **Post** /api/v1/documents/calculate | Calculate Document
+[**CreateDocument**](DocumentsAPI.md#CreateDocument) | **Post** /api/v1/documents | Create Document
+[**CreateDocumentRender**](DocumentsAPI.md#CreateDocumentRender) | **Post** /api/v1/documents/{document_id}/renders | Create Document Render
+[**DeleteDocument**](DocumentsAPI.md#DeleteDocument) | **Delete** /api/v1/documents/{document_id} | Delete Document
+[**DuplicateDocument**](DocumentsAPI.md#DuplicateDocument) | **Post** /api/v1/documents/{document_id}/duplicate | Duplicate Document
+[**FinalizeDocument**](DocumentsAPI.md#FinalizeDocument) | **Post** /api/v1/documents/{document_id}/finalize | Finalize Document
+[**GetDocument**](DocumentsAPI.md#GetDocument) | **Get** /api/v1/documents/{document_id} | Get Document
+[**ListDocumentDeliveries**](DocumentsAPI.md#ListDocumentDeliveries) | **Get** /api/v1/documents/{document_id}/deliveries | List Document Deliveries
+[**ListDocuments**](DocumentsAPI.md#ListDocuments) | **Get** /api/v1/documents | List Documents
+[**MarkPaid**](DocumentsAPI.md#MarkPaid) | **Post** /api/v1/documents/{document_id}/mark-paid | Mark Paid
+[**MarkSent**](DocumentsAPI.md#MarkSent) | **Post** /api/v1/documents/{document_id}/mark-sent | Mark Sent
+[**MarkUnpaid**](DocumentsAPI.md#MarkUnpaid) | **Post** /api/v1/documents/{document_id}/mark-unpaid | Mark Unpaid
+[**RenderDocument**](DocumentsAPI.md#RenderDocument) | **Post** /api/v1/documents/render | Render Document
+[**RestoreDocument**](DocumentsAPI.md#RestoreDocument) | **Post** /api/v1/documents/{document_id}/restore | Restore Document
+[**SendDocument**](DocumentsAPI.md#SendDocument) | **Post** /api/v1/documents/{document_id}/send | Send Document
+[**UpdateDocument**](DocumentsAPI.md#UpdateDocument) | **Patch** /api/v1/documents/{document_id} | Update Document
+[**ValidateDocument**](DocumentsAPI.md#ValidateDocument) | **Post** /api/v1/documents/validate | Validate Document
+[**VoidDocument**](DocumentsAPI.md#VoidDocument) | **Post** /api/v1/documents/{document_id}/void | Void Document
 
 
 
-## ArchiveDocumentApiV1DocumentsDocumentIdArchivePost
+## ArchiveDocument
 
-> DocumentResponse ArchiveDocumentApiV1DocumentsDocumentIdArchivePost(ctx, documentId).Execute()
+> DocumentResponse ArchiveDocument(ctx, documentId).Execute()
 
 Archive Document
 
@@ -49,13 +49,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.ArchiveDocumentApiV1DocumentsDocumentIdArchivePost(context.Background(), documentId).Execute()
+	resp, r, err := apiClient.DocumentsAPI.ArchiveDocument(context.Background(), documentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.ArchiveDocumentApiV1DocumentsDocumentIdArchivePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.ArchiveDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ArchiveDocumentApiV1DocumentsDocumentIdArchivePost`: DocumentResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.ArchiveDocumentApiV1DocumentsDocumentIdArchivePost`: %v\n", resp)
+	// response from `ArchiveDocument`: DocumentResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.ArchiveDocument`: %v\n", resp)
 }
 ```
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiArchiveDocumentApiV1DocumentsDocumentIdArchivePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiArchiveDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -94,9 +94,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CalculateDocumentApiV1DocumentsCalculatePost
+## CalculateDocument
 
-> DocumentCalculateResponse CalculateDocumentApiV1DocumentsCalculatePost(ctx).DocumentCalculateRequest(documentCalculateRequest).Execute()
+> DocumentCalculateResponse CalculateDocument(ctx).DocumentCalculateRequest(documentCalculateRequest).Execute()
 
 Calculate Document
 
@@ -118,13 +118,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.CalculateDocumentApiV1DocumentsCalculatePost(context.Background()).DocumentCalculateRequest(documentCalculateRequest).Execute()
+	resp, r, err := apiClient.DocumentsAPI.CalculateDocument(context.Background()).DocumentCalculateRequest(documentCalculateRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.CalculateDocumentApiV1DocumentsCalculatePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.CalculateDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CalculateDocumentApiV1DocumentsCalculatePost`: DocumentCalculateResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.CalculateDocumentApiV1DocumentsCalculatePost`: %v\n", resp)
+	// response from `CalculateDocument`: DocumentCalculateResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.CalculateDocument`: %v\n", resp)
 }
 ```
 
@@ -134,7 +134,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCalculateDocumentApiV1DocumentsCalculatePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCalculateDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -159,9 +159,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CreateDocumentApiV1DocumentsPost
+## CreateDocument
 
-> DocumentResponse CreateDocumentApiV1DocumentsPost(ctx).DocumentCreateRequest(documentCreateRequest).IdempotencyKey(idempotencyKey).Execute()
+> DocumentResponse CreateDocument(ctx).DocumentCreateRequest(documentCreateRequest).IdempotencyKey(idempotencyKey).Execute()
 
 Create Document
 
@@ -184,13 +184,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.CreateDocumentApiV1DocumentsPost(context.Background()).DocumentCreateRequest(documentCreateRequest).IdempotencyKey(idempotencyKey).Execute()
+	resp, r, err := apiClient.DocumentsAPI.CreateDocument(context.Background()).DocumentCreateRequest(documentCreateRequest).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.CreateDocumentApiV1DocumentsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.CreateDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateDocumentApiV1DocumentsPost`: DocumentResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.CreateDocumentApiV1DocumentsPost`: %v\n", resp)
+	// response from `CreateDocument`: DocumentResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.CreateDocument`: %v\n", resp)
 }
 ```
 
@@ -200,7 +200,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateDocumentApiV1DocumentsPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -226,9 +226,81 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteDocumentApiV1DocumentsDocumentIdDelete
+## CreateDocumentRender
 
-> SimpleBoolResponse DeleteDocumentApiV1DocumentsDocumentIdDelete(ctx, documentId).Execute()
+> interface{} CreateDocumentRender(ctx, documentId).DocumentRenderOptions(documentRenderOptions).IdempotencyKey(idempotencyKey).Execute()
+
+Create Document Render
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+	documentId := "documentId_example" // string | 
+	documentRenderOptions := *openapiclient.NewDocumentRenderOptions() // DocumentRenderOptions | 
+	idempotencyKey := "idempotencyKey_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DocumentsAPI.CreateDocumentRender(context.Background(), documentId).DocumentRenderOptions(documentRenderOptions).IdempotencyKey(idempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.CreateDocumentRender``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateDocumentRender`: interface{}
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.CreateDocumentRender`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**documentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateDocumentRenderRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **documentRenderOptions** | [**DocumentRenderOptions**](DocumentRenderOptions.md) |  | 
+ **idempotencyKey** | **string** |  | 
+
+### Return type
+
+**interface{}**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteDocument
+
+> SimpleBoolResponse DeleteDocument(ctx, documentId).Execute()
 
 Delete Document
 
@@ -249,13 +321,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.DeleteDocumentApiV1DocumentsDocumentIdDelete(context.Background(), documentId).Execute()
+	resp, r, err := apiClient.DocumentsAPI.DeleteDocument(context.Background(), documentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.DeleteDocumentApiV1DocumentsDocumentIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.DeleteDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteDocumentApiV1DocumentsDocumentIdDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.DeleteDocumentApiV1DocumentsDocumentIdDelete`: %v\n", resp)
+	// response from `DeleteDocument`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.DeleteDocument`: %v\n", resp)
 }
 ```
 
@@ -269,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteDocumentApiV1DocumentsDocumentIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -294,9 +366,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost
+## DuplicateDocument
 
-> DocumentResponse DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost(ctx, documentId).Execute()
+> DocumentResponse DuplicateDocument(ctx, documentId).Execute()
 
 Duplicate Document
 
@@ -317,13 +389,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost(context.Background(), documentId).Execute()
+	resp, r, err := apiClient.DocumentsAPI.DuplicateDocument(context.Background(), documentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.DuplicateDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost`: DocumentResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.DuplicateDocumentApiV1DocumentsDocumentIdDuplicatePost`: %v\n", resp)
+	// response from `DuplicateDocument`: DocumentResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.DuplicateDocument`: %v\n", resp)
 }
 ```
 
@@ -337,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDuplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDuplicateDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -362,9 +434,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost
+## FinalizeDocument
 
-> DocumentResponse FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost(ctx, documentId).Execute()
+> DocumentResponse FinalizeDocument(ctx, documentId).Execute()
 
 Finalize Document
 
@@ -385,13 +457,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost(context.Background(), documentId).Execute()
+	resp, r, err := apiClient.DocumentsAPI.FinalizeDocument(context.Background(), documentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.FinalizeDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost`: DocumentResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.FinalizeDocumentApiV1DocumentsDocumentIdFinalizePost`: %v\n", resp)
+	// response from `FinalizeDocument`: DocumentResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.FinalizeDocument`: %v\n", resp)
 }
 ```
 
@@ -405,7 +477,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiFinalizeDocumentApiV1DocumentsDocumentIdFinalizePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiFinalizeDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -430,9 +502,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetDocumentApiV1DocumentsDocumentIdGet
+## GetDocument
 
-> DocumentResponse GetDocumentApiV1DocumentsDocumentIdGet(ctx, documentId).Execute()
+> DocumentResponse GetDocument(ctx, documentId).Execute()
 
 Get Document
 
@@ -453,13 +525,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.GetDocumentApiV1DocumentsDocumentIdGet(context.Background(), documentId).Execute()
+	resp, r, err := apiClient.DocumentsAPI.GetDocument(context.Background(), documentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GetDocumentApiV1DocumentsDocumentIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.GetDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetDocumentApiV1DocumentsDocumentIdGet`: DocumentResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GetDocumentApiV1DocumentsDocumentIdGet`: %v\n", resp)
+	// response from `GetDocument`: DocumentResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.GetDocument`: %v\n", resp)
 }
 ```
 
@@ -473,7 +545,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetDocumentApiV1DocumentsDocumentIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -498,9 +570,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet
+## ListDocumentDeliveries
 
-> DeliveriesListResponse ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet(ctx, documentId).Limit(limit).Cursor(cursor).Execute()
+> DeliveriesListResponse ListDocumentDeliveries(ctx, documentId).Limit(limit).Cursor(cursor).Execute()
 
 List Document Deliveries
 
@@ -523,13 +595,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet(context.Background(), documentId).Limit(limit).Cursor(cursor).Execute()
+	resp, r, err := apiClient.DocumentsAPI.ListDocumentDeliveries(context.Background(), documentId).Limit(limit).Cursor(cursor).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.ListDocumentDeliveries``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet`: DeliveriesListResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.ListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet`: %v\n", resp)
+	// response from `ListDocumentDeliveries`: DeliveriesListResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.ListDocumentDeliveries`: %v\n", resp)
 }
 ```
 
@@ -543,7 +615,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListDocumentDeliveriesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -570,9 +642,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListDocumentsApiV1DocumentsGet
+## ListDocuments
 
-> DocumentsListResponse ListDocumentsApiV1DocumentsGet(ctx).Limit(limit).Cursor(cursor).DocumentType(documentType).Status(status).Execute()
+> DocumentsListResponse ListDocuments(ctx).Limit(limit).Cursor(cursor).DocumentType(documentType).Status(status).Execute()
 
 List Documents
 
@@ -596,13 +668,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.ListDocumentsApiV1DocumentsGet(context.Background()).Limit(limit).Cursor(cursor).DocumentType(documentType).Status(status).Execute()
+	resp, r, err := apiClient.DocumentsAPI.ListDocuments(context.Background()).Limit(limit).Cursor(cursor).DocumentType(documentType).Status(status).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.ListDocumentsApiV1DocumentsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.ListDocuments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListDocumentsApiV1DocumentsGet`: DocumentsListResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.ListDocumentsApiV1DocumentsGet`: %v\n", resp)
+	// response from `ListDocuments`: DocumentsListResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.ListDocuments`: %v\n", resp)
 }
 ```
 
@@ -612,7 +684,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListDocumentsApiV1DocumentsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListDocumentsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -640,9 +712,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## MarkPaidApiV1DocumentsDocumentIdMarkPaidPost
+## MarkPaid
 
-> DocumentResponse MarkPaidApiV1DocumentsDocumentIdMarkPaidPost(ctx, documentId).Execute()
+> DocumentResponse MarkPaid(ctx, documentId).Execute()
 
 Mark Paid
 
@@ -663,13 +735,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.MarkPaidApiV1DocumentsDocumentIdMarkPaidPost(context.Background(), documentId).Execute()
+	resp, r, err := apiClient.DocumentsAPI.MarkPaid(context.Background(), documentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.MarkPaidApiV1DocumentsDocumentIdMarkPaidPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.MarkPaid``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `MarkPaidApiV1DocumentsDocumentIdMarkPaidPost`: DocumentResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.MarkPaidApiV1DocumentsDocumentIdMarkPaidPost`: %v\n", resp)
+	// response from `MarkPaid`: DocumentResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.MarkPaid`: %v\n", resp)
 }
 ```
 
@@ -683,7 +755,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiMarkPaidApiV1DocumentsDocumentIdMarkPaidPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiMarkPaidRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -708,9 +780,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## MarkSentApiV1DocumentsDocumentIdMarkSentPost
+## MarkSent
 
-> DocumentResponse MarkSentApiV1DocumentsDocumentIdMarkSentPost(ctx, documentId).Execute()
+> DocumentResponse MarkSent(ctx, documentId).Execute()
 
 Mark Sent
 
@@ -731,13 +803,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.MarkSentApiV1DocumentsDocumentIdMarkSentPost(context.Background(), documentId).Execute()
+	resp, r, err := apiClient.DocumentsAPI.MarkSent(context.Background(), documentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.MarkSentApiV1DocumentsDocumentIdMarkSentPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.MarkSent``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `MarkSentApiV1DocumentsDocumentIdMarkSentPost`: DocumentResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.MarkSentApiV1DocumentsDocumentIdMarkSentPost`: %v\n", resp)
+	// response from `MarkSent`: DocumentResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.MarkSent`: %v\n", resp)
 }
 ```
 
@@ -751,7 +823,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiMarkSentApiV1DocumentsDocumentIdMarkSentPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiMarkSentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -776,9 +848,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost
+## MarkUnpaid
 
-> DocumentResponse MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost(ctx, documentId).Execute()
+> DocumentResponse MarkUnpaid(ctx, documentId).Execute()
 
 Mark Unpaid
 
@@ -799,13 +871,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost(context.Background(), documentId).Execute()
+	resp, r, err := apiClient.DocumentsAPI.MarkUnpaid(context.Background(), documentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.MarkUnpaid``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost`: DocumentResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.MarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost`: %v\n", resp)
+	// response from `MarkUnpaid`: DocumentResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.MarkUnpaid`: %v\n", resp)
 }
 ```
 
@@ -819,7 +891,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiMarkUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiMarkUnpaidRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -844,151 +916,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## PatchDocumentApiV1DocumentsDocumentIdPatch
+## RenderDocument
 
-> DocumentResponse PatchDocumentApiV1DocumentsDocumentIdPatch(ctx, documentId).DocumentPatchRequest(documentPatchRequest).Execute()
-
-Patch Document
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
-)
-
-func main() {
-	documentId := "documentId_example" // string | 
-	documentPatchRequest := *openapiclient.NewDocumentPatchRequest() // DocumentPatchRequest | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.PatchDocumentApiV1DocumentsDocumentIdPatch(context.Background(), documentId).DocumentPatchRequest(documentPatchRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.PatchDocumentApiV1DocumentsDocumentIdPatch``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchDocumentApiV1DocumentsDocumentIdPatch`: DocumentResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.PatchDocumentApiV1DocumentsDocumentIdPatch`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**documentId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPatchDocumentApiV1DocumentsDocumentIdPatchRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **documentPatchRequest** | [**DocumentPatchRequest**](DocumentPatchRequest.md) |  | 
-
-### Return type
-
-[**DocumentResponse**](DocumentResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## RenderDocumentApiV1DocumentsDocumentIdRendersPost
-
-> interface{} RenderDocumentApiV1DocumentsDocumentIdRendersPost(ctx, documentId).AppDocumentsSchemasDocumentRenderRequest(appDocumentsSchemasDocumentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
-
-Render Document
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
-)
-
-func main() {
-	documentId := "documentId_example" // string | 
-	appDocumentsSchemasDocumentRenderRequest := *openapiclient.NewAppDocumentsSchemasDocumentRenderRequest() // AppDocumentsSchemasDocumentRenderRequest | 
-	idempotencyKey := "idempotencyKey_example" // string |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.RenderDocumentApiV1DocumentsDocumentIdRendersPost(context.Background(), documentId).AppDocumentsSchemasDocumentRenderRequest(appDocumentsSchemasDocumentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.RenderDocumentApiV1DocumentsDocumentIdRendersPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `RenderDocumentApiV1DocumentsDocumentIdRendersPost`: interface{}
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.RenderDocumentApiV1DocumentsDocumentIdRendersPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**documentId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiRenderDocumentApiV1DocumentsDocumentIdRendersPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **appDocumentsSchemasDocumentRenderRequest** | [**AppDocumentsSchemasDocumentRenderRequest**](AppDocumentsSchemasDocumentRenderRequest.md) |  | 
- **idempotencyKey** | **string** |  | 
-
-### Return type
-
-**interface{}**
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## RenderDocumentApiV1DocumentsRenderPost
-
-> interface{} RenderDocumentApiV1DocumentsRenderPost(ctx).AppSchemasV1DocumentRenderRequest(appSchemasV1DocumentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
+> interface{} RenderDocument(ctx).DocumentRenderRequest(documentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
 
 Render Document
 
@@ -1006,18 +936,18 @@ import (
 )
 
 func main() {
-	appSchemasV1DocumentRenderRequest := *openapiclient.NewAppSchemasV1DocumentRenderRequest(*openapiclient.NewDocumentInvoiceDataInput("INV-2026-001", time.Now(), "USD", *openapiclient.NewDocumentPartyInput("Acme Corp"), *openapiclient.NewDocumentPartyInput("Acme Corp"), []openapiclient.DocumentLineItemInput{*openapiclient.NewDocumentLineItemInput("Web Development", "2", "150.00")}), *openapiclient.NewDocumentTemplateRef("Id_example")) // AppSchemasV1DocumentRenderRequest | 
+	documentRenderRequest := *openapiclient.NewDocumentRenderRequest(*openapiclient.NewDocumentInvoiceDataInput("INV-2026-001", time.Now(), "USD", *openapiclient.NewDocumentPartyInput("Acme Corp"), *openapiclient.NewDocumentPartyInput("Acme Corp"), []openapiclient.DocumentLineItemInput{*openapiclient.NewDocumentLineItemInput("Web Development", "2", "150.00")}), *openapiclient.NewDocumentTemplateRef("Id_example")) // DocumentRenderRequest | 
 	idempotencyKey := "idempotencyKey_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.RenderDocumentApiV1DocumentsRenderPost(context.Background()).AppSchemasV1DocumentRenderRequest(appSchemasV1DocumentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
+	resp, r, err := apiClient.DocumentsAPI.RenderDocument(context.Background()).DocumentRenderRequest(documentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.RenderDocumentApiV1DocumentsRenderPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.RenderDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RenderDocumentApiV1DocumentsRenderPost`: interface{}
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.RenderDocumentApiV1DocumentsRenderPost`: %v\n", resp)
+	// response from `RenderDocument`: interface{}
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.RenderDocument`: %v\n", resp)
 }
 ```
 
@@ -1027,12 +957,12 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiRenderDocumentApiV1DocumentsRenderPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRenderDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **appSchemasV1DocumentRenderRequest** | [**AppSchemasV1DocumentRenderRequest**](AppSchemasV1DocumentRenderRequest.md) |  | 
+ **documentRenderRequest** | [**DocumentRenderRequest**](DocumentRenderRequest.md) |  | 
  **idempotencyKey** | **string** |  | 
 
 ### Return type
@@ -1053,9 +983,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## RestoreDocumentApiV1DocumentsDocumentIdRestorePost
+## RestoreDocument
 
-> DocumentResponse RestoreDocumentApiV1DocumentsDocumentIdRestorePost(ctx, documentId).Execute()
+> DocumentResponse RestoreDocument(ctx, documentId).Execute()
 
 Restore Document
 
@@ -1076,13 +1006,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.RestoreDocumentApiV1DocumentsDocumentIdRestorePost(context.Background(), documentId).Execute()
+	resp, r, err := apiClient.DocumentsAPI.RestoreDocument(context.Background(), documentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.RestoreDocumentApiV1DocumentsDocumentIdRestorePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.RestoreDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RestoreDocumentApiV1DocumentsDocumentIdRestorePost`: DocumentResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.RestoreDocumentApiV1DocumentsDocumentIdRestorePost`: %v\n", resp)
+	// response from `RestoreDocument`: DocumentResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.RestoreDocument`: %v\n", resp)
 }
 ```
 
@@ -1096,7 +1026,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiRestoreDocumentApiV1DocumentsDocumentIdRestorePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiRestoreDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1121,9 +1051,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## SendDocumentApiV1DocumentsDocumentIdSendPost
+## SendDocument
 
-> DeliveryResponse SendDocumentApiV1DocumentsDocumentIdSendPost(ctx, documentId).DeliverySendRequest(deliverySendRequest).Execute()
+> DeliveryResponse SendDocument(ctx, documentId).DeliverySendRequest(deliverySendRequest).Execute()
 
 Send Document
 
@@ -1145,13 +1075,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.SendDocumentApiV1DocumentsDocumentIdSendPost(context.Background(), documentId).DeliverySendRequest(deliverySendRequest).Execute()
+	resp, r, err := apiClient.DocumentsAPI.SendDocument(context.Background(), documentId).DeliverySendRequest(deliverySendRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.SendDocumentApiV1DocumentsDocumentIdSendPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.SendDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SendDocumentApiV1DocumentsDocumentIdSendPost`: DeliveryResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.SendDocumentApiV1DocumentsDocumentIdSendPost`: %v\n", resp)
+	// response from `SendDocument`: DeliveryResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.SendDocument`: %v\n", resp)
 }
 ```
 
@@ -1165,7 +1095,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiSendDocumentApiV1DocumentsDocumentIdSendPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSendDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1191,9 +1121,79 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ValidateDocumentApiV1DocumentsValidatePost
+## UpdateDocument
 
-> DocumentValidateResponse ValidateDocumentApiV1DocumentsValidatePost(ctx).DocumentValidateRequest(documentValidateRequest).Execute()
+> DocumentResponse UpdateDocument(ctx, documentId).DocumentPatchRequest(documentPatchRequest).Execute()
+
+Update Document
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+	documentId := "documentId_example" // string | 
+	documentPatchRequest := *openapiclient.NewDocumentPatchRequest() // DocumentPatchRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DocumentsAPI.UpdateDocument(context.Background(), documentId).DocumentPatchRequest(documentPatchRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.UpdateDocument``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateDocument`: DocumentResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.UpdateDocument`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**documentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateDocumentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **documentPatchRequest** | [**DocumentPatchRequest**](DocumentPatchRequest.md) |  | 
+
+### Return type
+
+[**DocumentResponse**](DocumentResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ValidateDocument
+
+> DocumentValidateResponse ValidateDocument(ctx).DocumentValidateRequest(documentValidateRequest).Execute()
 
 Validate Document
 
@@ -1215,13 +1215,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.ValidateDocumentApiV1DocumentsValidatePost(context.Background()).DocumentValidateRequest(documentValidateRequest).Execute()
+	resp, r, err := apiClient.DocumentsAPI.ValidateDocument(context.Background()).DocumentValidateRequest(documentValidateRequest).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.ValidateDocumentApiV1DocumentsValidatePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.ValidateDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ValidateDocumentApiV1DocumentsValidatePost`: DocumentValidateResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.ValidateDocumentApiV1DocumentsValidatePost`: %v\n", resp)
+	// response from `ValidateDocument`: DocumentValidateResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.ValidateDocument`: %v\n", resp)
 }
 ```
 
@@ -1231,7 +1231,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiValidateDocumentApiV1DocumentsValidatePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiValidateDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1256,9 +1256,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## VoidDocumentApiV1DocumentsDocumentIdVoidPost
+## VoidDocument
 
-> DocumentResponse VoidDocumentApiV1DocumentsDocumentIdVoidPost(ctx, documentId).Execute()
+> DocumentResponse VoidDocument(ctx, documentId).Execute()
 
 Void Document
 
@@ -1279,13 +1279,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DocumentsAPI.VoidDocumentApiV1DocumentsDocumentIdVoidPost(context.Background(), documentId).Execute()
+	resp, r, err := apiClient.DocumentsAPI.VoidDocument(context.Background(), documentId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.VoidDocumentApiV1DocumentsDocumentIdVoidPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.VoidDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VoidDocumentApiV1DocumentsDocumentIdVoidPost`: DocumentResponse
-	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.VoidDocumentApiV1DocumentsDocumentIdVoidPost`: %v\n", resp)
+	// response from `VoidDocument`: DocumentResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.VoidDocument`: %v\n", resp)
 }
 ```
 
@@ -1299,7 +1299,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiVoidDocumentApiV1DocumentsDocumentIdVoidPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiVoidDocumentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

@@ -22,23 +22,23 @@ import (
 // ReferenceAPIService ReferenceAPI service
 type ReferenceAPIService service
 
-type ApiListCountriesApiV1ReferenceCountriesGetRequest struct {
+type ApiListCountriesRequest struct {
 	ctx context.Context
 	ApiService *ReferenceAPIService
 }
 
-func (r ApiListCountriesApiV1ReferenceCountriesGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.ListCountriesApiV1ReferenceCountriesGetExecute(r)
+func (r ApiListCountriesRequest) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.ListCountriesExecute(r)
 }
 
 /*
-ListCountriesApiV1ReferenceCountriesGet List Countries
+ListCountries List Countries
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListCountriesApiV1ReferenceCountriesGetRequest
+ @return ApiListCountriesRequest
 */
-func (a *ReferenceAPIService) ListCountriesApiV1ReferenceCountriesGet(ctx context.Context) ApiListCountriesApiV1ReferenceCountriesGetRequest {
-	return ApiListCountriesApiV1ReferenceCountriesGetRequest{
+func (a *ReferenceAPIService) ListCountries(ctx context.Context) ApiListCountriesRequest {
+	return ApiListCountriesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -46,7 +46,7 @@ func (a *ReferenceAPIService) ListCountriesApiV1ReferenceCountriesGet(ctx contex
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *ReferenceAPIService) ListCountriesApiV1ReferenceCountriesGetExecute(r ApiListCountriesApiV1ReferenceCountriesGetRequest) (map[string]interface{}, *http.Response, error) {
+func (a *ReferenceAPIService) ListCountriesExecute(r ApiListCountriesRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -54,7 +54,7 @@ func (a *ReferenceAPIService) ListCountriesApiV1ReferenceCountriesGetExecute(r A
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListCountriesApiV1ReferenceCountriesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListCountries")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -119,23 +119,23 @@ func (a *ReferenceAPIService) ListCountriesApiV1ReferenceCountriesGetExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListCurrenciesApiV1ReferenceCurrenciesGetRequest struct {
+type ApiListCurrenciesRequest struct {
 	ctx context.Context
 	ApiService *ReferenceAPIService
 }
 
-func (r ApiListCurrenciesApiV1ReferenceCurrenciesGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.ListCurrenciesApiV1ReferenceCurrenciesGetExecute(r)
+func (r ApiListCurrenciesRequest) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.ListCurrenciesExecute(r)
 }
 
 /*
-ListCurrenciesApiV1ReferenceCurrenciesGet List Currencies
+ListCurrencies List Currencies
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListCurrenciesApiV1ReferenceCurrenciesGetRequest
+ @return ApiListCurrenciesRequest
 */
-func (a *ReferenceAPIService) ListCurrenciesApiV1ReferenceCurrenciesGet(ctx context.Context) ApiListCurrenciesApiV1ReferenceCurrenciesGetRequest {
-	return ApiListCurrenciesApiV1ReferenceCurrenciesGetRequest{
+func (a *ReferenceAPIService) ListCurrencies(ctx context.Context) ApiListCurrenciesRequest {
+	return ApiListCurrenciesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -143,7 +143,7 @@ func (a *ReferenceAPIService) ListCurrenciesApiV1ReferenceCurrenciesGet(ctx cont
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *ReferenceAPIService) ListCurrenciesApiV1ReferenceCurrenciesGetExecute(r ApiListCurrenciesApiV1ReferenceCurrenciesGetRequest) (map[string]interface{}, *http.Response, error) {
+func (a *ReferenceAPIService) ListCurrenciesExecute(r ApiListCurrenciesRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -151,7 +151,7 @@ func (a *ReferenceAPIService) ListCurrenciesApiV1ReferenceCurrenciesGetExecute(r
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListCurrenciesApiV1ReferenceCurrenciesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListCurrencies")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -216,17 +216,17 @@ func (a *ReferenceAPIService) ListCurrenciesApiV1ReferenceCurrenciesGetExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListDocumentTypesApiV1ReferenceDocumentTypesGetRequest struct {
+type ApiListDocumentTypesRequest struct {
 	ctx context.Context
 	ApiService *ReferenceAPIService
 }
 
-func (r ApiListDocumentTypesApiV1ReferenceDocumentTypesGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.ListDocumentTypesApiV1ReferenceDocumentTypesGetExecute(r)
+func (r ApiListDocumentTypesRequest) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.ListDocumentTypesExecute(r)
 }
 
 /*
-ListDocumentTypesApiV1ReferenceDocumentTypesGet List Document Types
+ListDocumentTypes List Document Types
 
 List every supported document type with the metadata a client needs to
 build a type-aware create form: the number prefix, whether it is payable /
@@ -235,10 +235,10 @@ takes a source document / supports a reason, which line-item shape it uses
 actions available to it.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListDocumentTypesApiV1ReferenceDocumentTypesGetRequest
+ @return ApiListDocumentTypesRequest
 */
-func (a *ReferenceAPIService) ListDocumentTypesApiV1ReferenceDocumentTypesGet(ctx context.Context) ApiListDocumentTypesApiV1ReferenceDocumentTypesGetRequest {
-	return ApiListDocumentTypesApiV1ReferenceDocumentTypesGetRequest{
+func (a *ReferenceAPIService) ListDocumentTypes(ctx context.Context) ApiListDocumentTypesRequest {
+	return ApiListDocumentTypesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -246,7 +246,7 @@ func (a *ReferenceAPIService) ListDocumentTypesApiV1ReferenceDocumentTypesGet(ct
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *ReferenceAPIService) ListDocumentTypesApiV1ReferenceDocumentTypesGetExecute(r ApiListDocumentTypesApiV1ReferenceDocumentTypesGetRequest) (map[string]interface{}, *http.Response, error) {
+func (a *ReferenceAPIService) ListDocumentTypesExecute(r ApiListDocumentTypesRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -254,7 +254,7 @@ func (a *ReferenceAPIService) ListDocumentTypesApiV1ReferenceDocumentTypesGetExe
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListDocumentTypesApiV1ReferenceDocumentTypesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListDocumentTypes")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -319,23 +319,23 @@ func (a *ReferenceAPIService) ListDocumentTypesApiV1ReferenceDocumentTypesGetExe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListLocalesApiV1ReferenceLocalesGetRequest struct {
+type ApiListLocalesRequest struct {
 	ctx context.Context
 	ApiService *ReferenceAPIService
 }
 
-func (r ApiListLocalesApiV1ReferenceLocalesGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.ListLocalesApiV1ReferenceLocalesGetExecute(r)
+func (r ApiListLocalesRequest) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.ListLocalesExecute(r)
 }
 
 /*
-ListLocalesApiV1ReferenceLocalesGet List Locales
+ListLocales List Locales
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListLocalesApiV1ReferenceLocalesGetRequest
+ @return ApiListLocalesRequest
 */
-func (a *ReferenceAPIService) ListLocalesApiV1ReferenceLocalesGet(ctx context.Context) ApiListLocalesApiV1ReferenceLocalesGetRequest {
-	return ApiListLocalesApiV1ReferenceLocalesGetRequest{
+func (a *ReferenceAPIService) ListLocales(ctx context.Context) ApiListLocalesRequest {
+	return ApiListLocalesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -343,7 +343,7 @@ func (a *ReferenceAPIService) ListLocalesApiV1ReferenceLocalesGet(ctx context.Co
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *ReferenceAPIService) ListLocalesApiV1ReferenceLocalesGetExecute(r ApiListLocalesApiV1ReferenceLocalesGetRequest) (map[string]interface{}, *http.Response, error) {
+func (a *ReferenceAPIService) ListLocalesExecute(r ApiListLocalesRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -351,7 +351,7 @@ func (a *ReferenceAPIService) ListLocalesApiV1ReferenceLocalesGetExecute(r ApiLi
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListLocalesApiV1ReferenceLocalesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListLocales")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -416,23 +416,23 @@ func (a *ReferenceAPIService) ListLocalesApiV1ReferenceLocalesGetExecute(r ApiLi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListPageSizesApiV1ReferencePageSizesGetRequest struct {
+type ApiListPageSizesRequest struct {
 	ctx context.Context
 	ApiService *ReferenceAPIService
 }
 
-func (r ApiListPageSizesApiV1ReferencePageSizesGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.ListPageSizesApiV1ReferencePageSizesGetExecute(r)
+func (r ApiListPageSizesRequest) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.ListPageSizesExecute(r)
 }
 
 /*
-ListPageSizesApiV1ReferencePageSizesGet List Page Sizes
+ListPageSizes List Page Sizes
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListPageSizesApiV1ReferencePageSizesGetRequest
+ @return ApiListPageSizesRequest
 */
-func (a *ReferenceAPIService) ListPageSizesApiV1ReferencePageSizesGet(ctx context.Context) ApiListPageSizesApiV1ReferencePageSizesGetRequest {
-	return ApiListPageSizesApiV1ReferencePageSizesGetRequest{
+func (a *ReferenceAPIService) ListPageSizes(ctx context.Context) ApiListPageSizesRequest {
+	return ApiListPageSizesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -440,7 +440,7 @@ func (a *ReferenceAPIService) ListPageSizesApiV1ReferencePageSizesGet(ctx contex
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *ReferenceAPIService) ListPageSizesApiV1ReferencePageSizesGetExecute(r ApiListPageSizesApiV1ReferencePageSizesGetRequest) (map[string]interface{}, *http.Response, error) {
+func (a *ReferenceAPIService) ListPageSizesExecute(r ApiListPageSizesRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -448,7 +448,7 @@ func (a *ReferenceAPIService) ListPageSizesApiV1ReferencePageSizesGetExecute(r A
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListPageSizesApiV1ReferencePageSizesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListPageSizes")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -513,23 +513,23 @@ func (a *ReferenceAPIService) ListPageSizesApiV1ReferencePageSizesGetExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListTimezonesApiV1ReferenceTimezonesGetRequest struct {
+type ApiListTimezonesRequest struct {
 	ctx context.Context
 	ApiService *ReferenceAPIService
 }
 
-func (r ApiListTimezonesApiV1ReferenceTimezonesGetRequest) Execute() (map[string]interface{}, *http.Response, error) {
-	return r.ApiService.ListTimezonesApiV1ReferenceTimezonesGetExecute(r)
+func (r ApiListTimezonesRequest) Execute() (map[string]interface{}, *http.Response, error) {
+	return r.ApiService.ListTimezonesExecute(r)
 }
 
 /*
-ListTimezonesApiV1ReferenceTimezonesGet List Timezones
+ListTimezones List Timezones
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListTimezonesApiV1ReferenceTimezonesGetRequest
+ @return ApiListTimezonesRequest
 */
-func (a *ReferenceAPIService) ListTimezonesApiV1ReferenceTimezonesGet(ctx context.Context) ApiListTimezonesApiV1ReferenceTimezonesGetRequest {
-	return ApiListTimezonesApiV1ReferenceTimezonesGetRequest{
+func (a *ReferenceAPIService) ListTimezones(ctx context.Context) ApiListTimezonesRequest {
+	return ApiListTimezonesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -537,7 +537,7 @@ func (a *ReferenceAPIService) ListTimezonesApiV1ReferenceTimezonesGet(ctx contex
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *ReferenceAPIService) ListTimezonesApiV1ReferenceTimezonesGetExecute(r ApiListTimezonesApiV1ReferenceTimezonesGetRequest) (map[string]interface{}, *http.Response, error) {
+func (a *ReferenceAPIService) ListTimezonesExecute(r ApiListTimezonesRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -545,7 +545,7 @@ func (a *ReferenceAPIService) ListTimezonesApiV1ReferenceTimezonesGetExecute(r A
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListTimezonesApiV1ReferenceTimezonesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListTimezones")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

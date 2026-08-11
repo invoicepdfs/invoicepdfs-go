@@ -23,25 +23,25 @@ import (
 // AuditLogAPIService AuditLogAPI service
 type AuditLogAPIService service
 
-type ApiGetAuditEventApiV1AuditEventsAuditEventIdGetRequest struct {
+type ApiGetAuditEventRequest struct {
 	ctx context.Context
 	ApiService *AuditLogAPIService
 	auditEventId string
 }
 
-func (r ApiGetAuditEventApiV1AuditEventsAuditEventIdGetRequest) Execute() (*AuditEventResponse, *http.Response, error) {
-	return r.ApiService.GetAuditEventApiV1AuditEventsAuditEventIdGetExecute(r)
+func (r ApiGetAuditEventRequest) Execute() (*AuditEventResponse, *http.Response, error) {
+	return r.ApiService.GetAuditEventExecute(r)
 }
 
 /*
-GetAuditEventApiV1AuditEventsAuditEventIdGet Get Audit Event
+GetAuditEvent Get Audit Event
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param auditEventId
- @return ApiGetAuditEventApiV1AuditEventsAuditEventIdGetRequest
+ @return ApiGetAuditEventRequest
 */
-func (a *AuditLogAPIService) GetAuditEventApiV1AuditEventsAuditEventIdGet(ctx context.Context, auditEventId string) ApiGetAuditEventApiV1AuditEventsAuditEventIdGetRequest {
-	return ApiGetAuditEventApiV1AuditEventsAuditEventIdGetRequest{
+func (a *AuditLogAPIService) GetAuditEvent(ctx context.Context, auditEventId string) ApiGetAuditEventRequest {
+	return ApiGetAuditEventRequest{
 		ApiService: a,
 		ctx: ctx,
 		auditEventId: auditEventId,
@@ -50,7 +50,7 @@ func (a *AuditLogAPIService) GetAuditEventApiV1AuditEventsAuditEventIdGet(ctx co
 
 // Execute executes the request
 //  @return AuditEventResponse
-func (a *AuditLogAPIService) GetAuditEventApiV1AuditEventsAuditEventIdGetExecute(r ApiGetAuditEventApiV1AuditEventsAuditEventIdGetRequest) (*AuditEventResponse, *http.Response, error) {
+func (a *AuditLogAPIService) GetAuditEventExecute(r ApiGetAuditEventRequest) (*AuditEventResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -58,7 +58,7 @@ func (a *AuditLogAPIService) GetAuditEventApiV1AuditEventsAuditEventIdGetExecute
 		localVarReturnValue  *AuditEventResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuditLogAPIService.GetAuditEventApiV1AuditEventsAuditEventIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuditLogAPIService.GetAuditEvent")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,7 +134,7 @@ func (a *AuditLogAPIService) GetAuditEventApiV1AuditEventsAuditEventIdGetExecute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListAuditEventsApiV1AuditEventsGetRequest struct {
+type ApiListAuditEventsRequest struct {
 	ctx context.Context
 	ApiService *AuditLogAPIService
 	limit *int32
@@ -144,43 +144,43 @@ type ApiListAuditEventsApiV1AuditEventsGetRequest struct {
 	resourceId *string
 }
 
-func (r ApiListAuditEventsApiV1AuditEventsGetRequest) Limit(limit int32) ApiListAuditEventsApiV1AuditEventsGetRequest {
+func (r ApiListAuditEventsRequest) Limit(limit int32) ApiListAuditEventsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListAuditEventsApiV1AuditEventsGetRequest) Cursor(cursor string) ApiListAuditEventsApiV1AuditEventsGetRequest {
+func (r ApiListAuditEventsRequest) Cursor(cursor string) ApiListAuditEventsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListAuditEventsApiV1AuditEventsGetRequest) Action(action string) ApiListAuditEventsApiV1AuditEventsGetRequest {
+func (r ApiListAuditEventsRequest) Action(action string) ApiListAuditEventsRequest {
 	r.action = &action
 	return r
 }
 
-func (r ApiListAuditEventsApiV1AuditEventsGetRequest) ResourceType(resourceType string) ApiListAuditEventsApiV1AuditEventsGetRequest {
+func (r ApiListAuditEventsRequest) ResourceType(resourceType string) ApiListAuditEventsRequest {
 	r.resourceType = &resourceType
 	return r
 }
 
-func (r ApiListAuditEventsApiV1AuditEventsGetRequest) ResourceId(resourceId string) ApiListAuditEventsApiV1AuditEventsGetRequest {
+func (r ApiListAuditEventsRequest) ResourceId(resourceId string) ApiListAuditEventsRequest {
 	r.resourceId = &resourceId
 	return r
 }
 
-func (r ApiListAuditEventsApiV1AuditEventsGetRequest) Execute() (*AuditEventsListResponse, *http.Response, error) {
-	return r.ApiService.ListAuditEventsApiV1AuditEventsGetExecute(r)
+func (r ApiListAuditEventsRequest) Execute() (*AuditEventsListResponse, *http.Response, error) {
+	return r.ApiService.ListAuditEventsExecute(r)
 }
 
 /*
-ListAuditEventsApiV1AuditEventsGet List Audit Events
+ListAuditEvents List Audit Events
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListAuditEventsApiV1AuditEventsGetRequest
+ @return ApiListAuditEventsRequest
 */
-func (a *AuditLogAPIService) ListAuditEventsApiV1AuditEventsGet(ctx context.Context) ApiListAuditEventsApiV1AuditEventsGetRequest {
-	return ApiListAuditEventsApiV1AuditEventsGetRequest{
+func (a *AuditLogAPIService) ListAuditEvents(ctx context.Context) ApiListAuditEventsRequest {
+	return ApiListAuditEventsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -188,7 +188,7 @@ func (a *AuditLogAPIService) ListAuditEventsApiV1AuditEventsGet(ctx context.Cont
 
 // Execute executes the request
 //  @return AuditEventsListResponse
-func (a *AuditLogAPIService) ListAuditEventsApiV1AuditEventsGetExecute(r ApiListAuditEventsApiV1AuditEventsGetRequest) (*AuditEventsListResponse, *http.Response, error) {
+func (a *AuditLogAPIService) ListAuditEventsExecute(r ApiListAuditEventsRequest) (*AuditEventsListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -196,7 +196,7 @@ func (a *AuditLogAPIService) ListAuditEventsApiV1AuditEventsGetExecute(r ApiList
 		localVarReturnValue  *AuditEventsListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuditLogAPIService.ListAuditEventsApiV1AuditEventsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuditLogAPIService.ListAuditEvents")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

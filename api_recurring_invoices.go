@@ -23,25 +23,25 @@ import (
 // RecurringInvoicesAPIService RecurringInvoicesAPI service
 type RecurringInvoicesAPIService service
 
-type ApiCancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteRequest struct {
+type ApiCancelRecurringInvoiceRequest struct {
 	ctx context.Context
 	ApiService *RecurringInvoicesAPIService
 	recurringId string
 }
 
-func (r ApiCancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteRequest) Execute() (*RecurringInvoiceResponse, *http.Response, error) {
-	return r.ApiService.CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteExecute(r)
+func (r ApiCancelRecurringInvoiceRequest) Execute() (*RecurringInvoiceResponse, *http.Response, error) {
+	return r.ApiService.CancelRecurringInvoiceExecute(r)
 }
 
 /*
-CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete Cancel Recurring Invoice
+CancelRecurringInvoice Cancel Recurring Invoice
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param recurringId
- @return ApiCancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteRequest
+ @return ApiCancelRecurringInvoiceRequest
 */
-func (a *RecurringInvoicesAPIService) CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete(ctx context.Context, recurringId string) ApiCancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteRequest {
-	return ApiCancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteRequest{
+func (a *RecurringInvoicesAPIService) CancelRecurringInvoice(ctx context.Context, recurringId string) ApiCancelRecurringInvoiceRequest {
+	return ApiCancelRecurringInvoiceRequest{
 		ApiService: a,
 		ctx: ctx,
 		recurringId: recurringId,
@@ -50,7 +50,7 @@ func (a *RecurringInvoicesAPIService) CancelRecurringInvoiceApiV1RecurringInvoic
 
 // Execute executes the request
 //  @return RecurringInvoiceResponse
-func (a *RecurringInvoicesAPIService) CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteExecute(r ApiCancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteRequest) (*RecurringInvoiceResponse, *http.Response, error) {
+func (a *RecurringInvoicesAPIService) CancelRecurringInvoiceExecute(r ApiCancelRecurringInvoiceRequest) (*RecurringInvoiceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -58,7 +58,7 @@ func (a *RecurringInvoicesAPIService) CancelRecurringInvoiceApiV1RecurringInvoic
 		localVarReturnValue  *RecurringInvoiceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.CancelRecurringInvoice")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -134,29 +134,29 @@ func (a *RecurringInvoicesAPIService) CancelRecurringInvoiceApiV1RecurringInvoic
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateRecurringInvoiceApiV1RecurringInvoicesPostRequest struct {
+type ApiCreateRecurringInvoiceRequest struct {
 	ctx context.Context
 	ApiService *RecurringInvoicesAPIService
 	recurringInvoiceCreateRequest *RecurringInvoiceCreateRequest
 }
 
-func (r ApiCreateRecurringInvoiceApiV1RecurringInvoicesPostRequest) RecurringInvoiceCreateRequest(recurringInvoiceCreateRequest RecurringInvoiceCreateRequest) ApiCreateRecurringInvoiceApiV1RecurringInvoicesPostRequest {
+func (r ApiCreateRecurringInvoiceRequest) RecurringInvoiceCreateRequest(recurringInvoiceCreateRequest RecurringInvoiceCreateRequest) ApiCreateRecurringInvoiceRequest {
 	r.recurringInvoiceCreateRequest = &recurringInvoiceCreateRequest
 	return r
 }
 
-func (r ApiCreateRecurringInvoiceApiV1RecurringInvoicesPostRequest) Execute() (*RecurringInvoiceResponse, *http.Response, error) {
-	return r.ApiService.CreateRecurringInvoiceApiV1RecurringInvoicesPostExecute(r)
+func (r ApiCreateRecurringInvoiceRequest) Execute() (*RecurringInvoiceResponse, *http.Response, error) {
+	return r.ApiService.CreateRecurringInvoiceExecute(r)
 }
 
 /*
-CreateRecurringInvoiceApiV1RecurringInvoicesPost Create Recurring Invoice
+CreateRecurringInvoice Create Recurring Invoice
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateRecurringInvoiceApiV1RecurringInvoicesPostRequest
+ @return ApiCreateRecurringInvoiceRequest
 */
-func (a *RecurringInvoicesAPIService) CreateRecurringInvoiceApiV1RecurringInvoicesPost(ctx context.Context) ApiCreateRecurringInvoiceApiV1RecurringInvoicesPostRequest {
-	return ApiCreateRecurringInvoiceApiV1RecurringInvoicesPostRequest{
+func (a *RecurringInvoicesAPIService) CreateRecurringInvoice(ctx context.Context) ApiCreateRecurringInvoiceRequest {
+	return ApiCreateRecurringInvoiceRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -164,7 +164,7 @@ func (a *RecurringInvoicesAPIService) CreateRecurringInvoiceApiV1RecurringInvoic
 
 // Execute executes the request
 //  @return RecurringInvoiceResponse
-func (a *RecurringInvoicesAPIService) CreateRecurringInvoiceApiV1RecurringInvoicesPostExecute(r ApiCreateRecurringInvoiceApiV1RecurringInvoicesPostRequest) (*RecurringInvoiceResponse, *http.Response, error) {
+func (a *RecurringInvoicesAPIService) CreateRecurringInvoiceExecute(r ApiCreateRecurringInvoiceRequest) (*RecurringInvoiceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -172,7 +172,7 @@ func (a *RecurringInvoicesAPIService) CreateRecurringInvoiceApiV1RecurringInvoic
 		localVarReturnValue  *RecurringInvoiceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.CreateRecurringInvoiceApiV1RecurringInvoicesPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.CreateRecurringInvoice")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -252,25 +252,25 @@ func (a *RecurringInvoicesAPIService) CreateRecurringInvoiceApiV1RecurringInvoic
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetRequest struct {
+type ApiGetRecurringInvoiceRequest struct {
 	ctx context.Context
 	ApiService *RecurringInvoicesAPIService
 	recurringId string
 }
 
-func (r ApiGetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetRequest) Execute() (*RecurringInvoiceResponse, *http.Response, error) {
-	return r.ApiService.GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetExecute(r)
+func (r ApiGetRecurringInvoiceRequest) Execute() (*RecurringInvoiceResponse, *http.Response, error) {
+	return r.ApiService.GetRecurringInvoiceExecute(r)
 }
 
 /*
-GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet Get Recurring Invoice
+GetRecurringInvoice Get Recurring Invoice
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param recurringId
- @return ApiGetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetRequest
+ @return ApiGetRecurringInvoiceRequest
 */
-func (a *RecurringInvoicesAPIService) GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet(ctx context.Context, recurringId string) ApiGetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetRequest {
-	return ApiGetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetRequest{
+func (a *RecurringInvoicesAPIService) GetRecurringInvoice(ctx context.Context, recurringId string) ApiGetRecurringInvoiceRequest {
+	return ApiGetRecurringInvoiceRequest{
 		ApiService: a,
 		ctx: ctx,
 		recurringId: recurringId,
@@ -279,7 +279,7 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoiceApiV1RecurringInvoicesR
 
 // Execute executes the request
 //  @return RecurringInvoiceResponse
-func (a *RecurringInvoicesAPIService) GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetExecute(r ApiGetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetRequest) (*RecurringInvoiceResponse, *http.Response, error) {
+func (a *RecurringInvoicesAPIService) GetRecurringInvoiceExecute(r ApiGetRecurringInvoiceRequest) (*RecurringInvoiceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -287,7 +287,7 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoiceApiV1RecurringInvoicesR
 		localVarReturnValue  *RecurringInvoiceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.GetRecurringInvoice")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -363,7 +363,7 @@ func (a *RecurringInvoicesAPIService) GetRecurringInvoiceApiV1RecurringInvoicesR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest struct {
+type ApiListGeneratedInvoicesRequest struct {
 	ctx context.Context
 	ApiService *RecurringInvoicesAPIService
 	recurringId string
@@ -371,29 +371,29 @@ type ApiListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest
 	cursor *string
 }
 
-func (r ApiListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest) Limit(limit int32) ApiListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest {
+func (r ApiListGeneratedInvoicesRequest) Limit(limit int32) ApiListGeneratedInvoicesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest) Cursor(cursor string) ApiListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest {
+func (r ApiListGeneratedInvoicesRequest) Cursor(cursor string) ApiListGeneratedInvoicesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest) Execute() (*InvoicesListResponse, *http.Response, error) {
-	return r.ApiService.ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetExecute(r)
+func (r ApiListGeneratedInvoicesRequest) Execute() (*InvoicesListResponse, *http.Response, error) {
+	return r.ApiService.ListGeneratedInvoicesExecute(r)
 }
 
 /*
-ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet List Generated Invoices
+ListGeneratedInvoices List Generated Invoices
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param recurringId
- @return ApiListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest
+ @return ApiListGeneratedInvoicesRequest
 */
-func (a *RecurringInvoicesAPIService) ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet(ctx context.Context, recurringId string) ApiListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest {
-	return ApiListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest{
+func (a *RecurringInvoicesAPIService) ListGeneratedInvoices(ctx context.Context, recurringId string) ApiListGeneratedInvoicesRequest {
+	return ApiListGeneratedInvoicesRequest{
 		ApiService: a,
 		ctx: ctx,
 		recurringId: recurringId,
@@ -402,7 +402,7 @@ func (a *RecurringInvoicesAPIService) ListGeneratedInvoicesApiV1RecurringInvoice
 
 // Execute executes the request
 //  @return InvoicesListResponse
-func (a *RecurringInvoicesAPIService) ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetExecute(r ApiListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest) (*InvoicesListResponse, *http.Response, error) {
+func (a *RecurringInvoicesAPIService) ListGeneratedInvoicesExecute(r ApiListGeneratedInvoicesRequest) (*InvoicesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -410,7 +410,7 @@ func (a *RecurringInvoicesAPIService) ListGeneratedInvoicesApiV1RecurringInvoice
 		localVarReturnValue  *InvoicesListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.ListGeneratedInvoices")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -495,7 +495,7 @@ func (a *RecurringInvoicesAPIService) ListGeneratedInvoicesApiV1RecurringInvoice
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest struct {
+type ApiListRecurringInvoicesRequest struct {
 	ctx context.Context
 	ApiService *RecurringInvoicesAPIService
 	limit *int32
@@ -503,33 +503,33 @@ type ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest struct {
 	status *string
 }
 
-func (r ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest) Limit(limit int32) ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest {
+func (r ApiListRecurringInvoicesRequest) Limit(limit int32) ApiListRecurringInvoicesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest) Cursor(cursor string) ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest {
+func (r ApiListRecurringInvoicesRequest) Cursor(cursor string) ApiListRecurringInvoicesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest) Status(status string) ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest {
+func (r ApiListRecurringInvoicesRequest) Status(status string) ApiListRecurringInvoicesRequest {
 	r.status = &status
 	return r
 }
 
-func (r ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest) Execute() (*RecurringInvoicesListResponse, *http.Response, error) {
-	return r.ApiService.ListRecurringInvoicesApiV1RecurringInvoicesGetExecute(r)
+func (r ApiListRecurringInvoicesRequest) Execute() (*RecurringInvoicesListResponse, *http.Response, error) {
+	return r.ApiService.ListRecurringInvoicesExecute(r)
 }
 
 /*
-ListRecurringInvoicesApiV1RecurringInvoicesGet List Recurring Invoices
+ListRecurringInvoices List Recurring Invoices
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest
+ @return ApiListRecurringInvoicesRequest
 */
-func (a *RecurringInvoicesAPIService) ListRecurringInvoicesApiV1RecurringInvoicesGet(ctx context.Context) ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest {
-	return ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest{
+func (a *RecurringInvoicesAPIService) ListRecurringInvoices(ctx context.Context) ApiListRecurringInvoicesRequest {
+	return ApiListRecurringInvoicesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -537,7 +537,7 @@ func (a *RecurringInvoicesAPIService) ListRecurringInvoicesApiV1RecurringInvoice
 
 // Execute executes the request
 //  @return RecurringInvoicesListResponse
-func (a *RecurringInvoicesAPIService) ListRecurringInvoicesApiV1RecurringInvoicesGetExecute(r ApiListRecurringInvoicesApiV1RecurringInvoicesGetRequest) (*RecurringInvoicesListResponse, *http.Response, error) {
+func (a *RecurringInvoicesAPIService) ListRecurringInvoicesExecute(r ApiListRecurringInvoicesRequest) (*RecurringInvoicesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -545,7 +545,7 @@ func (a *RecurringInvoicesAPIService) ListRecurringInvoicesApiV1RecurringInvoice
 		localVarReturnValue  *RecurringInvoicesListResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.ListRecurringInvoicesApiV1RecurringInvoicesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.ListRecurringInvoices")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -632,31 +632,25 @@ func (a *RecurringInvoicesAPIService) ListRecurringInvoicesApiV1RecurringInvoice
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest struct {
+type ApiPauseRecurringInvoiceRequest struct {
 	ctx context.Context
 	ApiService *RecurringInvoicesAPIService
 	recurringId string
-	recurringInvoicePatchRequest *RecurringInvoicePatchRequest
 }
 
-func (r ApiPatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest) RecurringInvoicePatchRequest(recurringInvoicePatchRequest RecurringInvoicePatchRequest) ApiPatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest {
-	r.recurringInvoicePatchRequest = &recurringInvoicePatchRequest
-	return r
-}
-
-func (r ApiPatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest) Execute() (*RecurringInvoiceResponse, *http.Response, error) {
-	return r.ApiService.PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchExecute(r)
+func (r ApiPauseRecurringInvoiceRequest) Execute() (*RecurringInvoiceResponse, *http.Response, error) {
+	return r.ApiService.PauseRecurringInvoiceExecute(r)
 }
 
 /*
-PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch Patch Recurring Invoice
+PauseRecurringInvoice Pause Recurring Invoice
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param recurringId
- @return ApiPatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest
+ @return ApiPauseRecurringInvoiceRequest
 */
-func (a *RecurringInvoicesAPIService) PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch(ctx context.Context, recurringId string) ApiPatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest {
-	return ApiPatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest{
+func (a *RecurringInvoicesAPIService) PauseRecurringInvoice(ctx context.Context, recurringId string) ApiPauseRecurringInvoiceRequest {
+	return ApiPauseRecurringInvoiceRequest{
 		ApiService: a,
 		ctx: ctx,
 		recurringId: recurringId,
@@ -665,123 +659,7 @@ func (a *RecurringInvoicesAPIService) PatchRecurringInvoiceApiV1RecurringInvoice
 
 // Execute executes the request
 //  @return RecurringInvoiceResponse
-func (a *RecurringInvoicesAPIService) PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchExecute(r ApiPatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest) (*RecurringInvoiceResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecurringInvoiceResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/recurring-invoices/{recurring_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"recurring_id"+"}", url.PathEscape(parameterValueToString(r.recurringId, "recurringId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.recurringInvoicePatchRequest == nil {
-		return localVarReturnValue, nil, reportError("recurringInvoicePatchRequest is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.recurringInvoicePatchRequest
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ApiErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiPauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostRequest struct {
-	ctx context.Context
-	ApiService *RecurringInvoicesAPIService
-	recurringId string
-}
-
-func (r ApiPauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostRequest) Execute() (*RecurringInvoiceResponse, *http.Response, error) {
-	return r.ApiService.PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostExecute(r)
-}
-
-/*
-PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost Pause Recurring Invoice
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param recurringId
- @return ApiPauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostRequest
-*/
-func (a *RecurringInvoicesAPIService) PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost(ctx context.Context, recurringId string) ApiPauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostRequest {
-	return ApiPauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostRequest{
-		ApiService: a,
-		ctx: ctx,
-		recurringId: recurringId,
-	}
-}
-
-// Execute executes the request
-//  @return RecurringInvoiceResponse
-func (a *RecurringInvoicesAPIService) PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostExecute(r ApiPauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostRequest) (*RecurringInvoiceResponse, *http.Response, error) {
+func (a *RecurringInvoicesAPIService) PauseRecurringInvoiceExecute(r ApiPauseRecurringInvoiceRequest) (*RecurringInvoiceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -789,7 +667,7 @@ func (a *RecurringInvoicesAPIService) PauseRecurringInvoiceApiV1RecurringInvoice
 		localVarReturnValue  *RecurringInvoiceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.PauseRecurringInvoice")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -865,25 +743,25 @@ func (a *RecurringInvoicesAPIService) PauseRecurringInvoiceApiV1RecurringInvoice
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostRequest struct {
+type ApiResumeRecurringInvoiceRequest struct {
 	ctx context.Context
 	ApiService *RecurringInvoicesAPIService
 	recurringId string
 }
 
-func (r ApiResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostRequest) Execute() (*RecurringInvoiceResponse, *http.Response, error) {
-	return r.ApiService.ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostExecute(r)
+func (r ApiResumeRecurringInvoiceRequest) Execute() (*RecurringInvoiceResponse, *http.Response, error) {
+	return r.ApiService.ResumeRecurringInvoiceExecute(r)
 }
 
 /*
-ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost Resume Recurring Invoice
+ResumeRecurringInvoice Resume Recurring Invoice
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param recurringId
- @return ApiResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostRequest
+ @return ApiResumeRecurringInvoiceRequest
 */
-func (a *RecurringInvoicesAPIService) ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost(ctx context.Context, recurringId string) ApiResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostRequest {
-	return ApiResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostRequest{
+func (a *RecurringInvoicesAPIService) ResumeRecurringInvoice(ctx context.Context, recurringId string) ApiResumeRecurringInvoiceRequest {
+	return ApiResumeRecurringInvoiceRequest{
 		ApiService: a,
 		ctx: ctx,
 		recurringId: recurringId,
@@ -892,7 +770,7 @@ func (a *RecurringInvoicesAPIService) ResumeRecurringInvoiceApiV1RecurringInvoic
 
 // Execute executes the request
 //  @return RecurringInvoiceResponse
-func (a *RecurringInvoicesAPIService) ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostExecute(r ApiResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostRequest) (*RecurringInvoiceResponse, *http.Response, error) {
+func (a *RecurringInvoicesAPIService) ResumeRecurringInvoiceExecute(r ApiResumeRecurringInvoiceRequest) (*RecurringInvoiceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -900,7 +778,7 @@ func (a *RecurringInvoicesAPIService) ResumeRecurringInvoiceApiV1RecurringInvoic
 		localVarReturnValue  *RecurringInvoiceResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.ResumeRecurringInvoice")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -929,6 +807,128 @@ func (a *RecurringInvoicesAPIService) ResumeRecurringInvoiceApiV1RecurringInvoic
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiUpdateRecurringInvoiceRequest struct {
+	ctx context.Context
+	ApiService *RecurringInvoicesAPIService
+	recurringId string
+	recurringInvoicePatchRequest *RecurringInvoicePatchRequest
+}
+
+func (r ApiUpdateRecurringInvoiceRequest) RecurringInvoicePatchRequest(recurringInvoicePatchRequest RecurringInvoicePatchRequest) ApiUpdateRecurringInvoiceRequest {
+	r.recurringInvoicePatchRequest = &recurringInvoicePatchRequest
+	return r
+}
+
+func (r ApiUpdateRecurringInvoiceRequest) Execute() (*RecurringInvoiceResponse, *http.Response, error) {
+	return r.ApiService.UpdateRecurringInvoiceExecute(r)
+}
+
+/*
+UpdateRecurringInvoice Update Recurring Invoice
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param recurringId
+ @return ApiUpdateRecurringInvoiceRequest
+*/
+func (a *RecurringInvoicesAPIService) UpdateRecurringInvoice(ctx context.Context, recurringId string) ApiUpdateRecurringInvoiceRequest {
+	return ApiUpdateRecurringInvoiceRequest{
+		ApiService: a,
+		ctx: ctx,
+		recurringId: recurringId,
+	}
+}
+
+// Execute executes the request
+//  @return RecurringInvoiceResponse
+func (a *RecurringInvoicesAPIService) UpdateRecurringInvoiceExecute(r ApiUpdateRecurringInvoiceRequest) (*RecurringInvoiceResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RecurringInvoiceResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecurringInvoicesAPIService.UpdateRecurringInvoice")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/recurring-invoices/{recurring_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"recurring_id"+"}", url.PathEscape(parameterValueToString(r.recurringId, "recurringId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.recurringInvoicePatchRequest == nil {
+		return localVarReturnValue, nil, reportError("recurringInvoicePatchRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.recurringInvoicePatchRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

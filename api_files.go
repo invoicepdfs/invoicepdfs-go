@@ -24,25 +24,25 @@ import (
 // FilesAPIService FilesAPI service
 type FilesAPIService service
 
-type ApiDeleteFileApiV1FilesFileIdDeleteRequest struct {
+type ApiDeleteFileRequest struct {
 	ctx context.Context
 	ApiService *FilesAPIService
 	fileId string
 }
 
-func (r ApiDeleteFileApiV1FilesFileIdDeleteRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
-	return r.ApiService.DeleteFileApiV1FilesFileIdDeleteExecute(r)
+func (r ApiDeleteFileRequest) Execute() (*SimpleBoolResponse, *http.Response, error) {
+	return r.ApiService.DeleteFileExecute(r)
 }
 
 /*
-DeleteFileApiV1FilesFileIdDelete Delete File
+DeleteFile Delete File
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileId
- @return ApiDeleteFileApiV1FilesFileIdDeleteRequest
+ @return ApiDeleteFileRequest
 */
-func (a *FilesAPIService) DeleteFileApiV1FilesFileIdDelete(ctx context.Context, fileId string) ApiDeleteFileApiV1FilesFileIdDeleteRequest {
-	return ApiDeleteFileApiV1FilesFileIdDeleteRequest{
+func (a *FilesAPIService) DeleteFile(ctx context.Context, fileId string) ApiDeleteFileRequest {
+	return ApiDeleteFileRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileId: fileId,
@@ -51,7 +51,7 @@ func (a *FilesAPIService) DeleteFileApiV1FilesFileIdDelete(ctx context.Context, 
 
 // Execute executes the request
 //  @return SimpleBoolResponse
-func (a *FilesAPIService) DeleteFileApiV1FilesFileIdDeleteExecute(r ApiDeleteFileApiV1FilesFileIdDeleteRequest) (*SimpleBoolResponse, *http.Response, error) {
+func (a *FilesAPIService) DeleteFileExecute(r ApiDeleteFileRequest) (*SimpleBoolResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -59,7 +59,7 @@ func (a *FilesAPIService) DeleteFileApiV1FilesFileIdDeleteExecute(r ApiDeleteFil
 		localVarReturnValue  *SimpleBoolResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.DeleteFileApiV1FilesFileIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.DeleteFile")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -135,25 +135,25 @@ func (a *FilesAPIService) DeleteFileApiV1FilesFileIdDeleteExecute(r ApiDeleteFil
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetFileApiV1FilesFileIdGetRequest struct {
+type ApiGetFileRequest struct {
 	ctx context.Context
 	ApiService *FilesAPIService
 	fileId string
 }
 
-func (r ApiGetFileApiV1FilesFileIdGetRequest) Execute() (*FileResponse, *http.Response, error) {
-	return r.ApiService.GetFileApiV1FilesFileIdGetExecute(r)
+func (r ApiGetFileRequest) Execute() (*FileResponse, *http.Response, error) {
+	return r.ApiService.GetFileExecute(r)
 }
 
 /*
-GetFileApiV1FilesFileIdGet Get File
+GetFile Get File
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileId
- @return ApiGetFileApiV1FilesFileIdGetRequest
+ @return ApiGetFileRequest
 */
-func (a *FilesAPIService) GetFileApiV1FilesFileIdGet(ctx context.Context, fileId string) ApiGetFileApiV1FilesFileIdGetRequest {
-	return ApiGetFileApiV1FilesFileIdGetRequest{
+func (a *FilesAPIService) GetFile(ctx context.Context, fileId string) ApiGetFileRequest {
+	return ApiGetFileRequest{
 		ApiService: a,
 		ctx: ctx,
 		fileId: fileId,
@@ -162,7 +162,7 @@ func (a *FilesAPIService) GetFileApiV1FilesFileIdGet(ctx context.Context, fileId
 
 // Execute executes the request
 //  @return FileResponse
-func (a *FilesAPIService) GetFileApiV1FilesFileIdGetExecute(r ApiGetFileApiV1FilesFileIdGetRequest) (*FileResponse, *http.Response, error) {
+func (a *FilesAPIService) GetFileExecute(r ApiGetFileRequest) (*FileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -170,7 +170,7 @@ func (a *FilesAPIService) GetFileApiV1FilesFileIdGetExecute(r ApiGetFileApiV1Fil
 		localVarReturnValue  *FileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.GetFileApiV1FilesFileIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.GetFile")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -246,35 +246,35 @@ func (a *FilesAPIService) GetFileApiV1FilesFileIdGetExecute(r ApiGetFileApiV1Fil
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUploadFileApiV1FilesPostRequest struct {
+type ApiUploadFileRequest struct {
 	ctx context.Context
 	ApiService *FilesAPIService
 	file *os.File
 	idempotencyKey *string
 }
 
-func (r ApiUploadFileApiV1FilesPostRequest) File(file *os.File) ApiUploadFileApiV1FilesPostRequest {
+func (r ApiUploadFileRequest) File(file *os.File) ApiUploadFileRequest {
 	r.file = file
 	return r
 }
 
-func (r ApiUploadFileApiV1FilesPostRequest) IdempotencyKey(idempotencyKey string) ApiUploadFileApiV1FilesPostRequest {
+func (r ApiUploadFileRequest) IdempotencyKey(idempotencyKey string) ApiUploadFileRequest {
 	r.idempotencyKey = &idempotencyKey
 	return r
 }
 
-func (r ApiUploadFileApiV1FilesPostRequest) Execute() (*FileResponse, *http.Response, error) {
-	return r.ApiService.UploadFileApiV1FilesPostExecute(r)
+func (r ApiUploadFileRequest) Execute() (*FileResponse, *http.Response, error) {
+	return r.ApiService.UploadFileExecute(r)
 }
 
 /*
-UploadFileApiV1FilesPost Upload File
+UploadFile Upload File
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUploadFileApiV1FilesPostRequest
+ @return ApiUploadFileRequest
 */
-func (a *FilesAPIService) UploadFileApiV1FilesPost(ctx context.Context) ApiUploadFileApiV1FilesPostRequest {
-	return ApiUploadFileApiV1FilesPostRequest{
+func (a *FilesAPIService) UploadFile(ctx context.Context) ApiUploadFileRequest {
+	return ApiUploadFileRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -282,7 +282,7 @@ func (a *FilesAPIService) UploadFileApiV1FilesPost(ctx context.Context) ApiUploa
 
 // Execute executes the request
 //  @return FileResponse
-func (a *FilesAPIService) UploadFileApiV1FilesPostExecute(r ApiUploadFileApiV1FilesPostRequest) (*FileResponse, *http.Response, error) {
+func (a *FilesAPIService) UploadFileExecute(r ApiUploadFileRequest) (*FileResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -290,7 +290,7 @@ func (a *FilesAPIService) UploadFileApiV1FilesPostExecute(r ApiUploadFileApiV1Fi
 		localVarReturnValue  *FileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.UploadFileApiV1FilesPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.UploadFile")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteFileApiV1FilesFileIdDelete**](FilesAPI.md#DeleteFileApiV1FilesFileIdDelete) | **Delete** /api/v1/files/{file_id} | Delete File
-[**GetFileApiV1FilesFileIdGet**](FilesAPI.md#GetFileApiV1FilesFileIdGet) | **Get** /api/v1/files/{file_id} | Get File
-[**UploadFileApiV1FilesPost**](FilesAPI.md#UploadFileApiV1FilesPost) | **Post** /api/v1/files | Upload File
+[**DeleteFile**](FilesAPI.md#DeleteFile) | **Delete** /api/v1/files/{file_id} | Delete File
+[**GetFile**](FilesAPI.md#GetFile) | **Get** /api/v1/files/{file_id} | Get File
+[**UploadFile**](FilesAPI.md#UploadFile) | **Post** /api/v1/files | Upload File
 
 
 
-## DeleteFileApiV1FilesFileIdDelete
+## DeleteFile
 
-> SimpleBoolResponse DeleteFileApiV1FilesFileIdDelete(ctx, fileId).Execute()
+> SimpleBoolResponse DeleteFile(ctx, fileId).Execute()
 
 Delete File
 
@@ -33,13 +33,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FilesAPI.DeleteFileApiV1FilesFileIdDelete(context.Background(), fileId).Execute()
+	resp, r, err := apiClient.FilesAPI.DeleteFile(context.Background(), fileId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.DeleteFileApiV1FilesFileIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.DeleteFile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteFileApiV1FilesFileIdDelete`: SimpleBoolResponse
-	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.DeleteFileApiV1FilesFileIdDelete`: %v\n", resp)
+	// response from `DeleteFile`: SimpleBoolResponse
+	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.DeleteFile`: %v\n", resp)
 }
 ```
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteFileApiV1FilesFileIdDeleteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteFileRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -78,9 +78,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetFileApiV1FilesFileIdGet
+## GetFile
 
-> FileResponse GetFileApiV1FilesFileIdGet(ctx, fileId).Execute()
+> FileResponse GetFile(ctx, fileId).Execute()
 
 Get File
 
@@ -101,13 +101,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FilesAPI.GetFileApiV1FilesFileIdGet(context.Background(), fileId).Execute()
+	resp, r, err := apiClient.FilesAPI.GetFile(context.Background(), fileId).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.GetFileApiV1FilesFileIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.GetFile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetFileApiV1FilesFileIdGet`: FileResponse
-	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.GetFileApiV1FilesFileIdGet`: %v\n", resp)
+	// response from `GetFile`: FileResponse
+	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.GetFile`: %v\n", resp)
 }
 ```
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetFileApiV1FilesFileIdGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetFileRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -146,9 +146,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## UploadFileApiV1FilesPost
+## UploadFile
 
-> FileResponse UploadFileApiV1FilesPost(ctx).File(file).IdempotencyKey(idempotencyKey).Execute()
+> FileResponse UploadFile(ctx).File(file).IdempotencyKey(idempotencyKey).Execute()
 
 Upload File
 
@@ -170,13 +170,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.FilesAPI.UploadFileApiV1FilesPost(context.Background()).File(file).IdempotencyKey(idempotencyKey).Execute()
+	resp, r, err := apiClient.FilesAPI.UploadFile(context.Background()).File(file).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.UploadFileApiV1FilesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `FilesAPI.UploadFile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UploadFileApiV1FilesPost`: FileResponse
-	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.UploadFileApiV1FilesPost`: %v\n", resp)
+	// response from `UploadFile`: FileResponse
+	fmt.Fprintf(os.Stdout, "Response from `FilesAPI.UploadFile`: %v\n", resp)
 }
 ```
 
@@ -186,7 +186,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUploadFileApiV1FilesPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUploadFileRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
