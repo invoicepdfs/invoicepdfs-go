@@ -21,6 +21,8 @@ var _ MappedNullable = &ApiErrorResponseError{}
 
 // ApiErrorResponseError struct for ApiErrorResponseError
 type ApiErrorResponseError struct {
+	// HTTP status, mirroring the response status line.
+	Status int32 `json:"status"`
 	Code string `json:"code"`
 	Message string `json:"message"`
 	// Trace id for this request; also returned as X-Trace-Id.
@@ -35,8 +37,9 @@ type _ApiErrorResponseError ApiErrorResponseError
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiErrorResponseError(code string, message string) *ApiErrorResponseError {
+func NewApiErrorResponseError(status int32, code string, message string) *ApiErrorResponseError {
 	this := ApiErrorResponseError{}
+	this.Status = status
 	this.Code = code
 	this.Message = message
 	return &this
@@ -48,6 +51,30 @@ func NewApiErrorResponseError(code string, message string) *ApiErrorResponseErro
 func NewApiErrorResponseErrorWithDefaults() *ApiErrorResponseError {
 	this := ApiErrorResponseError{}
 	return &this
+}
+
+// GetStatus returns the Status field value
+func (o *ApiErrorResponseError) GetStatus() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value
+// and a boolean to check if the value has been set.
+func (o *ApiErrorResponseError) GetStatusOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Status, true
+}
+
+// SetStatus sets field value
+func (o *ApiErrorResponseError) SetStatus(v int32) {
+	o.Status = v
 }
 
 // GetCode returns the Code field value
@@ -183,6 +210,7 @@ func (o ApiErrorResponseError) MarshalJSON() ([]byte, error) {
 
 func (o ApiErrorResponseError) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["status"] = o.Status
 	toSerialize["code"] = o.Code
 	toSerialize["message"] = o.Message
 	if o.RequestId.IsSet() {
@@ -199,6 +227,7 @@ func (o *ApiErrorResponseError) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"status",
 		"code",
 		"message",
 	}
