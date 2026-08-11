@@ -117,7 +117,7 @@ func (a *WebhooksAPIService) CreateWebhookEndpointApiV1WebhookEndpointsPostExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -228,7 +228,7 @@ func (a *WebhooksAPIService) DeleteWebhookEndpointApiV1WebhookEndpointsEndpointI
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -339,7 +339,7 @@ func (a *WebhooksAPIService) GetWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdG
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -450,7 +450,7 @@ func (a *WebhooksAPIService) GetWebhookEndpointApiV1WebhookEndpointsEndpointIdGe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -578,7 +578,7 @@ func (a *WebhooksAPIService) ListWebhookDeliveriesApiV1WebhookDeliveriesGetExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -706,7 +706,7 @@ func (a *WebhooksAPIService) ListWebhookEndpointsApiV1WebhookEndpointsGetExecute
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -817,7 +817,7 @@ func (a *WebhooksAPIService) RetryWebhookDeliveryApiV1WebhookDeliveriesDeliveryI
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -928,7 +928,7 @@ func (a *WebhooksAPIService) RotateWebhookSecretApiV1WebhookEndpointsEndpointIdR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1039,7 +1039,7 @@ func (a *WebhooksAPIService) TestWebhookEndpointApiV1WebhookEndpointsEndpointIdT
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1161,7 +1161,7 @@ func (a *WebhooksAPIService) UpdateWebhookEndpointApiV1WebhookEndpointsEndpointI
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

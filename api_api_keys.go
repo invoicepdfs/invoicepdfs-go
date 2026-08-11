@@ -117,7 +117,7 @@ func (a *ApiKeysAPIService) CreateApiKeyApiV1ApiKeysPostExecute(r ApiCreateApiKe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -228,7 +228,7 @@ func (a *ApiKeysAPIService) GetApiKeyApiV1ApiKeysApiKeyIdGetExecute(r ApiGetApiK
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -447,7 +447,7 @@ func (a *ApiKeysAPIService) PatchApiKeyApiV1ApiKeysApiKeyIdPatchExecute(r ApiPat
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -558,7 +558,7 @@ func (a *ApiKeysAPIService) RevokeApiKeyApiV1ApiKeysApiKeyIdDeleteExecute(r ApiR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -671,7 +671,7 @@ func (a *ApiKeysAPIService) RotateApiKeyApiV1ApiKeysApiKeyIdRotatePostExecute(r 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

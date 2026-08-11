@@ -121,7 +121,7 @@ func (a *PaymentsAPIService) CreatePaymentApiV1DocumentsInvoiceIdPaymentsPostExe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -232,7 +232,7 @@ func (a *PaymentsAPIService) DeletePaymentApiV1PaymentsPaymentIdDeleteExecute(r 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -343,7 +343,7 @@ func (a *PaymentsAPIService) GetPaymentApiV1PaymentsPaymentIdGetExecute(r ApiGet
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -475,7 +475,7 @@ func (a *PaymentsAPIService) ListInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsG
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -597,7 +597,7 @@ func (a *PaymentsAPIService) UpdatePaymentApiV1PaymentsPaymentIdPatchExecute(r A
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

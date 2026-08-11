@@ -117,7 +117,7 @@ func (a *TemplatesAPIService) CreateTemplateApiV1TemplatesCustomPostExecute(r Ap
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -226,7 +226,7 @@ func (a *TemplatesAPIService) DeleteTemplateApiV1TemplatesCustomTemplateIdDelete
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -328,7 +328,7 @@ func (a *TemplatesAPIService) DuplicateTemplateApiV1TemplatesCustomTemplateIdDup
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -439,7 +439,7 @@ func (a *TemplatesAPIService) GetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdG
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -550,7 +550,7 @@ func (a *TemplatesAPIService) GetCustomTemplateApiV1TemplatesCustomTemplateIdGet
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -661,7 +661,7 @@ func (a *TemplatesAPIService) GetTemplateApiV1TemplatesTemplateIdGetExecute(r Ap
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -789,7 +789,7 @@ func (a *TemplatesAPIService) ListCustomTemplatesApiV1TemplatesCustomGetExecute(
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -911,7 +911,7 @@ func (a *TemplatesAPIService) PatchTemplateApiV1TemplatesCustomTemplateIdPatchEx
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1042,7 +1042,7 @@ func (a *TemplatesAPIService) PreviewTemplateApiV1TemplatesTemplateIdPreviewPost
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1153,7 +1153,7 @@ func (a *TemplatesAPIService) PublishTemplateApiV1TemplatesCustomTemplateIdPubli
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v HTTPValidationError
+			var v ApiErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

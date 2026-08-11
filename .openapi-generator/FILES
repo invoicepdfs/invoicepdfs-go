@@ -31,6 +31,8 @@ api_webhooks.go
 api_workspaces.go
 client.go
 configuration.go
+docs/ApiErrorResponse.md
+docs/ApiErrorResponseError.md
 docs/ApiKeyCreateRequest.md
 docs/ApiKeyCreateResponse.md
 docs/ApiKeyCreated.md
@@ -136,7 +138,6 @@ docs/DocumentsListResponse.md
 docs/FileOut.md
 docs/FileResponse.md
 docs/FilesAPI.md
-docs/HTTPValidationError.md
 docs/HealthAPI.md
 docs/HealthResponse.md
 docs/ImportCreateRequest.md
@@ -168,7 +169,6 @@ docs/JobResponse.md
 docs/JobsAPI.md
 docs/LineItemDiscountInput.md
 docs/LineItemTaxInput.md
-docs/LocationInner.md
 docs/LogsAPI.md
 docs/Money.md
 docs/MoneyOut.md
@@ -225,7 +225,6 @@ docs/UsageData.md
 docs/UsagePeriod.md
 docs/UsageRenders.md
 docs/UsageResponse.md
-docs/ValidationError.md
 docs/VersionResponse.md
 docs/WebhookDeliveriesListResponse.md
 docs/WebhookDeliveryOut.md
@@ -250,6 +249,8 @@ docs/WorkspacesListResponse.md
 git_push.sh
 go.mod
 go.sum
+model_api_error_response.go
+model_api_error_response_error.go
 model_api_key_create_request.go
 model_api_key_create_response.go
 model_api_key_created.go
@@ -345,7 +346,6 @@ model_documents_list_response.go
 model_file_out.go
 model_file_response.go
 model_health_response.go
-model_http_validation_error.go
 model_import_create_request.go
 model_import_out.go
 model_import_response.go
@@ -372,7 +372,6 @@ model_job_progress_out.go
 model_job_response.go
 model_line_item_discount_input.go
 model_line_item_tax_input.go
-model_location_inner.go
 model_money.go
 model_money_out.go
 model_numbering_sequence_create_request.go
@@ -418,7 +417,6 @@ model_usage_data.go
 model_usage_period.go
 model_usage_renders.go
 model_usage_response.go
-model_validation_error.go
 model_version_response.go
 model_webhook_deliveries_list_response.go
 model_webhook_delivery_out.go
