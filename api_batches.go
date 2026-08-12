@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 
@@ -258,7 +259,7 @@ type ApiDownloadBatchRequest struct {
 	batchId string
 }
 
-func (r ApiDownloadBatchRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiDownloadBatchRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DownloadBatchExecute(r)
 }
 
@@ -278,13 +279,13 @@ func (a *BatchesAPIService) DownloadBatch(ctx context.Context, batchId string) A
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *BatchesAPIService) DownloadBatchExecute(r ApiDownloadBatchRequest) (interface{}, *http.Response, error) {
+//  @return *os.File
+func (a *BatchesAPIService) DownloadBatchExecute(r ApiDownloadBatchRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchesAPIService.DownloadBatch")
@@ -309,7 +310,7 @@ func (a *BatchesAPIService) DownloadBatchExecute(r ApiDownloadBatchRequest) (int
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/zip", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

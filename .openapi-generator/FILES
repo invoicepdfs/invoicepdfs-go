@@ -97,6 +97,10 @@ docs/BusinessProfileResponse.md
 docs/BusinessProfilesAPI.md
 docs/BusinessProfilesListResponse.md
 docs/CalculationBreakdown.md
+docs/CountriesListResponse.md
+docs/CountryOut.md
+docs/CurrenciesListResponse.md
+docs/CurrencyOut.md
 docs/CursorPagination.md
 docs/CustomTemplateOut.md
 docs/CustomTemplateResponse.md
@@ -132,6 +136,8 @@ docs/DocumentRenderRequest.md
 docs/DocumentResponse.md
 docs/DocumentShippingInput.md
 docs/DocumentTemplateRef.md
+docs/DocumentTypeOut.md
+docs/DocumentTypesListResponse.md
 docs/DocumentValidateRequest.md
 docs/DocumentValidateResponse.md
 docs/DocumentsAPI.md
@@ -169,6 +175,8 @@ docs/JobResponse.md
 docs/JobsAPI.md
 docs/LineItemDiscountInput.md
 docs/LineItemTaxInput.md
+docs/LocaleOut.md
+docs/LocalesListResponse.md
 docs/LogsAPI.md
 docs/Money.md
 docs/MoneyOut.md
@@ -179,6 +187,8 @@ docs/NumberingSequencePreviewResponse.md
 docs/NumberingSequenceResponse.md
 docs/NumberingSequencesAPI.md
 docs/NumberingSequencesListResponse.md
+docs/PageSizeOut.md
+docs/PageSizesListResponse.md
 docs/PaymentCreateRequest.md
 docs/PaymentOut.md
 docs/PaymentPatchRequest.md
@@ -194,6 +204,8 @@ docs/RecurringInvoiceResponse.md
 docs/RecurringInvoicesAPI.md
 docs/RecurringInvoicesListResponse.md
 docs/ReferenceAPI.md
+docs/RenderOut.md
+docs/RenderResponse.md
 docs/RendersAPI.md
 docs/SimpleBoolResponse.md
 docs/StandardLineItemInput.md
@@ -220,9 +232,17 @@ docs/TemplateVersionsAPI.md
 docs/TemplateVersionsListResponse.md
 docs/TemplatesAPI.md
 docs/TemplatesListResponse.md
+docs/TimezoneOut.md
+docs/TimezonesListResponse.md
 docs/UsageAPI.md
 docs/UsageData.md
+docs/UsageEventOut.md
+docs/UsageEventsListResponse.md
+docs/UsageLimitsData.md
+docs/UsageLimitsResponse.md
 docs/UsagePeriod.md
+docs/UsageRateLimit.md
+docs/UsageRenderLimits.md
 docs/UsageRenders.md
 docs/UsageResponse.md
 docs/VersionResponse.md
@@ -308,6 +328,10 @@ model_business_profile_patch.go
 model_business_profile_response.go
 model_business_profiles_list_response.go
 model_calculation_breakdown.go
+model_countries_list_response.go
+model_country_out.go
+model_currencies_list_response.go
+model_currency_out.go
 model_cursor_pagination.go
 model_custom_template_out.go
 model_custom_template_response.go
@@ -340,6 +364,8 @@ model_document_render_request.go
 model_document_response.go
 model_document_shipping_input.go
 model_document_template_ref.go
+model_document_type_out.go
+model_document_types_list_response.go
 model_document_validate_request.go
 model_document_validate_response.go
 model_documents_list_response.go
@@ -372,6 +398,8 @@ model_job_progress_out.go
 model_job_response.go
 model_line_item_discount_input.go
 model_line_item_tax_input.go
+model_locale_out.go
+model_locales_list_response.go
 model_money.go
 model_money_out.go
 model_numbering_sequence_create_request.go
@@ -380,6 +408,8 @@ model_numbering_sequence_patch_request.go
 model_numbering_sequence_preview_response.go
 model_numbering_sequence_response.go
 model_numbering_sequences_list_response.go
+model_page_size_out.go
+model_page_sizes_list_response.go
 model_payment_create_request.go
 model_payment_out.go
 model_payment_patch_request.go
@@ -392,6 +422,8 @@ model_recurring_invoice_out.go
 model_recurring_invoice_patch_request.go
 model_recurring_invoice_response.go
 model_recurring_invoices_list_response.go
+model_render_out.go
+model_render_response.go
 model_simple_bool_response.go
 model_standard_line_item_input.go
 model_stats_counts.go
@@ -413,8 +445,16 @@ model_template_version_out.go
 model_template_version_response.go
 model_template_versions_list_response.go
 model_templates_list_response.go
+model_timezone_out.go
+model_timezones_list_response.go
 model_usage_data.go
+model_usage_event_out.go
+model_usage_events_list_response.go
+model_usage_limits_data.go
+model_usage_limits_response.go
 model_usage_period.go
+model_usage_rate_limit.go
+model_usage_render_limits.go
 model_usage_renders.go
 model_usage_response.go
 model_version_response.go
@@ -437,5 +477,4 @@ model_workspace_patch_request.go
 model_workspace_response.go
 model_workspaces_list_response.go
 response.go
-test/api_document_attachments_test.go
 utils.go

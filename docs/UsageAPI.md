@@ -71,7 +71,7 @@ Other parameters are passed through a pointer to a apiGetUsageRequest struct via
 
 ## GetUsageLimits
 
-> map[string]interface{} GetUsageLimits(ctx).Execute()
+> UsageLimitsResponse GetUsageLimits(ctx).Execute()
 
 Get Usage Limits
 
@@ -96,7 +96,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsageAPI.GetUsageLimits``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetUsageLimits`: map[string]interface{}
+	// response from `GetUsageLimits`: UsageLimitsResponse
 	fmt.Fprintf(os.Stdout, "Response from `UsageAPI.GetUsageLimits`: %v\n", resp)
 }
 ```
@@ -112,7 +112,7 @@ Other parameters are passed through a pointer to a apiGetUsageLimitsRequest stru
 
 ### Return type
 
-**map[string]interface{}**
+[**UsageLimitsResponse**](UsageLimitsResponse.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ Other parameters are passed through a pointer to a apiGetUsageLimitsRequest stru
 
 ## ListUsageEvents
 
-> map[string]interface{} ListUsageEvents(ctx).Limit(limit).Cursor(cursor).Execute()
+> UsageEventsListResponse ListUsageEvents(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List Usage Events
 
@@ -157,7 +157,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `UsageAPI.ListUsageEvents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListUsageEvents`: map[string]interface{}
+	// response from `ListUsageEvents`: UsageEventsListResponse
 	fmt.Fprintf(os.Stdout, "Response from `UsageAPI.ListUsageEvents`: %v\n", resp)
 }
 ```
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**UsageEventsListResponse**](UsageEventsListResponse.md)
 
 ### Authorization
 

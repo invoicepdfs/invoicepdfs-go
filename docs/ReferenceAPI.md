@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## ListCountries
 
-> map[string]interface{} ListCountries(ctx).Execute()
+> CountriesListResponse ListCountries(ctx).Execute()
 
 List Countries
 
@@ -40,7 +40,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListCountries``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListCountries`: map[string]interface{}
+	// response from `ListCountries`: CountriesListResponse
 	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListCountries`: %v\n", resp)
 }
 ```
@@ -56,7 +56,7 @@ Other parameters are passed through a pointer to a apiListCountriesRequest struc
 
 ### Return type
 
-**map[string]interface{}**
+[**CountriesListResponse**](CountriesListResponse.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ No authorization required
 
 ## ListCurrencies
 
-> map[string]interface{} ListCurrencies(ctx).Execute()
+> CurrenciesListResponse ListCurrencies(ctx).Execute()
 
 List Currencies
 
@@ -99,7 +99,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListCurrencies``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListCurrencies`: map[string]interface{}
+	// response from `ListCurrencies`: CurrenciesListResponse
 	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListCurrencies`: %v\n", resp)
 }
 ```
@@ -115,7 +115,7 @@ Other parameters are passed through a pointer to a apiListCurrenciesRequest stru
 
 ### Return type
 
-**map[string]interface{}**
+[**CurrenciesListResponse**](CurrenciesListResponse.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ No authorization required
 
 ## ListDocumentTypes
 
-> map[string]interface{} ListDocumentTypes(ctx).Execute()
+> DocumentTypesListResponse ListDocumentTypes(ctx).Execute()
 
 List Document Types
 
@@ -160,7 +160,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListDocumentTypes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListDocumentTypes`: map[string]interface{}
+	// response from `ListDocumentTypes`: DocumentTypesListResponse
 	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListDocumentTypes`: %v\n", resp)
 }
 ```
@@ -176,7 +176,7 @@ Other parameters are passed through a pointer to a apiListDocumentTypesRequest s
 
 ### Return type
 
-**map[string]interface{}**
+[**DocumentTypesListResponse**](DocumentTypesListResponse.md)
 
 ### Authorization
 
@@ -194,7 +194,7 @@ No authorization required
 
 ## ListLocales
 
-> map[string]interface{} ListLocales(ctx).Execute()
+> LocalesListResponse ListLocales(ctx).Execute()
 
 List Locales
 
@@ -219,7 +219,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListLocales``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListLocales`: map[string]interface{}
+	// response from `ListLocales`: LocalesListResponse
 	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListLocales`: %v\n", resp)
 }
 ```
@@ -235,7 +235,7 @@ Other parameters are passed through a pointer to a apiListLocalesRequest struct 
 
 ### Return type
 
-**map[string]interface{}**
+[**LocalesListResponse**](LocalesListResponse.md)
 
 ### Authorization
 
@@ -253,7 +253,7 @@ No authorization required
 
 ## ListPageSizes
 
-> map[string]interface{} ListPageSizes(ctx).Execute()
+> PageSizesListResponse ListPageSizes(ctx).Execute()
 
 List Page Sizes
 
@@ -278,7 +278,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListPageSizes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListPageSizes`: map[string]interface{}
+	// response from `ListPageSizes`: PageSizesListResponse
 	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListPageSizes`: %v\n", resp)
 }
 ```
@@ -294,7 +294,7 @@ Other parameters are passed through a pointer to a apiListPageSizesRequest struc
 
 ### Return type
 
-**map[string]interface{}**
+[**PageSizesListResponse**](PageSizesListResponse.md)
 
 ### Authorization
 
@@ -312,7 +312,7 @@ No authorization required
 
 ## ListTimezones
 
-> map[string]interface{} ListTimezones(ctx).Execute()
+> TimezonesListResponse ListTimezones(ctx).Execute()
 
 List Timezones
 
@@ -337,7 +337,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListTimezones``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ListTimezones`: map[string]interface{}
+	// response from `ListTimezones`: TimezonesListResponse
 	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListTimezones`: %v\n", resp)
 }
 ```
@@ -353,7 +353,7 @@ Other parameters are passed through a pointer to a apiListTimezonesRequest struc
 
 ### Return type
 
-**map[string]interface{}**
+[**TimezonesListResponse**](TimezonesListResponse.md)
 
 ### Authorization
 

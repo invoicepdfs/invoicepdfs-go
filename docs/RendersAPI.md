@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## GetRender
 
-> map[string]interface{} GetRender(ctx, renderId).Execute()
+> RenderResponse GetRender(ctx, renderId).Execute()
 
 Get Render
 
@@ -105,7 +105,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RendersAPI.GetRender``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetRender`: map[string]interface{}
+	// response from `GetRender`: RenderResponse
 	fmt.Fprintf(os.Stdout, "Response from `RendersAPI.GetRender`: %v\n", resp)
 }
 ```
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**RenderResponse**](RenderResponse.md)
 
 ### Authorization
 

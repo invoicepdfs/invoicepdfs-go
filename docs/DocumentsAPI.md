@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ## CreateDocumentRender
 
-> interface{} CreateDocumentRender(ctx, documentId).DocumentRenderOptions(documentRenderOptions).IdempotencyKey(idempotencyKey).Execute()
+> RenderResponse CreateDocumentRender(ctx, documentId).DocumentRenderOptions(documentRenderOptions).IdempotencyKey(idempotencyKey).Execute()
 
 Create Document Render
 
@@ -256,7 +256,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.CreateDocumentRender``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateDocumentRender`: interface{}
+	// response from `CreateDocumentRender`: RenderResponse
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.CreateDocumentRender`: %v\n", resp)
 }
 ```
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**RenderResponse**](RenderResponse.md)
 
 ### Authorization
 
@@ -918,7 +918,7 @@ Name | Type | Description  | Notes
 
 ## RenderDocument
 
-> interface{} RenderDocument(ctx).DocumentRenderRequest(documentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
+> RenderResponse RenderDocument(ctx).DocumentRenderRequest(documentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
 
 Render Document
 
@@ -946,7 +946,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.RenderDocument``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `RenderDocument`: interface{}
+	// response from `RenderDocument`: RenderResponse
 	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.RenderDocument`: %v\n", resp)
 }
 ```
@@ -967,7 +967,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**RenderResponse**](RenderResponse.md)
 
 ### Authorization
 
@@ -976,7 +976,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/json, application/pdf
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

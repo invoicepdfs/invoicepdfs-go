@@ -928,7 +928,7 @@ func (r ApiPreviewTemplateRequest) IdempotencyKey(idempotencyKey string) ApiPrev
 	return r
 }
 
-func (r ApiPreviewTemplateRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiPreviewTemplateRequest) Execute() (*RenderResponse, *http.Response, error) {
 	return r.ApiService.PreviewTemplateExecute(r)
 }
 
@@ -948,13 +948,13 @@ func (a *TemplatesAPIService) PreviewTemplate(ctx context.Context, templateId st
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *TemplatesAPIService) PreviewTemplateExecute(r ApiPreviewTemplateRequest) (interface{}, *http.Response, error) {
+//  @return RenderResponse
+func (a *TemplatesAPIService) PreviewTemplateExecute(r ApiPreviewTemplateRequest) (*RenderResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  *RenderResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplatesAPIService.PreviewTemplate")
@@ -982,7 +982,7 @@ func (a *TemplatesAPIService) PreviewTemplateExecute(r ApiPreviewTemplateRequest
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/pdf"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

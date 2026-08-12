@@ -547,7 +547,7 @@ Other parameters are passed through a pointer to a apiListTemplatesRequest struc
 
 ## PreviewTemplate
 
-> interface{} PreviewTemplate(ctx, templateId).DocumentRenderRequest(documentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
+> RenderResponse PreviewTemplate(ctx, templateId).DocumentRenderRequest(documentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
 
 Preview Template
 
@@ -576,7 +576,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.PreviewTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PreviewTemplate`: interface{}
+	// response from `PreviewTemplate`: RenderResponse
 	fmt.Fprintf(os.Stdout, "Response from `TemplatesAPI.PreviewTemplate`: %v\n", resp)
 }
 ```
@@ -602,7 +602,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**RenderResponse**](RenderResponse.md)
 
 ### Authorization
 
@@ -611,7 +611,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/json, application/pdf
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -141,7 +141,7 @@ type ApiGetRenderRequest struct {
 	renderId string
 }
 
-func (r ApiGetRenderRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiGetRenderRequest) Execute() (*RenderResponse, *http.Response, error) {
 	return r.ApiService.GetRenderExecute(r)
 }
 
@@ -161,13 +161,13 @@ func (a *RendersAPIService) GetRender(ctx context.Context, renderId string) ApiG
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *RendersAPIService) GetRenderExecute(r ApiGetRenderRequest) (map[string]interface{}, *http.Response, error) {
+//  @return RenderResponse
+func (a *RendersAPIService) GetRenderExecute(r ApiGetRenderRequest) (*RenderResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *RenderResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RendersAPIService.GetRender")

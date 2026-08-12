@@ -27,7 +27,7 @@ type ApiListCountriesRequest struct {
 	ApiService *ReferenceAPIService
 }
 
-func (r ApiListCountriesRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiListCountriesRequest) Execute() (*CountriesListResponse, *http.Response, error) {
 	return r.ApiService.ListCountriesExecute(r)
 }
 
@@ -45,13 +45,13 @@ func (a *ReferenceAPIService) ListCountries(ctx context.Context) ApiListCountrie
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *ReferenceAPIService) ListCountriesExecute(r ApiListCountriesRequest) (map[string]interface{}, *http.Response, error) {
+//  @return CountriesListResponse
+func (a *ReferenceAPIService) ListCountriesExecute(r ApiListCountriesRequest) (*CountriesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *CountriesListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListCountries")
@@ -124,7 +124,7 @@ type ApiListCurrenciesRequest struct {
 	ApiService *ReferenceAPIService
 }
 
-func (r ApiListCurrenciesRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiListCurrenciesRequest) Execute() (*CurrenciesListResponse, *http.Response, error) {
 	return r.ApiService.ListCurrenciesExecute(r)
 }
 
@@ -142,13 +142,13 @@ func (a *ReferenceAPIService) ListCurrencies(ctx context.Context) ApiListCurrenc
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *ReferenceAPIService) ListCurrenciesExecute(r ApiListCurrenciesRequest) (map[string]interface{}, *http.Response, error) {
+//  @return CurrenciesListResponse
+func (a *ReferenceAPIService) ListCurrenciesExecute(r ApiListCurrenciesRequest) (*CurrenciesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *CurrenciesListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListCurrencies")
@@ -221,7 +221,7 @@ type ApiListDocumentTypesRequest struct {
 	ApiService *ReferenceAPIService
 }
 
-func (r ApiListDocumentTypesRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiListDocumentTypesRequest) Execute() (*DocumentTypesListResponse, *http.Response, error) {
 	return r.ApiService.ListDocumentTypesExecute(r)
 }
 
@@ -245,13 +245,13 @@ func (a *ReferenceAPIService) ListDocumentTypes(ctx context.Context) ApiListDocu
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *ReferenceAPIService) ListDocumentTypesExecute(r ApiListDocumentTypesRequest) (map[string]interface{}, *http.Response, error) {
+//  @return DocumentTypesListResponse
+func (a *ReferenceAPIService) ListDocumentTypesExecute(r ApiListDocumentTypesRequest) (*DocumentTypesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *DocumentTypesListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListDocumentTypes")
@@ -324,7 +324,7 @@ type ApiListLocalesRequest struct {
 	ApiService *ReferenceAPIService
 }
 
-func (r ApiListLocalesRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiListLocalesRequest) Execute() (*LocalesListResponse, *http.Response, error) {
 	return r.ApiService.ListLocalesExecute(r)
 }
 
@@ -342,13 +342,13 @@ func (a *ReferenceAPIService) ListLocales(ctx context.Context) ApiListLocalesReq
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *ReferenceAPIService) ListLocalesExecute(r ApiListLocalesRequest) (map[string]interface{}, *http.Response, error) {
+//  @return LocalesListResponse
+func (a *ReferenceAPIService) ListLocalesExecute(r ApiListLocalesRequest) (*LocalesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *LocalesListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListLocales")
@@ -421,7 +421,7 @@ type ApiListPageSizesRequest struct {
 	ApiService *ReferenceAPIService
 }
 
-func (r ApiListPageSizesRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiListPageSizesRequest) Execute() (*PageSizesListResponse, *http.Response, error) {
 	return r.ApiService.ListPageSizesExecute(r)
 }
 
@@ -439,13 +439,13 @@ func (a *ReferenceAPIService) ListPageSizes(ctx context.Context) ApiListPageSize
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *ReferenceAPIService) ListPageSizesExecute(r ApiListPageSizesRequest) (map[string]interface{}, *http.Response, error) {
+//  @return PageSizesListResponse
+func (a *ReferenceAPIService) ListPageSizesExecute(r ApiListPageSizesRequest) (*PageSizesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *PageSizesListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListPageSizes")
@@ -518,7 +518,7 @@ type ApiListTimezonesRequest struct {
 	ApiService *ReferenceAPIService
 }
 
-func (r ApiListTimezonesRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiListTimezonesRequest) Execute() (*TimezonesListResponse, *http.Response, error) {
 	return r.ApiService.ListTimezonesExecute(r)
 }
 
@@ -536,13 +536,13 @@ func (a *ReferenceAPIService) ListTimezones(ctx context.Context) ApiListTimezone
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *ReferenceAPIService) ListTimezonesExecute(r ApiListTimezonesRequest) (map[string]interface{}, *http.Response, error) {
+//  @return TimezonesListResponse
+func (a *ReferenceAPIService) ListTimezonesExecute(r ApiListTimezonesRequest) (*TimezonesListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *TimezonesListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ReferenceAPIService.ListTimezones")

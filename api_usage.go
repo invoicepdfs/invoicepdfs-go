@@ -124,7 +124,7 @@ type ApiGetUsageLimitsRequest struct {
 	ApiService *UsageAPIService
 }
 
-func (r ApiGetUsageLimitsRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiGetUsageLimitsRequest) Execute() (*UsageLimitsResponse, *http.Response, error) {
 	return r.ApiService.GetUsageLimitsExecute(r)
 }
 
@@ -142,13 +142,13 @@ func (a *UsageAPIService) GetUsageLimits(ctx context.Context) ApiGetUsageLimitsR
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *UsageAPIService) GetUsageLimitsExecute(r ApiGetUsageLimitsRequest) (map[string]interface{}, *http.Response, error) {
+//  @return UsageLimitsResponse
+func (a *UsageAPIService) GetUsageLimitsExecute(r ApiGetUsageLimitsRequest) (*UsageLimitsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *UsageLimitsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsageAPIService.GetUsageLimits")
@@ -233,7 +233,7 @@ func (r ApiListUsageEventsRequest) Cursor(cursor string) ApiListUsageEventsReque
 	return r
 }
 
-func (r ApiListUsageEventsRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiListUsageEventsRequest) Execute() (*UsageEventsListResponse, *http.Response, error) {
 	return r.ApiService.ListUsageEventsExecute(r)
 }
 
@@ -251,13 +251,13 @@ func (a *UsageAPIService) ListUsageEvents(ctx context.Context) ApiListUsageEvent
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *UsageAPIService) ListUsageEventsExecute(r ApiListUsageEventsRequest) (map[string]interface{}, *http.Response, error) {
+//  @return UsageEventsListResponse
+func (a *UsageAPIService) ListUsageEventsExecute(r ApiListUsageEventsRequest) (*UsageEventsListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *UsageEventsListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsageAPIService.ListUsageEvents")

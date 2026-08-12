@@ -397,7 +397,7 @@ func (r ApiCreateDocumentRenderRequest) IdempotencyKey(idempotencyKey string) Ap
 	return r
 }
 
-func (r ApiCreateDocumentRenderRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiCreateDocumentRenderRequest) Execute() (*RenderResponse, *http.Response, error) {
 	return r.ApiService.CreateDocumentRenderExecute(r)
 }
 
@@ -417,13 +417,13 @@ func (a *DocumentsAPIService) CreateDocumentRender(ctx context.Context, document
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *DocumentsAPIService) CreateDocumentRenderExecute(r ApiCreateDocumentRenderRequest) (interface{}, *http.Response, error) {
+//  @return RenderResponse
+func (a *DocumentsAPIService) CreateDocumentRenderExecute(r ApiCreateDocumentRenderRequest) (*RenderResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  *RenderResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.CreateDocumentRender")
@@ -1582,7 +1582,7 @@ func (r ApiRenderDocumentRequest) IdempotencyKey(idempotencyKey string) ApiRende
 	return r
 }
 
-func (r ApiRenderDocumentRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiRenderDocumentRequest) Execute() (*RenderResponse, *http.Response, error) {
 	return r.ApiService.RenderDocumentExecute(r)
 }
 
@@ -1600,13 +1600,13 @@ func (a *DocumentsAPIService) RenderDocument(ctx context.Context) ApiRenderDocum
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *DocumentsAPIService) RenderDocumentExecute(r ApiRenderDocumentRequest) (interface{}, *http.Response, error) {
+//  @return RenderResponse
+func (a *DocumentsAPIService) RenderDocumentExecute(r ApiRenderDocumentRequest) (*RenderResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  *RenderResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.RenderDocument")
@@ -1633,7 +1633,7 @@ func (a *DocumentsAPIService) RenderDocumentExecute(r ApiRenderDocumentRequest) 
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/pdf"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
