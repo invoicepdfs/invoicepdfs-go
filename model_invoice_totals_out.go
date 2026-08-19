@@ -21,8 +21,10 @@ var _ MappedNullable = &InvoiceTotalsOut{}
 
 // InvoiceTotalsOut struct for InvoiceTotalsOut
 type InvoiceTotalsOut struct {
+	GrossSubtotal *MoneyOut `json:"gross_subtotal,omitempty"`
 	Subtotal MoneyOut `json:"subtotal"`
 	DiscountTotal MoneyOut `json:"discount_total"`
+	DocumentDiscountTotal *MoneyOut `json:"document_discount_total,omitempty"`
 	TaxTotal MoneyOut `json:"tax_total"`
 	ShippingTotal MoneyOut `json:"shipping_total"`
 	Total MoneyOut `json:"total"`
@@ -50,6 +52,38 @@ func NewInvoiceTotalsOut(subtotal MoneyOut, discountTotal MoneyOut, taxTotal Mon
 func NewInvoiceTotalsOutWithDefaults() *InvoiceTotalsOut {
 	this := InvoiceTotalsOut{}
 	return &this
+}
+
+// GetGrossSubtotal returns the GrossSubtotal field value if set, zero value otherwise.
+func (o *InvoiceTotalsOut) GetGrossSubtotal() MoneyOut {
+	if o == nil || IsNil(o.GrossSubtotal) {
+		var ret MoneyOut
+		return ret
+	}
+	return *o.GrossSubtotal
+}
+
+// GetGrossSubtotalOk returns a tuple with the GrossSubtotal field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InvoiceTotalsOut) GetGrossSubtotalOk() (*MoneyOut, bool) {
+	if o == nil || IsNil(o.GrossSubtotal) {
+		return nil, false
+	}
+	return o.GrossSubtotal, true
+}
+
+// HasGrossSubtotal returns a boolean if a field has been set.
+func (o *InvoiceTotalsOut) HasGrossSubtotal() bool {
+	if o != nil && !IsNil(o.GrossSubtotal) {
+		return true
+	}
+
+	return false
+}
+
+// SetGrossSubtotal gets a reference to the given MoneyOut and assigns it to the GrossSubtotal field.
+func (o *InvoiceTotalsOut) SetGrossSubtotal(v MoneyOut) {
+	o.GrossSubtotal = &v
 }
 
 // GetSubtotal returns the Subtotal field value
@@ -98,6 +132,38 @@ func (o *InvoiceTotalsOut) GetDiscountTotalOk() (*MoneyOut, bool) {
 // SetDiscountTotal sets field value
 func (o *InvoiceTotalsOut) SetDiscountTotal(v MoneyOut) {
 	o.DiscountTotal = v
+}
+
+// GetDocumentDiscountTotal returns the DocumentDiscountTotal field value if set, zero value otherwise.
+func (o *InvoiceTotalsOut) GetDocumentDiscountTotal() MoneyOut {
+	if o == nil || IsNil(o.DocumentDiscountTotal) {
+		var ret MoneyOut
+		return ret
+	}
+	return *o.DocumentDiscountTotal
+}
+
+// GetDocumentDiscountTotalOk returns a tuple with the DocumentDiscountTotal field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InvoiceTotalsOut) GetDocumentDiscountTotalOk() (*MoneyOut, bool) {
+	if o == nil || IsNil(o.DocumentDiscountTotal) {
+		return nil, false
+	}
+	return o.DocumentDiscountTotal, true
+}
+
+// HasDocumentDiscountTotal returns a boolean if a field has been set.
+func (o *InvoiceTotalsOut) HasDocumentDiscountTotal() bool {
+	if o != nil && !IsNil(o.DocumentDiscountTotal) {
+		return true
+	}
+
+	return false
+}
+
+// SetDocumentDiscountTotal gets a reference to the given MoneyOut and assigns it to the DocumentDiscountTotal field.
+func (o *InvoiceTotalsOut) SetDocumentDiscountTotal(v MoneyOut) {
+	o.DocumentDiscountTotal = &v
 }
 
 // GetTaxTotal returns the TaxTotal field value
@@ -182,8 +248,14 @@ func (o InvoiceTotalsOut) MarshalJSON() ([]byte, error) {
 
 func (o InvoiceTotalsOut) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.GrossSubtotal) {
+		toSerialize["gross_subtotal"] = o.GrossSubtotal
+	}
 	toSerialize["subtotal"] = o.Subtotal
 	toSerialize["discount_total"] = o.DiscountTotal
+	if !IsNil(o.DocumentDiscountTotal) {
+		toSerialize["document_discount_total"] = o.DocumentDiscountTotal
+	}
 	toSerialize["tax_total"] = o.TaxTotal
 	toSerialize["shipping_total"] = o.ShippingTotal
 	toSerialize["total"] = o.Total
