@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Subtotal** | [**Money**](Money.md) |  | 
 **DiscountTotal** | [**Money**](Money.md) |  | 
+**DocumentDiscountTotal** | Pointer to [**Money**](Money.md) |  | [optional] 
 **TaxTotal** | [**Money**](Money.md) |  | 
 **ShippingTotal** | [**Money**](Money.md) |  | 
 **Total** | [**Money**](Money.md) |  | 
@@ -68,6 +69,31 @@ and a boolean to check if the value has been set.
 
 SetDiscountTotal sets DiscountTotal field to given value.
 
+
+### GetDocumentDiscountTotal
+
+`func (o *CalculationBreakdown) GetDocumentDiscountTotal() Money`
+
+GetDocumentDiscountTotal returns the DocumentDiscountTotal field if non-nil, zero value otherwise.
+
+### GetDocumentDiscountTotalOk
+
+`func (o *CalculationBreakdown) GetDocumentDiscountTotalOk() (*Money, bool)`
+
+GetDocumentDiscountTotalOk returns a tuple with the DocumentDiscountTotal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDocumentDiscountTotal
+
+`func (o *CalculationBreakdown) SetDocumentDiscountTotal(v Money)`
+
+SetDocumentDiscountTotal sets DocumentDiscountTotal field to given value.
+
+### HasDocumentDiscountTotal
+
+`func (o *CalculationBreakdown) HasDocumentDiscountTotal() bool`
+
+HasDocumentDiscountTotal returns a boolean if a field has been set.
 
 ### GetTaxTotal
 

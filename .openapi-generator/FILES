@@ -180,6 +180,8 @@ docs/LocalesListResponse.md
 docs/LogsAPI.md
 docs/Money.md
 docs/MoneyOut.md
+docs/NumberingNextOut.md
+docs/NumberingNextResponse.md
 docs/NumberingSequenceCreateRequest.md
 docs/NumberingSequenceOut.md
 docs/NumberingSequencePatchRequest.md
@@ -402,6 +404,8 @@ model_locale_out.go
 model_locales_list_response.go
 model_money.go
 model_money_out.go
+model_numbering_next_out.go
+model_numbering_next_response.go
 model_numbering_sequence_create_request.go
 model_numbering_sequence_out.go
 model_numbering_sequence_patch_request.go

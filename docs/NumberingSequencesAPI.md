@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## ConsumeSequenceNumber
 
-> NumberingSequenceResponse ConsumeSequenceNumber(ctx, sequenceId).Execute()
+> NumberingNextResponse ConsumeSequenceNumber(ctx, sequenceId).Execute()
 
 Consume Sequence Number
 
@@ -44,7 +44,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `NumberingSequencesAPI.ConsumeSequenceNumber``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ConsumeSequenceNumber`: NumberingSequenceResponse
+	// response from `ConsumeSequenceNumber`: NumberingNextResponse
 	fmt.Fprintf(os.Stdout, "Response from `NumberingSequencesAPI.ConsumeSequenceNumber`: %v\n", resp)
 }
 ```
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NumberingSequenceResponse**](NumberingSequenceResponse.md)
+[**NumberingNextResponse**](NumberingNextResponse.md)
 
 ### Authorization
 

@@ -23,6 +23,7 @@ var _ MappedNullable = &CalculationBreakdown{}
 type CalculationBreakdown struct {
 	Subtotal Money `json:"subtotal"`
 	DiscountTotal Money `json:"discount_total"`
+	DocumentDiscountTotal *Money `json:"document_discount_total,omitempty"`
 	TaxTotal Money `json:"tax_total"`
 	ShippingTotal Money `json:"shipping_total"`
 	Total Money `json:"total"`
@@ -98,6 +99,38 @@ func (o *CalculationBreakdown) GetDiscountTotalOk() (*Money, bool) {
 // SetDiscountTotal sets field value
 func (o *CalculationBreakdown) SetDiscountTotal(v Money) {
 	o.DiscountTotal = v
+}
+
+// GetDocumentDiscountTotal returns the DocumentDiscountTotal field value if set, zero value otherwise.
+func (o *CalculationBreakdown) GetDocumentDiscountTotal() Money {
+	if o == nil || IsNil(o.DocumentDiscountTotal) {
+		var ret Money
+		return ret
+	}
+	return *o.DocumentDiscountTotal
+}
+
+// GetDocumentDiscountTotalOk returns a tuple with the DocumentDiscountTotal field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CalculationBreakdown) GetDocumentDiscountTotalOk() (*Money, bool) {
+	if o == nil || IsNil(o.DocumentDiscountTotal) {
+		return nil, false
+	}
+	return o.DocumentDiscountTotal, true
+}
+
+// HasDocumentDiscountTotal returns a boolean if a field has been set.
+func (o *CalculationBreakdown) HasDocumentDiscountTotal() bool {
+	if o != nil && !IsNil(o.DocumentDiscountTotal) {
+		return true
+	}
+
+	return false
+}
+
+// SetDocumentDiscountTotal gets a reference to the given Money and assigns it to the DocumentDiscountTotal field.
+func (o *CalculationBreakdown) SetDocumentDiscountTotal(v Money) {
+	o.DocumentDiscountTotal = &v
 }
 
 // GetTaxTotal returns the TaxTotal field value
@@ -184,6 +217,9 @@ func (o CalculationBreakdown) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["subtotal"] = o.Subtotal
 	toSerialize["discount_total"] = o.DiscountTotal
+	if !IsNil(o.DocumentDiscountTotal) {
+		toSerialize["document_discount_total"] = o.DocumentDiscountTotal
+	}
 	toSerialize["tax_total"] = o.TaxTotal
 	toSerialize["shipping_total"] = o.ShippingTotal
 	toSerialize["total"] = o.Total

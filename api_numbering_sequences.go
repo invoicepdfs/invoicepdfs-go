@@ -29,7 +29,7 @@ type ApiConsumeSequenceNumberRequest struct {
 	sequenceId string
 }
 
-func (r ApiConsumeSequenceNumberRequest) Execute() (*NumberingSequenceResponse, *http.Response, error) {
+func (r ApiConsumeSequenceNumberRequest) Execute() (*NumberingNextResponse, *http.Response, error) {
 	return r.ApiService.ConsumeSequenceNumberExecute(r)
 }
 
@@ -51,13 +51,13 @@ func (a *NumberingSequencesAPIService) ConsumeSequenceNumber(ctx context.Context
 }
 
 // Execute executes the request
-//  @return NumberingSequenceResponse
-func (a *NumberingSequencesAPIService) ConsumeSequenceNumberExecute(r ApiConsumeSequenceNumberRequest) (*NumberingSequenceResponse, *http.Response, error) {
+//  @return NumberingNextResponse
+func (a *NumberingSequencesAPIService) ConsumeSequenceNumberExecute(r ApiConsumeSequenceNumberRequest) (*NumberingNextResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *NumberingSequenceResponse
+		localVarReturnValue  *NumberingNextResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NumberingSequencesAPIService.ConsumeSequenceNumber")
