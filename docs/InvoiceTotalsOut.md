@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **TaxTotal** | [**MoneyOut**](MoneyOut.md) |  | 
 **ShippingTotal** | [**MoneyOut**](MoneyOut.md) |  | 
 **Total** | [**MoneyOut**](MoneyOut.md) |  | 
+**RecomputedTotal** | Pointer to [**NullableMoneyOut**](MoneyOut.md) |  | [optional] 
+**TotalsDrift** | Pointer to [**NullableMoneyOut**](MoneyOut.md) |  | [optional] 
 
 ## Methods
 
@@ -181,6 +183,76 @@ and a boolean to check if the value has been set.
 SetTotal sets Total field to given value.
 
 
+### GetRecomputedTotal
+
+`func (o *InvoiceTotalsOut) GetRecomputedTotal() MoneyOut`
+
+GetRecomputedTotal returns the RecomputedTotal field if non-nil, zero value otherwise.
+
+### GetRecomputedTotalOk
+
+`func (o *InvoiceTotalsOut) GetRecomputedTotalOk() (*MoneyOut, bool)`
+
+GetRecomputedTotalOk returns a tuple with the RecomputedTotal field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecomputedTotal
+
+`func (o *InvoiceTotalsOut) SetRecomputedTotal(v MoneyOut)`
+
+SetRecomputedTotal sets RecomputedTotal field to given value.
+
+### HasRecomputedTotal
+
+`func (o *InvoiceTotalsOut) HasRecomputedTotal() bool`
+
+HasRecomputedTotal returns a boolean if a field has been set.
+
+### SetRecomputedTotalNil
+
+`func (o *InvoiceTotalsOut) SetRecomputedTotalNil(b bool)`
+
+ SetRecomputedTotalNil sets the value for RecomputedTotal to be an explicit nil
+
+### UnsetRecomputedTotal
+`func (o *InvoiceTotalsOut) UnsetRecomputedTotal()`
+
+UnsetRecomputedTotal ensures that no value is present for RecomputedTotal, not even an explicit nil
+### GetTotalsDrift
+
+`func (o *InvoiceTotalsOut) GetTotalsDrift() MoneyOut`
+
+GetTotalsDrift returns the TotalsDrift field if non-nil, zero value otherwise.
+
+### GetTotalsDriftOk
+
+`func (o *InvoiceTotalsOut) GetTotalsDriftOk() (*MoneyOut, bool)`
+
+GetTotalsDriftOk returns a tuple with the TotalsDrift field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalsDrift
+
+`func (o *InvoiceTotalsOut) SetTotalsDrift(v MoneyOut)`
+
+SetTotalsDrift sets TotalsDrift field to given value.
+
+### HasTotalsDrift
+
+`func (o *InvoiceTotalsOut) HasTotalsDrift() bool`
+
+HasTotalsDrift returns a boolean if a field has been set.
+
+### SetTotalsDriftNil
+
+`func (o *InvoiceTotalsOut) SetTotalsDriftNil(b bool)`
+
+ SetTotalsDriftNil sets the value for TotalsDrift to be an explicit nil
+
+### UnsetTotalsDrift
+`func (o *InvoiceTotalsOut) UnsetTotalsDrift()`
+
+UnsetTotalsDrift ensures that no value is present for TotalsDrift, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

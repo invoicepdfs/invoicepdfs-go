@@ -28,6 +28,8 @@ type InvoiceTotalsOut struct {
 	TaxTotal MoneyOut `json:"tax_total"`
 	ShippingTotal MoneyOut `json:"shipping_total"`
 	Total MoneyOut `json:"total"`
+	RecomputedTotal NullableMoneyOut `json:"recomputed_total,omitempty"`
+	TotalsDrift NullableMoneyOut `json:"totals_drift,omitempty"`
 }
 
 type _InvoiceTotalsOut InvoiceTotalsOut
@@ -238,6 +240,90 @@ func (o *InvoiceTotalsOut) SetTotal(v MoneyOut) {
 	o.Total = v
 }
 
+// GetRecomputedTotal returns the RecomputedTotal field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *InvoiceTotalsOut) GetRecomputedTotal() MoneyOut {
+	if o == nil || IsNil(o.RecomputedTotal.Get()) {
+		var ret MoneyOut
+		return ret
+	}
+	return *o.RecomputedTotal.Get()
+}
+
+// GetRecomputedTotalOk returns a tuple with the RecomputedTotal field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InvoiceTotalsOut) GetRecomputedTotalOk() (*MoneyOut, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RecomputedTotal.Get(), o.RecomputedTotal.IsSet()
+}
+
+// HasRecomputedTotal returns a boolean if a field has been set.
+func (o *InvoiceTotalsOut) HasRecomputedTotal() bool {
+	if o != nil && o.RecomputedTotal.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRecomputedTotal gets a reference to the given NullableMoneyOut and assigns it to the RecomputedTotal field.
+func (o *InvoiceTotalsOut) SetRecomputedTotal(v MoneyOut) {
+	o.RecomputedTotal.Set(&v)
+}
+// SetRecomputedTotalNil sets the value for RecomputedTotal to be an explicit nil
+func (o *InvoiceTotalsOut) SetRecomputedTotalNil() {
+	o.RecomputedTotal.Set(nil)
+}
+
+// UnsetRecomputedTotal ensures that no value is present for RecomputedTotal, not even an explicit nil
+func (o *InvoiceTotalsOut) UnsetRecomputedTotal() {
+	o.RecomputedTotal.Unset()
+}
+
+// GetTotalsDrift returns the TotalsDrift field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *InvoiceTotalsOut) GetTotalsDrift() MoneyOut {
+	if o == nil || IsNil(o.TotalsDrift.Get()) {
+		var ret MoneyOut
+		return ret
+	}
+	return *o.TotalsDrift.Get()
+}
+
+// GetTotalsDriftOk returns a tuple with the TotalsDrift field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InvoiceTotalsOut) GetTotalsDriftOk() (*MoneyOut, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalsDrift.Get(), o.TotalsDrift.IsSet()
+}
+
+// HasTotalsDrift returns a boolean if a field has been set.
+func (o *InvoiceTotalsOut) HasTotalsDrift() bool {
+	if o != nil && o.TotalsDrift.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalsDrift gets a reference to the given NullableMoneyOut and assigns it to the TotalsDrift field.
+func (o *InvoiceTotalsOut) SetTotalsDrift(v MoneyOut) {
+	o.TotalsDrift.Set(&v)
+}
+// SetTotalsDriftNil sets the value for TotalsDrift to be an explicit nil
+func (o *InvoiceTotalsOut) SetTotalsDriftNil() {
+	o.TotalsDrift.Set(nil)
+}
+
+// UnsetTotalsDrift ensures that no value is present for TotalsDrift, not even an explicit nil
+func (o *InvoiceTotalsOut) UnsetTotalsDrift() {
+	o.TotalsDrift.Unset()
+}
+
 func (o InvoiceTotalsOut) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -259,6 +345,12 @@ func (o InvoiceTotalsOut) ToMap() (map[string]interface{}, error) {
 	toSerialize["tax_total"] = o.TaxTotal
 	toSerialize["shipping_total"] = o.ShippingTotal
 	toSerialize["total"] = o.Total
+	if o.RecomputedTotal.IsSet() {
+		toSerialize["recomputed_total"] = o.RecomputedTotal.Get()
+	}
+	if o.TotalsDrift.IsSet() {
+		toSerialize["totals_drift"] = o.TotalsDrift.Get()
+	}
 	return toSerialize, nil
 }
 
