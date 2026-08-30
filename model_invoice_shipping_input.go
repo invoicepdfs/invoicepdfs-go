@@ -23,6 +23,7 @@ var _ MappedNullable = &InvoiceShippingInput{}
 type InvoiceShippingInput struct {
 	Description *string `json:"description,omitempty"`
 	Amount string `json:"amount"`
+	Taxable *bool `json:"taxable,omitempty"`
 }
 
 type _InvoiceShippingInput InvoiceShippingInput
@@ -36,6 +37,8 @@ func NewInvoiceShippingInput(amount string) *InvoiceShippingInput {
 	var description string = "Shipping"
 	this.Description = &description
 	this.Amount = amount
+	var taxable bool = false
+	this.Taxable = &taxable
 	return &this
 }
 
@@ -46,6 +49,8 @@ func NewInvoiceShippingInputWithDefaults() *InvoiceShippingInput {
 	this := InvoiceShippingInput{}
 	var description string = "Shipping"
 	this.Description = &description
+	var taxable bool = false
+	this.Taxable = &taxable
 	return &this
 }
 
@@ -105,6 +110,38 @@ func (o *InvoiceShippingInput) SetAmount(v string) {
 	o.Amount = v
 }
 
+// GetTaxable returns the Taxable field value if set, zero value otherwise.
+func (o *InvoiceShippingInput) GetTaxable() bool {
+	if o == nil || IsNil(o.Taxable) {
+		var ret bool
+		return ret
+	}
+	return *o.Taxable
+}
+
+// GetTaxableOk returns a tuple with the Taxable field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InvoiceShippingInput) GetTaxableOk() (*bool, bool) {
+	if o == nil || IsNil(o.Taxable) {
+		return nil, false
+	}
+	return o.Taxable, true
+}
+
+// HasTaxable returns a boolean if a field has been set.
+func (o *InvoiceShippingInput) HasTaxable() bool {
+	if o != nil && !IsNil(o.Taxable) {
+		return true
+	}
+
+	return false
+}
+
+// SetTaxable gets a reference to the given bool and assigns it to the Taxable field.
+func (o *InvoiceShippingInput) SetTaxable(v bool) {
+	o.Taxable = &v
+}
+
 func (o InvoiceShippingInput) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -119,6 +156,9 @@ func (o InvoiceShippingInput) ToMap() (map[string]interface{}, error) {
 		toSerialize["description"] = o.Description
 	}
 	toSerialize["amount"] = o.Amount
+	if !IsNil(o.Taxable) {
+		toSerialize["taxable"] = o.Taxable
+	}
 	return toSerialize, nil
 }
 

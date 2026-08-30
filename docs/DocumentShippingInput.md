@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **string** |  | [optional] [default to "Shipping"]
 **Amount** | **string** |  | 
+**Taxable** | Pointer to **bool** |  | [optional] [default to false]
 
 ## Methods
 
@@ -70,6 +71,31 @@ and a boolean to check if the value has been set.
 
 SetAmount sets Amount field to given value.
 
+
+### GetTaxable
+
+`func (o *DocumentShippingInput) GetTaxable() bool`
+
+GetTaxable returns the Taxable field if non-nil, zero value otherwise.
+
+### GetTaxableOk
+
+`func (o *DocumentShippingInput) GetTaxableOk() (*bool, bool)`
+
+GetTaxableOk returns a tuple with the Taxable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTaxable
+
+`func (o *DocumentShippingInput) SetTaxable(v bool)`
+
+SetTaxable sets Taxable field to given value.
+
+### HasTaxable
+
+`func (o *DocumentShippingInput) HasTaxable() bool`
+
+HasTaxable returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
