@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_TemplatesAPIService(t *testing.T) {
@@ -22,11 +22,11 @@ func Test_invoicepdfs_TemplatesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TemplatesAPIService CreateTemplateApiV1TemplatesCustomPost", func(t *testing.T) {
+	t.Run("Test TemplatesAPIService CreateTemplate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TemplatesAPI.CreateTemplateApiV1TemplatesCustomPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TemplatesAPI.CreateTemplate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,26 +34,26 @@ func Test_invoicepdfs_TemplatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TemplatesAPIService DeleteTemplateApiV1TemplatesCustomTemplateIdDelete", func(t *testing.T) {
+	t.Run("Test TemplatesAPIService DeleteTemplate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var templateId string
 
-		httpRes, err := apiClient.TemplatesAPI.DeleteTemplateApiV1TemplatesCustomTemplateIdDelete(context.Background(), templateId).Execute()
+		httpRes, err := apiClient.TemplatesAPI.DeleteTemplate(context.Background(), templateId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test TemplatesAPIService DuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost", func(t *testing.T) {
+	t.Run("Test TemplatesAPIService DuplicateTemplate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var templateId string
 
-		resp, httpRes, err := apiClient.TemplatesAPI.DuplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost(context.Background(), templateId).Execute()
+		resp, httpRes, err := apiClient.TemplatesAPI.DuplicateTemplate(context.Background(), templateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -61,13 +61,13 @@ func Test_invoicepdfs_TemplatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TemplatesAPIService GetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet", func(t *testing.T) {
+	t.Run("Test TemplatesAPIService GetBuiltinTemplate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var templateId string
 
-		resp, httpRes, err := apiClient.TemplatesAPI.GetBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet(context.Background(), templateId).Execute()
+		resp, httpRes, err := apiClient.TemplatesAPI.GetBuiltinTemplate(context.Background(), templateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -75,13 +75,13 @@ func Test_invoicepdfs_TemplatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TemplatesAPIService GetCustomTemplateApiV1TemplatesCustomTemplateIdGet", func(t *testing.T) {
+	t.Run("Test TemplatesAPIService GetCustomTemplate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var templateId string
 
-		resp, httpRes, err := apiClient.TemplatesAPI.GetCustomTemplateApiV1TemplatesCustomTemplateIdGet(context.Background(), templateId).Execute()
+		resp, httpRes, err := apiClient.TemplatesAPI.GetCustomTemplate(context.Background(), templateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -89,13 +89,13 @@ func Test_invoicepdfs_TemplatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TemplatesAPIService GetTemplateApiV1TemplatesTemplateIdGet", func(t *testing.T) {
+	t.Run("Test TemplatesAPIService GetTemplate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var templateId string
 
-		resp, httpRes, err := apiClient.TemplatesAPI.GetTemplateApiV1TemplatesTemplateIdGet(context.Background(), templateId).Execute()
+		resp, httpRes, err := apiClient.TemplatesAPI.GetTemplate(context.Background(), templateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -103,11 +103,11 @@ func Test_invoicepdfs_TemplatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TemplatesAPIService ListCustomTemplatesApiV1TemplatesCustomGet", func(t *testing.T) {
+	t.Run("Test TemplatesAPIService ListCustomTemplates", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TemplatesAPI.ListCustomTemplatesApiV1TemplatesCustomGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TemplatesAPI.ListCustomTemplates(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -115,13 +115,11 @@ func Test_invoicepdfs_TemplatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TemplatesAPIService PatchTemplateApiV1TemplatesCustomTemplateIdPatch", func(t *testing.T) {
+	t.Run("Test TemplatesAPIService ListTemplates", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var templateId string
-
-		resp, httpRes, err := apiClient.TemplatesAPI.PatchTemplateApiV1TemplatesCustomTemplateIdPatch(context.Background(), templateId).Execute()
+		resp, httpRes, err := apiClient.TemplatesAPI.ListTemplates(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -129,27 +127,13 @@ func Test_invoicepdfs_TemplatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TemplatesAPIService PreviewTemplateApiV1TemplatesTemplateIdPreviewPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var templateId string
-
-		resp, httpRes, err := apiClient.TemplatesAPI.PreviewTemplateApiV1TemplatesTemplateIdPreviewPost(context.Background(), templateId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test TemplatesAPIService PublishTemplateApiV1TemplatesCustomTemplateIdPublishPost", func(t *testing.T) {
+	t.Run("Test TemplatesAPIService PreviewTemplate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var templateId string
 
-		resp, httpRes, err := apiClient.TemplatesAPI.PublishTemplateApiV1TemplatesCustomTemplateIdPublishPost(context.Background(), templateId).Execute()
+		resp, httpRes, err := apiClient.TemplatesAPI.PreviewTemplate(context.Background(), templateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -157,11 +141,27 @@ func Test_invoicepdfs_TemplatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TemplatesAPIService TemplatesApiV1TemplatesGet", func(t *testing.T) {
+	t.Run("Test TemplatesAPIService PublishTemplate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TemplatesAPI.TemplatesApiV1TemplatesGet(context.Background()).Execute()
+		var templateId string
+
+		resp, httpRes, err := apiClient.TemplatesAPI.PublishTemplate(context.Background(), templateId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test TemplatesAPIService UpdateTemplate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var templateId string
+
+		resp, httpRes, err := apiClient.TemplatesAPI.UpdateTemplate(context.Background(), templateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

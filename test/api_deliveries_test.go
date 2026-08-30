@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_DeliveriesAPIService(t *testing.T) {
@@ -22,13 +22,13 @@ func Test_invoicepdfs_DeliveriesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DeliveriesAPIService GetDeliveryApiV1DeliveriesDeliveryIdGet", func(t *testing.T) {
+	t.Run("Test DeliveriesAPIService GetDelivery", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var deliveryId string
 
-		resp, httpRes, err := apiClient.DeliveriesAPI.GetDeliveryApiV1DeliveriesDeliveryIdGet(context.Background(), deliveryId).Execute()
+		resp, httpRes, err := apiClient.DeliveriesAPI.GetDelivery(context.Background(), deliveryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_invoicepdfs_DeliveriesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveriesAPIService RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost", func(t *testing.T) {
+	t.Run("Test DeliveriesAPIService RetryDelivery", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var deliveryId string
 
-		resp, httpRes, err := apiClient.DeliveriesAPI.RetryDeliveryApiV1DeliveriesDeliveryIdRetryPost(context.Background(), deliveryId).Execute()
+		resp, httpRes, err := apiClient.DeliveriesAPI.RetryDelivery(context.Background(), deliveryId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_AuthAPIService(t *testing.T) {
@@ -22,11 +22,11 @@ func Test_invoicepdfs_AuthAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AuthAPIService ForgotPasswordApiV1AuthForgotPasswordPost", func(t *testing.T) {
+	t.Run("Test AuthAPIService ExchangeAuthToken", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AuthAPI.ForgotPasswordApiV1AuthForgotPasswordPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AuthAPI.ExchangeAuthToken(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_invoicepdfs_AuthAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AuthAPIService LogoutApiV1AuthLogoutPost", func(t *testing.T) {
+	t.Run("Test AuthAPIService GetCurrentUser", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AuthAPI.LogoutApiV1AuthLogoutPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AuthAPI.GetCurrentUser(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_invoicepdfs_AuthAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AuthAPIService MeApiV1AuthMeGet", func(t *testing.T) {
+	t.Run("Test AuthAPIService Logout", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AuthAPI.MeApiV1AuthMeGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AuthAPI.Logout(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,11 +58,11 @@ func Test_invoicepdfs_AuthAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AuthAPIService PatchMeApiV1AuthMePatch", func(t *testing.T) {
+	t.Run("Test AuthAPIService RefreshAccessToken", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AuthAPI.PatchMeApiV1AuthMePatch(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AuthAPI.RefreshAccessToken(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -70,11 +70,11 @@ func Test_invoicepdfs_AuthAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AuthAPIService RefreshApiV1AuthRefreshPost", func(t *testing.T) {
+	t.Run("Test AuthAPIService Register", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AuthAPI.RefreshApiV1AuthRefreshPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AuthAPI.Register(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -82,11 +82,11 @@ func Test_invoicepdfs_AuthAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AuthAPIService RegisterApiV1AuthRegisterPost", func(t *testing.T) {
+	t.Run("Test AuthAPIService RequestPasswordReset", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AuthAPI.RegisterApiV1AuthRegisterPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AuthAPI.RequestPasswordReset(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -94,11 +94,11 @@ func Test_invoicepdfs_AuthAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AuthAPIService ResetPasswordApiV1AuthResetPasswordPost", func(t *testing.T) {
+	t.Run("Test AuthAPIService ResetPassword", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AuthAPI.ResetPasswordApiV1AuthResetPasswordPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AuthAPI.ResetPassword(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -106,11 +106,11 @@ func Test_invoicepdfs_AuthAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AuthAPIService TokenExchangeApiV1AuthTokenPost", func(t *testing.T) {
+	t.Run("Test AuthAPIService UpdateCurrentUser", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AuthAPI.TokenExchangeApiV1AuthTokenPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AuthAPI.UpdateCurrentUser(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

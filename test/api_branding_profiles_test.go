@@ -22,11 +22,11 @@ func Test_invoicepdfs_BrandingProfilesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test BrandingProfilesAPIService CreateProfileApiV1BrandingProfilesPost", func(t *testing.T) {
+	t.Run("Test BrandingProfilesAPIService CreateBrandingProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.BrandingProfilesAPI.CreateProfileApiV1BrandingProfilesPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.BrandingProfilesAPI.CreateBrandingProfile(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_invoicepdfs_BrandingProfilesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BrandingProfilesAPIService DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete", func(t *testing.T) {
+	t.Run("Test BrandingProfilesAPIService DeleteBrandingLogo", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var profileId string
 
-		resp, httpRes, err := apiClient.BrandingProfilesAPI.DeleteLogoApiV1BrandingProfilesProfileIdLogoDelete(context.Background(), profileId).Execute()
+		resp, httpRes, err := apiClient.BrandingProfilesAPI.DeleteBrandingLogo(context.Background(), profileId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_invoicepdfs_BrandingProfilesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BrandingProfilesAPIService DeleteProfileApiV1BrandingProfilesProfileIdDelete", func(t *testing.T) {
+	t.Run("Test BrandingProfilesAPIService DeleteBrandingProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var profileId string
 
-		resp, httpRes, err := apiClient.BrandingProfilesAPI.DeleteProfileApiV1BrandingProfilesProfileIdDelete(context.Background(), profileId).Execute()
+		resp, httpRes, err := apiClient.BrandingProfilesAPI.DeleteBrandingProfile(context.Background(), profileId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,13 +62,13 @@ func Test_invoicepdfs_BrandingProfilesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BrandingProfilesAPIService GetProfileApiV1BrandingProfilesProfileIdGet", func(t *testing.T) {
+	t.Run("Test BrandingProfilesAPIService GetBrandingProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var profileId string
 
-		resp, httpRes, err := apiClient.BrandingProfilesAPI.GetProfileApiV1BrandingProfilesProfileIdGet(context.Background(), profileId).Execute()
+		resp, httpRes, err := apiClient.BrandingProfilesAPI.GetBrandingProfile(context.Background(), profileId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,11 +76,11 @@ func Test_invoicepdfs_BrandingProfilesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BrandingProfilesAPIService ListProfilesApiV1BrandingProfilesGet", func(t *testing.T) {
+	t.Run("Test BrandingProfilesAPIService ListBrandingProfiles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.BrandingProfilesAPI.ListProfilesApiV1BrandingProfilesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.BrandingProfilesAPI.ListBrandingProfiles(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,27 +88,13 @@ func Test_invoicepdfs_BrandingProfilesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BrandingProfilesAPIService SetDefaultApiV1BrandingProfilesProfileIdDefaultPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var profileId string
-
-		resp, httpRes, err := apiClient.BrandingProfilesAPI.SetDefaultApiV1BrandingProfilesProfileIdDefaultPost(context.Background(), profileId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test BrandingProfilesAPIService UpdateProfileApiV1BrandingProfilesProfileIdPatch", func(t *testing.T) {
+	t.Run("Test BrandingProfilesAPIService SetDefaultBrandingProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var profileId string
 
-		resp, httpRes, err := apiClient.BrandingProfilesAPI.UpdateProfileApiV1BrandingProfilesProfileIdPatch(context.Background(), profileId).Execute()
+		resp, httpRes, err := apiClient.BrandingProfilesAPI.SetDefaultBrandingProfile(context.Background(), profileId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +102,27 @@ func Test_invoicepdfs_BrandingProfilesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BrandingProfilesAPIService UploadLogoApiV1BrandingProfilesProfileIdLogoPost", func(t *testing.T) {
+	t.Run("Test BrandingProfilesAPIService UpdateBrandingProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var profileId string
 
-		resp, httpRes, err := apiClient.BrandingProfilesAPI.UploadLogoApiV1BrandingProfilesProfileIdLogoPost(context.Background(), profileId).Execute()
+		resp, httpRes, err := apiClient.BrandingProfilesAPI.UpdateBrandingProfile(context.Background(), profileId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test BrandingProfilesAPIService UploadBrandingLogo", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var profileId string
+
+		resp, httpRes, err := apiClient.BrandingProfilesAPI.UploadBrandingLogo(context.Background(), profileId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

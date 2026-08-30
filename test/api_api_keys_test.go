@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_ApiKeysAPIService(t *testing.T) {
@@ -22,11 +22,11 @@ func Test_invoicepdfs_ApiKeysAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ApiKeysAPIService CreateApiKeyApiV1ApiKeysPost", func(t *testing.T) {
+	t.Run("Test ApiKeysAPIService CreateApiKey", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ApiKeysAPI.CreateApiKeyApiV1ApiKeysPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ApiKeysAPI.CreateApiKey(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_invoicepdfs_ApiKeysAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ApiKeysAPIService GetApiKeyApiV1ApiKeysApiKeyIdGet", func(t *testing.T) {
+	t.Run("Test ApiKeysAPIService GetApiKey", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var apiKeyId string
 
-		resp, httpRes, err := apiClient.ApiKeysAPI.GetApiKeyApiV1ApiKeysApiKeyIdGet(context.Background(), apiKeyId).Execute()
+		resp, httpRes, err := apiClient.ApiKeysAPI.GetApiKey(context.Background(), apiKeyId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,11 +48,11 @@ func Test_invoicepdfs_ApiKeysAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ApiKeysAPIService ListApiKeysApiV1ApiKeysGet", func(t *testing.T) {
+	t.Run("Test ApiKeysAPIService ListApiKeys", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ApiKeysAPI.ListApiKeysApiV1ApiKeysGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ApiKeysAPI.ListApiKeys(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,27 +60,13 @@ func Test_invoicepdfs_ApiKeysAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ApiKeysAPIService PatchApiKeyApiV1ApiKeysApiKeyIdPatch", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var apiKeyId string
-
-		resp, httpRes, err := apiClient.ApiKeysAPI.PatchApiKeyApiV1ApiKeysApiKeyIdPatch(context.Background(), apiKeyId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApiKeysAPIService RevokeApiKeyApiV1ApiKeysApiKeyIdDelete", func(t *testing.T) {
+	t.Run("Test ApiKeysAPIService RevokeApiKey", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var apiKeyId string
 
-		resp, httpRes, err := apiClient.ApiKeysAPI.RevokeApiKeyApiV1ApiKeysApiKeyIdDelete(context.Background(), apiKeyId).Execute()
+		resp, httpRes, err := apiClient.ApiKeysAPI.RevokeApiKey(context.Background(), apiKeyId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +74,27 @@ func Test_invoicepdfs_ApiKeysAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ApiKeysAPIService RotateApiKeyApiV1ApiKeysApiKeyIdRotatePost", func(t *testing.T) {
+	t.Run("Test ApiKeysAPIService RotateApiKey", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var apiKeyId string
 
-		resp, httpRes, err := apiClient.ApiKeysAPI.RotateApiKeyApiV1ApiKeysApiKeyIdRotatePost(context.Background(), apiKeyId).Execute()
+		resp, httpRes, err := apiClient.ApiKeysAPI.RotateApiKey(context.Background(), apiKeyId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApiKeysAPIService UpdateApiKey", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var apiKeyId string
+
+		resp, httpRes, err := apiClient.ApiKeysAPI.UpdateApiKey(context.Background(), apiKeyId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

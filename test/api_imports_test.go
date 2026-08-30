@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_ImportsAPIService(t *testing.T) {
@@ -22,13 +22,13 @@ func Test_invoicepdfs_ImportsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ImportsAPIService CancelImportApiV1ImportsImportIdCancelPost", func(t *testing.T) {
+	t.Run("Test ImportsAPIService CancelImport", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var importId string
 
-		resp, httpRes, err := apiClient.ImportsAPI.CancelImportApiV1ImportsImportIdCancelPost(context.Background(), importId).Execute()
+		resp, httpRes, err := apiClient.ImportsAPI.CancelImport(context.Background(), importId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_invoicepdfs_ImportsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ImportsAPIService ConfirmImportApiV1ImportsImportIdConfirmPost", func(t *testing.T) {
+	t.Run("Test ImportsAPIService ConfirmImport", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var importId string
 
-		resp, httpRes, err := apiClient.ImportsAPI.ConfirmImportApiV1ImportsImportIdConfirmPost(context.Background(), importId).Execute()
+		resp, httpRes, err := apiClient.ImportsAPI.ConfirmImport(context.Background(), importId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,11 +50,11 @@ func Test_invoicepdfs_ImportsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ImportsAPIService CreateImportApiV1ImportsPost", func(t *testing.T) {
+	t.Run("Test ImportsAPIService CreateImport", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ImportsAPI.CreateImportApiV1ImportsPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ImportsAPI.CreateImport(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,13 +62,13 @@ func Test_invoicepdfs_ImportsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ImportsAPIService GetImportApiV1ImportsImportIdGet", func(t *testing.T) {
+	t.Run("Test ImportsAPIService GetImport", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var importId string
 
-		resp, httpRes, err := apiClient.ImportsAPI.GetImportApiV1ImportsImportIdGet(context.Background(), importId).Execute()
+		resp, httpRes, err := apiClient.ImportsAPI.GetImport(context.Background(), importId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

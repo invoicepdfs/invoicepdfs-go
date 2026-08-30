@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_HealthAPIService(t *testing.T) {
@@ -22,11 +22,11 @@ func Test_invoicepdfs_HealthAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test HealthAPIService HealthHealthGet", func(t *testing.T) {
+	t.Run("Test HealthAPIService GetHealth", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.HealthAPI.HealthHealthGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.HealthAPI.GetHealth(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_invoicepdfs_HealthAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test HealthAPIService ReadyReadyGet", func(t *testing.T) {
+	t.Run("Test HealthAPIService GetReadiness", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.HealthAPI.ReadyReadyGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.HealthAPI.GetReadiness(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_invoicepdfs_HealthAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test HealthAPIService VersionVersionGet", func(t *testing.T) {
+	t.Run("Test HealthAPIService GetVersion", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.HealthAPI.VersionVersionGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.HealthAPI.GetVersion(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

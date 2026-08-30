@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_BillingAPIService(t *testing.T) {
@@ -22,11 +22,11 @@ func Test_invoicepdfs_BillingAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test BillingAPIService CreateCheckoutApiV1BillingCheckoutSessionPost", func(t *testing.T) {
+	t.Run("Test BillingAPIService CreateCheckoutSession", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.BillingAPI.CreateCheckoutApiV1BillingCheckoutSessionPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.BillingAPI.CreateCheckoutSession(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_invoicepdfs_BillingAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BillingAPIService CreatePortalApiV1BillingPortalSessionPost", func(t *testing.T) {
+	t.Run("Test BillingAPIService CreatePortalSession", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.BillingAPI.CreatePortalApiV1BillingPortalSessionPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.BillingAPI.CreatePortalSession(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,23 @@ func Test_invoicepdfs_BillingAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BillingAPIService GetSubscriptionApiV1BillingSubscriptionGet", func(t *testing.T) {
+	t.Run("Test BillingAPIService GetSubscription", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.BillingAPI.GetSubscriptionApiV1BillingSubscriptionGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.BillingAPI.GetSubscription(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test BillingAPIService ListPlans", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.BillingAPI.ListPlans(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

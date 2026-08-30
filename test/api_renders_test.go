@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_RendersAPIService(t *testing.T) {
@@ -22,13 +22,13 @@ func Test_invoicepdfs_RendersAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RendersAPIService DownloadRenderApiV1RendersRenderIdDownloadGet", func(t *testing.T) {
+	t.Run("Test RendersAPIService DownloadRender", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var renderId string
 
-		resp, httpRes, err := apiClient.RendersAPI.DownloadRenderApiV1RendersRenderIdDownloadGet(context.Background(), renderId).Execute()
+		resp, httpRes, err := apiClient.RendersAPI.DownloadRender(context.Background(), renderId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_invoicepdfs_RendersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test RendersAPIService GetRenderApiV1RendersRenderIdGet", func(t *testing.T) {
+	t.Run("Test RendersAPIService GetRender", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var renderId string
 
-		resp, httpRes, err := apiClient.RendersAPI.GetRenderApiV1RendersRenderIdGet(context.Background(), renderId).Execute()
+		resp, httpRes, err := apiClient.RendersAPI.GetRender(context.Background(), renderId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

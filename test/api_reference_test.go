@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_ReferenceAPIService(t *testing.T) {
@@ -22,11 +22,11 @@ func Test_invoicepdfs_ReferenceAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ReferenceAPIService ListCountriesApiV1ReferenceCountriesGet", func(t *testing.T) {
+	t.Run("Test ReferenceAPIService ListCountries", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ReferenceAPI.ListCountriesApiV1ReferenceCountriesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ReferenceAPI.ListCountries(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_invoicepdfs_ReferenceAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ReferenceAPIService ListCurrenciesApiV1ReferenceCurrenciesGet", func(t *testing.T) {
+	t.Run("Test ReferenceAPIService ListCurrencies", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ReferenceAPI.ListCurrenciesApiV1ReferenceCurrenciesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ReferenceAPI.ListCurrencies(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_invoicepdfs_ReferenceAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ReferenceAPIService ListDocumentTypesApiV1ReferenceDocumentTypesGet", func(t *testing.T) {
+	t.Run("Test ReferenceAPIService ListDocumentTypes", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ReferenceAPI.ListDocumentTypesApiV1ReferenceDocumentTypesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ReferenceAPI.ListDocumentTypes(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,11 +58,11 @@ func Test_invoicepdfs_ReferenceAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ReferenceAPIService ListLocalesApiV1ReferenceLocalesGet", func(t *testing.T) {
+	t.Run("Test ReferenceAPIService ListLocales", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ReferenceAPI.ListLocalesApiV1ReferenceLocalesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ReferenceAPI.ListLocales(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -70,11 +70,11 @@ func Test_invoicepdfs_ReferenceAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ReferenceAPIService ListPageSizesApiV1ReferencePageSizesGet", func(t *testing.T) {
+	t.Run("Test ReferenceAPIService ListPageSizes", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ReferenceAPI.ListPageSizesApiV1ReferencePageSizesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ReferenceAPI.ListPageSizes(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -82,11 +82,11 @@ func Test_invoicepdfs_ReferenceAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ReferenceAPIService ListTimezonesApiV1ReferenceTimezonesGet", func(t *testing.T) {
+	t.Run("Test ReferenceAPIService ListTimezones", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ReferenceAPI.ListTimezonesApiV1ReferenceTimezonesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ReferenceAPI.ListTimezones(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

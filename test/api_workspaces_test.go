@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_WorkspacesAPIService(t *testing.T) {
@@ -22,13 +22,13 @@ func Test_invoicepdfs_WorkspacesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test WorkspacesAPIService CreateMemberApiV1WorkspacesWorkspaceIdMembersPost", func(t *testing.T) {
+	t.Run("Test WorkspacesAPIService AddWorkspaceMember", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var workspaceId string
 
-		resp, httpRes, err := apiClient.WorkspacesAPI.CreateMemberApiV1WorkspacesWorkspaceIdMembersPost(context.Background(), workspaceId).Execute()
+		resp, httpRes, err := apiClient.WorkspacesAPI.AddWorkspaceMember(context.Background(), workspaceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_invoicepdfs_WorkspacesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test WorkspacesAPIService CreateWorkspaceApiV1WorkspacesPost", func(t *testing.T) {
+	t.Run("Test WorkspacesAPIService CreateWorkspace", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.WorkspacesAPI.CreateWorkspaceApiV1WorkspacesPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.WorkspacesAPI.CreateWorkspace(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,28 +48,13 @@ func Test_invoicepdfs_WorkspacesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test WorkspacesAPIService DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var workspaceId string
-		var memberId string
-
-		resp, httpRes, err := apiClient.WorkspacesAPI.DeleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete(context.Background(), workspaceId, memberId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test WorkspacesAPIService DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete", func(t *testing.T) {
+	t.Run("Test WorkspacesAPIService DeleteWorkspace", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var workspaceId string
 
-		resp, httpRes, err := apiClient.WorkspacesAPI.DeleteWorkspaceApiV1WorkspacesWorkspaceIdDelete(context.Background(), workspaceId).Execute()
+		resp, httpRes, err := apiClient.WorkspacesAPI.DeleteWorkspace(context.Background(), workspaceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -77,13 +62,13 @@ func Test_invoicepdfs_WorkspacesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test WorkspacesAPIService GetWorkspaceApiV1WorkspacesWorkspaceIdGet", func(t *testing.T) {
+	t.Run("Test WorkspacesAPIService GetWorkspace", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var workspaceId string
 
-		resp, httpRes, err := apiClient.WorkspacesAPI.GetWorkspaceApiV1WorkspacesWorkspaceIdGet(context.Background(), workspaceId).Execute()
+		resp, httpRes, err := apiClient.WorkspacesAPI.GetWorkspace(context.Background(), workspaceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -91,13 +76,13 @@ func Test_invoicepdfs_WorkspacesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test WorkspacesAPIService ListMembersApiV1WorkspacesWorkspaceIdMembersGet", func(t *testing.T) {
+	t.Run("Test WorkspacesAPIService ListWorkspaceMembers", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var workspaceId string
 
-		resp, httpRes, err := apiClient.WorkspacesAPI.ListMembersApiV1WorkspacesWorkspaceIdMembersGet(context.Background(), workspaceId).Execute()
+		resp, httpRes, err := apiClient.WorkspacesAPI.ListWorkspaceMembers(context.Background(), workspaceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -105,11 +90,11 @@ func Test_invoicepdfs_WorkspacesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test WorkspacesAPIService ListWorkspacesApiV1WorkspacesGet", func(t *testing.T) {
+	t.Run("Test WorkspacesAPIService ListWorkspaces", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.WorkspacesAPI.ListWorkspacesApiV1WorkspacesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.WorkspacesAPI.ListWorkspaces(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -117,14 +102,14 @@ func Test_invoicepdfs_WorkspacesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test WorkspacesAPIService PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch", func(t *testing.T) {
+	t.Run("Test WorkspacesAPIService RemoveWorkspaceMember", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var workspaceId string
 		var memberId string
 
-		resp, httpRes, err := apiClient.WorkspacesAPI.PatchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch(context.Background(), workspaceId, memberId).Execute()
+		resp, httpRes, err := apiClient.WorkspacesAPI.RemoveWorkspaceMember(context.Background(), workspaceId, memberId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -132,13 +117,28 @@ func Test_invoicepdfs_WorkspacesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test WorkspacesAPIService PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch", func(t *testing.T) {
+	t.Run("Test WorkspacesAPIService UpdateWorkspace", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var workspaceId string
 
-		resp, httpRes, err := apiClient.WorkspacesAPI.PatchWorkspaceApiV1WorkspacesWorkspaceIdPatch(context.Background(), workspaceId).Execute()
+		resp, httpRes, err := apiClient.WorkspacesAPI.UpdateWorkspace(context.Background(), workspaceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test WorkspacesAPIService UpdateWorkspaceMember", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var workspaceId string
+		var memberId string
+
+		resp, httpRes, err := apiClient.WorkspacesAPI.UpdateWorkspaceMember(context.Background(), workspaceId, memberId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

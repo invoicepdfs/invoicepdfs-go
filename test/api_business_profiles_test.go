@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_BusinessProfilesAPIService(t *testing.T) {
@@ -22,11 +22,11 @@ func Test_invoicepdfs_BusinessProfilesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test BusinessProfilesAPIService CreateBusinessProfileApiV1BusinessProfilesPost", func(t *testing.T) {
+	t.Run("Test BusinessProfilesAPIService CreateBusinessProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.BusinessProfilesAPI.CreateBusinessProfileApiV1BusinessProfilesPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.BusinessProfilesAPI.CreateBusinessProfile(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_invoicepdfs_BusinessProfilesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BusinessProfilesAPIService DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete", func(t *testing.T) {
+	t.Run("Test BusinessProfilesAPIService DeleteBusinessProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var businessProfileId string
 
-		resp, httpRes, err := apiClient.BusinessProfilesAPI.DeleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete(context.Background(), businessProfileId).Execute()
+		resp, httpRes, err := apiClient.BusinessProfilesAPI.DeleteBusinessProfile(context.Background(), businessProfileId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_invoicepdfs_BusinessProfilesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BusinessProfilesAPIService GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet", func(t *testing.T) {
+	t.Run("Test BusinessProfilesAPIService GetBusinessProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var businessProfileId string
 
-		resp, httpRes, err := apiClient.BusinessProfilesAPI.GetBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet(context.Background(), businessProfileId).Execute()
+		resp, httpRes, err := apiClient.BusinessProfilesAPI.GetBusinessProfile(context.Background(), businessProfileId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,11 +62,11 @@ func Test_invoicepdfs_BusinessProfilesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BusinessProfilesAPIService ListBusinessProfilesApiV1BusinessProfilesGet", func(t *testing.T) {
+	t.Run("Test BusinessProfilesAPIService ListBusinessProfiles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.BusinessProfilesAPI.ListBusinessProfilesApiV1BusinessProfilesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.BusinessProfilesAPI.ListBusinessProfiles(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -74,13 +74,13 @@ func Test_invoicepdfs_BusinessProfilesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BusinessProfilesAPIService PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch", func(t *testing.T) {
+	t.Run("Test BusinessProfilesAPIService UpdateBusinessProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var businessProfileId string
 
-		resp, httpRes, err := apiClient.BusinessProfilesAPI.PatchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch(context.Background(), businessProfileId).Execute()
+		resp, httpRes, err := apiClient.BusinessProfilesAPI.UpdateBusinessProfile(context.Background(), businessProfileId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

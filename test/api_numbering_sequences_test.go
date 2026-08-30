@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_NumberingSequencesAPIService(t *testing.T) {
@@ -22,13 +22,13 @@ func Test_invoicepdfs_NumberingSequencesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test NumberingSequencesAPIService ConsumeNextApiV1NumberingSequencesSequenceIdNextPost", func(t *testing.T) {
+	t.Run("Test NumberingSequencesAPIService ConsumeSequenceNumber", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var sequenceId string
 
-		resp, httpRes, err := apiClient.NumberingSequencesAPI.ConsumeNextApiV1NumberingSequencesSequenceIdNextPost(context.Background(), sequenceId).Execute()
+		resp, httpRes, err := apiClient.NumberingSequencesAPI.ConsumeSequenceNumber(context.Background(), sequenceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_invoicepdfs_NumberingSequencesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test NumberingSequencesAPIService CreateSequenceApiV1NumberingSequencesPost", func(t *testing.T) {
+	t.Run("Test NumberingSequencesAPIService CreateSequence", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.NumberingSequencesAPI.CreateSequenceApiV1NumberingSequencesPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.NumberingSequencesAPI.CreateSequence(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,27 +48,13 @@ func Test_invoicepdfs_NumberingSequencesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test NumberingSequencesAPIService DeleteSequenceApiV1NumberingSequencesSequenceIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var sequenceId string
-
-		resp, httpRes, err := apiClient.NumberingSequencesAPI.DeleteSequenceApiV1NumberingSequencesSequenceIdDelete(context.Background(), sequenceId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test NumberingSequencesAPIService GetSequenceApiV1NumberingSequencesSequenceIdGet", func(t *testing.T) {
+	t.Run("Test NumberingSequencesAPIService DeleteSequence", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var sequenceId string
 
-		resp, httpRes, err := apiClient.NumberingSequencesAPI.GetSequenceApiV1NumberingSequencesSequenceIdGet(context.Background(), sequenceId).Execute()
+		resp, httpRes, err := apiClient.NumberingSequencesAPI.DeleteSequence(context.Background(), sequenceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,25 +62,13 @@ func Test_invoicepdfs_NumberingSequencesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test NumberingSequencesAPIService ListSequencesApiV1NumberingSequencesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.NumberingSequencesAPI.ListSequencesApiV1NumberingSequencesGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test NumberingSequencesAPIService PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost", func(t *testing.T) {
+	t.Run("Test NumberingSequencesAPIService GetSequence", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var sequenceId string
 
-		resp, httpRes, err := apiClient.NumberingSequencesAPI.PreviewSequenceApiV1NumberingSequencesSequenceIdPreviewPost(context.Background(), sequenceId).Execute()
+		resp, httpRes, err := apiClient.NumberingSequencesAPI.GetSequence(context.Background(), sequenceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +76,39 @@ func Test_invoicepdfs_NumberingSequencesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test NumberingSequencesAPIService UpdateSequenceApiV1NumberingSequencesSequenceIdPatch", func(t *testing.T) {
+	t.Run("Test NumberingSequencesAPIService ListSequences", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.NumberingSequencesAPI.ListSequences(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test NumberingSequencesAPIService PreviewSequence", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var sequenceId string
 
-		resp, httpRes, err := apiClient.NumberingSequencesAPI.UpdateSequenceApiV1NumberingSequencesSequenceIdPatch(context.Background(), sequenceId).Execute()
+		resp, httpRes, err := apiClient.NumberingSequencesAPI.PreviewSequence(context.Background(), sequenceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test NumberingSequencesAPIService UpdateSequence", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var sequenceId string
+
+		resp, httpRes, err := apiClient.NumberingSequencesAPI.UpdateSequence(context.Background(), sequenceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_UsageAPIService(t *testing.T) {
@@ -22,11 +22,11 @@ func Test_invoicepdfs_UsageAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test UsageAPIService GetLimitsApiV1UsageLimitsGet", func(t *testing.T) {
+	t.Run("Test UsageAPIService GetUsage", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UsageAPI.GetLimitsApiV1UsageLimitsGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UsageAPI.GetUsage(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_invoicepdfs_UsageAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test UsageAPIService ListUsageEventsApiV1UsageEventsGet", func(t *testing.T) {
+	t.Run("Test UsageAPIService GetUsageLimits", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UsageAPI.ListUsageEventsApiV1UsageEventsGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UsageAPI.GetUsageLimits(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +46,11 @@ func Test_invoicepdfs_UsageAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test UsageAPIService UsageApiV1UsageGet", func(t *testing.T) {
+	t.Run("Test UsageAPIService ListUsageEvents", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.UsageAPI.UsageApiV1UsageGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.UsageAPI.ListUsageEvents(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

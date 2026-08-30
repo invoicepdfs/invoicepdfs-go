@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_BatchesAPIService(t *testing.T) {
@@ -22,13 +22,13 @@ func Test_invoicepdfs_BatchesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test BatchesAPIService CancelBatchApiV1BatchesBatchIdCancelPost", func(t *testing.T) {
+	t.Run("Test BatchesAPIService CancelBatch", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var batchId string
 
-		resp, httpRes, err := apiClient.BatchesAPI.CancelBatchApiV1BatchesBatchIdCancelPost(context.Background(), batchId).Execute()
+		resp, httpRes, err := apiClient.BatchesAPI.CancelBatch(context.Background(), batchId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_invoicepdfs_BatchesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BatchesAPIService CreateBatchApiV1BatchesPost", func(t *testing.T) {
+	t.Run("Test BatchesAPIService CreateBatch", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.BatchesAPI.CreateBatchApiV1BatchesPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.BatchesAPI.CreateBatch(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,27 +48,13 @@ func Test_invoicepdfs_BatchesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BatchesAPIService DownloadBatchApiV1BatchesBatchIdDownloadGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var batchId string
-
-		resp, httpRes, err := apiClient.BatchesAPI.DownloadBatchApiV1BatchesBatchIdDownloadGet(context.Background(), batchId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test BatchesAPIService GetBatchApiV1BatchesBatchIdGet", func(t *testing.T) {
+	t.Run("Test BatchesAPIService DownloadBatch", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var batchId string
 
-		resp, httpRes, err := apiClient.BatchesAPI.GetBatchApiV1BatchesBatchIdGet(context.Background(), batchId).Execute()
+		resp, httpRes, err := apiClient.BatchesAPI.DownloadBatch(context.Background(), batchId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,13 +62,13 @@ func Test_invoicepdfs_BatchesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BatchesAPIService ListBatchItemsApiV1BatchesBatchIdItemsGet", func(t *testing.T) {
+	t.Run("Test BatchesAPIService GetBatch", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var batchId string
 
-		resp, httpRes, err := apiClient.BatchesAPI.ListBatchItemsApiV1BatchesBatchIdItemsGet(context.Background(), batchId).Execute()
+		resp, httpRes, err := apiClient.BatchesAPI.GetBatch(context.Background(), batchId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -90,11 +76,25 @@ func Test_invoicepdfs_BatchesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test BatchesAPIService ListBatchesApiV1BatchesGet", func(t *testing.T) {
+	t.Run("Test BatchesAPIService ListBatchItems", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.BatchesAPI.ListBatchesApiV1BatchesGet(context.Background()).Execute()
+		var batchId string
+
+		resp, httpRes, err := apiClient.BatchesAPI.ListBatchItems(context.Background(), batchId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test BatchesAPIService ListBatches", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.BatchesAPI.ListBatches(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

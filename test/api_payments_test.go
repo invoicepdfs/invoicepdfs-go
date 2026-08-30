@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_PaymentsAPIService(t *testing.T) {
@@ -22,13 +22,13 @@ func Test_invoicepdfs_PaymentsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test PaymentsAPIService CreatePaymentApiV1InvoicesInvoiceIdPaymentsPost", func(t *testing.T) {
+	t.Run("Test PaymentsAPIService CreateDocumentPayment", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var invoiceId string
+		var documentId string
 
-		resp, httpRes, err := apiClient.PaymentsAPI.CreatePaymentApiV1InvoicesInvoiceIdPaymentsPost(context.Background(), invoiceId).Execute()
+		resp, httpRes, err := apiClient.PaymentsAPI.CreateDocumentPayment(context.Background(), documentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_invoicepdfs_PaymentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PaymentsAPIService DeletePaymentApiV1PaymentsPaymentIdDelete", func(t *testing.T) {
+	t.Run("Test PaymentsAPIService DeletePayment", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var paymentId string
 
-		resp, httpRes, err := apiClient.PaymentsAPI.DeletePaymentApiV1PaymentsPaymentIdDelete(context.Background(), paymentId).Execute()
+		resp, httpRes, err := apiClient.PaymentsAPI.DeletePayment(context.Background(), paymentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,13 +50,13 @@ func Test_invoicepdfs_PaymentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PaymentsAPIService GetPaymentApiV1PaymentsPaymentIdGet", func(t *testing.T) {
+	t.Run("Test PaymentsAPIService GetPayment", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var paymentId string
 
-		resp, httpRes, err := apiClient.PaymentsAPI.GetPaymentApiV1PaymentsPaymentIdGet(context.Background(), paymentId).Execute()
+		resp, httpRes, err := apiClient.PaymentsAPI.GetPayment(context.Background(), paymentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -64,13 +64,13 @@ func Test_invoicepdfs_PaymentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PaymentsAPIService ListInvoicePaymentsApiV1InvoicesInvoiceIdPaymentsGet", func(t *testing.T) {
+	t.Run("Test PaymentsAPIService ListDocumentPayments", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var invoiceId string
+		var documentId string
 
-		resp, httpRes, err := apiClient.PaymentsAPI.ListInvoicePaymentsApiV1InvoicesInvoiceIdPaymentsGet(context.Background(), invoiceId).Execute()
+		resp, httpRes, err := apiClient.PaymentsAPI.ListDocumentPayments(context.Background(), documentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -78,13 +78,13 @@ func Test_invoicepdfs_PaymentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PaymentsAPIService UpdatePaymentApiV1PaymentsPaymentIdPatch", func(t *testing.T) {
+	t.Run("Test PaymentsAPIService UpdatePayment", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var paymentId string
 
-		resp, httpRes, err := apiClient.PaymentsAPI.UpdatePaymentApiV1PaymentsPaymentIdPatch(context.Background(), paymentId).Execute()
+		resp, httpRes, err := apiClient.PaymentsAPI.UpdatePayment(context.Background(), paymentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

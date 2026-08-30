@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_FilesAPIService(t *testing.T) {
@@ -22,13 +22,13 @@ func Test_invoicepdfs_FilesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test FilesAPIService DeleteFileApiV1FilesFileIdDelete", func(t *testing.T) {
+	t.Run("Test FilesAPIService DeleteFile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 
-		resp, httpRes, err := apiClient.FilesAPI.DeleteFileApiV1FilesFileIdDelete(context.Background(), fileId).Execute()
+		resp, httpRes, err := apiClient.FilesAPI.DeleteFile(context.Background(), fileId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_invoicepdfs_FilesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test FilesAPIService GetFileApiV1FilesFileIdGet", func(t *testing.T) {
+	t.Run("Test FilesAPIService GetFile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 
-		resp, httpRes, err := apiClient.FilesAPI.GetFileApiV1FilesFileIdGet(context.Background(), fileId).Execute()
+		resp, httpRes, err := apiClient.FilesAPI.GetFile(context.Background(), fileId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,11 +50,11 @@ func Test_invoicepdfs_FilesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test FilesAPIService UploadFileApiV1FilesPost", func(t *testing.T) {
+	t.Run("Test FilesAPIService UploadFile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.FilesAPI.UploadFileApiV1FilesPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.FilesAPI.UploadFile(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

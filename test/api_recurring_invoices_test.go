@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_RecurringInvoicesAPIService(t *testing.T) {
@@ -22,13 +22,13 @@ func Test_invoicepdfs_RecurringInvoicesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test RecurringInvoicesAPIService CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete", func(t *testing.T) {
+	t.Run("Test RecurringInvoicesAPIService CancelRecurringInvoice", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var recurringId string
 
-		resp, httpRes, err := apiClient.RecurringInvoicesAPI.CancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete(context.Background(), recurringId).Execute()
+		resp, httpRes, err := apiClient.RecurringInvoicesAPI.CancelRecurringInvoice(context.Background(), recurringId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_invoicepdfs_RecurringInvoicesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test RecurringInvoicesAPIService CreateRecurringInvoiceApiV1RecurringInvoicesPost", func(t *testing.T) {
+	t.Run("Test RecurringInvoicesAPIService CreateRecurringInvoice", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.RecurringInvoicesAPI.CreateRecurringInvoiceApiV1RecurringInvoicesPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.RecurringInvoicesAPI.CreateRecurringInvoice(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,27 +48,13 @@ func Test_invoicepdfs_RecurringInvoicesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test RecurringInvoicesAPIService GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var recurringId string
-
-		resp, httpRes, err := apiClient.RecurringInvoicesAPI.GetRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet(context.Background(), recurringId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RecurringInvoicesAPIService ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet", func(t *testing.T) {
+	t.Run("Test RecurringInvoicesAPIService GetRecurringInvoice", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var recurringId string
 
-		resp, httpRes, err := apiClient.RecurringInvoicesAPI.ListGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet(context.Background(), recurringId).Execute()
+		resp, httpRes, err := apiClient.RecurringInvoicesAPI.GetRecurringInvoice(context.Background(), recurringId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,25 +62,13 @@ func Test_invoicepdfs_RecurringInvoicesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test RecurringInvoicesAPIService ListRecurringInvoicesApiV1RecurringInvoicesGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.RecurringInvoicesAPI.ListRecurringInvoicesApiV1RecurringInvoicesGet(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test RecurringInvoicesAPIService PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch", func(t *testing.T) {
+	t.Run("Test RecurringInvoicesAPIService ListGeneratedInvoices", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var recurringId string
 
-		resp, httpRes, err := apiClient.RecurringInvoicesAPI.PatchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch(context.Background(), recurringId).Execute()
+		resp, httpRes, err := apiClient.RecurringInvoicesAPI.ListGeneratedInvoices(context.Background(), recurringId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +76,11 @@ func Test_invoicepdfs_RecurringInvoicesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test RecurringInvoicesAPIService PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost", func(t *testing.T) {
+	t.Run("Test RecurringInvoicesAPIService ListRecurringInvoices", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var recurringId string
-
-		resp, httpRes, err := apiClient.RecurringInvoicesAPI.PauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost(context.Background(), recurringId).Execute()
+		resp, httpRes, err := apiClient.RecurringInvoicesAPI.ListRecurringInvoices(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +88,41 @@ func Test_invoicepdfs_RecurringInvoicesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test RecurringInvoicesAPIService ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost", func(t *testing.T) {
+	t.Run("Test RecurringInvoicesAPIService PauseRecurringInvoice", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var recurringId string
 
-		resp, httpRes, err := apiClient.RecurringInvoicesAPI.ResumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost(context.Background(), recurringId).Execute()
+		resp, httpRes, err := apiClient.RecurringInvoicesAPI.PauseRecurringInvoice(context.Background(), recurringId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RecurringInvoicesAPIService ResumeRecurringInvoice", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var recurringId string
+
+		resp, httpRes, err := apiClient.RecurringInvoicesAPI.ResumeRecurringInvoice(context.Background(), recurringId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test RecurringInvoicesAPIService UpdateRecurringInvoice", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var recurringId string
+
+		resp, httpRes, err := apiClient.RecurringInvoicesAPI.UpdateRecurringInvoice(context.Background(), recurringId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

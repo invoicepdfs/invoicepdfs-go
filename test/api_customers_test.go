@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_CustomersAPIService(t *testing.T) {
@@ -22,11 +22,11 @@ func Test_invoicepdfs_CustomersAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test CustomersAPIService CreateCustomerApiV1CustomersPost", func(t *testing.T) {
+	t.Run("Test CustomersAPIService CreateCustomer", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.CustomersAPI.CreateCustomerApiV1CustomersPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.CustomersAPI.CreateCustomer(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_invoicepdfs_CustomersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CustomersAPIService DeleteCustomerApiV1CustomersCustomerIdDelete", func(t *testing.T) {
+	t.Run("Test CustomersAPIService DeleteCustomer", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var customerId string
 
-		resp, httpRes, err := apiClient.CustomersAPI.DeleteCustomerApiV1CustomersCustomerIdDelete(context.Background(), customerId).Execute()
+		resp, httpRes, err := apiClient.CustomersAPI.DeleteCustomer(context.Background(), customerId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_invoicepdfs_CustomersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CustomersAPIService GetCustomerApiV1CustomersCustomerIdGet", func(t *testing.T) {
+	t.Run("Test CustomersAPIService GetCustomer", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var customerId string
 
-		resp, httpRes, err := apiClient.CustomersAPI.GetCustomerApiV1CustomersCustomerIdGet(context.Background(), customerId).Execute()
+		resp, httpRes, err := apiClient.CustomersAPI.GetCustomer(context.Background(), customerId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,11 +62,11 @@ func Test_invoicepdfs_CustomersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CustomersAPIService ListCustomersApiV1CustomersGet", func(t *testing.T) {
+	t.Run("Test CustomersAPIService ListCustomers", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.CustomersAPI.ListCustomersApiV1CustomersGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.CustomersAPI.ListCustomers(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -74,13 +74,13 @@ func Test_invoicepdfs_CustomersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test CustomersAPIService PatchCustomerApiV1CustomersCustomerIdPatch", func(t *testing.T) {
+	t.Run("Test CustomersAPIService UpdateCustomer", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var customerId string
 
-		resp, httpRes, err := apiClient.CustomersAPI.PatchCustomerApiV1CustomersCustomerIdPatch(context.Background(), customerId).Execute()
+		resp, httpRes, err := apiClient.CustomersAPI.UpdateCustomer(context.Background(), customerId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

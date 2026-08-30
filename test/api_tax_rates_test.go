@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_TaxRatesAPIService(t *testing.T) {
@@ -22,11 +22,11 @@ func Test_invoicepdfs_TaxRatesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TaxRatesAPIService CreateTaxRateApiV1TaxRatesPost", func(t *testing.T) {
+	t.Run("Test TaxRatesAPIService CreateTaxRate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TaxRatesAPI.CreateTaxRateApiV1TaxRatesPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TaxRatesAPI.CreateTaxRate(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,13 +34,13 @@ func Test_invoicepdfs_TaxRatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaxRatesAPIService DeleteTaxRateApiV1TaxRatesTaxRateIdDelete", func(t *testing.T) {
+	t.Run("Test TaxRatesAPIService DeleteTaxRate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var taxRateId string
 
-		resp, httpRes, err := apiClient.TaxRatesAPI.DeleteTaxRateApiV1TaxRatesTaxRateIdDelete(context.Background(), taxRateId).Execute()
+		resp, httpRes, err := apiClient.TaxRatesAPI.DeleteTaxRate(context.Background(), taxRateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_invoicepdfs_TaxRatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaxRatesAPIService GetTaxRateApiV1TaxRatesTaxRateIdGet", func(t *testing.T) {
+	t.Run("Test TaxRatesAPIService GetTaxRate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var taxRateId string
 
-		resp, httpRes, err := apiClient.TaxRatesAPI.GetTaxRateApiV1TaxRatesTaxRateIdGet(context.Background(), taxRateId).Execute()
+		resp, httpRes, err := apiClient.TaxRatesAPI.GetTaxRate(context.Background(), taxRateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,11 +62,11 @@ func Test_invoicepdfs_TaxRatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaxRatesAPIService ListTaxRatesApiV1TaxRatesGet", func(t *testing.T) {
+	t.Run("Test TaxRatesAPIService ListTaxRates", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TaxRatesAPI.ListTaxRatesApiV1TaxRatesGet(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TaxRatesAPI.ListTaxRates(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -74,13 +74,13 @@ func Test_invoicepdfs_TaxRatesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaxRatesAPIService UpdateTaxRateApiV1TaxRatesTaxRateIdPatch", func(t *testing.T) {
+	t.Run("Test TaxRatesAPIService UpdateTaxRate", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var taxRateId string
 
-		resp, httpRes, err := apiClient.TaxRatesAPI.UpdateTaxRateApiV1TaxRatesTaxRateIdPatch(context.Background(), taxRateId).Execute()
+		resp, httpRes, err := apiClient.TaxRatesAPI.UpdateTaxRate(context.Background(), taxRateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

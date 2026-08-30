@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_JobsAPIService(t *testing.T) {
@@ -22,13 +22,13 @@ func Test_invoicepdfs_JobsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test JobsAPIService CancelJobApiV1JobsJobIdCancelPost", func(t *testing.T) {
+	t.Run("Test JobsAPIService CancelJob", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var jobId string
 
-		resp, httpRes, err := apiClient.JobsAPI.CancelJobApiV1JobsJobIdCancelPost(context.Background(), jobId).Execute()
+		resp, httpRes, err := apiClient.JobsAPI.CancelJob(context.Background(), jobId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_invoicepdfs_JobsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test JobsAPIService GetJobApiV1JobsJobIdGet", func(t *testing.T) {
+	t.Run("Test JobsAPIService GetJob", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var jobId string
 
-		resp, httpRes, err := apiClient.JobsAPI.GetJobApiV1JobsJobIdGet(context.Background(), jobId).Execute()
+		resp, httpRes, err := apiClient.JobsAPI.GetJob(context.Background(), jobId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,13 +50,13 @@ func Test_invoicepdfs_JobsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test JobsAPIService RetryJobApiV1JobsJobIdRetryPost", func(t *testing.T) {
+	t.Run("Test JobsAPIService RetryJob", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var jobId string
 
-		resp, httpRes, err := apiClient.JobsAPI.RetryJobApiV1JobsJobIdRetryPost(context.Background(), jobId).Execute()
+		resp, httpRes, err := apiClient.JobsAPI.RetryJob(context.Background(), jobId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

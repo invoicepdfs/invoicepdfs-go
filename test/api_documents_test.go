@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_DocumentsAPIService(t *testing.T) {
@@ -22,11 +22,13 @@ func Test_invoicepdfs_DocumentsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DocumentsAPIService CalculateDocumentApiV1DocumentsCalculatePost", func(t *testing.T) {
+	t.Run("Test DocumentsAPIService ArchiveDocument", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DocumentsAPI.CalculateDocumentApiV1DocumentsCalculatePost(context.Background()).Execute()
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.ArchiveDocument(context.Background(), documentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +36,11 @@ func Test_invoicepdfs_DocumentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DocumentsAPIService RenderDocumentApiV1DocumentsRenderPost", func(t *testing.T) {
+	t.Run("Test DocumentsAPIService CalculateDocument", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DocumentsAPI.RenderDocumentApiV1DocumentsRenderPost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DocumentsAPI.CalculateDocument(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +48,229 @@ func Test_invoicepdfs_DocumentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DocumentsAPIService ValidateDocumentApiV1DocumentsValidatePost", func(t *testing.T) {
+	t.Run("Test DocumentsAPIService CreateDocument", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DocumentsAPI.ValidateDocumentApiV1DocumentsValidatePost(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DocumentsAPI.CreateDocument(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService CreateDocumentRender", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.CreateDocumentRender(context.Background(), documentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService DeleteDocument", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.DeleteDocument(context.Background(), documentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService DuplicateDocument", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.DuplicateDocument(context.Background(), documentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService FinalizeDocument", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.FinalizeDocument(context.Background(), documentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService GetDocument", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.GetDocument(context.Background(), documentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService ListDocumentDeliveries", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.ListDocumentDeliveries(context.Background(), documentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService ListDocuments", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DocumentsAPI.ListDocuments(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService MarkPaid", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.MarkPaid(context.Background(), documentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService MarkSent", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.MarkSent(context.Background(), documentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService MarkUnpaid", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.MarkUnpaid(context.Background(), documentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService RenderDocument", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DocumentsAPI.RenderDocument(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService RestoreDocument", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.RestoreDocument(context.Background(), documentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService SendDocument", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.SendDocument(context.Background(), documentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService UpdateDocument", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.UpdateDocument(context.Background(), documentId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService ValidateDocument", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DocumentsAPI.ValidateDocument(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DocumentsAPIService VoidDocument", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var documentId string
+
+		resp, httpRes, err := apiClient.DocumentsAPI.VoidDocument(context.Background(), documentId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

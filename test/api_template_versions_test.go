@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/invoicepdfs"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
 )
 
 func Test_invoicepdfs_TemplateVersionsAPIService(t *testing.T) {
@@ -22,13 +22,13 @@ func Test_invoicepdfs_TemplateVersionsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TemplateVersionsAPIService CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost", func(t *testing.T) {
+	t.Run("Test TemplateVersionsAPIService CreateTemplateVersion", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var templateId string
 
-		resp, httpRes, err := apiClient.TemplateVersionsAPI.CreateTemplateVersionApiV1TemplatesTemplateIdVersionsPost(context.Background(), templateId).Execute()
+		resp, httpRes, err := apiClient.TemplateVersionsAPI.CreateTemplateVersion(context.Background(), templateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,14 +36,14 @@ func Test_invoicepdfs_TemplateVersionsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TemplateVersionsAPIService GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet", func(t *testing.T) {
+	t.Run("Test TemplateVersionsAPIService GetTemplateVersion", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var templateId string
 		var version int32
 
-		resp, httpRes, err := apiClient.TemplateVersionsAPI.GetTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet(context.Background(), templateId, version).Execute()
+		resp, httpRes, err := apiClient.TemplateVersionsAPI.GetTemplateVersion(context.Background(), templateId, version).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -51,13 +51,13 @@ func Test_invoicepdfs_TemplateVersionsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TemplateVersionsAPIService ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet", func(t *testing.T) {
+	t.Run("Test TemplateVersionsAPIService ListTemplateVersions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var templateId string
 
-		resp, httpRes, err := apiClient.TemplateVersionsAPI.ListTemplateVersionsApiV1TemplatesTemplateIdVersionsGet(context.Background(), templateId).Execute()
+		resp, httpRes, err := apiClient.TemplateVersionsAPI.ListTemplateVersions(context.Background(), templateId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
