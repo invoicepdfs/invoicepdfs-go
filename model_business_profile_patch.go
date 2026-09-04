@@ -19,7 +19,7 @@ var _ MappedNullable = &BusinessProfilePatch{}
 
 // BusinessProfilePatch struct for BusinessProfilePatch
 type BusinessProfilePatch struct {
-	LegalName NullableString `json:"legal_name,omitempty"`
+	LegalName *string `json:"legal_name,omitempty"`
 	DisplayName NullableString `json:"display_name,omitempty"`
 	Email NullableString `json:"email,omitempty"`
 	Phone NullableString `json:"phone,omitempty"`
@@ -49,46 +49,36 @@ func NewBusinessProfilePatchWithDefaults() *BusinessProfilePatch {
 	return &this
 }
 
-// GetLegalName returns the LegalName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLegalName returns the LegalName field value if set, zero value otherwise.
 func (o *BusinessProfilePatch) GetLegalName() string {
-	if o == nil || IsNil(o.LegalName.Get()) {
+	if o == nil || IsNil(o.LegalName) {
 		var ret string
 		return ret
 	}
-	return *o.LegalName.Get()
+	return *o.LegalName
 }
 
 // GetLegalNameOk returns a tuple with the LegalName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BusinessProfilePatch) GetLegalNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LegalName) {
 		return nil, false
 	}
-	return o.LegalName.Get(), o.LegalName.IsSet()
+	return o.LegalName, true
 }
 
 // HasLegalName returns a boolean if a field has been set.
 func (o *BusinessProfilePatch) HasLegalName() bool {
-	if o != nil && o.LegalName.IsSet() {
+	if o != nil && !IsNil(o.LegalName) {
 		return true
 	}
 
 	return false
 }
 
-// SetLegalName gets a reference to the given NullableString and assigns it to the LegalName field.
+// SetLegalName gets a reference to the given string and assigns it to the LegalName field.
 func (o *BusinessProfilePatch) SetLegalName(v string) {
-	o.LegalName.Set(&v)
-}
-// SetLegalNameNil sets the value for LegalName to be an explicit nil
-func (o *BusinessProfilePatch) SetLegalNameNil() {
-	o.LegalName.Set(nil)
-}
-
-// UnsetLegalName ensures that no value is present for LegalName, not even an explicit nil
-func (o *BusinessProfilePatch) UnsetLegalName() {
-	o.LegalName.Unset()
+	o.LegalName = &v
 }
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -521,8 +511,8 @@ func (o BusinessProfilePatch) MarshalJSON() ([]byte, error) {
 
 func (o BusinessProfilePatch) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.LegalName.IsSet() {
-		toSerialize["legal_name"] = o.LegalName.Get()
+	if !IsNil(o.LegalName) {
+		toSerialize["legal_name"] = o.LegalName
 	}
 	if o.DisplayName.IsSet() {
 		toSerialize["display_name"] = o.DisplayName.Get()

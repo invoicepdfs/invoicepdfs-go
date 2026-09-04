@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Role** | Pointer to **NullableString** |  | [optional] 
+**Role** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -50,16 +50,6 @@ SetRole sets Role field to given value.
 
 HasRole returns a boolean if a field has been set.
 
-### SetRoleNil
-
-`func (o *WorkspaceMemberPatchRequest) SetRoleNil(b bool)`
-
- SetRoleNil sets the value for Role to be an explicit nil
-
-### UnsetRole
-`func (o *WorkspaceMemberPatchRequest) UnsetRole()`
-
-UnsetRole ensures that no value is present for Role, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -19,11 +19,11 @@ var _ MappedNullable = &TaxRatePatchRequest{}
 
 // TaxRatePatchRequest struct for TaxRatePatchRequest
 type TaxRatePatchRequest struct {
-	Name NullableString `json:"name,omitempty"`
-	Rate NullableString `json:"rate,omitempty"`
-	Inclusive NullableBool `json:"inclusive,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Rate *string `json:"rate,omitempty"`
+	Inclusive *bool `json:"inclusive,omitempty"`
 	Jurisdiction NullableString `json:"jurisdiction,omitempty"`
-	IsActive NullableBool `json:"is_active,omitempty"`
+	IsActive *bool `json:"is_active,omitempty"`
 }
 
 // NewTaxRatePatchRequest instantiates a new TaxRatePatchRequest object
@@ -43,130 +43,100 @@ func NewTaxRatePatchRequestWithDefaults() *TaxRatePatchRequest {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *TaxRatePatchRequest) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaxRatePatchRequest) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *TaxRatePatchRequest) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *TaxRatePatchRequest) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *TaxRatePatchRequest) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *TaxRatePatchRequest) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetRate returns the Rate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRate returns the Rate field value if set, zero value otherwise.
 func (o *TaxRatePatchRequest) GetRate() string {
-	if o == nil || IsNil(o.Rate.Get()) {
+	if o == nil || IsNil(o.Rate) {
 		var ret string
 		return ret
 	}
-	return *o.Rate.Get()
+	return *o.Rate
 }
 
 // GetRateOk returns a tuple with the Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaxRatePatchRequest) GetRateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Rate) {
 		return nil, false
 	}
-	return o.Rate.Get(), o.Rate.IsSet()
+	return o.Rate, true
 }
 
 // HasRate returns a boolean if a field has been set.
 func (o *TaxRatePatchRequest) HasRate() bool {
-	if o != nil && o.Rate.IsSet() {
+	if o != nil && !IsNil(o.Rate) {
 		return true
 	}
 
 	return false
 }
 
-// SetRate gets a reference to the given NullableString and assigns it to the Rate field.
+// SetRate gets a reference to the given string and assigns it to the Rate field.
 func (o *TaxRatePatchRequest) SetRate(v string) {
-	o.Rate.Set(&v)
-}
-// SetRateNil sets the value for Rate to be an explicit nil
-func (o *TaxRatePatchRequest) SetRateNil() {
-	o.Rate.Set(nil)
+	o.Rate = &v
 }
 
-// UnsetRate ensures that no value is present for Rate, not even an explicit nil
-func (o *TaxRatePatchRequest) UnsetRate() {
-	o.Rate.Unset()
-}
-
-// GetInclusive returns the Inclusive field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInclusive returns the Inclusive field value if set, zero value otherwise.
 func (o *TaxRatePatchRequest) GetInclusive() bool {
-	if o == nil || IsNil(o.Inclusive.Get()) {
+	if o == nil || IsNil(o.Inclusive) {
 		var ret bool
 		return ret
 	}
-	return *o.Inclusive.Get()
+	return *o.Inclusive
 }
 
 // GetInclusiveOk returns a tuple with the Inclusive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaxRatePatchRequest) GetInclusiveOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Inclusive) {
 		return nil, false
 	}
-	return o.Inclusive.Get(), o.Inclusive.IsSet()
+	return o.Inclusive, true
 }
 
 // HasInclusive returns a boolean if a field has been set.
 func (o *TaxRatePatchRequest) HasInclusive() bool {
-	if o != nil && o.Inclusive.IsSet() {
+	if o != nil && !IsNil(o.Inclusive) {
 		return true
 	}
 
 	return false
 }
 
-// SetInclusive gets a reference to the given NullableBool and assigns it to the Inclusive field.
+// SetInclusive gets a reference to the given bool and assigns it to the Inclusive field.
 func (o *TaxRatePatchRequest) SetInclusive(v bool) {
-	o.Inclusive.Set(&v)
-}
-// SetInclusiveNil sets the value for Inclusive to be an explicit nil
-func (o *TaxRatePatchRequest) SetInclusiveNil() {
-	o.Inclusive.Set(nil)
-}
-
-// UnsetInclusive ensures that no value is present for Inclusive, not even an explicit nil
-func (o *TaxRatePatchRequest) UnsetInclusive() {
-	o.Inclusive.Unset()
+	o.Inclusive = &v
 }
 
 // GetJurisdiction returns the Jurisdiction field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -211,46 +181,36 @@ func (o *TaxRatePatchRequest) UnsetJurisdiction() {
 	o.Jurisdiction.Unset()
 }
 
-// GetIsActive returns the IsActive field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIsActive returns the IsActive field value if set, zero value otherwise.
 func (o *TaxRatePatchRequest) GetIsActive() bool {
-	if o == nil || IsNil(o.IsActive.Get()) {
+	if o == nil || IsNil(o.IsActive) {
 		var ret bool
 		return ret
 	}
-	return *o.IsActive.Get()
+	return *o.IsActive
 }
 
 // GetIsActiveOk returns a tuple with the IsActive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaxRatePatchRequest) GetIsActiveOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsActive) {
 		return nil, false
 	}
-	return o.IsActive.Get(), o.IsActive.IsSet()
+	return o.IsActive, true
 }
 
 // HasIsActive returns a boolean if a field has been set.
 func (o *TaxRatePatchRequest) HasIsActive() bool {
-	if o != nil && o.IsActive.IsSet() {
+	if o != nil && !IsNil(o.IsActive) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsActive gets a reference to the given NullableBool and assigns it to the IsActive field.
+// SetIsActive gets a reference to the given bool and assigns it to the IsActive field.
 func (o *TaxRatePatchRequest) SetIsActive(v bool) {
-	o.IsActive.Set(&v)
-}
-// SetIsActiveNil sets the value for IsActive to be an explicit nil
-func (o *TaxRatePatchRequest) SetIsActiveNil() {
-	o.IsActive.Set(nil)
-}
-
-// UnsetIsActive ensures that no value is present for IsActive, not even an explicit nil
-func (o *TaxRatePatchRequest) UnsetIsActive() {
-	o.IsActive.Unset()
+	o.IsActive = &v
 }
 
 func (o TaxRatePatchRequest) MarshalJSON() ([]byte, error) {
@@ -263,20 +223,20 @@ func (o TaxRatePatchRequest) MarshalJSON() ([]byte, error) {
 
 func (o TaxRatePatchRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Rate.IsSet() {
-		toSerialize["rate"] = o.Rate.Get()
+	if !IsNil(o.Rate) {
+		toSerialize["rate"] = o.Rate
 	}
-	if o.Inclusive.IsSet() {
-		toSerialize["inclusive"] = o.Inclusive.Get()
+	if !IsNil(o.Inclusive) {
+		toSerialize["inclusive"] = o.Inclusive
 	}
 	if o.Jurisdiction.IsSet() {
 		toSerialize["jurisdiction"] = o.Jurisdiction.Get()
 	}
-	if o.IsActive.IsSet() {
-		toSerialize["is_active"] = o.IsActive.Get()
+	if !IsNil(o.IsActive) {
+		toSerialize["is_active"] = o.IsActive
 	}
 	return toSerialize, nil
 }

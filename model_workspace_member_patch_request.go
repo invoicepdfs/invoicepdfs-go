@@ -19,7 +19,7 @@ var _ MappedNullable = &WorkspaceMemberPatchRequest{}
 
 // WorkspaceMemberPatchRequest struct for WorkspaceMemberPatchRequest
 type WorkspaceMemberPatchRequest struct {
-	Role NullableString `json:"role,omitempty"`
+	Role *string `json:"role,omitempty"`
 }
 
 // NewWorkspaceMemberPatchRequest instantiates a new WorkspaceMemberPatchRequest object
@@ -39,46 +39,36 @@ func NewWorkspaceMemberPatchRequestWithDefaults() *WorkspaceMemberPatchRequest {
 	return &this
 }
 
-// GetRole returns the Role field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRole returns the Role field value if set, zero value otherwise.
 func (o *WorkspaceMemberPatchRequest) GetRole() string {
-	if o == nil || IsNil(o.Role.Get()) {
+	if o == nil || IsNil(o.Role) {
 		var ret string
 		return ret
 	}
-	return *o.Role.Get()
+	return *o.Role
 }
 
 // GetRoleOk returns a tuple with the Role field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkspaceMemberPatchRequest) GetRoleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Role) {
 		return nil, false
 	}
-	return o.Role.Get(), o.Role.IsSet()
+	return o.Role, true
 }
 
 // HasRole returns a boolean if a field has been set.
 func (o *WorkspaceMemberPatchRequest) HasRole() bool {
-	if o != nil && o.Role.IsSet() {
+	if o != nil && !IsNil(o.Role) {
 		return true
 	}
 
 	return false
 }
 
-// SetRole gets a reference to the given NullableString and assigns it to the Role field.
+// SetRole gets a reference to the given string and assigns it to the Role field.
 func (o *WorkspaceMemberPatchRequest) SetRole(v string) {
-	o.Role.Set(&v)
-}
-// SetRoleNil sets the value for Role to be an explicit nil
-func (o *WorkspaceMemberPatchRequest) SetRoleNil() {
-	o.Role.Set(nil)
-}
-
-// UnsetRole ensures that no value is present for Role, not even an explicit nil
-func (o *WorkspaceMemberPatchRequest) UnsetRole() {
-	o.Role.Unset()
+	o.Role = &v
 }
 
 func (o WorkspaceMemberPatchRequest) MarshalJSON() ([]byte, error) {
@@ -91,8 +81,8 @@ func (o WorkspaceMemberPatchRequest) MarshalJSON() ([]byte, error) {
 
 func (o WorkspaceMemberPatchRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Role.IsSet() {
-		toSerialize["role"] = o.Role.Get()
+	if !IsNil(o.Role) {
+		toSerialize["role"] = o.Role
 	}
 	return toSerialize, nil
 }

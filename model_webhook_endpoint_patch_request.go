@@ -19,10 +19,10 @@ var _ MappedNullable = &WebhookEndpointPatchRequest{}
 
 // WebhookEndpointPatchRequest struct for WebhookEndpointPatchRequest
 type WebhookEndpointPatchRequest struct {
-	Url NullableString `json:"url,omitempty"`
+	Url *string `json:"url,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 	Events []string `json:"events,omitempty"`
-	IsActive NullableBool `json:"is_active,omitempty"`
+	IsActive *bool `json:"is_active,omitempty"`
 }
 
 // NewWebhookEndpointPatchRequest instantiates a new WebhookEndpointPatchRequest object
@@ -42,46 +42,36 @@ func NewWebhookEndpointPatchRequestWithDefaults() *WebhookEndpointPatchRequest {
 	return &this
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUrl returns the Url field value if set, zero value otherwise.
 func (o *WebhookEndpointPatchRequest) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
-	return *o.Url.Get()
+	return *o.Url
 }
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookEndpointPatchRequest) GetUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Url) {
 		return nil, false
 	}
-	return o.Url.Get(), o.Url.IsSet()
+	return o.Url, true
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *WebhookEndpointPatchRequest) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
+	if o != nil && !IsNil(o.Url) {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
+// SetUrl gets a reference to the given string and assigns it to the Url field.
 func (o *WebhookEndpointPatchRequest) SetUrl(v string) {
-	o.Url.Set(&v)
-}
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *WebhookEndpointPatchRequest) SetUrlNil() {
-	o.Url.Set(nil)
-}
-
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *WebhookEndpointPatchRequest) UnsetUrl() {
-	o.Url.Unset()
+	o.Url = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -126,9 +116,9 @@ func (o *WebhookEndpointPatchRequest) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetEvents returns the Events field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEvents returns the Events field value if set, zero value otherwise.
 func (o *WebhookEndpointPatchRequest) GetEvents() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Events) {
 		var ret []string
 		return ret
 	}
@@ -137,7 +127,6 @@ func (o *WebhookEndpointPatchRequest) GetEvents() []string {
 
 // GetEventsOk returns a tuple with the Events field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookEndpointPatchRequest) GetEventsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Events) {
 		return nil, false
@@ -159,46 +148,36 @@ func (o *WebhookEndpointPatchRequest) SetEvents(v []string) {
 	o.Events = v
 }
 
-// GetIsActive returns the IsActive field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIsActive returns the IsActive field value if set, zero value otherwise.
 func (o *WebhookEndpointPatchRequest) GetIsActive() bool {
-	if o == nil || IsNil(o.IsActive.Get()) {
+	if o == nil || IsNil(o.IsActive) {
 		var ret bool
 		return ret
 	}
-	return *o.IsActive.Get()
+	return *o.IsActive
 }
 
 // GetIsActiveOk returns a tuple with the IsActive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebhookEndpointPatchRequest) GetIsActiveOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsActive) {
 		return nil, false
 	}
-	return o.IsActive.Get(), o.IsActive.IsSet()
+	return o.IsActive, true
 }
 
 // HasIsActive returns a boolean if a field has been set.
 func (o *WebhookEndpointPatchRequest) HasIsActive() bool {
-	if o != nil && o.IsActive.IsSet() {
+	if o != nil && !IsNil(o.IsActive) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsActive gets a reference to the given NullableBool and assigns it to the IsActive field.
+// SetIsActive gets a reference to the given bool and assigns it to the IsActive field.
 func (o *WebhookEndpointPatchRequest) SetIsActive(v bool) {
-	o.IsActive.Set(&v)
-}
-// SetIsActiveNil sets the value for IsActive to be an explicit nil
-func (o *WebhookEndpointPatchRequest) SetIsActiveNil() {
-	o.IsActive.Set(nil)
-}
-
-// UnsetIsActive ensures that no value is present for IsActive, not even an explicit nil
-func (o *WebhookEndpointPatchRequest) UnsetIsActive() {
-	o.IsActive.Unset()
+	o.IsActive = &v
 }
 
 func (o WebhookEndpointPatchRequest) MarshalJSON() ([]byte, error) {
@@ -211,17 +190,17 @@ func (o WebhookEndpointPatchRequest) MarshalJSON() ([]byte, error) {
 
 func (o WebhookEndpointPatchRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.Events != nil {
+	if !IsNil(o.Events) {
 		toSerialize["events"] = o.Events
 	}
-	if o.IsActive.IsSet() {
-		toSerialize["is_active"] = o.IsActive.Get()
+	if !IsNil(o.IsActive) {
+		toSerialize["is_active"] = o.IsActive
 	}
 	return toSerialize, nil
 }

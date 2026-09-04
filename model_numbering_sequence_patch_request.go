@@ -19,12 +19,12 @@ var _ MappedNullable = &NumberingSequencePatchRequest{}
 
 // NumberingSequencePatchRequest struct for NumberingSequencePatchRequest
 type NumberingSequencePatchRequest struct {
-	Name NullableString `json:"name,omitempty"`
-	Prefix NullableString `json:"prefix,omitempty"`
-	DatePattern NullableString `json:"date_pattern,omitempty"`
-	Padding NullableInt32 `json:"padding,omitempty"`
-	NextNumber NullableInt32 `json:"next_number,omitempty"`
-	Reset NullableString `json:"reset,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Prefix *string `json:"prefix,omitempty"`
+	DatePattern *string `json:"date_pattern,omitempty"`
+	Padding *int32 `json:"padding,omitempty"`
+	NextNumber *int32 `json:"next_number,omitempty"`
+	Reset *string `json:"reset,omitempty"`
 }
 
 // NewNumberingSequencePatchRequest instantiates a new NumberingSequencePatchRequest object
@@ -44,256 +44,196 @@ func NewNumberingSequencePatchRequestWithDefaults() *NumberingSequencePatchReque
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *NumberingSequencePatchRequest) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NumberingSequencePatchRequest) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *NumberingSequencePatchRequest) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *NumberingSequencePatchRequest) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *NumberingSequencePatchRequest) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *NumberingSequencePatchRequest) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetPrefix returns the Prefix field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPrefix returns the Prefix field value if set, zero value otherwise.
 func (o *NumberingSequencePatchRequest) GetPrefix() string {
-	if o == nil || IsNil(o.Prefix.Get()) {
+	if o == nil || IsNil(o.Prefix) {
 		var ret string
 		return ret
 	}
-	return *o.Prefix.Get()
+	return *o.Prefix
 }
 
 // GetPrefixOk returns a tuple with the Prefix field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NumberingSequencePatchRequest) GetPrefixOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Prefix) {
 		return nil, false
 	}
-	return o.Prefix.Get(), o.Prefix.IsSet()
+	return o.Prefix, true
 }
 
 // HasPrefix returns a boolean if a field has been set.
 func (o *NumberingSequencePatchRequest) HasPrefix() bool {
-	if o != nil && o.Prefix.IsSet() {
+	if o != nil && !IsNil(o.Prefix) {
 		return true
 	}
 
 	return false
 }
 
-// SetPrefix gets a reference to the given NullableString and assigns it to the Prefix field.
+// SetPrefix gets a reference to the given string and assigns it to the Prefix field.
 func (o *NumberingSequencePatchRequest) SetPrefix(v string) {
-	o.Prefix.Set(&v)
-}
-// SetPrefixNil sets the value for Prefix to be an explicit nil
-func (o *NumberingSequencePatchRequest) SetPrefixNil() {
-	o.Prefix.Set(nil)
+	o.Prefix = &v
 }
 
-// UnsetPrefix ensures that no value is present for Prefix, not even an explicit nil
-func (o *NumberingSequencePatchRequest) UnsetPrefix() {
-	o.Prefix.Unset()
-}
-
-// GetDatePattern returns the DatePattern field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDatePattern returns the DatePattern field value if set, zero value otherwise.
 func (o *NumberingSequencePatchRequest) GetDatePattern() string {
-	if o == nil || IsNil(o.DatePattern.Get()) {
+	if o == nil || IsNil(o.DatePattern) {
 		var ret string
 		return ret
 	}
-	return *o.DatePattern.Get()
+	return *o.DatePattern
 }
 
 // GetDatePatternOk returns a tuple with the DatePattern field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NumberingSequencePatchRequest) GetDatePatternOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DatePattern) {
 		return nil, false
 	}
-	return o.DatePattern.Get(), o.DatePattern.IsSet()
+	return o.DatePattern, true
 }
 
 // HasDatePattern returns a boolean if a field has been set.
 func (o *NumberingSequencePatchRequest) HasDatePattern() bool {
-	if o != nil && o.DatePattern.IsSet() {
+	if o != nil && !IsNil(o.DatePattern) {
 		return true
 	}
 
 	return false
 }
 
-// SetDatePattern gets a reference to the given NullableString and assigns it to the DatePattern field.
+// SetDatePattern gets a reference to the given string and assigns it to the DatePattern field.
 func (o *NumberingSequencePatchRequest) SetDatePattern(v string) {
-	o.DatePattern.Set(&v)
-}
-// SetDatePatternNil sets the value for DatePattern to be an explicit nil
-func (o *NumberingSequencePatchRequest) SetDatePatternNil() {
-	o.DatePattern.Set(nil)
+	o.DatePattern = &v
 }
 
-// UnsetDatePattern ensures that no value is present for DatePattern, not even an explicit nil
-func (o *NumberingSequencePatchRequest) UnsetDatePattern() {
-	o.DatePattern.Unset()
-}
-
-// GetPadding returns the Padding field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPadding returns the Padding field value if set, zero value otherwise.
 func (o *NumberingSequencePatchRequest) GetPadding() int32 {
-	if o == nil || IsNil(o.Padding.Get()) {
+	if o == nil || IsNil(o.Padding) {
 		var ret int32
 		return ret
 	}
-	return *o.Padding.Get()
+	return *o.Padding
 }
 
 // GetPaddingOk returns a tuple with the Padding field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NumberingSequencePatchRequest) GetPaddingOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Padding) {
 		return nil, false
 	}
-	return o.Padding.Get(), o.Padding.IsSet()
+	return o.Padding, true
 }
 
 // HasPadding returns a boolean if a field has been set.
 func (o *NumberingSequencePatchRequest) HasPadding() bool {
-	if o != nil && o.Padding.IsSet() {
+	if o != nil && !IsNil(o.Padding) {
 		return true
 	}
 
 	return false
 }
 
-// SetPadding gets a reference to the given NullableInt32 and assigns it to the Padding field.
+// SetPadding gets a reference to the given int32 and assigns it to the Padding field.
 func (o *NumberingSequencePatchRequest) SetPadding(v int32) {
-	o.Padding.Set(&v)
-}
-// SetPaddingNil sets the value for Padding to be an explicit nil
-func (o *NumberingSequencePatchRequest) SetPaddingNil() {
-	o.Padding.Set(nil)
+	o.Padding = &v
 }
 
-// UnsetPadding ensures that no value is present for Padding, not even an explicit nil
-func (o *NumberingSequencePatchRequest) UnsetPadding() {
-	o.Padding.Unset()
-}
-
-// GetNextNumber returns the NextNumber field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNextNumber returns the NextNumber field value if set, zero value otherwise.
 func (o *NumberingSequencePatchRequest) GetNextNumber() int32 {
-	if o == nil || IsNil(o.NextNumber.Get()) {
+	if o == nil || IsNil(o.NextNumber) {
 		var ret int32
 		return ret
 	}
-	return *o.NextNumber.Get()
+	return *o.NextNumber
 }
 
 // GetNextNumberOk returns a tuple with the NextNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NumberingSequencePatchRequest) GetNextNumberOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NextNumber) {
 		return nil, false
 	}
-	return o.NextNumber.Get(), o.NextNumber.IsSet()
+	return o.NextNumber, true
 }
 
 // HasNextNumber returns a boolean if a field has been set.
 func (o *NumberingSequencePatchRequest) HasNextNumber() bool {
-	if o != nil && o.NextNumber.IsSet() {
+	if o != nil && !IsNil(o.NextNumber) {
 		return true
 	}
 
 	return false
 }
 
-// SetNextNumber gets a reference to the given NullableInt32 and assigns it to the NextNumber field.
+// SetNextNumber gets a reference to the given int32 and assigns it to the NextNumber field.
 func (o *NumberingSequencePatchRequest) SetNextNumber(v int32) {
-	o.NextNumber.Set(&v)
-}
-// SetNextNumberNil sets the value for NextNumber to be an explicit nil
-func (o *NumberingSequencePatchRequest) SetNextNumberNil() {
-	o.NextNumber.Set(nil)
+	o.NextNumber = &v
 }
 
-// UnsetNextNumber ensures that no value is present for NextNumber, not even an explicit nil
-func (o *NumberingSequencePatchRequest) UnsetNextNumber() {
-	o.NextNumber.Unset()
-}
-
-// GetReset returns the Reset field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetReset returns the Reset field value if set, zero value otherwise.
 func (o *NumberingSequencePatchRequest) GetReset() string {
-	if o == nil || IsNil(o.Reset.Get()) {
+	if o == nil || IsNil(o.Reset) {
 		var ret string
 		return ret
 	}
-	return *o.Reset.Get()
+	return *o.Reset
 }
 
 // GetResetOk returns a tuple with the Reset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NumberingSequencePatchRequest) GetResetOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Reset) {
 		return nil, false
 	}
-	return o.Reset.Get(), o.Reset.IsSet()
+	return o.Reset, true
 }
 
 // HasReset returns a boolean if a field has been set.
 func (o *NumberingSequencePatchRequest) HasReset() bool {
-	if o != nil && o.Reset.IsSet() {
+	if o != nil && !IsNil(o.Reset) {
 		return true
 	}
 
 	return false
 }
 
-// SetReset gets a reference to the given NullableString and assigns it to the Reset field.
+// SetReset gets a reference to the given string and assigns it to the Reset field.
 func (o *NumberingSequencePatchRequest) SetReset(v string) {
-	o.Reset.Set(&v)
-}
-// SetResetNil sets the value for Reset to be an explicit nil
-func (o *NumberingSequencePatchRequest) SetResetNil() {
-	o.Reset.Set(nil)
-}
-
-// UnsetReset ensures that no value is present for Reset, not even an explicit nil
-func (o *NumberingSequencePatchRequest) UnsetReset() {
-	o.Reset.Unset()
+	o.Reset = &v
 }
 
 func (o NumberingSequencePatchRequest) MarshalJSON() ([]byte, error) {
@@ -306,23 +246,23 @@ func (o NumberingSequencePatchRequest) MarshalJSON() ([]byte, error) {
 
 func (o NumberingSequencePatchRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Prefix.IsSet() {
-		toSerialize["prefix"] = o.Prefix.Get()
+	if !IsNil(o.Prefix) {
+		toSerialize["prefix"] = o.Prefix
 	}
-	if o.DatePattern.IsSet() {
-		toSerialize["date_pattern"] = o.DatePattern.Get()
+	if !IsNil(o.DatePattern) {
+		toSerialize["date_pattern"] = o.DatePattern
 	}
-	if o.Padding.IsSet() {
-		toSerialize["padding"] = o.Padding.Get()
+	if !IsNil(o.Padding) {
+		toSerialize["padding"] = o.Padding
 	}
-	if o.NextNumber.IsSet() {
-		toSerialize["next_number"] = o.NextNumber.Get()
+	if !IsNil(o.NextNumber) {
+		toSerialize["next_number"] = o.NextNumber
 	}
-	if o.Reset.IsSet() {
-		toSerialize["reset"] = o.Reset.Get()
+	if !IsNil(o.Reset) {
+		toSerialize["reset"] = o.Reset
 	}
 	return toSerialize, nil
 }

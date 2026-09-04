@@ -19,14 +19,14 @@ var _ MappedNullable = &BrandingProfilePatchRequest{}
 
 // BrandingProfilePatchRequest struct for BrandingProfilePatchRequest
 type BrandingProfilePatchRequest struct {
-	Name NullableString `json:"name,omitempty"`
-	PrimaryColor NullableString `json:"primary_color,omitempty"`
-	AccentColor NullableString `json:"accent_color,omitempty"`
+	Name *string `json:"name,omitempty"`
+	PrimaryColor *string `json:"primary_color,omitempty"`
+	AccentColor *string `json:"accent_color,omitempty"`
 	FontFamily NullableString `json:"font_family,omitempty"`
 	HeaderText NullableString `json:"header_text,omitempty"`
-	FooterText NullableString `json:"footer_text,omitempty"`
-	HideInvoicepdfsBranding NullableBool `json:"hide_invoicepdfs_branding,omitempty"`
-	IsDefault NullableBool `json:"is_default,omitempty"`
+	FooterText *string `json:"footer_text,omitempty"`
+	HideInvoicepdfsBranding *bool `json:"hide_invoicepdfs_branding,omitempty"`
+	IsDefault *bool `json:"is_default,omitempty"`
 }
 
 // NewBrandingProfilePatchRequest instantiates a new BrandingProfilePatchRequest object
@@ -46,130 +46,100 @@ func NewBrandingProfilePatchRequestWithDefaults() *BrandingProfilePatchRequest {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *BrandingProfilePatchRequest) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BrandingProfilePatchRequest) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *BrandingProfilePatchRequest) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *BrandingProfilePatchRequest) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *BrandingProfilePatchRequest) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *BrandingProfilePatchRequest) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetPrimaryColor returns the PrimaryColor field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPrimaryColor returns the PrimaryColor field value if set, zero value otherwise.
 func (o *BrandingProfilePatchRequest) GetPrimaryColor() string {
-	if o == nil || IsNil(o.PrimaryColor.Get()) {
+	if o == nil || IsNil(o.PrimaryColor) {
 		var ret string
 		return ret
 	}
-	return *o.PrimaryColor.Get()
+	return *o.PrimaryColor
 }
 
 // GetPrimaryColorOk returns a tuple with the PrimaryColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BrandingProfilePatchRequest) GetPrimaryColorOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PrimaryColor) {
 		return nil, false
 	}
-	return o.PrimaryColor.Get(), o.PrimaryColor.IsSet()
+	return o.PrimaryColor, true
 }
 
 // HasPrimaryColor returns a boolean if a field has been set.
 func (o *BrandingProfilePatchRequest) HasPrimaryColor() bool {
-	if o != nil && o.PrimaryColor.IsSet() {
+	if o != nil && !IsNil(o.PrimaryColor) {
 		return true
 	}
 
 	return false
 }
 
-// SetPrimaryColor gets a reference to the given NullableString and assigns it to the PrimaryColor field.
+// SetPrimaryColor gets a reference to the given string and assigns it to the PrimaryColor field.
 func (o *BrandingProfilePatchRequest) SetPrimaryColor(v string) {
-	o.PrimaryColor.Set(&v)
-}
-// SetPrimaryColorNil sets the value for PrimaryColor to be an explicit nil
-func (o *BrandingProfilePatchRequest) SetPrimaryColorNil() {
-	o.PrimaryColor.Set(nil)
+	o.PrimaryColor = &v
 }
 
-// UnsetPrimaryColor ensures that no value is present for PrimaryColor, not even an explicit nil
-func (o *BrandingProfilePatchRequest) UnsetPrimaryColor() {
-	o.PrimaryColor.Unset()
-}
-
-// GetAccentColor returns the AccentColor field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAccentColor returns the AccentColor field value if set, zero value otherwise.
 func (o *BrandingProfilePatchRequest) GetAccentColor() string {
-	if o == nil || IsNil(o.AccentColor.Get()) {
+	if o == nil || IsNil(o.AccentColor) {
 		var ret string
 		return ret
 	}
-	return *o.AccentColor.Get()
+	return *o.AccentColor
 }
 
 // GetAccentColorOk returns a tuple with the AccentColor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BrandingProfilePatchRequest) GetAccentColorOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AccentColor) {
 		return nil, false
 	}
-	return o.AccentColor.Get(), o.AccentColor.IsSet()
+	return o.AccentColor, true
 }
 
 // HasAccentColor returns a boolean if a field has been set.
 func (o *BrandingProfilePatchRequest) HasAccentColor() bool {
-	if o != nil && o.AccentColor.IsSet() {
+	if o != nil && !IsNil(o.AccentColor) {
 		return true
 	}
 
 	return false
 }
 
-// SetAccentColor gets a reference to the given NullableString and assigns it to the AccentColor field.
+// SetAccentColor gets a reference to the given string and assigns it to the AccentColor field.
 func (o *BrandingProfilePatchRequest) SetAccentColor(v string) {
-	o.AccentColor.Set(&v)
-}
-// SetAccentColorNil sets the value for AccentColor to be an explicit nil
-func (o *BrandingProfilePatchRequest) SetAccentColorNil() {
-	o.AccentColor.Set(nil)
-}
-
-// UnsetAccentColor ensures that no value is present for AccentColor, not even an explicit nil
-func (o *BrandingProfilePatchRequest) UnsetAccentColor() {
-	o.AccentColor.Unset()
+	o.AccentColor = &v
 }
 
 // GetFontFamily returns the FontFamily field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -256,130 +226,100 @@ func (o *BrandingProfilePatchRequest) UnsetHeaderText() {
 	o.HeaderText.Unset()
 }
 
-// GetFooterText returns the FooterText field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFooterText returns the FooterText field value if set, zero value otherwise.
 func (o *BrandingProfilePatchRequest) GetFooterText() string {
-	if o == nil || IsNil(o.FooterText.Get()) {
+	if o == nil || IsNil(o.FooterText) {
 		var ret string
 		return ret
 	}
-	return *o.FooterText.Get()
+	return *o.FooterText
 }
 
 // GetFooterTextOk returns a tuple with the FooterText field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BrandingProfilePatchRequest) GetFooterTextOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FooterText) {
 		return nil, false
 	}
-	return o.FooterText.Get(), o.FooterText.IsSet()
+	return o.FooterText, true
 }
 
 // HasFooterText returns a boolean if a field has been set.
 func (o *BrandingProfilePatchRequest) HasFooterText() bool {
-	if o != nil && o.FooterText.IsSet() {
+	if o != nil && !IsNil(o.FooterText) {
 		return true
 	}
 
 	return false
 }
 
-// SetFooterText gets a reference to the given NullableString and assigns it to the FooterText field.
+// SetFooterText gets a reference to the given string and assigns it to the FooterText field.
 func (o *BrandingProfilePatchRequest) SetFooterText(v string) {
-	o.FooterText.Set(&v)
-}
-// SetFooterTextNil sets the value for FooterText to be an explicit nil
-func (o *BrandingProfilePatchRequest) SetFooterTextNil() {
-	o.FooterText.Set(nil)
+	o.FooterText = &v
 }
 
-// UnsetFooterText ensures that no value is present for FooterText, not even an explicit nil
-func (o *BrandingProfilePatchRequest) UnsetFooterText() {
-	o.FooterText.Unset()
-}
-
-// GetHideInvoicepdfsBranding returns the HideInvoicepdfsBranding field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHideInvoicepdfsBranding returns the HideInvoicepdfsBranding field value if set, zero value otherwise.
 func (o *BrandingProfilePatchRequest) GetHideInvoicepdfsBranding() bool {
-	if o == nil || IsNil(o.HideInvoicepdfsBranding.Get()) {
+	if o == nil || IsNil(o.HideInvoicepdfsBranding) {
 		var ret bool
 		return ret
 	}
-	return *o.HideInvoicepdfsBranding.Get()
+	return *o.HideInvoicepdfsBranding
 }
 
 // GetHideInvoicepdfsBrandingOk returns a tuple with the HideInvoicepdfsBranding field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BrandingProfilePatchRequest) GetHideInvoicepdfsBrandingOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HideInvoicepdfsBranding) {
 		return nil, false
 	}
-	return o.HideInvoicepdfsBranding.Get(), o.HideInvoicepdfsBranding.IsSet()
+	return o.HideInvoicepdfsBranding, true
 }
 
 // HasHideInvoicepdfsBranding returns a boolean if a field has been set.
 func (o *BrandingProfilePatchRequest) HasHideInvoicepdfsBranding() bool {
-	if o != nil && o.HideInvoicepdfsBranding.IsSet() {
+	if o != nil && !IsNil(o.HideInvoicepdfsBranding) {
 		return true
 	}
 
 	return false
 }
 
-// SetHideInvoicepdfsBranding gets a reference to the given NullableBool and assigns it to the HideInvoicepdfsBranding field.
+// SetHideInvoicepdfsBranding gets a reference to the given bool and assigns it to the HideInvoicepdfsBranding field.
 func (o *BrandingProfilePatchRequest) SetHideInvoicepdfsBranding(v bool) {
-	o.HideInvoicepdfsBranding.Set(&v)
-}
-// SetHideInvoicepdfsBrandingNil sets the value for HideInvoicepdfsBranding to be an explicit nil
-func (o *BrandingProfilePatchRequest) SetHideInvoicepdfsBrandingNil() {
-	o.HideInvoicepdfsBranding.Set(nil)
+	o.HideInvoicepdfsBranding = &v
 }
 
-// UnsetHideInvoicepdfsBranding ensures that no value is present for HideInvoicepdfsBranding, not even an explicit nil
-func (o *BrandingProfilePatchRequest) UnsetHideInvoicepdfsBranding() {
-	o.HideInvoicepdfsBranding.Unset()
-}
-
-// GetIsDefault returns the IsDefault field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIsDefault returns the IsDefault field value if set, zero value otherwise.
 func (o *BrandingProfilePatchRequest) GetIsDefault() bool {
-	if o == nil || IsNil(o.IsDefault.Get()) {
+	if o == nil || IsNil(o.IsDefault) {
 		var ret bool
 		return ret
 	}
-	return *o.IsDefault.Get()
+	return *o.IsDefault
 }
 
 // GetIsDefaultOk returns a tuple with the IsDefault field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BrandingProfilePatchRequest) GetIsDefaultOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsDefault) {
 		return nil, false
 	}
-	return o.IsDefault.Get(), o.IsDefault.IsSet()
+	return o.IsDefault, true
 }
 
 // HasIsDefault returns a boolean if a field has been set.
 func (o *BrandingProfilePatchRequest) HasIsDefault() bool {
-	if o != nil && o.IsDefault.IsSet() {
+	if o != nil && !IsNil(o.IsDefault) {
 		return true
 	}
 
 	return false
 }
 
-// SetIsDefault gets a reference to the given NullableBool and assigns it to the IsDefault field.
+// SetIsDefault gets a reference to the given bool and assigns it to the IsDefault field.
 func (o *BrandingProfilePatchRequest) SetIsDefault(v bool) {
-	o.IsDefault.Set(&v)
-}
-// SetIsDefaultNil sets the value for IsDefault to be an explicit nil
-func (o *BrandingProfilePatchRequest) SetIsDefaultNil() {
-	o.IsDefault.Set(nil)
-}
-
-// UnsetIsDefault ensures that no value is present for IsDefault, not even an explicit nil
-func (o *BrandingProfilePatchRequest) UnsetIsDefault() {
-	o.IsDefault.Unset()
+	o.IsDefault = &v
 }
 
 func (o BrandingProfilePatchRequest) MarshalJSON() ([]byte, error) {
@@ -392,14 +332,14 @@ func (o BrandingProfilePatchRequest) MarshalJSON() ([]byte, error) {
 
 func (o BrandingProfilePatchRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.PrimaryColor.IsSet() {
-		toSerialize["primary_color"] = o.PrimaryColor.Get()
+	if !IsNil(o.PrimaryColor) {
+		toSerialize["primary_color"] = o.PrimaryColor
 	}
-	if o.AccentColor.IsSet() {
-		toSerialize["accent_color"] = o.AccentColor.Get()
+	if !IsNil(o.AccentColor) {
+		toSerialize["accent_color"] = o.AccentColor
 	}
 	if o.FontFamily.IsSet() {
 		toSerialize["font_family"] = o.FontFamily.Get()
@@ -407,14 +347,14 @@ func (o BrandingProfilePatchRequest) ToMap() (map[string]interface{}, error) {
 	if o.HeaderText.IsSet() {
 		toSerialize["header_text"] = o.HeaderText.Get()
 	}
-	if o.FooterText.IsSet() {
-		toSerialize["footer_text"] = o.FooterText.Get()
+	if !IsNil(o.FooterText) {
+		toSerialize["footer_text"] = o.FooterText
 	}
-	if o.HideInvoicepdfsBranding.IsSet() {
-		toSerialize["hide_invoicepdfs_branding"] = o.HideInvoicepdfsBranding.Get()
+	if !IsNil(o.HideInvoicepdfsBranding) {
+		toSerialize["hide_invoicepdfs_branding"] = o.HideInvoicepdfsBranding
 	}
-	if o.IsDefault.IsSet() {
-		toSerialize["is_default"] = o.IsDefault.Get()
+	if !IsNil(o.IsDefault) {
+		toSerialize["is_default"] = o.IsDefault
 	}
 	return toSerialize, nil
 }

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Frequency** | Pointer to **NullableString** |  | [optional] 
-**Interval** | Pointer to **NullableInt32** |  | [optional] 
+**Frequency** | Pointer to **string** |  | [optional] 
+**Interval** | Pointer to **int32** |  | [optional] 
 **EndDate** | Pointer to **NullableString** |  | [optional] 
 **MaxOccurrences** | Pointer to **NullableInt32** |  | [optional] 
 **NumberingSequenceId** | Pointer to **NullableString** |  | [optional] 
-**AutoFinalize** | Pointer to **NullableBool** |  | [optional] 
-**InvoiceTemplate** | Pointer to [**NullableInvoiceDraftRequest**](InvoiceDraftRequest.md) |  | [optional] 
+**AutoFinalize** | Pointer to **bool** |  | [optional] 
+**InvoiceTemplate** | Pointer to [**InvoiceDraftRequest**](InvoiceDraftRequest.md) |  | [optional] 
 
 ## Methods
 
@@ -56,16 +56,6 @@ SetFrequency sets Frequency field to given value.
 
 HasFrequency returns a boolean if a field has been set.
 
-### SetFrequencyNil
-
-`func (o *RecurringInvoicePatchRequest) SetFrequencyNil(b bool)`
-
- SetFrequencyNil sets the value for Frequency to be an explicit nil
-
-### UnsetFrequency
-`func (o *RecurringInvoicePatchRequest) UnsetFrequency()`
-
-UnsetFrequency ensures that no value is present for Frequency, not even an explicit nil
 ### GetInterval
 
 `func (o *RecurringInvoicePatchRequest) GetInterval() int32`
@@ -91,16 +81,6 @@ SetInterval sets Interval field to given value.
 
 HasInterval returns a boolean if a field has been set.
 
-### SetIntervalNil
-
-`func (o *RecurringInvoicePatchRequest) SetIntervalNil(b bool)`
-
- SetIntervalNil sets the value for Interval to be an explicit nil
-
-### UnsetInterval
-`func (o *RecurringInvoicePatchRequest) UnsetInterval()`
-
-UnsetInterval ensures that no value is present for Interval, not even an explicit nil
 ### GetEndDate
 
 `func (o *RecurringInvoicePatchRequest) GetEndDate() string`
@@ -231,16 +211,6 @@ SetAutoFinalize sets AutoFinalize field to given value.
 
 HasAutoFinalize returns a boolean if a field has been set.
 
-### SetAutoFinalizeNil
-
-`func (o *RecurringInvoicePatchRequest) SetAutoFinalizeNil(b bool)`
-
- SetAutoFinalizeNil sets the value for AutoFinalize to be an explicit nil
-
-### UnsetAutoFinalize
-`func (o *RecurringInvoicePatchRequest) UnsetAutoFinalize()`
-
-UnsetAutoFinalize ensures that no value is present for AutoFinalize, not even an explicit nil
 ### GetInvoiceTemplate
 
 `func (o *RecurringInvoicePatchRequest) GetInvoiceTemplate() InvoiceDraftRequest`
@@ -266,16 +236,6 @@ SetInvoiceTemplate sets InvoiceTemplate field to given value.
 
 HasInvoiceTemplate returns a boolean if a field has been set.
 
-### SetInvoiceTemplateNil
-
-`func (o *RecurringInvoicePatchRequest) SetInvoiceTemplateNil(b bool)`
-
- SetInvoiceTemplateNil sets the value for InvoiceTemplate to be an explicit nil
-
-### UnsetInvoiceTemplate
-`func (o *RecurringInvoicePatchRequest) UnsetInvoiceTemplate()`
-
-UnsetInvoiceTemplate ensures that no value is present for InvoiceTemplate, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

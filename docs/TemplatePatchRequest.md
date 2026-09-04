@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Config** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -52,16 +52,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *TemplatePatchRequest) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TemplatePatchRequest) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *TemplatePatchRequest) GetDescription() string`
@@ -122,16 +112,6 @@ SetConfig sets Config field to given value.
 
 HasConfig returns a boolean if a field has been set.
 
-### SetConfigNil
-
-`func (o *TemplatePatchRequest) SetConfigNil(b bool)`
-
- SetConfigNil sets the value for Config to be an explicit nil
-
-### UnsetConfig
-`func (o *TemplatePatchRequest) UnsetConfig()`
-
-UnsetConfig ensures that no value is present for Config, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

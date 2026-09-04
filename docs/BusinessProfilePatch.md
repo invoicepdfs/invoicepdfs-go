@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LegalName** | Pointer to **NullableString** |  | [optional] 
+**LegalName** | Pointer to **string** |  | [optional] 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
 **Email** | Pointer to **NullableString** |  | [optional] 
 **Phone** | Pointer to **NullableString** |  | [optional] 
@@ -60,16 +60,6 @@ SetLegalName sets LegalName field to given value.
 
 HasLegalName returns a boolean if a field has been set.
 
-### SetLegalNameNil
-
-`func (o *BusinessProfilePatch) SetLegalNameNil(b bool)`
-
- SetLegalNameNil sets the value for LegalName to be an explicit nil
-
-### UnsetLegalName
-`func (o *BusinessProfilePatch) UnsetLegalName()`
-
-UnsetLegalName ensures that no value is present for LegalName, not even an explicit nil
 ### GetDisplayName
 
 `func (o *BusinessProfilePatch) GetDisplayName() string`

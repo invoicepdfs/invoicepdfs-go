@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | Pointer to **NullableString** |  | [optional] 
-**PaidAt** | Pointer to **NullableTime** |  | [optional] 
+**Amount** | Pointer to **string** |  | [optional] 
+**PaidAt** | Pointer to **time.Time** |  | [optional] 
 **Method** | Pointer to **NullableString** |  | [optional] 
 **Reference** | Pointer to **NullableString** |  | [optional] 
 **Notes** | Pointer to **NullableString** |  | [optional] 
@@ -54,16 +54,6 @@ SetAmount sets Amount field to given value.
 
 HasAmount returns a boolean if a field has been set.
 
-### SetAmountNil
-
-`func (o *PaymentPatchRequest) SetAmountNil(b bool)`
-
- SetAmountNil sets the value for Amount to be an explicit nil
-
-### UnsetAmount
-`func (o *PaymentPatchRequest) UnsetAmount()`
-
-UnsetAmount ensures that no value is present for Amount, not even an explicit nil
 ### GetPaidAt
 
 `func (o *PaymentPatchRequest) GetPaidAt() time.Time`
@@ -89,16 +79,6 @@ SetPaidAt sets PaidAt field to given value.
 
 HasPaidAt returns a boolean if a field has been set.
 
-### SetPaidAtNil
-
-`func (o *PaymentPatchRequest) SetPaidAtNil(b bool)`
-
- SetPaidAtNil sets the value for PaidAt to be an explicit nil
-
-### UnsetPaidAt
-`func (o *PaymentPatchRequest) UnsetPaidAt()`
-
-UnsetPaidAt ensures that no value is present for PaidAt, not even an explicit nil
 ### GetMethod
 
 `func (o *PaymentPatchRequest) GetMethod() string`

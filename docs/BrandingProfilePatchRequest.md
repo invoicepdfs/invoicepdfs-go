@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**PrimaryColor** | Pointer to **NullableString** |  | [optional] 
-**AccentColor** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**PrimaryColor** | Pointer to **string** |  | [optional] 
+**AccentColor** | Pointer to **string** |  | [optional] 
 **FontFamily** | Pointer to **NullableString** |  | [optional] 
 **HeaderText** | Pointer to **NullableString** |  | [optional] 
-**FooterText** | Pointer to **NullableString** |  | [optional] 
-**HideInvoicepdfsBranding** | Pointer to **NullableBool** |  | [optional] 
-**IsDefault** | Pointer to **NullableBool** |  | [optional] 
+**FooterText** | Pointer to **string** |  | [optional] 
+**HideInvoicepdfsBranding** | Pointer to **bool** |  | [optional] 
+**IsDefault** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -57,16 +57,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *BrandingProfilePatchRequest) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *BrandingProfilePatchRequest) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPrimaryColor
 
 `func (o *BrandingProfilePatchRequest) GetPrimaryColor() string`
@@ -92,16 +82,6 @@ SetPrimaryColor sets PrimaryColor field to given value.
 
 HasPrimaryColor returns a boolean if a field has been set.
 
-### SetPrimaryColorNil
-
-`func (o *BrandingProfilePatchRequest) SetPrimaryColorNil(b bool)`
-
- SetPrimaryColorNil sets the value for PrimaryColor to be an explicit nil
-
-### UnsetPrimaryColor
-`func (o *BrandingProfilePatchRequest) UnsetPrimaryColor()`
-
-UnsetPrimaryColor ensures that no value is present for PrimaryColor, not even an explicit nil
 ### GetAccentColor
 
 `func (o *BrandingProfilePatchRequest) GetAccentColor() string`
@@ -127,16 +107,6 @@ SetAccentColor sets AccentColor field to given value.
 
 HasAccentColor returns a boolean if a field has been set.
 
-### SetAccentColorNil
-
-`func (o *BrandingProfilePatchRequest) SetAccentColorNil(b bool)`
-
- SetAccentColorNil sets the value for AccentColor to be an explicit nil
-
-### UnsetAccentColor
-`func (o *BrandingProfilePatchRequest) UnsetAccentColor()`
-
-UnsetAccentColor ensures that no value is present for AccentColor, not even an explicit nil
 ### GetFontFamily
 
 `func (o *BrandingProfilePatchRequest) GetFontFamily() string`
@@ -232,16 +202,6 @@ SetFooterText sets FooterText field to given value.
 
 HasFooterText returns a boolean if a field has been set.
 
-### SetFooterTextNil
-
-`func (o *BrandingProfilePatchRequest) SetFooterTextNil(b bool)`
-
- SetFooterTextNil sets the value for FooterText to be an explicit nil
-
-### UnsetFooterText
-`func (o *BrandingProfilePatchRequest) UnsetFooterText()`
-
-UnsetFooterText ensures that no value is present for FooterText, not even an explicit nil
 ### GetHideInvoicepdfsBranding
 
 `func (o *BrandingProfilePatchRequest) GetHideInvoicepdfsBranding() bool`
@@ -267,16 +227,6 @@ SetHideInvoicepdfsBranding sets HideInvoicepdfsBranding field to given value.
 
 HasHideInvoicepdfsBranding returns a boolean if a field has been set.
 
-### SetHideInvoicepdfsBrandingNil
-
-`func (o *BrandingProfilePatchRequest) SetHideInvoicepdfsBrandingNil(b bool)`
-
- SetHideInvoicepdfsBrandingNil sets the value for HideInvoicepdfsBranding to be an explicit nil
-
-### UnsetHideInvoicepdfsBranding
-`func (o *BrandingProfilePatchRequest) UnsetHideInvoicepdfsBranding()`
-
-UnsetHideInvoicepdfsBranding ensures that no value is present for HideInvoicepdfsBranding, not even an explicit nil
 ### GetIsDefault
 
 `func (o *BrandingProfilePatchRequest) GetIsDefault() bool`
@@ -302,16 +252,6 @@ SetIsDefault sets IsDefault field to given value.
 
 HasIsDefault returns a boolean if a field has been set.
 
-### SetIsDefaultNil
-
-`func (o *BrandingProfilePatchRequest) SetIsDefaultNil(b bool)`
-
- SetIsDefaultNil sets the value for IsDefault to be an explicit nil
-
-### UnsetIsDefault
-`func (o *BrandingProfilePatchRequest) UnsetIsDefault()`
-
-UnsetIsDefault ensures that no value is present for IsDefault, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

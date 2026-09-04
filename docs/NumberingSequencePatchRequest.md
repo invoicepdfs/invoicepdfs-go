@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Prefix** | Pointer to **NullableString** |  | [optional] 
-**DatePattern** | Pointer to **NullableString** |  | [optional] 
-**Padding** | Pointer to **NullableInt32** |  | [optional] 
-**NextNumber** | Pointer to **NullableInt32** |  | [optional] 
-**Reset** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Prefix** | Pointer to **string** |  | [optional] 
+**DatePattern** | Pointer to **string** |  | [optional] 
+**Padding** | Pointer to **int32** |  | [optional] 
+**NextNumber** | Pointer to **int32** |  | [optional] 
+**Reset** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -55,16 +55,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *NumberingSequencePatchRequest) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *NumberingSequencePatchRequest) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPrefix
 
 `func (o *NumberingSequencePatchRequest) GetPrefix() string`
@@ -90,16 +80,6 @@ SetPrefix sets Prefix field to given value.
 
 HasPrefix returns a boolean if a field has been set.
 
-### SetPrefixNil
-
-`func (o *NumberingSequencePatchRequest) SetPrefixNil(b bool)`
-
- SetPrefixNil sets the value for Prefix to be an explicit nil
-
-### UnsetPrefix
-`func (o *NumberingSequencePatchRequest) UnsetPrefix()`
-
-UnsetPrefix ensures that no value is present for Prefix, not even an explicit nil
 ### GetDatePattern
 
 `func (o *NumberingSequencePatchRequest) GetDatePattern() string`
@@ -125,16 +105,6 @@ SetDatePattern sets DatePattern field to given value.
 
 HasDatePattern returns a boolean if a field has been set.
 
-### SetDatePatternNil
-
-`func (o *NumberingSequencePatchRequest) SetDatePatternNil(b bool)`
-
- SetDatePatternNil sets the value for DatePattern to be an explicit nil
-
-### UnsetDatePattern
-`func (o *NumberingSequencePatchRequest) UnsetDatePattern()`
-
-UnsetDatePattern ensures that no value is present for DatePattern, not even an explicit nil
 ### GetPadding
 
 `func (o *NumberingSequencePatchRequest) GetPadding() int32`
@@ -160,16 +130,6 @@ SetPadding sets Padding field to given value.
 
 HasPadding returns a boolean if a field has been set.
 
-### SetPaddingNil
-
-`func (o *NumberingSequencePatchRequest) SetPaddingNil(b bool)`
-
- SetPaddingNil sets the value for Padding to be an explicit nil
-
-### UnsetPadding
-`func (o *NumberingSequencePatchRequest) UnsetPadding()`
-
-UnsetPadding ensures that no value is present for Padding, not even an explicit nil
 ### GetNextNumber
 
 `func (o *NumberingSequencePatchRequest) GetNextNumber() int32`
@@ -195,16 +155,6 @@ SetNextNumber sets NextNumber field to given value.
 
 HasNextNumber returns a boolean if a field has been set.
 
-### SetNextNumberNil
-
-`func (o *NumberingSequencePatchRequest) SetNextNumberNil(b bool)`
-
- SetNextNumberNil sets the value for NextNumber to be an explicit nil
-
-### UnsetNextNumber
-`func (o *NumberingSequencePatchRequest) UnsetNextNumber()`
-
-UnsetNextNumber ensures that no value is present for NextNumber, not even an explicit nil
 ### GetReset
 
 `func (o *NumberingSequencePatchRequest) GetReset() string`
@@ -230,16 +180,6 @@ SetReset sets Reset field to given value.
 
 HasReset returns a boolean if a field has been set.
 
-### SetResetNil
-
-`func (o *NumberingSequencePatchRequest) SetResetNil(b bool)`
-
- SetResetNil sets the value for Reset to be an explicit nil
-
-### UnsetReset
-`func (o *NumberingSequencePatchRequest) UnsetReset()`
-
-UnsetReset ensures that no value is present for Reset, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

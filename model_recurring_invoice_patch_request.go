@@ -19,13 +19,13 @@ var _ MappedNullable = &RecurringInvoicePatchRequest{}
 
 // RecurringInvoicePatchRequest struct for RecurringInvoicePatchRequest
 type RecurringInvoicePatchRequest struct {
-	Frequency NullableString `json:"frequency,omitempty"`
-	Interval NullableInt32 `json:"interval,omitempty"`
+	Frequency *string `json:"frequency,omitempty"`
+	Interval *int32 `json:"interval,omitempty"`
 	EndDate NullableString `json:"end_date,omitempty"`
 	MaxOccurrences NullableInt32 `json:"max_occurrences,omitempty"`
 	NumberingSequenceId NullableString `json:"numbering_sequence_id,omitempty"`
-	AutoFinalize NullableBool `json:"auto_finalize,omitempty"`
-	InvoiceTemplate NullableInvoiceDraftRequest `json:"invoice_template,omitempty"`
+	AutoFinalize *bool `json:"auto_finalize,omitempty"`
+	InvoiceTemplate *InvoiceDraftRequest `json:"invoice_template,omitempty"`
 }
 
 // NewRecurringInvoicePatchRequest instantiates a new RecurringInvoicePatchRequest object
@@ -45,88 +45,68 @@ func NewRecurringInvoicePatchRequestWithDefaults() *RecurringInvoicePatchRequest
 	return &this
 }
 
-// GetFrequency returns the Frequency field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFrequency returns the Frequency field value if set, zero value otherwise.
 func (o *RecurringInvoicePatchRequest) GetFrequency() string {
-	if o == nil || IsNil(o.Frequency.Get()) {
+	if o == nil || IsNil(o.Frequency) {
 		var ret string
 		return ret
 	}
-	return *o.Frequency.Get()
+	return *o.Frequency
 }
 
 // GetFrequencyOk returns a tuple with the Frequency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RecurringInvoicePatchRequest) GetFrequencyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Frequency) {
 		return nil, false
 	}
-	return o.Frequency.Get(), o.Frequency.IsSet()
+	return o.Frequency, true
 }
 
 // HasFrequency returns a boolean if a field has been set.
 func (o *RecurringInvoicePatchRequest) HasFrequency() bool {
-	if o != nil && o.Frequency.IsSet() {
+	if o != nil && !IsNil(o.Frequency) {
 		return true
 	}
 
 	return false
 }
 
-// SetFrequency gets a reference to the given NullableString and assigns it to the Frequency field.
+// SetFrequency gets a reference to the given string and assigns it to the Frequency field.
 func (o *RecurringInvoicePatchRequest) SetFrequency(v string) {
-	o.Frequency.Set(&v)
-}
-// SetFrequencyNil sets the value for Frequency to be an explicit nil
-func (o *RecurringInvoicePatchRequest) SetFrequencyNil() {
-	o.Frequency.Set(nil)
+	o.Frequency = &v
 }
 
-// UnsetFrequency ensures that no value is present for Frequency, not even an explicit nil
-func (o *RecurringInvoicePatchRequest) UnsetFrequency() {
-	o.Frequency.Unset()
-}
-
-// GetInterval returns the Interval field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInterval returns the Interval field value if set, zero value otherwise.
 func (o *RecurringInvoicePatchRequest) GetInterval() int32 {
-	if o == nil || IsNil(o.Interval.Get()) {
+	if o == nil || IsNil(o.Interval) {
 		var ret int32
 		return ret
 	}
-	return *o.Interval.Get()
+	return *o.Interval
 }
 
 // GetIntervalOk returns a tuple with the Interval field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RecurringInvoicePatchRequest) GetIntervalOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Interval) {
 		return nil, false
 	}
-	return o.Interval.Get(), o.Interval.IsSet()
+	return o.Interval, true
 }
 
 // HasInterval returns a boolean if a field has been set.
 func (o *RecurringInvoicePatchRequest) HasInterval() bool {
-	if o != nil && o.Interval.IsSet() {
+	if o != nil && !IsNil(o.Interval) {
 		return true
 	}
 
 	return false
 }
 
-// SetInterval gets a reference to the given NullableInt32 and assigns it to the Interval field.
+// SetInterval gets a reference to the given int32 and assigns it to the Interval field.
 func (o *RecurringInvoicePatchRequest) SetInterval(v int32) {
-	o.Interval.Set(&v)
-}
-// SetIntervalNil sets the value for Interval to be an explicit nil
-func (o *RecurringInvoicePatchRequest) SetIntervalNil() {
-	o.Interval.Set(nil)
-}
-
-// UnsetInterval ensures that no value is present for Interval, not even an explicit nil
-func (o *RecurringInvoicePatchRequest) UnsetInterval() {
-	o.Interval.Unset()
+	o.Interval = &v
 }
 
 // GetEndDate returns the EndDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -255,88 +235,68 @@ func (o *RecurringInvoicePatchRequest) UnsetNumberingSequenceId() {
 	o.NumberingSequenceId.Unset()
 }
 
-// GetAutoFinalize returns the AutoFinalize field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAutoFinalize returns the AutoFinalize field value if set, zero value otherwise.
 func (o *RecurringInvoicePatchRequest) GetAutoFinalize() bool {
-	if o == nil || IsNil(o.AutoFinalize.Get()) {
+	if o == nil || IsNil(o.AutoFinalize) {
 		var ret bool
 		return ret
 	}
-	return *o.AutoFinalize.Get()
+	return *o.AutoFinalize
 }
 
 // GetAutoFinalizeOk returns a tuple with the AutoFinalize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RecurringInvoicePatchRequest) GetAutoFinalizeOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AutoFinalize) {
 		return nil, false
 	}
-	return o.AutoFinalize.Get(), o.AutoFinalize.IsSet()
+	return o.AutoFinalize, true
 }
 
 // HasAutoFinalize returns a boolean if a field has been set.
 func (o *RecurringInvoicePatchRequest) HasAutoFinalize() bool {
-	if o != nil && o.AutoFinalize.IsSet() {
+	if o != nil && !IsNil(o.AutoFinalize) {
 		return true
 	}
 
 	return false
 }
 
-// SetAutoFinalize gets a reference to the given NullableBool and assigns it to the AutoFinalize field.
+// SetAutoFinalize gets a reference to the given bool and assigns it to the AutoFinalize field.
 func (o *RecurringInvoicePatchRequest) SetAutoFinalize(v bool) {
-	o.AutoFinalize.Set(&v)
-}
-// SetAutoFinalizeNil sets the value for AutoFinalize to be an explicit nil
-func (o *RecurringInvoicePatchRequest) SetAutoFinalizeNil() {
-	o.AutoFinalize.Set(nil)
+	o.AutoFinalize = &v
 }
 
-// UnsetAutoFinalize ensures that no value is present for AutoFinalize, not even an explicit nil
-func (o *RecurringInvoicePatchRequest) UnsetAutoFinalize() {
-	o.AutoFinalize.Unset()
-}
-
-// GetInvoiceTemplate returns the InvoiceTemplate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInvoiceTemplate returns the InvoiceTemplate field value if set, zero value otherwise.
 func (o *RecurringInvoicePatchRequest) GetInvoiceTemplate() InvoiceDraftRequest {
-	if o == nil || IsNil(o.InvoiceTemplate.Get()) {
+	if o == nil || IsNil(o.InvoiceTemplate) {
 		var ret InvoiceDraftRequest
 		return ret
 	}
-	return *o.InvoiceTemplate.Get()
+	return *o.InvoiceTemplate
 }
 
 // GetInvoiceTemplateOk returns a tuple with the InvoiceTemplate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RecurringInvoicePatchRequest) GetInvoiceTemplateOk() (*InvoiceDraftRequest, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InvoiceTemplate) {
 		return nil, false
 	}
-	return o.InvoiceTemplate.Get(), o.InvoiceTemplate.IsSet()
+	return o.InvoiceTemplate, true
 }
 
 // HasInvoiceTemplate returns a boolean if a field has been set.
 func (o *RecurringInvoicePatchRequest) HasInvoiceTemplate() bool {
-	if o != nil && o.InvoiceTemplate.IsSet() {
+	if o != nil && !IsNil(o.InvoiceTemplate) {
 		return true
 	}
 
 	return false
 }
 
-// SetInvoiceTemplate gets a reference to the given NullableInvoiceDraftRequest and assigns it to the InvoiceTemplate field.
+// SetInvoiceTemplate gets a reference to the given InvoiceDraftRequest and assigns it to the InvoiceTemplate field.
 func (o *RecurringInvoicePatchRequest) SetInvoiceTemplate(v InvoiceDraftRequest) {
-	o.InvoiceTemplate.Set(&v)
-}
-// SetInvoiceTemplateNil sets the value for InvoiceTemplate to be an explicit nil
-func (o *RecurringInvoicePatchRequest) SetInvoiceTemplateNil() {
-	o.InvoiceTemplate.Set(nil)
-}
-
-// UnsetInvoiceTemplate ensures that no value is present for InvoiceTemplate, not even an explicit nil
-func (o *RecurringInvoicePatchRequest) UnsetInvoiceTemplate() {
-	o.InvoiceTemplate.Unset()
+	o.InvoiceTemplate = &v
 }
 
 func (o RecurringInvoicePatchRequest) MarshalJSON() ([]byte, error) {
@@ -349,11 +309,11 @@ func (o RecurringInvoicePatchRequest) MarshalJSON() ([]byte, error) {
 
 func (o RecurringInvoicePatchRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Frequency.IsSet() {
-		toSerialize["frequency"] = o.Frequency.Get()
+	if !IsNil(o.Frequency) {
+		toSerialize["frequency"] = o.Frequency
 	}
-	if o.Interval.IsSet() {
-		toSerialize["interval"] = o.Interval.Get()
+	if !IsNil(o.Interval) {
+		toSerialize["interval"] = o.Interval
 	}
 	if o.EndDate.IsSet() {
 		toSerialize["end_date"] = o.EndDate.Get()
@@ -364,11 +324,11 @@ func (o RecurringInvoicePatchRequest) ToMap() (map[string]interface{}, error) {
 	if o.NumberingSequenceId.IsSet() {
 		toSerialize["numbering_sequence_id"] = o.NumberingSequenceId.Get()
 	}
-	if o.AutoFinalize.IsSet() {
-		toSerialize["auto_finalize"] = o.AutoFinalize.Get()
+	if !IsNil(o.AutoFinalize) {
+		toSerialize["auto_finalize"] = o.AutoFinalize
 	}
-	if o.InvoiceTemplate.IsSet() {
-		toSerialize["invoice_template"] = o.InvoiceTemplate.Get()
+	if !IsNil(o.InvoiceTemplate) {
+		toSerialize["invoice_template"] = o.InvoiceTemplate
 	}
 	return toSerialize, nil
 }

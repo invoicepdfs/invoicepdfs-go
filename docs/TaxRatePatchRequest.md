@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Rate** | Pointer to **NullableString** |  | [optional] 
-**Inclusive** | Pointer to **NullableBool** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Rate** | Pointer to **string** |  | [optional] 
+**Inclusive** | Pointer to **bool** |  | [optional] 
 **Jurisdiction** | Pointer to **NullableString** |  | [optional] 
-**IsActive** | Pointer to **NullableBool** |  | [optional] 
+**IsActive** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -54,16 +54,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *TaxRatePatchRequest) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TaxRatePatchRequest) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetRate
 
 `func (o *TaxRatePatchRequest) GetRate() string`
@@ -89,16 +79,6 @@ SetRate sets Rate field to given value.
 
 HasRate returns a boolean if a field has been set.
 
-### SetRateNil
-
-`func (o *TaxRatePatchRequest) SetRateNil(b bool)`
-
- SetRateNil sets the value for Rate to be an explicit nil
-
-### UnsetRate
-`func (o *TaxRatePatchRequest) UnsetRate()`
-
-UnsetRate ensures that no value is present for Rate, not even an explicit nil
 ### GetInclusive
 
 `func (o *TaxRatePatchRequest) GetInclusive() bool`
@@ -124,16 +104,6 @@ SetInclusive sets Inclusive field to given value.
 
 HasInclusive returns a boolean if a field has been set.
 
-### SetInclusiveNil
-
-`func (o *TaxRatePatchRequest) SetInclusiveNil(b bool)`
-
- SetInclusiveNil sets the value for Inclusive to be an explicit nil
-
-### UnsetInclusive
-`func (o *TaxRatePatchRequest) UnsetInclusive()`
-
-UnsetInclusive ensures that no value is present for Inclusive, not even an explicit nil
 ### GetJurisdiction
 
 `func (o *TaxRatePatchRequest) GetJurisdiction() string`
@@ -194,16 +164,6 @@ SetIsActive sets IsActive field to given value.
 
 HasIsActive returns a boolean if a field has been set.
 
-### SetIsActiveNil
-
-`func (o *TaxRatePatchRequest) SetIsActiveNil(b bool)`
-
- SetIsActiveNil sets the value for IsActive to be an explicit nil
-
-### UnsetIsActive
-`func (o *TaxRatePatchRequest) UnsetIsActive()`
-
-UnsetIsActive ensures that no value is present for IsActive, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

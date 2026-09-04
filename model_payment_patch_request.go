@@ -20,8 +20,8 @@ var _ MappedNullable = &PaymentPatchRequest{}
 
 // PaymentPatchRequest struct for PaymentPatchRequest
 type PaymentPatchRequest struct {
-	Amount NullableString `json:"amount,omitempty"`
-	PaidAt NullableTime `json:"paid_at,omitempty"`
+	Amount *string `json:"amount,omitempty"`
+	PaidAt *time.Time `json:"paid_at,omitempty"`
 	Method NullableString `json:"method,omitempty"`
 	Reference NullableString `json:"reference,omitempty"`
 	Notes NullableString `json:"notes,omitempty"`
@@ -44,88 +44,68 @@ func NewPaymentPatchRequestWithDefaults() *PaymentPatchRequest {
 	return &this
 }
 
-// GetAmount returns the Amount field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAmount returns the Amount field value if set, zero value otherwise.
 func (o *PaymentPatchRequest) GetAmount() string {
-	if o == nil || IsNil(o.Amount.Get()) {
+	if o == nil || IsNil(o.Amount) {
 		var ret string
 		return ret
 	}
-	return *o.Amount.Get()
+	return *o.Amount
 }
 
 // GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PaymentPatchRequest) GetAmountOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Amount) {
 		return nil, false
 	}
-	return o.Amount.Get(), o.Amount.IsSet()
+	return o.Amount, true
 }
 
 // HasAmount returns a boolean if a field has been set.
 func (o *PaymentPatchRequest) HasAmount() bool {
-	if o != nil && o.Amount.IsSet() {
+	if o != nil && !IsNil(o.Amount) {
 		return true
 	}
 
 	return false
 }
 
-// SetAmount gets a reference to the given NullableString and assigns it to the Amount field.
+// SetAmount gets a reference to the given string and assigns it to the Amount field.
 func (o *PaymentPatchRequest) SetAmount(v string) {
-	o.Amount.Set(&v)
-}
-// SetAmountNil sets the value for Amount to be an explicit nil
-func (o *PaymentPatchRequest) SetAmountNil() {
-	o.Amount.Set(nil)
+	o.Amount = &v
 }
 
-// UnsetAmount ensures that no value is present for Amount, not even an explicit nil
-func (o *PaymentPatchRequest) UnsetAmount() {
-	o.Amount.Unset()
-}
-
-// GetPaidAt returns the PaidAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPaidAt returns the PaidAt field value if set, zero value otherwise.
 func (o *PaymentPatchRequest) GetPaidAt() time.Time {
-	if o == nil || IsNil(o.PaidAt.Get()) {
+	if o == nil || IsNil(o.PaidAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.PaidAt.Get()
+	return *o.PaidAt
 }
 
 // GetPaidAtOk returns a tuple with the PaidAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PaymentPatchRequest) GetPaidAtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PaidAt) {
 		return nil, false
 	}
-	return o.PaidAt.Get(), o.PaidAt.IsSet()
+	return o.PaidAt, true
 }
 
 // HasPaidAt returns a boolean if a field has been set.
 func (o *PaymentPatchRequest) HasPaidAt() bool {
-	if o != nil && o.PaidAt.IsSet() {
+	if o != nil && !IsNil(o.PaidAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetPaidAt gets a reference to the given NullableTime and assigns it to the PaidAt field.
+// SetPaidAt gets a reference to the given time.Time and assigns it to the PaidAt field.
 func (o *PaymentPatchRequest) SetPaidAt(v time.Time) {
-	o.PaidAt.Set(&v)
-}
-// SetPaidAtNil sets the value for PaidAt to be an explicit nil
-func (o *PaymentPatchRequest) SetPaidAtNil() {
-	o.PaidAt.Set(nil)
-}
-
-// UnsetPaidAt ensures that no value is present for PaidAt, not even an explicit nil
-func (o *PaymentPatchRequest) UnsetPaidAt() {
-	o.PaidAt.Unset()
+	o.PaidAt = &v
 }
 
 // GetMethod returns the Method field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -264,11 +244,11 @@ func (o PaymentPatchRequest) MarshalJSON() ([]byte, error) {
 
 func (o PaymentPatchRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Amount.IsSet() {
-		toSerialize["amount"] = o.Amount.Get()
+	if !IsNil(o.Amount) {
+		toSerialize["amount"] = o.Amount
 	}
-	if o.PaidAt.IsSet() {
-		toSerialize["paid_at"] = o.PaidAt.Get()
+	if !IsNil(o.PaidAt) {
+		toSerialize["paid_at"] = o.PaidAt
 	}
 	if o.Method.IsSet() {
 		toSerialize["method"] = o.Method.Get()

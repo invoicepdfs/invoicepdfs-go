@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Events** | Pointer to **[]string** |  | [optional] 
-**IsActive** | Pointer to **NullableBool** |  | [optional] 
+**IsActive** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -53,16 +53,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *WebhookEndpointPatchRequest) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *WebhookEndpointPatchRequest) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetDescription
 
 `func (o *WebhookEndpointPatchRequest) GetDescription() string`
@@ -123,16 +113,6 @@ SetEvents sets Events field to given value.
 
 HasEvents returns a boolean if a field has been set.
 
-### SetEventsNil
-
-`func (o *WebhookEndpointPatchRequest) SetEventsNil(b bool)`
-
- SetEventsNil sets the value for Events to be an explicit nil
-
-### UnsetEvents
-`func (o *WebhookEndpointPatchRequest) UnsetEvents()`
-
-UnsetEvents ensures that no value is present for Events, not even an explicit nil
 ### GetIsActive
 
 `func (o *WebhookEndpointPatchRequest) GetIsActive() bool`
@@ -158,16 +138,6 @@ SetIsActive sets IsActive field to given value.
 
 HasIsActive returns a boolean if a field has been set.
 
-### SetIsActiveNil
-
-`func (o *WebhookEndpointPatchRequest) SetIsActiveNil(b bool)`
-
- SetIsActiveNil sets the value for IsActive to be an explicit nil
-
-### UnsetIsActive
-`func (o *WebhookEndpointPatchRequest) UnsetIsActive()`
-
-UnsetIsActive ensures that no value is present for IsActive, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
