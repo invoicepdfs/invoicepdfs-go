@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **PriceId** | **string** |  | 
 **PriceIdAnnual** | Pointer to **NullableString** |  | [optional] 
+**PriceCents** | Pointer to **NullableInt32** |  | [optional] 
+**PriceCentsAnnual** | Pointer to **NullableInt32** |  | [optional] 
 **MonthlyRenderQuota** | **int32** |  | 
 **AllowBrandingRemoval** | Pointer to **bool** |  | [optional] [default to false]
 **OveragePriceMillicents** | Pointer to **NullableInt32** |  | [optional] 
@@ -126,6 +128,76 @@ HasPriceIdAnnual returns a boolean if a field has been set.
 `func (o *BillingPlan) UnsetPriceIdAnnual()`
 
 UnsetPriceIdAnnual ensures that no value is present for PriceIdAnnual, not even an explicit nil
+### GetPriceCents
+
+`func (o *BillingPlan) GetPriceCents() int32`
+
+GetPriceCents returns the PriceCents field if non-nil, zero value otherwise.
+
+### GetPriceCentsOk
+
+`func (o *BillingPlan) GetPriceCentsOk() (*int32, bool)`
+
+GetPriceCentsOk returns a tuple with the PriceCents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPriceCents
+
+`func (o *BillingPlan) SetPriceCents(v int32)`
+
+SetPriceCents sets PriceCents field to given value.
+
+### HasPriceCents
+
+`func (o *BillingPlan) HasPriceCents() bool`
+
+HasPriceCents returns a boolean if a field has been set.
+
+### SetPriceCentsNil
+
+`func (o *BillingPlan) SetPriceCentsNil(b bool)`
+
+ SetPriceCentsNil sets the value for PriceCents to be an explicit nil
+
+### UnsetPriceCents
+`func (o *BillingPlan) UnsetPriceCents()`
+
+UnsetPriceCents ensures that no value is present for PriceCents, not even an explicit nil
+### GetPriceCentsAnnual
+
+`func (o *BillingPlan) GetPriceCentsAnnual() int32`
+
+GetPriceCentsAnnual returns the PriceCentsAnnual field if non-nil, zero value otherwise.
+
+### GetPriceCentsAnnualOk
+
+`func (o *BillingPlan) GetPriceCentsAnnualOk() (*int32, bool)`
+
+GetPriceCentsAnnualOk returns a tuple with the PriceCentsAnnual field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPriceCentsAnnual
+
+`func (o *BillingPlan) SetPriceCentsAnnual(v int32)`
+
+SetPriceCentsAnnual sets PriceCentsAnnual field to given value.
+
+### HasPriceCentsAnnual
+
+`func (o *BillingPlan) HasPriceCentsAnnual() bool`
+
+HasPriceCentsAnnual returns a boolean if a field has been set.
+
+### SetPriceCentsAnnualNil
+
+`func (o *BillingPlan) SetPriceCentsAnnualNil(b bool)`
+
+ SetPriceCentsAnnualNil sets the value for PriceCentsAnnual to be an explicit nil
+
+### UnsetPriceCentsAnnual
+`func (o *BillingPlan) UnsetPriceCentsAnnual()`
+
+UnsetPriceCentsAnnual ensures that no value is present for PriceCentsAnnual, not even an explicit nil
 ### GetMonthlyRenderQuota
 
 `func (o *BillingPlan) GetMonthlyRenderQuota() int32`

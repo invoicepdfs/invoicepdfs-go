@@ -25,6 +25,8 @@ type BillingPlan struct {
 	Name string `json:"name"`
 	PriceId string `json:"price_id"`
 	PriceIdAnnual NullableString `json:"price_id_annual,omitempty"`
+	PriceCents NullableInt32 `json:"price_cents,omitempty"`
+	PriceCentsAnnual NullableInt32 `json:"price_cents_annual,omitempty"`
 	MonthlyRenderQuota int32 `json:"monthly_render_quota"`
 	AllowBrandingRemoval *bool `json:"allow_branding_removal,omitempty"`
 	OveragePriceMillicents NullableInt32 `json:"overage_price_millicents,omitempty"`
@@ -171,6 +173,90 @@ func (o *BillingPlan) UnsetPriceIdAnnual() {
 	o.PriceIdAnnual.Unset()
 }
 
+// GetPriceCents returns the PriceCents field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BillingPlan) GetPriceCents() int32 {
+	if o == nil || IsNil(o.PriceCents.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.PriceCents.Get()
+}
+
+// GetPriceCentsOk returns a tuple with the PriceCents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BillingPlan) GetPriceCentsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PriceCents.Get(), o.PriceCents.IsSet()
+}
+
+// HasPriceCents returns a boolean if a field has been set.
+func (o *BillingPlan) HasPriceCents() bool {
+	if o != nil && o.PriceCents.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPriceCents gets a reference to the given NullableInt32 and assigns it to the PriceCents field.
+func (o *BillingPlan) SetPriceCents(v int32) {
+	o.PriceCents.Set(&v)
+}
+// SetPriceCentsNil sets the value for PriceCents to be an explicit nil
+func (o *BillingPlan) SetPriceCentsNil() {
+	o.PriceCents.Set(nil)
+}
+
+// UnsetPriceCents ensures that no value is present for PriceCents, not even an explicit nil
+func (o *BillingPlan) UnsetPriceCents() {
+	o.PriceCents.Unset()
+}
+
+// GetPriceCentsAnnual returns the PriceCentsAnnual field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BillingPlan) GetPriceCentsAnnual() int32 {
+	if o == nil || IsNil(o.PriceCentsAnnual.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.PriceCentsAnnual.Get()
+}
+
+// GetPriceCentsAnnualOk returns a tuple with the PriceCentsAnnual field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BillingPlan) GetPriceCentsAnnualOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PriceCentsAnnual.Get(), o.PriceCentsAnnual.IsSet()
+}
+
+// HasPriceCentsAnnual returns a boolean if a field has been set.
+func (o *BillingPlan) HasPriceCentsAnnual() bool {
+	if o != nil && o.PriceCentsAnnual.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPriceCentsAnnual gets a reference to the given NullableInt32 and assigns it to the PriceCentsAnnual field.
+func (o *BillingPlan) SetPriceCentsAnnual(v int32) {
+	o.PriceCentsAnnual.Set(&v)
+}
+// SetPriceCentsAnnualNil sets the value for PriceCentsAnnual to be an explicit nil
+func (o *BillingPlan) SetPriceCentsAnnualNil() {
+	o.PriceCentsAnnual.Set(nil)
+}
+
+// UnsetPriceCentsAnnual ensures that no value is present for PriceCentsAnnual, not even an explicit nil
+func (o *BillingPlan) UnsetPriceCentsAnnual() {
+	o.PriceCentsAnnual.Unset()
+}
+
 // GetMonthlyRenderQuota returns the MonthlyRenderQuota field value
 func (o *BillingPlan) GetMonthlyRenderQuota() int32 {
 	if o == nil {
@@ -284,6 +370,12 @@ func (o BillingPlan) ToMap() (map[string]interface{}, error) {
 	toSerialize["price_id"] = o.PriceId
 	if o.PriceIdAnnual.IsSet() {
 		toSerialize["price_id_annual"] = o.PriceIdAnnual.Get()
+	}
+	if o.PriceCents.IsSet() {
+		toSerialize["price_cents"] = o.PriceCents.Get()
+	}
+	if o.PriceCentsAnnual.IsSet() {
+		toSerialize["price_cents_annual"] = o.PriceCentsAnnual.Get()
 	}
 	toSerialize["monthly_render_quota"] = o.MonthlyRenderQuota
 	if !IsNil(o.AllowBrandingRemoval) {
