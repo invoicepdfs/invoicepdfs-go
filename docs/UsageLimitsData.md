@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Renders** | [**UsageRenderLimits**](UsageRenderLimits.md) |  | 
 **RateLimit** | [**UsageRateLimit**](UsageRateLimit.md) |  | 
+**ApiLogRetention** | Pointer to **int32** |  | [optional] [default to 0]
 **Overage** | Pointer to [**UsageOverage**](UsageOverage.md) |  | [optional] 
 
 ## Methods
@@ -66,6 +67,31 @@ and a boolean to check if the value has been set.
 
 SetRateLimit sets RateLimit field to given value.
 
+
+### GetApiLogRetention
+
+`func (o *UsageLimitsData) GetApiLogRetention() int32`
+
+GetApiLogRetention returns the ApiLogRetention field if non-nil, zero value otherwise.
+
+### GetApiLogRetentionOk
+
+`func (o *UsageLimitsData) GetApiLogRetentionOk() (*int32, bool)`
+
+GetApiLogRetentionOk returns a tuple with the ApiLogRetention field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApiLogRetention
+
+`func (o *UsageLimitsData) SetApiLogRetention(v int32)`
+
+SetApiLogRetention sets ApiLogRetention field to given value.
+
+### HasApiLogRetention
+
+`func (o *UsageLimitsData) HasApiLogRetention() bool`
+
+HasApiLogRetention returns a boolean if a field has been set.
 
 ### GetOverage
 

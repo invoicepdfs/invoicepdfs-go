@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **OverageEnabled** | Pointer to **bool** |  | [optional] [default to false]
 **OverageAvailable** | Pointer to **bool** |  | [optional] [default to false]
 **OveragePriceMillicents** | Pointer to **NullableInt32** |  | [optional] 
+**AllowBrandingRemoval** | Pointer to **bool** |  | [optional] [default to false]
 
 ## Methods
 
@@ -278,6 +279,31 @@ HasOveragePriceMillicents returns a boolean if a field has been set.
 `func (o *BillingSubscriptionData) UnsetOveragePriceMillicents()`
 
 UnsetOveragePriceMillicents ensures that no value is present for OveragePriceMillicents, not even an explicit nil
+### GetAllowBrandingRemoval
+
+`func (o *BillingSubscriptionData) GetAllowBrandingRemoval() bool`
+
+GetAllowBrandingRemoval returns the AllowBrandingRemoval field if non-nil, zero value otherwise.
+
+### GetAllowBrandingRemovalOk
+
+`func (o *BillingSubscriptionData) GetAllowBrandingRemovalOk() (*bool, bool)`
+
+GetAllowBrandingRemovalOk returns a tuple with the AllowBrandingRemoval field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowBrandingRemoval
+
+`func (o *BillingSubscriptionData) SetAllowBrandingRemoval(v bool)`
+
+SetAllowBrandingRemoval sets AllowBrandingRemoval field to given value.
+
+### HasAllowBrandingRemoval
+
+`func (o *BillingSubscriptionData) HasAllowBrandingRemoval() bool`
+
+HasAllowBrandingRemoval returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

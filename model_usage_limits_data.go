@@ -23,6 +23,7 @@ var _ MappedNullable = &UsageLimitsData{}
 type UsageLimitsData struct {
 	Renders UsageRenderLimits `json:"renders"`
 	RateLimit UsageRateLimit `json:"rate_limit"`
+	ApiLogRetention *int32 `json:"api_log_retention,omitempty"`
 	Overage *UsageOverage `json:"overage,omitempty"`
 }
 
@@ -36,6 +37,8 @@ func NewUsageLimitsData(renders UsageRenderLimits, rateLimit UsageRateLimit) *Us
 	this := UsageLimitsData{}
 	this.Renders = renders
 	this.RateLimit = rateLimit
+	var apiLogRetention int32 = 0
+	this.ApiLogRetention = &apiLogRetention
 	return &this
 }
 
@@ -44,6 +47,8 @@ func NewUsageLimitsData(renders UsageRenderLimits, rateLimit UsageRateLimit) *Us
 // but it doesn't guarantee that properties required by API are set
 func NewUsageLimitsDataWithDefaults() *UsageLimitsData {
 	this := UsageLimitsData{}
+	var apiLogRetention int32 = 0
+	this.ApiLogRetention = &apiLogRetention
 	return &this
 }
 
@@ -95,6 +100,38 @@ func (o *UsageLimitsData) SetRateLimit(v UsageRateLimit) {
 	o.RateLimit = v
 }
 
+// GetApiLogRetention returns the ApiLogRetention field value if set, zero value otherwise.
+func (o *UsageLimitsData) GetApiLogRetention() int32 {
+	if o == nil || IsNil(o.ApiLogRetention) {
+		var ret int32
+		return ret
+	}
+	return *o.ApiLogRetention
+}
+
+// GetApiLogRetentionOk returns a tuple with the ApiLogRetention field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsageLimitsData) GetApiLogRetentionOk() (*int32, bool) {
+	if o == nil || IsNil(o.ApiLogRetention) {
+		return nil, false
+	}
+	return o.ApiLogRetention, true
+}
+
+// HasApiLogRetention returns a boolean if a field has been set.
+func (o *UsageLimitsData) HasApiLogRetention() bool {
+	if o != nil && !IsNil(o.ApiLogRetention) {
+		return true
+	}
+
+	return false
+}
+
+// SetApiLogRetention gets a reference to the given int32 and assigns it to the ApiLogRetention field.
+func (o *UsageLimitsData) SetApiLogRetention(v int32) {
+	o.ApiLogRetention = &v
+}
+
 // GetOverage returns the Overage field value if set, zero value otherwise.
 func (o *UsageLimitsData) GetOverage() UsageOverage {
 	if o == nil || IsNil(o.Overage) {
@@ -139,6 +176,9 @@ func (o UsageLimitsData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["renders"] = o.Renders
 	toSerialize["rate_limit"] = o.RateLimit
+	if !IsNil(o.ApiLogRetention) {
+		toSerialize["api_log_retention"] = o.ApiLogRetention
+	}
 	if !IsNil(o.Overage) {
 		toSerialize["overage"] = o.Overage
 	}

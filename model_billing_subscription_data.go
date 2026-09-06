@@ -30,6 +30,7 @@ type BillingSubscriptionData struct {
 	OverageEnabled *bool `json:"overage_enabled,omitempty"`
 	OverageAvailable *bool `json:"overage_available,omitempty"`
 	OveragePriceMillicents NullableInt32 `json:"overage_price_millicents,omitempty"`
+	AllowBrandingRemoval *bool `json:"allow_branding_removal,omitempty"`
 }
 
 type _BillingSubscriptionData BillingSubscriptionData
@@ -50,6 +51,8 @@ func NewBillingSubscriptionData(planId string, planName string) *BillingSubscrip
 	this.OverageEnabled = &overageEnabled
 	var overageAvailable bool = false
 	this.OverageAvailable = &overageAvailable
+	var allowBrandingRemoval bool = false
+	this.AllowBrandingRemoval = &allowBrandingRemoval
 	return &this
 }
 
@@ -66,6 +69,8 @@ func NewBillingSubscriptionDataWithDefaults() *BillingSubscriptionData {
 	this.OverageEnabled = &overageEnabled
 	var overageAvailable bool = false
 	this.OverageAvailable = &overageAvailable
+	var allowBrandingRemoval bool = false
+	this.AllowBrandingRemoval = &allowBrandingRemoval
 	return &this
 }
 
@@ -371,6 +376,38 @@ func (o *BillingSubscriptionData) UnsetOveragePriceMillicents() {
 	o.OveragePriceMillicents.Unset()
 }
 
+// GetAllowBrandingRemoval returns the AllowBrandingRemoval field value if set, zero value otherwise.
+func (o *BillingSubscriptionData) GetAllowBrandingRemoval() bool {
+	if o == nil || IsNil(o.AllowBrandingRemoval) {
+		var ret bool
+		return ret
+	}
+	return *o.AllowBrandingRemoval
+}
+
+// GetAllowBrandingRemovalOk returns a tuple with the AllowBrandingRemoval field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BillingSubscriptionData) GetAllowBrandingRemovalOk() (*bool, bool) {
+	if o == nil || IsNil(o.AllowBrandingRemoval) {
+		return nil, false
+	}
+	return o.AllowBrandingRemoval, true
+}
+
+// HasAllowBrandingRemoval returns a boolean if a field has been set.
+func (o *BillingSubscriptionData) HasAllowBrandingRemoval() bool {
+	if o != nil && !IsNil(o.AllowBrandingRemoval) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowBrandingRemoval gets a reference to the given bool and assigns it to the AllowBrandingRemoval field.
+func (o *BillingSubscriptionData) SetAllowBrandingRemoval(v bool) {
+	o.AllowBrandingRemoval = &v
+}
+
 func (o BillingSubscriptionData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -403,6 +440,9 @@ func (o BillingSubscriptionData) ToMap() (map[string]interface{}, error) {
 	}
 	if o.OveragePriceMillicents.IsSet() {
 		toSerialize["overage_price_millicents"] = o.OveragePriceMillicents.Get()
+	}
+	if !IsNil(o.AllowBrandingRemoval) {
+		toSerialize["allow_branding_removal"] = o.AllowBrandingRemoval
 	}
 	return toSerialize, nil
 }
