@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**CreatePortalSession**](BillingAPI.md#CreatePortalSession) | **Post** /api/v1/billing/portal-session | Create Portal Session
 [**GetSubscription**](BillingAPI.md#GetSubscription) | **Get** /api/v1/billing/subscription | Get Subscription
 [**ListPlans**](BillingAPI.md#ListPlans) | **Get** /api/v1/billing/plans | List Plans
+[**UpdateOverageSettings**](BillingAPI.md#UpdateOverageSettings) | **Patch** /api/v1/billing/overage | Update Overage Settings
 
 
 
@@ -253,6 +254,72 @@ Other parameters are passed through a pointer to a apiListPlansRequest struct vi
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateOverageSettings
+
+> BillingOverageResponse UpdateOverageSettings(ctx).BillingOverageRequest(billingOverageRequest).Execute()
+
+Update Overage Settings
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+	billingOverageRequest := *openapiclient.NewBillingOverageRequest(false) // BillingOverageRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BillingAPI.UpdateOverageSettings(context.Background()).BillingOverageRequest(billingOverageRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BillingAPI.UpdateOverageSettings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateOverageSettings`: BillingOverageResponse
+	fmt.Fprintf(os.Stdout, "Response from `BillingAPI.UpdateOverageSettings`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateOverageSettingsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **billingOverageRequest** | [**BillingOverageRequest**](BillingOverageRequest.md) |  | 
+
+### Return type
+
+[**BillingOverageResponse**](BillingOverageResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

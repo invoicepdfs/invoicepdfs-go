@@ -78,6 +78,9 @@ docs/BillingAPI.md
 docs/BillingCheckoutData.md
 docs/BillingCheckoutRequest.md
 docs/BillingCheckoutResponse.md
+docs/BillingOverageData.md
+docs/BillingOverageRequest.md
+docs/BillingOverageResponse.md
 docs/BillingPlan.md
 docs/BillingPlansListResponse.md
 docs/BillingPortalData.md
@@ -242,6 +245,7 @@ docs/UsageEventOut.md
 docs/UsageEventsListResponse.md
 docs/UsageLimitsData.md
 docs/UsageLimitsResponse.md
+docs/UsageOverage.md
 docs/UsagePeriod.md
 docs/UsageRateLimit.md
 docs/UsageRenderLimits.md
@@ -313,6 +317,9 @@ model_batches_list_response.go
 model_billing_checkout_data.go
 model_billing_checkout_request.go
 model_billing_checkout_response.go
+model_billing_overage_data.go
+model_billing_overage_request.go
+model_billing_overage_response.go
 model_billing_plan.go
 model_billing_plans_list_response.go
 model_billing_portal_data.go
@@ -456,6 +463,7 @@ model_usage_event_out.go
 model_usage_events_list_response.go
 model_usage_limits_data.go
 model_usage_limits_response.go
+model_usage_overage.go
 model_usage_period.go
 model_usage_rate_limit.go
 model_usage_render_limits.go

@@ -24,7 +24,10 @@ type BillingPlan struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
 	PriceId string `json:"price_id"`
+	PriceIdAnnual NullableString `json:"price_id_annual,omitempty"`
 	MonthlyRenderQuota int32 `json:"monthly_render_quota"`
+	AllowBrandingRemoval *bool `json:"allow_branding_removal,omitempty"`
+	OveragePriceMillicents NullableInt32 `json:"overage_price_millicents,omitempty"`
 }
 
 type _BillingPlan BillingPlan
@@ -39,6 +42,8 @@ func NewBillingPlan(id string, name string, priceId string, monthlyRenderQuota i
 	this.Name = name
 	this.PriceId = priceId
 	this.MonthlyRenderQuota = monthlyRenderQuota
+	var allowBrandingRemoval bool = false
+	this.AllowBrandingRemoval = &allowBrandingRemoval
 	return &this
 }
 
@@ -47,6 +52,8 @@ func NewBillingPlan(id string, name string, priceId string, monthlyRenderQuota i
 // but it doesn't guarantee that properties required by API are set
 func NewBillingPlanWithDefaults() *BillingPlan {
 	this := BillingPlan{}
+	var allowBrandingRemoval bool = false
+	this.AllowBrandingRemoval = &allowBrandingRemoval
 	return &this
 }
 
@@ -122,6 +129,48 @@ func (o *BillingPlan) SetPriceId(v string) {
 	o.PriceId = v
 }
 
+// GetPriceIdAnnual returns the PriceIdAnnual field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BillingPlan) GetPriceIdAnnual() string {
+	if o == nil || IsNil(o.PriceIdAnnual.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.PriceIdAnnual.Get()
+}
+
+// GetPriceIdAnnualOk returns a tuple with the PriceIdAnnual field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BillingPlan) GetPriceIdAnnualOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PriceIdAnnual.Get(), o.PriceIdAnnual.IsSet()
+}
+
+// HasPriceIdAnnual returns a boolean if a field has been set.
+func (o *BillingPlan) HasPriceIdAnnual() bool {
+	if o != nil && o.PriceIdAnnual.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPriceIdAnnual gets a reference to the given NullableString and assigns it to the PriceIdAnnual field.
+func (o *BillingPlan) SetPriceIdAnnual(v string) {
+	o.PriceIdAnnual.Set(&v)
+}
+// SetPriceIdAnnualNil sets the value for PriceIdAnnual to be an explicit nil
+func (o *BillingPlan) SetPriceIdAnnualNil() {
+	o.PriceIdAnnual.Set(nil)
+}
+
+// UnsetPriceIdAnnual ensures that no value is present for PriceIdAnnual, not even an explicit nil
+func (o *BillingPlan) UnsetPriceIdAnnual() {
+	o.PriceIdAnnual.Unset()
+}
+
 // GetMonthlyRenderQuota returns the MonthlyRenderQuota field value
 func (o *BillingPlan) GetMonthlyRenderQuota() int32 {
 	if o == nil {
@@ -146,6 +195,80 @@ func (o *BillingPlan) SetMonthlyRenderQuota(v int32) {
 	o.MonthlyRenderQuota = v
 }
 
+// GetAllowBrandingRemoval returns the AllowBrandingRemoval field value if set, zero value otherwise.
+func (o *BillingPlan) GetAllowBrandingRemoval() bool {
+	if o == nil || IsNil(o.AllowBrandingRemoval) {
+		var ret bool
+		return ret
+	}
+	return *o.AllowBrandingRemoval
+}
+
+// GetAllowBrandingRemovalOk returns a tuple with the AllowBrandingRemoval field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BillingPlan) GetAllowBrandingRemovalOk() (*bool, bool) {
+	if o == nil || IsNil(o.AllowBrandingRemoval) {
+		return nil, false
+	}
+	return o.AllowBrandingRemoval, true
+}
+
+// HasAllowBrandingRemoval returns a boolean if a field has been set.
+func (o *BillingPlan) HasAllowBrandingRemoval() bool {
+	if o != nil && !IsNil(o.AllowBrandingRemoval) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowBrandingRemoval gets a reference to the given bool and assigns it to the AllowBrandingRemoval field.
+func (o *BillingPlan) SetAllowBrandingRemoval(v bool) {
+	o.AllowBrandingRemoval = &v
+}
+
+// GetOveragePriceMillicents returns the OveragePriceMillicents field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BillingPlan) GetOveragePriceMillicents() int32 {
+	if o == nil || IsNil(o.OveragePriceMillicents.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.OveragePriceMillicents.Get()
+}
+
+// GetOveragePriceMillicentsOk returns a tuple with the OveragePriceMillicents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BillingPlan) GetOveragePriceMillicentsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.OveragePriceMillicents.Get(), o.OveragePriceMillicents.IsSet()
+}
+
+// HasOveragePriceMillicents returns a boolean if a field has been set.
+func (o *BillingPlan) HasOveragePriceMillicents() bool {
+	if o != nil && o.OveragePriceMillicents.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOveragePriceMillicents gets a reference to the given NullableInt32 and assigns it to the OveragePriceMillicents field.
+func (o *BillingPlan) SetOveragePriceMillicents(v int32) {
+	o.OveragePriceMillicents.Set(&v)
+}
+// SetOveragePriceMillicentsNil sets the value for OveragePriceMillicents to be an explicit nil
+func (o *BillingPlan) SetOveragePriceMillicentsNil() {
+	o.OveragePriceMillicents.Set(nil)
+}
+
+// UnsetOveragePriceMillicents ensures that no value is present for OveragePriceMillicents, not even an explicit nil
+func (o *BillingPlan) UnsetOveragePriceMillicents() {
+	o.OveragePriceMillicents.Unset()
+}
+
 func (o BillingPlan) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -159,7 +282,16 @@ func (o BillingPlan) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["price_id"] = o.PriceId
+	if o.PriceIdAnnual.IsSet() {
+		toSerialize["price_id_annual"] = o.PriceIdAnnual.Get()
+	}
 	toSerialize["monthly_render_quota"] = o.MonthlyRenderQuota
+	if !IsNil(o.AllowBrandingRemoval) {
+		toSerialize["allow_branding_removal"] = o.AllowBrandingRemoval
+	}
+	if o.OveragePriceMillicents.IsSet() {
+		toSerialize["overage_price_millicents"] = o.OveragePriceMillicents.Get()
+	}
 	return toSerialize, nil
 }
 

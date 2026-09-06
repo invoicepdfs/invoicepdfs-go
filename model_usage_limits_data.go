@@ -23,6 +23,7 @@ var _ MappedNullable = &UsageLimitsData{}
 type UsageLimitsData struct {
 	Renders UsageRenderLimits `json:"renders"`
 	RateLimit UsageRateLimit `json:"rate_limit"`
+	Overage *UsageOverage `json:"overage,omitempty"`
 }
 
 type _UsageLimitsData UsageLimitsData
@@ -94,6 +95,38 @@ func (o *UsageLimitsData) SetRateLimit(v UsageRateLimit) {
 	o.RateLimit = v
 }
 
+// GetOverage returns the Overage field value if set, zero value otherwise.
+func (o *UsageLimitsData) GetOverage() UsageOverage {
+	if o == nil || IsNil(o.Overage) {
+		var ret UsageOverage
+		return ret
+	}
+	return *o.Overage
+}
+
+// GetOverageOk returns a tuple with the Overage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsageLimitsData) GetOverageOk() (*UsageOverage, bool) {
+	if o == nil || IsNil(o.Overage) {
+		return nil, false
+	}
+	return o.Overage, true
+}
+
+// HasOverage returns a boolean if a field has been set.
+func (o *UsageLimitsData) HasOverage() bool {
+	if o != nil && !IsNil(o.Overage) {
+		return true
+	}
+
+	return false
+}
+
+// SetOverage gets a reference to the given UsageOverage and assigns it to the Overage field.
+func (o *UsageLimitsData) SetOverage(v UsageOverage) {
+	o.Overage = &v
+}
+
 func (o UsageLimitsData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -106,6 +139,9 @@ func (o UsageLimitsData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["renders"] = o.Renders
 	toSerialize["rate_limit"] = o.RateLimit
+	if !IsNil(o.Overage) {
+		toSerialize["overage"] = o.Overage
+	}
 	return toSerialize, nil
 }
 

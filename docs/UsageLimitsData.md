@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Renders** | [**UsageRenderLimits**](UsageRenderLimits.md) |  | 
 **RateLimit** | [**UsageRateLimit**](UsageRateLimit.md) |  | 
+**Overage** | Pointer to [**UsageOverage**](UsageOverage.md) |  | [optional] 
 
 ## Methods
 
@@ -65,6 +66,31 @@ and a boolean to check if the value has been set.
 
 SetRateLimit sets RateLimit field to given value.
 
+
+### GetOverage
+
+`func (o *UsageLimitsData) GetOverage() UsageOverage`
+
+GetOverage returns the Overage field if non-nil, zero value otherwise.
+
+### GetOverageOk
+
+`func (o *UsageLimitsData) GetOverageOk() (*UsageOverage, bool)`
+
+GetOverageOk returns a tuple with the Overage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOverage
+
+`func (o *UsageLimitsData) SetOverage(v UsageOverage)`
+
+SetOverage sets Overage field to given value.
+
+### HasOverage
+
+`func (o *UsageLimitsData) HasOverage() bool`
+
+HasOverage returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -27,6 +27,9 @@ type BillingSubscriptionData struct {
 	PlanName string `json:"plan_name"`
 	StripeConfigured *bool `json:"stripe_configured,omitempty"`
 	HasBillingAccount *bool `json:"has_billing_account,omitempty"`
+	OverageEnabled *bool `json:"overage_enabled,omitempty"`
+	OverageAvailable *bool `json:"overage_available,omitempty"`
+	OveragePriceMillicents NullableInt32 `json:"overage_price_millicents,omitempty"`
 }
 
 type _BillingSubscriptionData BillingSubscriptionData
@@ -43,6 +46,10 @@ func NewBillingSubscriptionData(planId string, planName string) *BillingSubscrip
 	this.StripeConfigured = &stripeConfigured
 	var hasBillingAccount bool = false
 	this.HasBillingAccount = &hasBillingAccount
+	var overageEnabled bool = false
+	this.OverageEnabled = &overageEnabled
+	var overageAvailable bool = false
+	this.OverageAvailable = &overageAvailable
 	return &this
 }
 
@@ -55,6 +62,10 @@ func NewBillingSubscriptionDataWithDefaults() *BillingSubscriptionData {
 	this.StripeConfigured = &stripeConfigured
 	var hasBillingAccount bool = false
 	this.HasBillingAccount = &hasBillingAccount
+	var overageEnabled bool = false
+	this.OverageEnabled = &overageEnabled
+	var overageAvailable bool = false
+	this.OverageAvailable = &overageAvailable
 	return &this
 }
 
@@ -254,6 +265,112 @@ func (o *BillingSubscriptionData) SetHasBillingAccount(v bool) {
 	o.HasBillingAccount = &v
 }
 
+// GetOverageEnabled returns the OverageEnabled field value if set, zero value otherwise.
+func (o *BillingSubscriptionData) GetOverageEnabled() bool {
+	if o == nil || IsNil(o.OverageEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.OverageEnabled
+}
+
+// GetOverageEnabledOk returns a tuple with the OverageEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BillingSubscriptionData) GetOverageEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.OverageEnabled) {
+		return nil, false
+	}
+	return o.OverageEnabled, true
+}
+
+// HasOverageEnabled returns a boolean if a field has been set.
+func (o *BillingSubscriptionData) HasOverageEnabled() bool {
+	if o != nil && !IsNil(o.OverageEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetOverageEnabled gets a reference to the given bool and assigns it to the OverageEnabled field.
+func (o *BillingSubscriptionData) SetOverageEnabled(v bool) {
+	o.OverageEnabled = &v
+}
+
+// GetOverageAvailable returns the OverageAvailable field value if set, zero value otherwise.
+func (o *BillingSubscriptionData) GetOverageAvailable() bool {
+	if o == nil || IsNil(o.OverageAvailable) {
+		var ret bool
+		return ret
+	}
+	return *o.OverageAvailable
+}
+
+// GetOverageAvailableOk returns a tuple with the OverageAvailable field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BillingSubscriptionData) GetOverageAvailableOk() (*bool, bool) {
+	if o == nil || IsNil(o.OverageAvailable) {
+		return nil, false
+	}
+	return o.OverageAvailable, true
+}
+
+// HasOverageAvailable returns a boolean if a field has been set.
+func (o *BillingSubscriptionData) HasOverageAvailable() bool {
+	if o != nil && !IsNil(o.OverageAvailable) {
+		return true
+	}
+
+	return false
+}
+
+// SetOverageAvailable gets a reference to the given bool and assigns it to the OverageAvailable field.
+func (o *BillingSubscriptionData) SetOverageAvailable(v bool) {
+	o.OverageAvailable = &v
+}
+
+// GetOveragePriceMillicents returns the OveragePriceMillicents field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BillingSubscriptionData) GetOveragePriceMillicents() int32 {
+	if o == nil || IsNil(o.OveragePriceMillicents.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.OveragePriceMillicents.Get()
+}
+
+// GetOveragePriceMillicentsOk returns a tuple with the OveragePriceMillicents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BillingSubscriptionData) GetOveragePriceMillicentsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.OveragePriceMillicents.Get(), o.OveragePriceMillicents.IsSet()
+}
+
+// HasOveragePriceMillicents returns a boolean if a field has been set.
+func (o *BillingSubscriptionData) HasOveragePriceMillicents() bool {
+	if o != nil && o.OveragePriceMillicents.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOveragePriceMillicents gets a reference to the given NullableInt32 and assigns it to the OveragePriceMillicents field.
+func (o *BillingSubscriptionData) SetOveragePriceMillicents(v int32) {
+	o.OveragePriceMillicents.Set(&v)
+}
+// SetOveragePriceMillicentsNil sets the value for OveragePriceMillicents to be an explicit nil
+func (o *BillingSubscriptionData) SetOveragePriceMillicentsNil() {
+	o.OveragePriceMillicents.Set(nil)
+}
+
+// UnsetOveragePriceMillicents ensures that no value is present for OveragePriceMillicents, not even an explicit nil
+func (o *BillingSubscriptionData) UnsetOveragePriceMillicents() {
+	o.OveragePriceMillicents.Unset()
+}
+
 func (o BillingSubscriptionData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -277,6 +394,15 @@ func (o BillingSubscriptionData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.HasBillingAccount) {
 		toSerialize["has_billing_account"] = o.HasBillingAccount
+	}
+	if !IsNil(o.OverageEnabled) {
+		toSerialize["overage_enabled"] = o.OverageEnabled
+	}
+	if !IsNil(o.OverageAvailable) {
+		toSerialize["overage_available"] = o.OverageAvailable
+	}
+	if o.OveragePriceMillicents.IsSet() {
+		toSerialize["overage_price_millicents"] = o.OveragePriceMillicents.Get()
 	}
 	return toSerialize, nil
 }

@@ -70,4 +70,16 @@ func Test_invoicepdfs_BillingAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test BillingAPIService UpdateOverageSettings", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.BillingAPI.UpdateOverageSettings(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }
