@@ -252,6 +252,18 @@ func Test_invoicepdfs_DocumentsAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test DocumentsAPIService ValidateCompliance", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DocumentsAPI.ValidateCompliance(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test DocumentsAPIService ValidateDocument", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

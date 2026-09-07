@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**RestoreDocument**](DocumentsAPI.md#RestoreDocument) | **Post** /api/v1/documents/{document_id}/restore | Restore Document
 [**SendDocument**](DocumentsAPI.md#SendDocument) | **Post** /api/v1/documents/{document_id}/send | Send Document
 [**UpdateDocument**](DocumentsAPI.md#UpdateDocument) | **Patch** /api/v1/documents/{document_id} | Update Document
+[**ValidateCompliance**](DocumentsAPI.md#ValidateCompliance) | **Post** /api/v1/documents/validate-compliance | Validate Compliance
 [**ValidateDocument**](DocumentsAPI.md#ValidateDocument) | **Post** /api/v1/documents/validate | Validate Document
 [**VoidDocument**](DocumentsAPI.md#VoidDocument) | **Post** /api/v1/documents/{document_id}/void | Void Document
 
@@ -1176,6 +1177,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentResponse**](DocumentResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ValidateCompliance
+
+> DocumentComplianceResponse ValidateCompliance(ctx).DocumentComplianceRequest(documentComplianceRequest).Execute()
+
+Validate Compliance
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+	documentComplianceRequest := *openapiclient.NewDocumentComplianceRequest(*openapiclient.NewDocumentInvoiceDataInput("INV-2026-001", time.Now(), "USD", *openapiclient.NewDocumentPartyInput("Acme Corp"), *openapiclient.NewDocumentPartyInput("Acme Corp"), []openapiclient.DocumentLineItemInput{*openapiclient.NewDocumentLineItemInput("Web Development", "2", "150.00")}), "peppol_bis_billing_3") // DocumentComplianceRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DocumentsAPI.ValidateCompliance(context.Background()).DocumentComplianceRequest(documentComplianceRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.ValidateCompliance``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ValidateCompliance`: DocumentComplianceResponse
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.ValidateCompliance`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiValidateComplianceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **documentComplianceRequest** | [**DocumentComplianceRequest**](DocumentComplianceRequest.md) |  | 
+
+### Return type
+
+[**DocumentComplianceResponse**](DocumentComplianceResponse.md)
 
 ### Authorization
 

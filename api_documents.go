@@ -2047,6 +2047,135 @@ func (a *DocumentsAPIService) UpdateDocumentExecute(r ApiUpdateDocumentRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiValidateComplianceRequest struct {
+	ctx context.Context
+	ApiService *DocumentsAPIService
+	documentComplianceRequest *DocumentComplianceRequest
+}
+
+func (r ApiValidateComplianceRequest) DocumentComplianceRequest(documentComplianceRequest DocumentComplianceRequest) ApiValidateComplianceRequest {
+	r.documentComplianceRequest = &documentComplianceRequest
+	return r
+}
+
+func (r ApiValidateComplianceRequest) Execute() (*DocumentComplianceResponse, *http.Response, error) {
+	return r.ApiService.ValidateComplianceExecute(r)
+}
+
+/*
+ValidateCompliance Validate Compliance
+
+Check a document against an e-invoicing ruleset without rendering it.
+
+Costs no renders: nothing is stored and no PDF is produced, so a caller can
+check every invoice they are about to send rather than discovering the
+problem from a rejection weeks later.
+
+This is the semantic half — mandatory fields and conditional requirements.
+Schematron is the authoritative check and is not wired up yet, so a document
+that passes here is not thereby proven conformant. It says what it can prove
+is wrong, which is the useful half early.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiValidateComplianceRequest
+*/
+func (a *DocumentsAPIService) ValidateCompliance(ctx context.Context) ApiValidateComplianceRequest {
+	return ApiValidateComplianceRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return DocumentComplianceResponse
+func (a *DocumentsAPIService) ValidateComplianceExecute(r ApiValidateComplianceRequest) (*DocumentComplianceResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DocumentComplianceResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.ValidateCompliance")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/documents/validate-compliance"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.documentComplianceRequest == nil {
+		return localVarReturnValue, nil, reportError("documentComplianceRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.documentComplianceRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiValidateDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService

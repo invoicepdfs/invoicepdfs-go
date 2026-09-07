@@ -100,6 +100,8 @@ docs/BusinessProfileResponse.md
 docs/BusinessProfilesAPI.md
 docs/BusinessProfilesListResponse.md
 docs/CalculationBreakdown.md
+docs/ComplianceCheckOut.md
+docs/ComplianceViolationOut.md
 docs/CountriesListResponse.md
 docs/CountryOut.md
 docs/CurrenciesListResponse.md
@@ -123,6 +125,8 @@ docs/DocumentAttachmentsAPI.md
 docs/DocumentBrandingInput.md
 docs/DocumentCalculateRequest.md
 docs/DocumentCalculateResponse.md
+docs/DocumentComplianceRequest.md
+docs/DocumentComplianceResponse.md
 docs/DocumentCreateRequest.md
 docs/DocumentCustomFieldInput.md
 docs/DocumentDiscountInput.md
@@ -339,6 +343,8 @@ model_business_profile_patch.go
 model_business_profile_response.go
 model_business_profiles_list_response.go
 model_calculation_breakdown.go
+model_compliance_check_out.go
+model_compliance_violation_out.go
 model_countries_list_response.go
 model_country_out.go
 model_currencies_list_response.go
@@ -359,6 +365,8 @@ model_delivery_send_request.go
 model_document_branding_input.go
 model_document_calculate_request.go
 model_document_calculate_response.go
+model_document_compliance_request.go
+model_document_compliance_response.go
 model_document_create_request.go
 model_document_custom_field_input.go
 model_document_discount_input.go
