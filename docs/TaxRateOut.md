@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Rate** | **string** |  | 
 **Inclusive** | **bool** |  | 
 **Jurisdiction** | Pointer to **NullableString** |  | [optional] 
+**Category** | Pointer to [**NullableTaxCategory**](TaxCategory.md) |  | [optional] 
 **IsActive** | **bool** |  | 
 **CreatedAt** | **string** |  | 
 **UpdatedAt** | **string** |  | 
@@ -147,6 +148,41 @@ HasJurisdiction returns a boolean if a field has been set.
 `func (o *TaxRateOut) UnsetJurisdiction()`
 
 UnsetJurisdiction ensures that no value is present for Jurisdiction, not even an explicit nil
+### GetCategory
+
+`func (o *TaxRateOut) GetCategory() TaxCategory`
+
+GetCategory returns the Category field if non-nil, zero value otherwise.
+
+### GetCategoryOk
+
+`func (o *TaxRateOut) GetCategoryOk() (*TaxCategory, bool)`
+
+GetCategoryOk returns a tuple with the Category field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCategory
+
+`func (o *TaxRateOut) SetCategory(v TaxCategory)`
+
+SetCategory sets Category field to given value.
+
+### HasCategory
+
+`func (o *TaxRateOut) HasCategory() bool`
+
+HasCategory returns a boolean if a field has been set.
+
+### SetCategoryNil
+
+`func (o *TaxRateOut) SetCategoryNil(b bool)`
+
+ SetCategoryNil sets the value for Category to be an explicit nil
+
+### UnsetCategory
+`func (o *TaxRateOut) UnsetCategory()`
+
+UnsetCategory ensures that no value is present for Category, not even an explicit nil
 ### GetIsActive
 
 `func (o *TaxRateOut) GetIsActive() bool`

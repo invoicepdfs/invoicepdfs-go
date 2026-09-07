@@ -24,6 +24,7 @@ type TaxRatePatchRequest struct {
 	Inclusive *bool `json:"inclusive,omitempty"`
 	Jurisdiction NullableString `json:"jurisdiction,omitempty"`
 	IsActive *bool `json:"is_active,omitempty"`
+	Category NullableTaxCategory `json:"category,omitempty"`
 }
 
 // NewTaxRatePatchRequest instantiates a new TaxRatePatchRequest object
@@ -213,6 +214,48 @@ func (o *TaxRatePatchRequest) SetIsActive(v bool) {
 	o.IsActive = &v
 }
 
+// GetCategory returns the Category field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TaxRatePatchRequest) GetCategory() TaxCategory {
+	if o == nil || IsNil(o.Category.Get()) {
+		var ret TaxCategory
+		return ret
+	}
+	return *o.Category.Get()
+}
+
+// GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TaxRatePatchRequest) GetCategoryOk() (*TaxCategory, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Category.Get(), o.Category.IsSet()
+}
+
+// HasCategory returns a boolean if a field has been set.
+func (o *TaxRatePatchRequest) HasCategory() bool {
+	if o != nil && o.Category.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCategory gets a reference to the given NullableTaxCategory and assigns it to the Category field.
+func (o *TaxRatePatchRequest) SetCategory(v TaxCategory) {
+	o.Category.Set(&v)
+}
+// SetCategoryNil sets the value for Category to be an explicit nil
+func (o *TaxRatePatchRequest) SetCategoryNil() {
+	o.Category.Set(nil)
+}
+
+// UnsetCategory ensures that no value is present for Category, not even an explicit nil
+func (o *TaxRatePatchRequest) UnsetCategory() {
+	o.Category.Unset()
+}
+
 func (o TaxRatePatchRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -237,6 +280,9 @@ func (o TaxRatePatchRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsActive) {
 		toSerialize["is_active"] = o.IsActive
+	}
+	if o.Category.IsSet() {
+		toSerialize["category"] = o.Category.Get()
 	}
 	return toSerialize, nil
 }

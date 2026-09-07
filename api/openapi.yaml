@@ -11843,6 +11843,10 @@ components:
         rate: "8.375"
         jurisdiction: jurisdiction
         name: California sales tax
+        category:
+          code: S
+          exemption_reason: exemption_reason
+          exemption_reason_code: exemption_reason_code
       properties:
         name:
           example: California sales tax
@@ -11859,6 +11863,8 @@ components:
         jurisdiction:
           nullable: true
           type: string
+        category:
+          $ref: '#/components/schemas/TaxCategory'
       required:
       - name
       - rate
@@ -11874,6 +11880,10 @@ components:
         name: name
         created_at: created_at
         id: id
+        category:
+          code: S
+          exemption_reason: exemption_reason
+          exemption_reason_code: exemption_reason_code
       properties:
         id:
           title: Id
@@ -11890,6 +11900,8 @@ components:
         jurisdiction:
           nullable: true
           type: string
+        category:
+          $ref: '#/components/schemas/TaxCategory'
         is_active:
           title: Is Active
           type: boolean
@@ -11916,6 +11928,10 @@ components:
         rate: rate
         jurisdiction: jurisdiction
         name: name
+        category:
+          code: S
+          exemption_reason: exemption_reason
+          exemption_reason_code: exemption_reason_code
       properties:
         name:
           title: Name
@@ -11932,6 +11948,8 @@ components:
         is_active:
           title: Is Active
           type: boolean
+        category:
+          $ref: '#/components/schemas/TaxCategory'
       title: TaxRatePatchRequest
       type: object
     TaxRateResponse:
@@ -11945,6 +11963,10 @@ components:
           name: name
           created_at: created_at
           id: id
+          category:
+            code: S
+            exemption_reason: exemption_reason
+            exemption_reason_code: exemption_reason_code
       properties:
         data:
           $ref: '#/components/schemas/TaxRateOut'
@@ -11966,6 +11988,10 @@ components:
           name: name
           created_at: created_at
           id: id
+          category:
+            code: S
+            exemption_reason: exemption_reason
+            exemption_reason_code: exemption_reason_code
         - inclusive: true
           is_active: true
           updated_at: updated_at
@@ -11974,6 +12000,10 @@ components:
           name: name
           created_at: created_at
           id: id
+          category:
+            code: S
+            exemption_reason: exemption_reason
+            exemption_reason_code: exemption_reason_code
       properties:
         data:
           items:

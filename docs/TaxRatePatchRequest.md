@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Inclusive** | Pointer to **bool** |  | [optional] 
 **Jurisdiction** | Pointer to **NullableString** |  | [optional] 
 **IsActive** | Pointer to **bool** |  | [optional] 
+**Category** | Pointer to [**NullableTaxCategory**](TaxCategory.md) |  | [optional] 
 
 ## Methods
 
@@ -164,6 +165,41 @@ SetIsActive sets IsActive field to given value.
 
 HasIsActive returns a boolean if a field has been set.
 
+### GetCategory
+
+`func (o *TaxRatePatchRequest) GetCategory() TaxCategory`
+
+GetCategory returns the Category field if non-nil, zero value otherwise.
+
+### GetCategoryOk
+
+`func (o *TaxRatePatchRequest) GetCategoryOk() (*TaxCategory, bool)`
+
+GetCategoryOk returns a tuple with the Category field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCategory
+
+`func (o *TaxRatePatchRequest) SetCategory(v TaxCategory)`
+
+SetCategory sets Category field to given value.
+
+### HasCategory
+
+`func (o *TaxRatePatchRequest) HasCategory() bool`
+
+HasCategory returns a boolean if a field has been set.
+
+### SetCategoryNil
+
+`func (o *TaxRatePatchRequest) SetCategoryNil(b bool)`
+
+ SetCategoryNil sets the value for Category to be an explicit nil
+
+### UnsetCategory
+`func (o *TaxRatePatchRequest) UnsetCategory()`
+
+UnsetCategory ensures that no value is present for Category, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
