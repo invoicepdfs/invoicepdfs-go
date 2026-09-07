@@ -30,6 +30,7 @@ type DocumentPatchRequest struct {
 	SourceDocumentId NullableString `json:"source_document_id,omitempty"`
 	Reason NullableString `json:"reason,omitempty"`
 	ShipTo NullablePostalAddress `json:"ship_to,omitempty"`
+	BuyerReference NullableString `json:"buyer_reference,omitempty"`
 	LineItems []StandardLineItemInput `json:"line_items,omitempty"`
 	Discounts []LineItemDiscountInput `json:"discounts,omitempty"`
 	Shipping NullableInvoiceShippingInput `json:"shipping,omitempty"`
@@ -519,6 +520,48 @@ func (o *DocumentPatchRequest) UnsetShipTo() {
 	o.ShipTo.Unset()
 }
 
+// GetBuyerReference returns the BuyerReference field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DocumentPatchRequest) GetBuyerReference() string {
+	if o == nil || IsNil(o.BuyerReference.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BuyerReference.Get()
+}
+
+// GetBuyerReferenceOk returns a tuple with the BuyerReference field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DocumentPatchRequest) GetBuyerReferenceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BuyerReference.Get(), o.BuyerReference.IsSet()
+}
+
+// HasBuyerReference returns a boolean if a field has been set.
+func (o *DocumentPatchRequest) HasBuyerReference() bool {
+	if o != nil && o.BuyerReference.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyerReference gets a reference to the given NullableString and assigns it to the BuyerReference field.
+func (o *DocumentPatchRequest) SetBuyerReference(v string) {
+	o.BuyerReference.Set(&v)
+}
+// SetBuyerReferenceNil sets the value for BuyerReference to be an explicit nil
+func (o *DocumentPatchRequest) SetBuyerReferenceNil() {
+	o.BuyerReference.Set(nil)
+}
+
+// UnsetBuyerReference ensures that no value is present for BuyerReference, not even an explicit nil
+func (o *DocumentPatchRequest) UnsetBuyerReference() {
+	o.BuyerReference.Unset()
+}
+
 // GetLineItems returns the LineItems field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DocumentPatchRequest) GetLineItems() []StandardLineItemInput {
 	if o == nil {
@@ -852,6 +895,9 @@ func (o DocumentPatchRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ShipTo.IsSet() {
 		toSerialize["ship_to"] = o.ShipTo.Get()
+	}
+	if o.BuyerReference.IsSet() {
+		toSerialize["buyer_reference"] = o.BuyerReference.Get()
 	}
 	if o.LineItems != nil {
 		toSerialize["line_items"] = o.LineItems

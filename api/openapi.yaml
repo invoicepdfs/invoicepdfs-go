@@ -7391,6 +7391,7 @@ components:
             quantity: "2"
             name: Web Development
             description: description
+            unit_code: unit_code
             discount:
               reason: reason
               type: percentage
@@ -7416,6 +7417,7 @@ components:
             quantity: "2"
             name: Web Development
             description: description
+            unit_code: unit_code
             discount:
               reason: reason
               type: percentage
@@ -7437,6 +7439,7 @@ components:
                 exemption_reason_code: exemption_reason_code
             unit_price: "150.00"
             sku: sku
+          buyer_reference: buyer_reference
           buyer:
             website: website
             address:
@@ -7594,6 +7597,7 @@ components:
           quantity: "2"
           name: Web Development
           description: description
+          unit_code: unit_code
           discount:
             reason: reason
             type: percentage
@@ -7621,6 +7625,7 @@ components:
           quantity: "2"
           name: Web Development
           description: description
+          unit_code: unit_code
           discount:
             reason: reason
             type: percentage
@@ -7645,6 +7650,7 @@ components:
           unit_price: "150.00"
           sku: sku
         locale: locale
+        buyer_reference: buyer_reference
         business_profile_id: bp_01ABC
         number: INV-2026-001
         issue_date: 2026-07-20
@@ -7739,6 +7745,9 @@ components:
           type: string
         ship_to:
           $ref: '#/components/schemas/PostalAddress'
+        buyer_reference:
+          nullable: true
+          type: string
         line_items:
           items:
             $ref: '#/components/schemas/StandardLineItemInput'
@@ -7869,6 +7878,7 @@ components:
           quantity: "2"
           name: Web Development
           description: description
+          unit_code: unit_code
           discount:
             reason: reason
             type: percentage
@@ -7894,6 +7904,7 @@ components:
           quantity: "2"
           name: Web Development
           description: description
+          unit_code: unit_code
           discount:
             reason: reason
             type: percentage
@@ -7915,6 +7926,7 @@ components:
               exemption_reason_code: exemption_reason_code
           unit_price: "150.00"
           sku: sku
+        buyer_reference: buyer_reference
         buyer:
           website: website
           address:
@@ -8016,6 +8028,9 @@ components:
           $ref: '#/components/schemas/DocumentPartyInput'
         ship_to:
           $ref: '#/components/schemas/DocumentPartyInput'
+        buyer_reference:
+          nullable: true
+          type: string
         line_items:
           items:
             $ref: '#/components/schemas/DocumentLineItemInput'
@@ -8052,6 +8067,7 @@ components:
         quantity: "2"
         name: Web Development
         description: description
+        unit_code: unit_code
         discount:
           reason: reason
           type: percentage
@@ -8091,6 +8107,9 @@ components:
           title: Unit Price
           type: string
         unit:
+          nullable: true
+          type: string
+        unit_code:
           nullable: true
           type: string
         sku:
@@ -8373,6 +8392,7 @@ components:
           quantity: "2"
           name: Web Development
           description: description
+          unit_code: unit_code
           discount:
             reason: reason
             type: percentage
@@ -8400,6 +8420,7 @@ components:
           quantity: "2"
           name: Web Development
           description: description
+          unit_code: unit_code
           discount:
             reason: reason
             type: percentage
@@ -8424,6 +8445,7 @@ components:
           unit_price: "150.00"
           sku: sku
         locale: locale
+        buyer_reference: buyer_reference
         business_profile_id: business_profile_id
         number: number
         issue_date: 2000-01-23
@@ -8512,6 +8534,9 @@ components:
           type: string
         ship_to:
           $ref: '#/components/schemas/PostalAddress'
+        buyer_reference:
+          nullable: true
+          type: string
         line_items:
           items:
             $ref: '#/components/schemas/StandardLineItemInput'
@@ -8658,6 +8683,7 @@ components:
             quantity: "2"
             name: Web Development
             description: description
+            unit_code: unit_code
             discount:
               reason: reason
               type: percentage
@@ -8683,6 +8709,7 @@ components:
             quantity: "2"
             name: Web Development
             description: description
+            unit_code: unit_code
             discount:
               reason: reason
               type: percentage
@@ -8704,6 +8731,7 @@ components:
                 exemption_reason_code: exemption_reason_code
             unit_price: "150.00"
             sku: sku
+          buyer_reference: buyer_reference
           buyer:
             website: website
             address:
@@ -9026,6 +9054,7 @@ components:
             quantity: "2"
             name: Web Development
             description: description
+            unit_code: unit_code
             discount:
               reason: reason
               type: percentage
@@ -9051,6 +9080,7 @@ components:
             quantity: "2"
             name: Web Development
             description: description
+            unit_code: unit_code
             discount:
               reason: reason
               type: percentage
@@ -9072,6 +9102,7 @@ components:
                 exemption_reason_code: exemption_reason_code
             unit_price: "150.00"
             sku: sku
+          buyer_reference: buyer_reference
           buyer:
             website: website
             address:
@@ -11730,6 +11761,7 @@ components:
         quantity: "2"
         name: Web Development
         description: description
+        unit_code: unit_code
         discount:
           reason: reason
           type: percentage
@@ -11773,6 +11805,9 @@ components:
           title: Unit Price
           type: string
         unit:
+          nullable: true
+          type: string
+        unit_code:
           nullable: true
           type: string
         sku:

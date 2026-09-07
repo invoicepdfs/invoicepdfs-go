@@ -27,6 +27,7 @@ type DocumentLineItemInput struct {
 	// Decimal string in major units
 	UnitPrice string `json:"unit_price"`
 	Unit NullableString `json:"unit,omitempty"`
+	UnitCode NullableString `json:"unit_code,omitempty"`
 	Sku NullableString `json:"sku,omitempty"`
 	Discount NullableDocumentDiscountInput `json:"discount,omitempty"`
 	Taxes []DocumentLineItemTaxInput `json:"taxes,omitempty"`
@@ -210,6 +211,48 @@ func (o *DocumentLineItemInput) UnsetUnit() {
 	o.Unit.Unset()
 }
 
+// GetUnitCode returns the UnitCode field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DocumentLineItemInput) GetUnitCode() string {
+	if o == nil || IsNil(o.UnitCode.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.UnitCode.Get()
+}
+
+// GetUnitCodeOk returns a tuple with the UnitCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DocumentLineItemInput) GetUnitCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UnitCode.Get(), o.UnitCode.IsSet()
+}
+
+// HasUnitCode returns a boolean if a field has been set.
+func (o *DocumentLineItemInput) HasUnitCode() bool {
+	if o != nil && o.UnitCode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUnitCode gets a reference to the given NullableString and assigns it to the UnitCode field.
+func (o *DocumentLineItemInput) SetUnitCode(v string) {
+	o.UnitCode.Set(&v)
+}
+// SetUnitCodeNil sets the value for UnitCode to be an explicit nil
+func (o *DocumentLineItemInput) SetUnitCodeNil() {
+	o.UnitCode.Set(nil)
+}
+
+// UnsetUnitCode ensures that no value is present for UnitCode, not even an explicit nil
+func (o *DocumentLineItemInput) UnsetUnitCode() {
+	o.UnitCode.Unset()
+}
+
 // GetSku returns the Sku field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DocumentLineItemInput) GetSku() string {
 	if o == nil || IsNil(o.Sku.Get()) {
@@ -344,6 +387,9 @@ func (o DocumentLineItemInput) ToMap() (map[string]interface{}, error) {
 	toSerialize["unit_price"] = o.UnitPrice
 	if o.Unit.IsSet() {
 		toSerialize["unit"] = o.Unit.Get()
+	}
+	if o.UnitCode.IsSet() {
+		toSerialize["unit_code"] = o.UnitCode.Get()
 	}
 	if o.Sku.IsSet() {
 		toSerialize["sku"] = o.Sku.Get()

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Seller** | [**DocumentPartyInput**](DocumentPartyInput.md) |  | 
 **Buyer** | [**DocumentPartyInput**](DocumentPartyInput.md) |  | 
 **ShipTo** | Pointer to [**NullableDocumentPartyInput**](DocumentPartyInput.md) |  | [optional] 
+**BuyerReference** | Pointer to **NullableString** |  | [optional] 
 **LineItems** | [**[]DocumentLineItemInput**](DocumentLineItemInput.md) |  | 
 **Discounts** | Pointer to [**[]DocumentDiscountInput**](DocumentDiscountInput.md) |  | [optional] 
 **Shipping** | Pointer to [**NullableDocumentShippingInput**](DocumentShippingInput.md) |  | [optional] 
@@ -207,6 +208,41 @@ HasShipTo returns a boolean if a field has been set.
 `func (o *DocumentInvoiceDataInput) UnsetShipTo()`
 
 UnsetShipTo ensures that no value is present for ShipTo, not even an explicit nil
+### GetBuyerReference
+
+`func (o *DocumentInvoiceDataInput) GetBuyerReference() string`
+
+GetBuyerReference returns the BuyerReference field if non-nil, zero value otherwise.
+
+### GetBuyerReferenceOk
+
+`func (o *DocumentInvoiceDataInput) GetBuyerReferenceOk() (*string, bool)`
+
+GetBuyerReferenceOk returns a tuple with the BuyerReference field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBuyerReference
+
+`func (o *DocumentInvoiceDataInput) SetBuyerReference(v string)`
+
+SetBuyerReference sets BuyerReference field to given value.
+
+### HasBuyerReference
+
+`func (o *DocumentInvoiceDataInput) HasBuyerReference() bool`
+
+HasBuyerReference returns a boolean if a field has been set.
+
+### SetBuyerReferenceNil
+
+`func (o *DocumentInvoiceDataInput) SetBuyerReferenceNil(b bool)`
+
+ SetBuyerReferenceNil sets the value for BuyerReference to be an explicit nil
+
+### UnsetBuyerReference
+`func (o *DocumentInvoiceDataInput) UnsetBuyerReference()`
+
+UnsetBuyerReference ensures that no value is present for BuyerReference, not even an explicit nil
 ### GetLineItems
 
 `func (o *DocumentInvoiceDataInput) GetLineItems() []DocumentLineItemInput`

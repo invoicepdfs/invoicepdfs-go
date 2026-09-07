@@ -28,6 +28,7 @@ type StandardLineItemInput struct {
 	// Decimal string, major units
 	UnitPrice *string `json:"unit_price,omitempty"`
 	Unit NullableString `json:"unit,omitempty"`
+	UnitCode NullableString `json:"unit_code,omitempty"`
 	Sku NullableString `json:"sku,omitempty"`
 	Discount NullableLineItemDiscountInput `json:"discount,omitempty"`
 	Taxes []LineItemTaxInput `json:"taxes,omitempty"`
@@ -222,6 +223,48 @@ func (o *StandardLineItemInput) UnsetUnit() {
 	o.Unit.Unset()
 }
 
+// GetUnitCode returns the UnitCode field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StandardLineItemInput) GetUnitCode() string {
+	if o == nil || IsNil(o.UnitCode.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.UnitCode.Get()
+}
+
+// GetUnitCodeOk returns a tuple with the UnitCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StandardLineItemInput) GetUnitCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UnitCode.Get(), o.UnitCode.IsSet()
+}
+
+// HasUnitCode returns a boolean if a field has been set.
+func (o *StandardLineItemInput) HasUnitCode() bool {
+	if o != nil && o.UnitCode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUnitCode gets a reference to the given NullableString and assigns it to the UnitCode field.
+func (o *StandardLineItemInput) SetUnitCode(v string) {
+	o.UnitCode.Set(&v)
+}
+// SetUnitCodeNil sets the value for UnitCode to be an explicit nil
+func (o *StandardLineItemInput) SetUnitCodeNil() {
+	o.UnitCode.Set(nil)
+}
+
+// UnsetUnitCode ensures that no value is present for UnitCode, not even an explicit nil
+func (o *StandardLineItemInput) UnsetUnitCode() {
+	o.UnitCode.Unset()
+}
+
 // GetSku returns the Sku field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StandardLineItemInput) GetSku() string {
 	if o == nil || IsNil(o.Sku.Get()) {
@@ -358,6 +401,9 @@ func (o StandardLineItemInput) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Unit.IsSet() {
 		toSerialize["unit"] = o.Unit.Get()
+	}
+	if o.UnitCode.IsSet() {
+		toSerialize["unit_code"] = o.UnitCode.Get()
 	}
 	if o.Sku.IsSet() {
 		toSerialize["sku"] = o.Sku.Get()

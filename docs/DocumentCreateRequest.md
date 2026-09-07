@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **SourceDocumentId** | Pointer to **NullableString** |  | [optional] 
 **Reason** | Pointer to **NullableString** |  | [optional] 
 **ShipTo** | Pointer to [**NullablePostalAddress**](PostalAddress.md) |  | [optional] 
+**BuyerReference** | Pointer to **NullableString** |  | [optional] 
 **LineItems** | [**[]StandardLineItemInput**](StandardLineItemInput.md) |  | 
 **Discounts** | Pointer to [**[]LineItemDiscountInput**](LineItemDiscountInput.md) |  | [optional] 
 **Shipping** | Pointer to [**NullableInvoiceShippingInput**](InvoiceShippingInput.md) |  | [optional] 
@@ -344,6 +345,41 @@ HasShipTo returns a boolean if a field has been set.
 `func (o *DocumentCreateRequest) UnsetShipTo()`
 
 UnsetShipTo ensures that no value is present for ShipTo, not even an explicit nil
+### GetBuyerReference
+
+`func (o *DocumentCreateRequest) GetBuyerReference() string`
+
+GetBuyerReference returns the BuyerReference field if non-nil, zero value otherwise.
+
+### GetBuyerReferenceOk
+
+`func (o *DocumentCreateRequest) GetBuyerReferenceOk() (*string, bool)`
+
+GetBuyerReferenceOk returns a tuple with the BuyerReference field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBuyerReference
+
+`func (o *DocumentCreateRequest) SetBuyerReference(v string)`
+
+SetBuyerReference sets BuyerReference field to given value.
+
+### HasBuyerReference
+
+`func (o *DocumentCreateRequest) HasBuyerReference() bool`
+
+HasBuyerReference returns a boolean if a field has been set.
+
+### SetBuyerReferenceNil
+
+`func (o *DocumentCreateRequest) SetBuyerReferenceNil(b bool)`
+
+ SetBuyerReferenceNil sets the value for BuyerReference to be an explicit nil
+
+### UnsetBuyerReference
+`func (o *DocumentCreateRequest) UnsetBuyerReference()`
+
+UnsetBuyerReference ensures that no value is present for BuyerReference, not even an explicit nil
 ### GetLineItems
 
 `func (o *DocumentCreateRequest) GetLineItems() []StandardLineItemInput`
