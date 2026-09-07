@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **BusinessProfileId** | **string** |  | 
 **CustomerId** | **string** |  | 
 **ShipTo** | Pointer to [**NullablePostalAddress**](PostalAddress.md) |  | [optional] 
+**BuyerReference** | Pointer to **NullableString** |  | [optional] 
+**PrecedingInvoiceNumber** | Pointer to **NullableString** |  | [optional] 
 **LineItems** | [**[]InvoiceLineItemInput**](InvoiceLineItemInput.md) |  | 
 **Discounts** | Pointer to [**[]InvoiceDiscountInput**](InvoiceDiscountInput.md) |  | [optional] 
 **Shipping** | Pointer to [**NullableInvoiceShippingInput**](InvoiceShippingInput.md) |  | [optional] 
@@ -271,6 +273,76 @@ HasShipTo returns a boolean if a field has been set.
 `func (o *InvoiceDraftRequest) UnsetShipTo()`
 
 UnsetShipTo ensures that no value is present for ShipTo, not even an explicit nil
+### GetBuyerReference
+
+`func (o *InvoiceDraftRequest) GetBuyerReference() string`
+
+GetBuyerReference returns the BuyerReference field if non-nil, zero value otherwise.
+
+### GetBuyerReferenceOk
+
+`func (o *InvoiceDraftRequest) GetBuyerReferenceOk() (*string, bool)`
+
+GetBuyerReferenceOk returns a tuple with the BuyerReference field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBuyerReference
+
+`func (o *InvoiceDraftRequest) SetBuyerReference(v string)`
+
+SetBuyerReference sets BuyerReference field to given value.
+
+### HasBuyerReference
+
+`func (o *InvoiceDraftRequest) HasBuyerReference() bool`
+
+HasBuyerReference returns a boolean if a field has been set.
+
+### SetBuyerReferenceNil
+
+`func (o *InvoiceDraftRequest) SetBuyerReferenceNil(b bool)`
+
+ SetBuyerReferenceNil sets the value for BuyerReference to be an explicit nil
+
+### UnsetBuyerReference
+`func (o *InvoiceDraftRequest) UnsetBuyerReference()`
+
+UnsetBuyerReference ensures that no value is present for BuyerReference, not even an explicit nil
+### GetPrecedingInvoiceNumber
+
+`func (o *InvoiceDraftRequest) GetPrecedingInvoiceNumber() string`
+
+GetPrecedingInvoiceNumber returns the PrecedingInvoiceNumber field if non-nil, zero value otherwise.
+
+### GetPrecedingInvoiceNumberOk
+
+`func (o *InvoiceDraftRequest) GetPrecedingInvoiceNumberOk() (*string, bool)`
+
+GetPrecedingInvoiceNumberOk returns a tuple with the PrecedingInvoiceNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrecedingInvoiceNumber
+
+`func (o *InvoiceDraftRequest) SetPrecedingInvoiceNumber(v string)`
+
+SetPrecedingInvoiceNumber sets PrecedingInvoiceNumber field to given value.
+
+### HasPrecedingInvoiceNumber
+
+`func (o *InvoiceDraftRequest) HasPrecedingInvoiceNumber() bool`
+
+HasPrecedingInvoiceNumber returns a boolean if a field has been set.
+
+### SetPrecedingInvoiceNumberNil
+
+`func (o *InvoiceDraftRequest) SetPrecedingInvoiceNumberNil(b bool)`
+
+ SetPrecedingInvoiceNumberNil sets the value for PrecedingInvoiceNumber to be an explicit nil
+
+### UnsetPrecedingInvoiceNumber
+`func (o *InvoiceDraftRequest) UnsetPrecedingInvoiceNumber()`
+
+UnsetPrecedingInvoiceNumber ensures that no value is present for PrecedingInvoiceNumber, not even an explicit nil
 ### GetLineItems
 
 `func (o *InvoiceDraftRequest) GetLineItems() []InvoiceLineItemInput`

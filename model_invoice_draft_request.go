@@ -30,6 +30,8 @@ type InvoiceDraftRequest struct {
 	BusinessProfileId string `json:"business_profile_id"`
 	CustomerId string `json:"customer_id"`
 	ShipTo NullablePostalAddress `json:"ship_to,omitempty"`
+	BuyerReference NullableString `json:"buyer_reference,omitempty"`
+	PrecedingInvoiceNumber NullableString `json:"preceding_invoice_number,omitempty"`
 	LineItems []InvoiceLineItemInput `json:"line_items"`
 	Discounts []InvoiceDiscountInput `json:"discounts,omitempty"`
 	Shipping NullableInvoiceShippingInput `json:"shipping,omitempty"`
@@ -347,6 +349,90 @@ func (o *InvoiceDraftRequest) UnsetShipTo() {
 	o.ShipTo.Unset()
 }
 
+// GetBuyerReference returns the BuyerReference field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *InvoiceDraftRequest) GetBuyerReference() string {
+	if o == nil || IsNil(o.BuyerReference.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BuyerReference.Get()
+}
+
+// GetBuyerReferenceOk returns a tuple with the BuyerReference field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InvoiceDraftRequest) GetBuyerReferenceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BuyerReference.Get(), o.BuyerReference.IsSet()
+}
+
+// HasBuyerReference returns a boolean if a field has been set.
+func (o *InvoiceDraftRequest) HasBuyerReference() bool {
+	if o != nil && o.BuyerReference.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBuyerReference gets a reference to the given NullableString and assigns it to the BuyerReference field.
+func (o *InvoiceDraftRequest) SetBuyerReference(v string) {
+	o.BuyerReference.Set(&v)
+}
+// SetBuyerReferenceNil sets the value for BuyerReference to be an explicit nil
+func (o *InvoiceDraftRequest) SetBuyerReferenceNil() {
+	o.BuyerReference.Set(nil)
+}
+
+// UnsetBuyerReference ensures that no value is present for BuyerReference, not even an explicit nil
+func (o *InvoiceDraftRequest) UnsetBuyerReference() {
+	o.BuyerReference.Unset()
+}
+
+// GetPrecedingInvoiceNumber returns the PrecedingInvoiceNumber field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *InvoiceDraftRequest) GetPrecedingInvoiceNumber() string {
+	if o == nil || IsNil(o.PrecedingInvoiceNumber.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.PrecedingInvoiceNumber.Get()
+}
+
+// GetPrecedingInvoiceNumberOk returns a tuple with the PrecedingInvoiceNumber field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InvoiceDraftRequest) GetPrecedingInvoiceNumberOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PrecedingInvoiceNumber.Get(), o.PrecedingInvoiceNumber.IsSet()
+}
+
+// HasPrecedingInvoiceNumber returns a boolean if a field has been set.
+func (o *InvoiceDraftRequest) HasPrecedingInvoiceNumber() bool {
+	if o != nil && o.PrecedingInvoiceNumber.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPrecedingInvoiceNumber gets a reference to the given NullableString and assigns it to the PrecedingInvoiceNumber field.
+func (o *InvoiceDraftRequest) SetPrecedingInvoiceNumber(v string) {
+	o.PrecedingInvoiceNumber.Set(&v)
+}
+// SetPrecedingInvoiceNumberNil sets the value for PrecedingInvoiceNumber to be an explicit nil
+func (o *InvoiceDraftRequest) SetPrecedingInvoiceNumberNil() {
+	o.PrecedingInvoiceNumber.Set(nil)
+}
+
+// UnsetPrecedingInvoiceNumber ensures that no value is present for PrecedingInvoiceNumber, not even an explicit nil
+func (o *InvoiceDraftRequest) UnsetPrecedingInvoiceNumber() {
+	o.PrecedingInvoiceNumber.Unset()
+}
+
 // GetLineItems returns the LineItems field value
 func (o *InvoiceDraftRequest) GetLineItems() []InvoiceLineItemInput {
 	if o == nil {
@@ -651,6 +737,12 @@ func (o InvoiceDraftRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["customer_id"] = o.CustomerId
 	if o.ShipTo.IsSet() {
 		toSerialize["ship_to"] = o.ShipTo.Get()
+	}
+	if o.BuyerReference.IsSet() {
+		toSerialize["buyer_reference"] = o.BuyerReference.Get()
+	}
+	if o.PrecedingInvoiceNumber.IsSet() {
+		toSerialize["preceding_invoice_number"] = o.PrecedingInvoiceNumber.Get()
 	}
 	toSerialize["line_items"] = o.LineItems
 	if !IsNil(o.Discounts) {

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Buyer** | [**DocumentPartyInput**](DocumentPartyInput.md) |  | 
 **ShipTo** | Pointer to [**NullableDocumentPartyInput**](DocumentPartyInput.md) |  | [optional] 
 **BuyerReference** | Pointer to **NullableString** |  | [optional] 
+**PrecedingInvoiceNumber** | Pointer to **NullableString** |  | [optional] 
 **LineItems** | [**[]DocumentLineItemInput**](DocumentLineItemInput.md) |  | 
 **Discounts** | Pointer to [**[]DocumentDiscountInput**](DocumentDiscountInput.md) |  | [optional] 
 **Shipping** | Pointer to [**NullableDocumentShippingInput**](DocumentShippingInput.md) |  | [optional] 
@@ -243,6 +244,41 @@ HasBuyerReference returns a boolean if a field has been set.
 `func (o *DocumentInvoiceDataInput) UnsetBuyerReference()`
 
 UnsetBuyerReference ensures that no value is present for BuyerReference, not even an explicit nil
+### GetPrecedingInvoiceNumber
+
+`func (o *DocumentInvoiceDataInput) GetPrecedingInvoiceNumber() string`
+
+GetPrecedingInvoiceNumber returns the PrecedingInvoiceNumber field if non-nil, zero value otherwise.
+
+### GetPrecedingInvoiceNumberOk
+
+`func (o *DocumentInvoiceDataInput) GetPrecedingInvoiceNumberOk() (*string, bool)`
+
+GetPrecedingInvoiceNumberOk returns a tuple with the PrecedingInvoiceNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrecedingInvoiceNumber
+
+`func (o *DocumentInvoiceDataInput) SetPrecedingInvoiceNumber(v string)`
+
+SetPrecedingInvoiceNumber sets PrecedingInvoiceNumber field to given value.
+
+### HasPrecedingInvoiceNumber
+
+`func (o *DocumentInvoiceDataInput) HasPrecedingInvoiceNumber() bool`
+
+HasPrecedingInvoiceNumber returns a boolean if a field has been set.
+
+### SetPrecedingInvoiceNumberNil
+
+`func (o *DocumentInvoiceDataInput) SetPrecedingInvoiceNumberNil(b bool)`
+
+ SetPrecedingInvoiceNumberNil sets the value for PrecedingInvoiceNumber to be an explicit nil
+
+### UnsetPrecedingInvoiceNumber
+`func (o *DocumentInvoiceDataInput) UnsetPrecedingInvoiceNumber()`
+
+UnsetPrecedingInvoiceNumber ensures that no value is present for PrecedingInvoiceNumber, not even an explicit nil
 ### GetLineItems
 
 `func (o *DocumentInvoiceDataInput) GetLineItems() []DocumentLineItemInput`

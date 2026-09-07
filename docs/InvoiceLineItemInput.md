@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Quantity** | **string** | Decimal string | 
 **UnitPrice** | **string** | Decimal string in major units | 
 **Unit** | Pointer to **NullableString** |  | [optional] 
+**UnitCode** | Pointer to **NullableString** |  | [optional] 
 **Sku** | Pointer to **NullableString** |  | [optional] 
 **Discount** | Pointer to [**NullableInvoiceDiscountInput**](InvoiceDiscountInput.md) |  | [optional] 
 **Taxes** | Pointer to [**[]InvoiceLineItemTaxInput**](InvoiceLineItemTaxInput.md) |  | [optional] 
@@ -162,6 +163,41 @@ HasUnit returns a boolean if a field has been set.
 `func (o *InvoiceLineItemInput) UnsetUnit()`
 
 UnsetUnit ensures that no value is present for Unit, not even an explicit nil
+### GetUnitCode
+
+`func (o *InvoiceLineItemInput) GetUnitCode() string`
+
+GetUnitCode returns the UnitCode field if non-nil, zero value otherwise.
+
+### GetUnitCodeOk
+
+`func (o *InvoiceLineItemInput) GetUnitCodeOk() (*string, bool)`
+
+GetUnitCodeOk returns a tuple with the UnitCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnitCode
+
+`func (o *InvoiceLineItemInput) SetUnitCode(v string)`
+
+SetUnitCode sets UnitCode field to given value.
+
+### HasUnitCode
+
+`func (o *InvoiceLineItemInput) HasUnitCode() bool`
+
+HasUnitCode returns a boolean if a field has been set.
+
+### SetUnitCodeNil
+
+`func (o *InvoiceLineItemInput) SetUnitCodeNil(b bool)`
+
+ SetUnitCodeNil sets the value for UnitCode to be an explicit nil
+
+### UnsetUnitCode
+`func (o *InvoiceLineItemInput) UnsetUnitCode()`
+
+UnsetUnitCode ensures that no value is present for UnitCode, not even an explicit nil
 ### GetSku
 
 `func (o *InvoiceLineItemInput) GetSku() string`
