@@ -30,6 +30,7 @@ type DocumentPartyInput struct {
 	RegistrationNumber NullableString `json:"registration_number,omitempty"`
 	Address NullablePostalAddress `json:"address,omitempty"`
 	BankAccount NullableInvoiceBankAccountInput `json:"bank_account,omitempty"`
+	ElectronicAddress NullableElectronicAddress `json:"electronic_address,omitempty"`
 }
 
 type _DocumentPartyInput DocumentPartyInput
@@ -412,6 +413,48 @@ func (o *DocumentPartyInput) UnsetBankAccount() {
 	o.BankAccount.Unset()
 }
 
+// GetElectronicAddress returns the ElectronicAddress field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DocumentPartyInput) GetElectronicAddress() ElectronicAddress {
+	if o == nil || IsNil(o.ElectronicAddress.Get()) {
+		var ret ElectronicAddress
+		return ret
+	}
+	return *o.ElectronicAddress.Get()
+}
+
+// GetElectronicAddressOk returns a tuple with the ElectronicAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DocumentPartyInput) GetElectronicAddressOk() (*ElectronicAddress, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ElectronicAddress.Get(), o.ElectronicAddress.IsSet()
+}
+
+// HasElectronicAddress returns a boolean if a field has been set.
+func (o *DocumentPartyInput) HasElectronicAddress() bool {
+	if o != nil && o.ElectronicAddress.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetElectronicAddress gets a reference to the given NullableElectronicAddress and assigns it to the ElectronicAddress field.
+func (o *DocumentPartyInput) SetElectronicAddress(v ElectronicAddress) {
+	o.ElectronicAddress.Set(&v)
+}
+// SetElectronicAddressNil sets the value for ElectronicAddress to be an explicit nil
+func (o *DocumentPartyInput) SetElectronicAddressNil() {
+	o.ElectronicAddress.Set(nil)
+}
+
+// UnsetElectronicAddress ensures that no value is present for ElectronicAddress, not even an explicit nil
+func (o *DocumentPartyInput) UnsetElectronicAddress() {
+	o.ElectronicAddress.Unset()
+}
+
 func (o DocumentPartyInput) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -446,6 +489,9 @@ func (o DocumentPartyInput) ToMap() (map[string]interface{}, error) {
 	}
 	if o.BankAccount.IsSet() {
 		toSerialize["bank_account"] = o.BankAccount.Get()
+	}
+	if o.ElectronicAddress.IsSet() {
+		toSerialize["electronic_address"] = o.ElectronicAddress.Get()
 	}
 	return toSerialize, nil
 }

@@ -145,6 +145,7 @@ docs/DocumentValidateRequest.md
 docs/DocumentValidateResponse.md
 docs/DocumentsAPI.md
 docs/DocumentsListResponse.md
+docs/ElectronicAddress.md
 docs/FileOut.md
 docs/FileResponse.md
 docs/FilesAPI.md
@@ -379,6 +380,7 @@ model_document_types_list_response.go
 model_document_validate_request.go
 model_document_validate_response.go
 model_documents_list_response.go
+model_electronic_address.go
 model_file_out.go
 model_file_response.go
 model_health_response.go

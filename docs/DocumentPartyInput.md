@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **RegistrationNumber** | Pointer to **NullableString** |  | [optional] 
 **Address** | Pointer to [**NullablePostalAddress**](PostalAddress.md) |  | [optional] 
 **BankAccount** | Pointer to [**NullableInvoiceBankAccountInput**](InvoiceBankAccountInput.md) |  | [optional] 
+**ElectronicAddress** | Pointer to [**NullableElectronicAddress**](ElectronicAddress.md) |  | [optional] 
 
 ## Methods
 
@@ -333,6 +334,41 @@ HasBankAccount returns a boolean if a field has been set.
 `func (o *DocumentPartyInput) UnsetBankAccount()`
 
 UnsetBankAccount ensures that no value is present for BankAccount, not even an explicit nil
+### GetElectronicAddress
+
+`func (o *DocumentPartyInput) GetElectronicAddress() ElectronicAddress`
+
+GetElectronicAddress returns the ElectronicAddress field if non-nil, zero value otherwise.
+
+### GetElectronicAddressOk
+
+`func (o *DocumentPartyInput) GetElectronicAddressOk() (*ElectronicAddress, bool)`
+
+GetElectronicAddressOk returns a tuple with the ElectronicAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetElectronicAddress
+
+`func (o *DocumentPartyInput) SetElectronicAddress(v ElectronicAddress)`
+
+SetElectronicAddress sets ElectronicAddress field to given value.
+
+### HasElectronicAddress
+
+`func (o *DocumentPartyInput) HasElectronicAddress() bool`
+
+HasElectronicAddress returns a boolean if a field has been set.
+
+### SetElectronicAddressNil
+
+`func (o *DocumentPartyInput) SetElectronicAddressNil(b bool)`
+
+ SetElectronicAddressNil sets the value for ElectronicAddress to be an explicit nil
+
+### UnsetElectronicAddress
+`func (o *DocumentPartyInput) UnsetElectronicAddress()`
+
+UnsetElectronicAddress ensures that no value is present for ElectronicAddress, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
