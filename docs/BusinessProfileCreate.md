@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Website** | Pointer to **NullableString** |  | [optional] 
 **TaxId** | Pointer to **NullableString** |  | [optional] 
 **Address** | Pointer to [**NullablePostalAddress**](PostalAddress.md) |  | [optional] 
+**ElectronicAddress** | Pointer to [**NullableElectronicAddress**](ElectronicAddress.md) |  | [optional] 
 **DefaultCurrency** | Pointer to **NullableString** |  | [optional] 
 **DefaultLocale** | Pointer to **NullableString** |  | [optional] 
 **DefaultTimezone** | Pointer to **NullableString** |  | [optional] 
@@ -265,6 +266,41 @@ HasAddress returns a boolean if a field has been set.
 `func (o *BusinessProfileCreate) UnsetAddress()`
 
 UnsetAddress ensures that no value is present for Address, not even an explicit nil
+### GetElectronicAddress
+
+`func (o *BusinessProfileCreate) GetElectronicAddress() ElectronicAddress`
+
+GetElectronicAddress returns the ElectronicAddress field if non-nil, zero value otherwise.
+
+### GetElectronicAddressOk
+
+`func (o *BusinessProfileCreate) GetElectronicAddressOk() (*ElectronicAddress, bool)`
+
+GetElectronicAddressOk returns a tuple with the ElectronicAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetElectronicAddress
+
+`func (o *BusinessProfileCreate) SetElectronicAddress(v ElectronicAddress)`
+
+SetElectronicAddress sets ElectronicAddress field to given value.
+
+### HasElectronicAddress
+
+`func (o *BusinessProfileCreate) HasElectronicAddress() bool`
+
+HasElectronicAddress returns a boolean if a field has been set.
+
+### SetElectronicAddressNil
+
+`func (o *BusinessProfileCreate) SetElectronicAddressNil(b bool)`
+
+ SetElectronicAddressNil sets the value for ElectronicAddress to be an explicit nil
+
+### UnsetElectronicAddress
+`func (o *BusinessProfileCreate) UnsetElectronicAddress()`
+
+UnsetElectronicAddress ensures that no value is present for ElectronicAddress, not even an explicit nil
 ### GetDefaultCurrency
 
 `func (o *BusinessProfileCreate) GetDefaultCurrency() string`

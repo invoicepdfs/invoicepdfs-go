@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **TaxId** | Pointer to **NullableString** |  | [optional] 
 **BillingAddress** | Pointer to [**NullablePostalAddress**](PostalAddress.md) |  | [optional] 
 **ShippingAddress** | Pointer to [**NullablePostalAddress**](PostalAddress.md) |  | [optional] 
+**ElectronicAddress** | Pointer to [**NullableElectronicAddress**](ElectronicAddress.md) |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 **Id** | **string** |  | 
 **CreatedAt** | **string** |  | 
@@ -229,6 +230,41 @@ HasShippingAddress returns a boolean if a field has been set.
 `func (o *CustomerOut) UnsetShippingAddress()`
 
 UnsetShippingAddress ensures that no value is present for ShippingAddress, not even an explicit nil
+### GetElectronicAddress
+
+`func (o *CustomerOut) GetElectronicAddress() ElectronicAddress`
+
+GetElectronicAddress returns the ElectronicAddress field if non-nil, zero value otherwise.
+
+### GetElectronicAddressOk
+
+`func (o *CustomerOut) GetElectronicAddressOk() (*ElectronicAddress, bool)`
+
+GetElectronicAddressOk returns a tuple with the ElectronicAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetElectronicAddress
+
+`func (o *CustomerOut) SetElectronicAddress(v ElectronicAddress)`
+
+SetElectronicAddress sets ElectronicAddress field to given value.
+
+### HasElectronicAddress
+
+`func (o *CustomerOut) HasElectronicAddress() bool`
+
+HasElectronicAddress returns a boolean if a field has been set.
+
+### SetElectronicAddressNil
+
+`func (o *CustomerOut) SetElectronicAddressNil(b bool)`
+
+ SetElectronicAddressNil sets the value for ElectronicAddress to be an explicit nil
+
+### UnsetElectronicAddress
+`func (o *CustomerOut) UnsetElectronicAddress()`
+
+UnsetElectronicAddress ensures that no value is present for ElectronicAddress, not even an explicit nil
 ### GetMetadata
 
 `func (o *CustomerOut) GetMetadata() map[string]interface{}`

@@ -25,6 +25,7 @@ type CustomerPatch struct {
 	TaxId NullableString `json:"tax_id,omitempty"`
 	BillingAddress NullablePostalAddress `json:"billing_address,omitempty"`
 	ShippingAddress NullablePostalAddress `json:"shipping_address,omitempty"`
+	ElectronicAddress NullableElectronicAddress `json:"electronic_address,omitempty"`
 	Metadata map[string]interface{} `json:"metadata,omitempty"`
 }
 
@@ -287,6 +288,48 @@ func (o *CustomerPatch) UnsetShippingAddress() {
 	o.ShippingAddress.Unset()
 }
 
+// GetElectronicAddress returns the ElectronicAddress field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CustomerPatch) GetElectronicAddress() ElectronicAddress {
+	if o == nil || IsNil(o.ElectronicAddress.Get()) {
+		var ret ElectronicAddress
+		return ret
+	}
+	return *o.ElectronicAddress.Get()
+}
+
+// GetElectronicAddressOk returns a tuple with the ElectronicAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CustomerPatch) GetElectronicAddressOk() (*ElectronicAddress, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ElectronicAddress.Get(), o.ElectronicAddress.IsSet()
+}
+
+// HasElectronicAddress returns a boolean if a field has been set.
+func (o *CustomerPatch) HasElectronicAddress() bool {
+	if o != nil && o.ElectronicAddress.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetElectronicAddress gets a reference to the given NullableElectronicAddress and assigns it to the ElectronicAddress field.
+func (o *CustomerPatch) SetElectronicAddress(v ElectronicAddress) {
+	o.ElectronicAddress.Set(&v)
+}
+// SetElectronicAddressNil sets the value for ElectronicAddress to be an explicit nil
+func (o *CustomerPatch) SetElectronicAddressNil() {
+	o.ElectronicAddress.Set(nil)
+}
+
+// UnsetElectronicAddress ensures that no value is present for ElectronicAddress, not even an explicit nil
+func (o *CustomerPatch) UnsetElectronicAddress() {
+	o.ElectronicAddress.Unset()
+}
+
 // GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomerPatch) GetMetadata() map[string]interface{} {
 	if o == nil {
@@ -347,6 +390,9 @@ func (o CustomerPatch) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ShippingAddress.IsSet() {
 		toSerialize["shipping_address"] = o.ShippingAddress.Get()
+	}
+	if o.ElectronicAddress.IsSet() {
+		toSerialize["electronic_address"] = o.ElectronicAddress.Get()
 	}
 	if o.Metadata != nil {
 		toSerialize["metadata"] = o.Metadata

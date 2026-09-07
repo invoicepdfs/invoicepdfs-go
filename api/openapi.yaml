@@ -6309,6 +6309,9 @@ components:
         default_currency: default_currency
         email: email
         tax_id: tax_id
+        electronic_address:
+          scheme_id: "0088"
+          value: "9482348239"
       properties:
         legal_name:
           example: Acme Corp Inc.
@@ -6331,6 +6334,8 @@ components:
           type: string
         address:
           $ref: '#/components/schemas/PostalAddress'
+        electronic_address:
+          $ref: '#/components/schemas/ElectronicAddress'
         default_currency:
           nullable: true
           type: string
@@ -6361,6 +6366,9 @@ components:
         created_at: created_at
         display_name: display_name
         tax_id: tax_id
+        electronic_address:
+          scheme_id: "0088"
+          value: "9482348239"
         default_timezone: default_timezone
         updated_at: updated_at
         phone: phone
@@ -6391,6 +6399,8 @@ components:
           type: string
         address:
           $ref: '#/components/schemas/PostalAddress'
+        electronic_address:
+          $ref: '#/components/schemas/ElectronicAddress'
         default_currency:
           nullable: true
           type: string
@@ -6438,6 +6448,9 @@ components:
         default_currency: default_currency
         email: email
         tax_id: tax_id
+        electronic_address:
+          scheme_id: "0088"
+          value: "9482348239"
       properties:
         legal_name:
           title: Legal Name
@@ -6459,6 +6472,8 @@ components:
           type: string
         address:
           $ref: '#/components/schemas/PostalAddress'
+        electronic_address:
+          $ref: '#/components/schemas/ElectronicAddress'
         default_currency:
           nullable: true
           type: string
@@ -6488,6 +6503,9 @@ components:
           created_at: created_at
           display_name: display_name
           tax_id: tax_id
+          electronic_address:
+            scheme_id: "0088"
+            value: "9482348239"
           default_timezone: default_timezone
           updated_at: updated_at
           phone: phone
@@ -6521,6 +6539,9 @@ components:
           created_at: created_at
           display_name: display_name
           tax_id: tax_id
+          electronic_address:
+            scheme_id: "0088"
+            value: "9482348239"
           default_timezone: default_timezone
           updated_at: updated_at
           phone: phone
@@ -6541,6 +6562,9 @@ components:
           created_at: created_at
           display_name: display_name
           tax_id: tax_id
+          electronic_address:
+            scheme_id: "0088"
+            value: "9482348239"
           default_timezone: default_timezone
           updated_at: updated_at
           phone: phone
@@ -6834,6 +6858,9 @@ components:
           line1: 1 Main St
         email: email
         tax_id: tax_id
+        electronic_address:
+          scheme_id: "0088"
+          value: "9482348239"
       properties:
         name:
           example: Jane Smith
@@ -6852,6 +6879,8 @@ components:
           $ref: '#/components/schemas/PostalAddress'
         shipping_address:
           $ref: '#/components/schemas/PostalAddress'
+        electronic_address:
+          $ref: '#/components/schemas/ElectronicAddress'
         metadata:
           additionalProperties: true
           nullable: true
@@ -6885,6 +6914,9 @@ components:
         id: id
         email: email
         tax_id: tax_id
+        electronic_address:
+          scheme_id: "0088"
+          value: "9482348239"
       properties:
         name:
           example: Jane Smith
@@ -6903,6 +6935,8 @@ components:
           $ref: '#/components/schemas/PostalAddress'
         shipping_address:
           $ref: '#/components/schemas/PostalAddress'
+        electronic_address:
+          $ref: '#/components/schemas/ElectronicAddress'
         metadata:
           additionalProperties: true
           nullable: true
@@ -6945,6 +6979,9 @@ components:
           line1: 1 Main St
         email: email
         tax_id: tax_id
+        electronic_address:
+          scheme_id: "0088"
+          value: "9482348239"
       properties:
         name:
           title: Name
@@ -6962,6 +6999,8 @@ components:
           $ref: '#/components/schemas/PostalAddress'
         shipping_address:
           $ref: '#/components/schemas/PostalAddress'
+        electronic_address:
+          $ref: '#/components/schemas/ElectronicAddress'
         metadata:
           additionalProperties: true
           nullable: true
@@ -6994,6 +7033,9 @@ components:
           id: id
           email: email
           tax_id: tax_id
+          electronic_address:
+            scheme_id: "0088"
+            value: "9482348239"
       properties:
         data:
           $ref: '#/components/schemas/CustomerOut'
@@ -7030,6 +7072,9 @@ components:
           id: id
           email: email
           tax_id: tax_id
+          electronic_address:
+            scheme_id: "0088"
+            value: "9482348239"
         - metadata:
             key: ""
           updated_at: updated_at
@@ -7053,6 +7098,9 @@ components:
           id: id
           email: email
           tax_id: tax_id
+          electronic_address:
+            scheme_id: "0088"
+            value: "9482348239"
       properties:
         data:
           items:
