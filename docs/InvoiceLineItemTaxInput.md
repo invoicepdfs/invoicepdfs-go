@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Rate** | Pointer to **NullableString** |  | [optional] 
 **Inclusive** | Pointer to **bool** |  | [optional] [default to false]
+**Category** | Pointer to [**NullableTaxCategory**](TaxCategory.md) |  | [optional] 
 
 ## Methods
 
@@ -158,6 +159,41 @@ SetInclusive sets Inclusive field to given value.
 
 HasInclusive returns a boolean if a field has been set.
 
+### GetCategory
+
+`func (o *InvoiceLineItemTaxInput) GetCategory() TaxCategory`
+
+GetCategory returns the Category field if non-nil, zero value otherwise.
+
+### GetCategoryOk
+
+`func (o *InvoiceLineItemTaxInput) GetCategoryOk() (*TaxCategory, bool)`
+
+GetCategoryOk returns a tuple with the Category field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCategory
+
+`func (o *InvoiceLineItemTaxInput) SetCategory(v TaxCategory)`
+
+SetCategory sets Category field to given value.
+
+### HasCategory
+
+`func (o *InvoiceLineItemTaxInput) HasCategory() bool`
+
+HasCategory returns a boolean if a field has been set.
+
+### SetCategoryNil
+
+`func (o *InvoiceLineItemTaxInput) SetCategoryNil(b bool)`
+
+ SetCategoryNil sets the value for Category to be an explicit nil
+
+### UnsetCategory
+`func (o *InvoiceLineItemTaxInput) UnsetCategory()`
+
+UnsetCategory ensures that no value is present for Category, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

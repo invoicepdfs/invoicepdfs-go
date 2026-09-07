@@ -24,6 +24,7 @@ type DocumentLineItemTaxInput struct {
 	Name string `json:"name"`
 	Rate string `json:"rate"`
 	Inclusive *bool `json:"inclusive,omitempty"`
+	Category NullableTaxCategory `json:"category,omitempty"`
 }
 
 type _DocumentLineItemTaxInput DocumentLineItemTaxInput
@@ -131,6 +132,48 @@ func (o *DocumentLineItemTaxInput) SetInclusive(v bool) {
 	o.Inclusive = &v
 }
 
+// GetCategory returns the Category field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DocumentLineItemTaxInput) GetCategory() TaxCategory {
+	if o == nil || IsNil(o.Category.Get()) {
+		var ret TaxCategory
+		return ret
+	}
+	return *o.Category.Get()
+}
+
+// GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DocumentLineItemTaxInput) GetCategoryOk() (*TaxCategory, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Category.Get(), o.Category.IsSet()
+}
+
+// HasCategory returns a boolean if a field has been set.
+func (o *DocumentLineItemTaxInput) HasCategory() bool {
+	if o != nil && o.Category.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCategory gets a reference to the given NullableTaxCategory and assigns it to the Category field.
+func (o *DocumentLineItemTaxInput) SetCategory(v TaxCategory) {
+	o.Category.Set(&v)
+}
+// SetCategoryNil sets the value for Category to be an explicit nil
+func (o *DocumentLineItemTaxInput) SetCategoryNil() {
+	o.Category.Set(nil)
+}
+
+// UnsetCategory ensures that no value is present for Category, not even an explicit nil
+func (o *DocumentLineItemTaxInput) UnsetCategory() {
+	o.Category.Unset()
+}
+
 func (o DocumentLineItemTaxInput) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -145,6 +188,9 @@ func (o DocumentLineItemTaxInput) ToMap() (map[string]interface{}, error) {
 	toSerialize["rate"] = o.Rate
 	if !IsNil(o.Inclusive) {
 		toSerialize["inclusive"] = o.Inclusive
+	}
+	if o.Category.IsSet() {
+		toSerialize["category"] = o.Category.Get()
 	}
 	return toSerialize, nil
 }

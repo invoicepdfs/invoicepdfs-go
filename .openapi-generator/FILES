@@ -219,6 +219,7 @@ docs/StatsCounts.md
 docs/StatsOverview.md
 docs/StatsRecentInvoice.md
 docs/StatsResponse.md
+docs/TaxCategory.md
 docs/TaxRateCreateRequest.md
 docs/TaxRateOut.md
 docs/TaxRatePatchRequest.md
@@ -441,6 +442,7 @@ model_stats_counts.go
 model_stats_overview.go
 model_stats_recent_invoice.go
 model_stats_response.go
+model_tax_category.go
 model_tax_rate_create_request.go
 model_tax_rate_out.go
 model_tax_rate_patch_request.go
