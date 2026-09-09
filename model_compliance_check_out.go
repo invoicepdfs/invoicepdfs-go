@@ -22,10 +22,15 @@ var _ MappedNullable = &ComplianceCheckOut{}
 // ComplianceCheckOut struct for ComplianceCheckOut
 type ComplianceCheckOut struct {
 	Profile string `json:"profile"`
-	// The version these rules came from. Worth recording alongside any document you file — rulesets revise, and 'which rules did this pass?' is what an audit asks years later.
+	// The version these rules came from. Worth recording alongside any document you file — rulesets revise, and 'which rules did this pass?' is what an audit asks years later. `rulesets` breaks the same answer down per ruleset.
 	RulesetVersion string `json:"ruleset_version"`
+	// Nothing fatal was found. Read it with `fully_checked` — on its own it says what was checked came back clean, not that everything was checked.
 	Valid bool `json:"valid"`
-	// Every violation found, not the first — fixing one field per round trip is the experience this avoids.
+	// Every ruleset that applies to this profile ran. False means at least one could not, and `rulesets` says which and why.
+	FullyChecked *bool `json:"fully_checked,omitempty"`
+	// Every ruleset the document was held to, including the mandatory-field check, at the version that ran.
+	Rulesets []ComplianceRulesetOut `json:"rulesets,omitempty"`
+	// Every violation found, not the first — fixing one field per round trip is the experience this avoids. Ordered mandatory-field findings first, since those name a field you can go and change.
 	Violations []ComplianceViolationOut `json:"violations,omitempty"`
 }
 
@@ -40,6 +45,8 @@ func NewComplianceCheckOut(profile string, rulesetVersion string, valid bool) *C
 	this.Profile = profile
 	this.RulesetVersion = rulesetVersion
 	this.Valid = valid
+	var fullyChecked bool = true
+	this.FullyChecked = &fullyChecked
 	return &this
 }
 
@@ -48,6 +55,8 @@ func NewComplianceCheckOut(profile string, rulesetVersion string, valid bool) *C
 // but it doesn't guarantee that properties required by API are set
 func NewComplianceCheckOutWithDefaults() *ComplianceCheckOut {
 	this := ComplianceCheckOut{}
+	var fullyChecked bool = true
+	this.FullyChecked = &fullyChecked
 	return &this
 }
 
@@ -123,6 +132,70 @@ func (o *ComplianceCheckOut) SetValid(v bool) {
 	o.Valid = v
 }
 
+// GetFullyChecked returns the FullyChecked field value if set, zero value otherwise.
+func (o *ComplianceCheckOut) GetFullyChecked() bool {
+	if o == nil || IsNil(o.FullyChecked) {
+		var ret bool
+		return ret
+	}
+	return *o.FullyChecked
+}
+
+// GetFullyCheckedOk returns a tuple with the FullyChecked field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComplianceCheckOut) GetFullyCheckedOk() (*bool, bool) {
+	if o == nil || IsNil(o.FullyChecked) {
+		return nil, false
+	}
+	return o.FullyChecked, true
+}
+
+// HasFullyChecked returns a boolean if a field has been set.
+func (o *ComplianceCheckOut) HasFullyChecked() bool {
+	if o != nil && !IsNil(o.FullyChecked) {
+		return true
+	}
+
+	return false
+}
+
+// SetFullyChecked gets a reference to the given bool and assigns it to the FullyChecked field.
+func (o *ComplianceCheckOut) SetFullyChecked(v bool) {
+	o.FullyChecked = &v
+}
+
+// GetRulesets returns the Rulesets field value if set, zero value otherwise.
+func (o *ComplianceCheckOut) GetRulesets() []ComplianceRulesetOut {
+	if o == nil || IsNil(o.Rulesets) {
+		var ret []ComplianceRulesetOut
+		return ret
+	}
+	return o.Rulesets
+}
+
+// GetRulesetsOk returns a tuple with the Rulesets field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComplianceCheckOut) GetRulesetsOk() ([]ComplianceRulesetOut, bool) {
+	if o == nil || IsNil(o.Rulesets) {
+		return nil, false
+	}
+	return o.Rulesets, true
+}
+
+// HasRulesets returns a boolean if a field has been set.
+func (o *ComplianceCheckOut) HasRulesets() bool {
+	if o != nil && !IsNil(o.Rulesets) {
+		return true
+	}
+
+	return false
+}
+
+// SetRulesets gets a reference to the given []ComplianceRulesetOut and assigns it to the Rulesets field.
+func (o *ComplianceCheckOut) SetRulesets(v []ComplianceRulesetOut) {
+	o.Rulesets = v
+}
+
 // GetViolations returns the Violations field value if set, zero value otherwise.
 func (o *ComplianceCheckOut) GetViolations() []ComplianceViolationOut {
 	if o == nil || IsNil(o.Violations) {
@@ -168,6 +241,12 @@ func (o ComplianceCheckOut) ToMap() (map[string]interface{}, error) {
 	toSerialize["profile"] = o.Profile
 	toSerialize["ruleset_version"] = o.RulesetVersion
 	toSerialize["valid"] = o.Valid
+	if !IsNil(o.FullyChecked) {
+		toSerialize["fully_checked"] = o.FullyChecked
+	}
+	if !IsNil(o.Rulesets) {
+		toSerialize["rulesets"] = o.Rulesets
+	}
 	if !IsNil(o.Violations) {
 		toSerialize["violations"] = o.Violations
 	}

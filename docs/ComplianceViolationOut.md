@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Rule** | **string** | The EN 16931 term or group. | 
-**Path** | **string** | Where in the document. | 
+**Rule** | **string** | The identifier the standard uses — a business term from the mandatory-field check, a rule id from Schematron. A rule id is what a rejection notice from an access point quotes. | 
+**Path** | **string** | Where the problem is. The mandatory-field check names a field of the request; Schematron names the node in the generated XML. | 
 **Message** | **string** |  | 
+**Severity** | Pointer to **string** | &#x60;fatal&#x60; would get the document rejected. &#x60;warning&#x60; is a recommendation — both EN 16931 and Peppol grade a large share of their rules as advisory, and &#x60;valid&#x60; ignores those. | [optional] [default to "fatal"]
+**Ruleset** | Pointer to **string** | Which ruleset found it — matches an &#x60;id&#x60; in &#x60;rulesets&#x60;. | [optional] [default to "semantic"]
 
 ## Methods
 
@@ -86,6 +88,56 @@ and a boolean to check if the value has been set.
 
 SetMessage sets Message field to given value.
 
+
+### GetSeverity
+
+`func (o *ComplianceViolationOut) GetSeverity() string`
+
+GetSeverity returns the Severity field if non-nil, zero value otherwise.
+
+### GetSeverityOk
+
+`func (o *ComplianceViolationOut) GetSeverityOk() (*string, bool)`
+
+GetSeverityOk returns a tuple with the Severity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSeverity
+
+`func (o *ComplianceViolationOut) SetSeverity(v string)`
+
+SetSeverity sets Severity field to given value.
+
+### HasSeverity
+
+`func (o *ComplianceViolationOut) HasSeverity() bool`
+
+HasSeverity returns a boolean if a field has been set.
+
+### GetRuleset
+
+`func (o *ComplianceViolationOut) GetRuleset() string`
+
+GetRuleset returns the Ruleset field if non-nil, zero value otherwise.
+
+### GetRulesetOk
+
+`func (o *ComplianceViolationOut) GetRulesetOk() (*string, bool)`
+
+GetRulesetOk returns a tuple with the Ruleset field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRuleset
+
+`func (o *ComplianceViolationOut) SetRuleset(v string)`
+
+SetRuleset sets Ruleset field to given value.
+
+### HasRuleset
+
+`func (o *ComplianceViolationOut) HasRuleset() bool`
+
+HasRuleset returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

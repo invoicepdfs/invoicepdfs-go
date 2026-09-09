@@ -2331,10 +2331,14 @@ Costs no renders: nothing is stored and no PDF is produced, so a caller can
 check every invoice they are about to send rather than discovering the
 problem from a rejection weeks later.
 
-This is the semantic half — mandatory fields and conditional requirements.
-Schematron is the authoritative check and is not wired up yet, so a document
-that passes here is not thereby proven conformant. It says what it can prove
-is wrong, which is the useful half early.
+Two tiers run, and both are reported. The mandatory-field check names a
+field of the request you can go and change. Schematron then serializes the
+document and runs the **published rules at a pinned version** over the
+result — the same artefacts an access point runs — so a finding here quotes
+the rule id a rejection notice would quote.
+
+Read `valid` together with `fully_checked`: `valid` says nothing fatal was
+found, and `rulesets` says what actually ran to find it.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiValidateComplianceRequest

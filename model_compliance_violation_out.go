@@ -21,11 +21,15 @@ var _ MappedNullable = &ComplianceViolationOut{}
 
 // ComplianceViolationOut struct for ComplianceViolationOut
 type ComplianceViolationOut struct {
-	// The EN 16931 term or group.
+	// The identifier the standard uses — a business term from the mandatory-field check, a rule id from Schematron. A rule id is what a rejection notice from an access point quotes.
 	Rule string `json:"rule"`
-	// Where in the document.
+	// Where the problem is. The mandatory-field check names a field of the request; Schematron names the node in the generated XML.
 	Path string `json:"path"`
 	Message string `json:"message"`
+	// `fatal` would get the document rejected. `warning` is a recommendation — both EN 16931 and Peppol grade a large share of their rules as advisory, and `valid` ignores those.
+	Severity *string `json:"severity,omitempty"`
+	// Which ruleset found it — matches an `id` in `rulesets`.
+	Ruleset *string `json:"ruleset,omitempty"`
 }
 
 type _ComplianceViolationOut ComplianceViolationOut
@@ -39,6 +43,10 @@ func NewComplianceViolationOut(rule string, path string, message string) *Compli
 	this.Rule = rule
 	this.Path = path
 	this.Message = message
+	var severity string = "fatal"
+	this.Severity = &severity
+	var ruleset string = "semantic"
+	this.Ruleset = &ruleset
 	return &this
 }
 
@@ -47,6 +55,10 @@ func NewComplianceViolationOut(rule string, path string, message string) *Compli
 // but it doesn't guarantee that properties required by API are set
 func NewComplianceViolationOutWithDefaults() *ComplianceViolationOut {
 	this := ComplianceViolationOut{}
+	var severity string = "fatal"
+	this.Severity = &severity
+	var ruleset string = "semantic"
+	this.Ruleset = &ruleset
 	return &this
 }
 
@@ -122,6 +134,70 @@ func (o *ComplianceViolationOut) SetMessage(v string) {
 	o.Message = v
 }
 
+// GetSeverity returns the Severity field value if set, zero value otherwise.
+func (o *ComplianceViolationOut) GetSeverity() string {
+	if o == nil || IsNil(o.Severity) {
+		var ret string
+		return ret
+	}
+	return *o.Severity
+}
+
+// GetSeverityOk returns a tuple with the Severity field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComplianceViolationOut) GetSeverityOk() (*string, bool) {
+	if o == nil || IsNil(o.Severity) {
+		return nil, false
+	}
+	return o.Severity, true
+}
+
+// HasSeverity returns a boolean if a field has been set.
+func (o *ComplianceViolationOut) HasSeverity() bool {
+	if o != nil && !IsNil(o.Severity) {
+		return true
+	}
+
+	return false
+}
+
+// SetSeverity gets a reference to the given string and assigns it to the Severity field.
+func (o *ComplianceViolationOut) SetSeverity(v string) {
+	o.Severity = &v
+}
+
+// GetRuleset returns the Ruleset field value if set, zero value otherwise.
+func (o *ComplianceViolationOut) GetRuleset() string {
+	if o == nil || IsNil(o.Ruleset) {
+		var ret string
+		return ret
+	}
+	return *o.Ruleset
+}
+
+// GetRulesetOk returns a tuple with the Ruleset field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComplianceViolationOut) GetRulesetOk() (*string, bool) {
+	if o == nil || IsNil(o.Ruleset) {
+		return nil, false
+	}
+	return o.Ruleset, true
+}
+
+// HasRuleset returns a boolean if a field has been set.
+func (o *ComplianceViolationOut) HasRuleset() bool {
+	if o != nil && !IsNil(o.Ruleset) {
+		return true
+	}
+
+	return false
+}
+
+// SetRuleset gets a reference to the given string and assigns it to the Ruleset field.
+func (o *ComplianceViolationOut) SetRuleset(v string) {
+	o.Ruleset = &v
+}
+
 func (o ComplianceViolationOut) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -135,6 +211,12 @@ func (o ComplianceViolationOut) ToMap() (map[string]interface{}, error) {
 	toSerialize["rule"] = o.Rule
 	toSerialize["path"] = o.Path
 	toSerialize["message"] = o.Message
+	if !IsNil(o.Severity) {
+		toSerialize["severity"] = o.Severity
+	}
+	if !IsNil(o.Ruleset) {
+		toSerialize["ruleset"] = o.Ruleset
+	}
 	return toSerialize, nil
 }
 

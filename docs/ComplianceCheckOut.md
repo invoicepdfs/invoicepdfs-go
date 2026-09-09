@@ -5,9 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Profile** | **string** |  | 
-**RulesetVersion** | **string** | The version these rules came from. Worth recording alongside any document you file — rulesets revise, and &#39;which rules did this pass?&#39; is what an audit asks years later. | 
-**Valid** | **bool** |  | 
-**Violations** | Pointer to [**[]ComplianceViolationOut**](ComplianceViolationOut.md) | Every violation found, not the first — fixing one field per round trip is the experience this avoids. | [optional] 
+**RulesetVersion** | **string** | The version these rules came from. Worth recording alongside any document you file — rulesets revise, and &#39;which rules did this pass?&#39; is what an audit asks years later. &#x60;rulesets&#x60; breaks the same answer down per ruleset. | 
+**Valid** | **bool** | Nothing fatal was found. Read it with &#x60;fully_checked&#x60; — on its own it says what was checked came back clean, not that everything was checked. | 
+**FullyChecked** | Pointer to **bool** | Every ruleset that applies to this profile ran. False means at least one could not, and &#x60;rulesets&#x60; says which and why. | [optional] [default to true]
+**Rulesets** | Pointer to [**[]ComplianceRulesetOut**](ComplianceRulesetOut.md) | Every ruleset the document was held to, including the mandatory-field check, at the version that ran. | [optional] 
+**Violations** | Pointer to [**[]ComplianceViolationOut**](ComplianceViolationOut.md) | Every violation found, not the first — fixing one field per round trip is the experience this avoids. Ordered mandatory-field findings first, since those name a field you can go and change. | [optional] 
 
 ## Methods
 
@@ -87,6 +89,56 @@ and a boolean to check if the value has been set.
 
 SetValid sets Valid field to given value.
 
+
+### GetFullyChecked
+
+`func (o *ComplianceCheckOut) GetFullyChecked() bool`
+
+GetFullyChecked returns the FullyChecked field if non-nil, zero value otherwise.
+
+### GetFullyCheckedOk
+
+`func (o *ComplianceCheckOut) GetFullyCheckedOk() (*bool, bool)`
+
+GetFullyCheckedOk returns a tuple with the FullyChecked field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFullyChecked
+
+`func (o *ComplianceCheckOut) SetFullyChecked(v bool)`
+
+SetFullyChecked sets FullyChecked field to given value.
+
+### HasFullyChecked
+
+`func (o *ComplianceCheckOut) HasFullyChecked() bool`
+
+HasFullyChecked returns a boolean if a field has been set.
+
+### GetRulesets
+
+`func (o *ComplianceCheckOut) GetRulesets() []ComplianceRulesetOut`
+
+GetRulesets returns the Rulesets field if non-nil, zero value otherwise.
+
+### GetRulesetsOk
+
+`func (o *ComplianceCheckOut) GetRulesetsOk() (*[]ComplianceRulesetOut, bool)`
+
+GetRulesetsOk returns a tuple with the Rulesets field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRulesets
+
+`func (o *ComplianceCheckOut) SetRulesets(v []ComplianceRulesetOut)`
+
+SetRulesets sets Rulesets field to given value.
+
+### HasRulesets
+
+`func (o *ComplianceCheckOut) HasRulesets() bool`
+
+HasRulesets returns a boolean if a field has been set.
 
 ### GetViolations
 
