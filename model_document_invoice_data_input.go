@@ -28,6 +28,7 @@ type DocumentInvoiceDataInput struct {
 	Seller DocumentPartyInput `json:"seller"`
 	Buyer DocumentPartyInput `json:"buyer"`
 	ShipTo NullableDocumentPartyInput `json:"ship_to,omitempty"`
+	DeliveryDate NullableString `json:"delivery_date,omitempty"`
 	BuyerReference NullableString `json:"buyer_reference,omitempty"`
 	PrecedingInvoiceNumber NullableString `json:"preceding_invoice_number,omitempty"`
 	LineItems []DocumentLineItemInput `json:"line_items"`
@@ -265,6 +266,48 @@ func (o *DocumentInvoiceDataInput) SetShipToNil() {
 // UnsetShipTo ensures that no value is present for ShipTo, not even an explicit nil
 func (o *DocumentInvoiceDataInput) UnsetShipTo() {
 	o.ShipTo.Unset()
+}
+
+// GetDeliveryDate returns the DeliveryDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DocumentInvoiceDataInput) GetDeliveryDate() string {
+	if o == nil || IsNil(o.DeliveryDate.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DeliveryDate.Get()
+}
+
+// GetDeliveryDateOk returns a tuple with the DeliveryDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DocumentInvoiceDataInput) GetDeliveryDateOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DeliveryDate.Get(), o.DeliveryDate.IsSet()
+}
+
+// HasDeliveryDate returns a boolean if a field has been set.
+func (o *DocumentInvoiceDataInput) HasDeliveryDate() bool {
+	if o != nil && o.DeliveryDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDeliveryDate gets a reference to the given NullableString and assigns it to the DeliveryDate field.
+func (o *DocumentInvoiceDataInput) SetDeliveryDate(v string) {
+	o.DeliveryDate.Set(&v)
+}
+// SetDeliveryDateNil sets the value for DeliveryDate to be an explicit nil
+func (o *DocumentInvoiceDataInput) SetDeliveryDateNil() {
+	o.DeliveryDate.Set(nil)
+}
+
+// UnsetDeliveryDate ensures that no value is present for DeliveryDate, not even an explicit nil
+func (o *DocumentInvoiceDataInput) UnsetDeliveryDate() {
+	o.DeliveryDate.Unset()
 }
 
 // GetBuyerReference returns the BuyerReference field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -585,6 +628,9 @@ func (o DocumentInvoiceDataInput) ToMap() (map[string]interface{}, error) {
 	toSerialize["buyer"] = o.Buyer
 	if o.ShipTo.IsSet() {
 		toSerialize["ship_to"] = o.ShipTo.Get()
+	}
+	if o.DeliveryDate.IsSet() {
+		toSerialize["delivery_date"] = o.DeliveryDate.Get()
 	}
 	if o.BuyerReference.IsSet() {
 		toSerialize["buyer_reference"] = o.BuyerReference.Get()

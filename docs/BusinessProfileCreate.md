@@ -6,11 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LegalName** | **string** |  | 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
+**ContactName** | Pointer to **NullableString** |  | [optional] 
 **Email** | Pointer to **NullableString** |  | [optional] 
 **Phone** | Pointer to **NullableString** |  | [optional] 
 **Website** | Pointer to **NullableString** |  | [optional] 
 **TaxId** | Pointer to **NullableString** |  | [optional] 
 **Address** | Pointer to [**NullablePostalAddress**](PostalAddress.md) |  | [optional] 
+**BankAccount** | Pointer to [**NullableInvoiceBankAccountInput**](InvoiceBankAccountInput.md) |  | [optional] 
 **ElectronicAddress** | Pointer to [**NullableElectronicAddress**](ElectronicAddress.md) |  | [optional] 
 **DefaultCurrency** | Pointer to **NullableString** |  | [optional] 
 **DefaultLocale** | Pointer to **NullableString** |  | [optional] 
@@ -91,6 +93,41 @@ HasDisplayName returns a boolean if a field has been set.
 `func (o *BusinessProfileCreate) UnsetDisplayName()`
 
 UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
+### GetContactName
+
+`func (o *BusinessProfileCreate) GetContactName() string`
+
+GetContactName returns the ContactName field if non-nil, zero value otherwise.
+
+### GetContactNameOk
+
+`func (o *BusinessProfileCreate) GetContactNameOk() (*string, bool)`
+
+GetContactNameOk returns a tuple with the ContactName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContactName
+
+`func (o *BusinessProfileCreate) SetContactName(v string)`
+
+SetContactName sets ContactName field to given value.
+
+### HasContactName
+
+`func (o *BusinessProfileCreate) HasContactName() bool`
+
+HasContactName returns a boolean if a field has been set.
+
+### SetContactNameNil
+
+`func (o *BusinessProfileCreate) SetContactNameNil(b bool)`
+
+ SetContactNameNil sets the value for ContactName to be an explicit nil
+
+### UnsetContactName
+`func (o *BusinessProfileCreate) UnsetContactName()`
+
+UnsetContactName ensures that no value is present for ContactName, not even an explicit nil
 ### GetEmail
 
 `func (o *BusinessProfileCreate) GetEmail() string`
@@ -266,6 +303,41 @@ HasAddress returns a boolean if a field has been set.
 `func (o *BusinessProfileCreate) UnsetAddress()`
 
 UnsetAddress ensures that no value is present for Address, not even an explicit nil
+### GetBankAccount
+
+`func (o *BusinessProfileCreate) GetBankAccount() InvoiceBankAccountInput`
+
+GetBankAccount returns the BankAccount field if non-nil, zero value otherwise.
+
+### GetBankAccountOk
+
+`func (o *BusinessProfileCreate) GetBankAccountOk() (*InvoiceBankAccountInput, bool)`
+
+GetBankAccountOk returns a tuple with the BankAccount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBankAccount
+
+`func (o *BusinessProfileCreate) SetBankAccount(v InvoiceBankAccountInput)`
+
+SetBankAccount sets BankAccount field to given value.
+
+### HasBankAccount
+
+`func (o *BusinessProfileCreate) HasBankAccount() bool`
+
+HasBankAccount returns a boolean if a field has been set.
+
+### SetBankAccountNil
+
+`func (o *BusinessProfileCreate) SetBankAccountNil(b bool)`
+
+ SetBankAccountNil sets the value for BankAccount to be an explicit nil
+
+### UnsetBankAccount
+`func (o *BusinessProfileCreate) UnsetBankAccount()`
+
+UnsetBankAccount ensures that no value is present for BankAccount, not even an explicit nil
 ### GetElectronicAddress
 
 `func (o *BusinessProfileCreate) GetElectronicAddress() ElectronicAddress`

@@ -31,6 +31,7 @@ type InvoiceDraftRequest struct {
 	CustomerId string `json:"customer_id"`
 	ShipTo NullablePostalAddress `json:"ship_to,omitempty"`
 	BuyerReference NullableString `json:"buyer_reference,omitempty"`
+	DeliveryDate NullableString `json:"delivery_date,omitempty"`
 	PrecedingInvoiceNumber NullableString `json:"preceding_invoice_number,omitempty"`
 	LineItems []InvoiceLineItemInput `json:"line_items"`
 	Discounts []InvoiceDiscountInput `json:"discounts,omitempty"`
@@ -391,6 +392,48 @@ func (o *InvoiceDraftRequest) UnsetBuyerReference() {
 	o.BuyerReference.Unset()
 }
 
+// GetDeliveryDate returns the DeliveryDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *InvoiceDraftRequest) GetDeliveryDate() string {
+	if o == nil || IsNil(o.DeliveryDate.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DeliveryDate.Get()
+}
+
+// GetDeliveryDateOk returns a tuple with the DeliveryDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InvoiceDraftRequest) GetDeliveryDateOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DeliveryDate.Get(), o.DeliveryDate.IsSet()
+}
+
+// HasDeliveryDate returns a boolean if a field has been set.
+func (o *InvoiceDraftRequest) HasDeliveryDate() bool {
+	if o != nil && o.DeliveryDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDeliveryDate gets a reference to the given NullableString and assigns it to the DeliveryDate field.
+func (o *InvoiceDraftRequest) SetDeliveryDate(v string) {
+	o.DeliveryDate.Set(&v)
+}
+// SetDeliveryDateNil sets the value for DeliveryDate to be an explicit nil
+func (o *InvoiceDraftRequest) SetDeliveryDateNil() {
+	o.DeliveryDate.Set(nil)
+}
+
+// UnsetDeliveryDate ensures that no value is present for DeliveryDate, not even an explicit nil
+func (o *InvoiceDraftRequest) UnsetDeliveryDate() {
+	o.DeliveryDate.Unset()
+}
+
 // GetPrecedingInvoiceNumber returns the PrecedingInvoiceNumber field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *InvoiceDraftRequest) GetPrecedingInvoiceNumber() string {
 	if o == nil || IsNil(o.PrecedingInvoiceNumber.Get()) {
@@ -740,6 +783,9 @@ func (o InvoiceDraftRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if o.BuyerReference.IsSet() {
 		toSerialize["buyer_reference"] = o.BuyerReference.Get()
+	}
+	if o.DeliveryDate.IsSet() {
+		toSerialize["delivery_date"] = o.DeliveryDate.Get()
 	}
 	if o.PrecedingInvoiceNumber.IsSet() {
 		toSerialize["preceding_invoice_number"] = o.PrecedingInvoiceNumber.Get()

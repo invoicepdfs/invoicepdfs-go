@@ -22,6 +22,7 @@ var _ MappedNullable = &CustomerOut{}
 // CustomerOut struct for CustomerOut
 type CustomerOut struct {
 	Name string `json:"name"`
+	ContactName NullableString `json:"contact_name,omitempty"`
 	Email NullableString `json:"email,omitempty"`
 	Phone NullableString `json:"phone,omitempty"`
 	TaxId NullableString `json:"tax_id,omitempty"`
@@ -79,6 +80,48 @@ func (o *CustomerOut) GetNameOk() (*string, bool) {
 // SetName sets field value
 func (o *CustomerOut) SetName(v string) {
 	o.Name = v
+}
+
+// GetContactName returns the ContactName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CustomerOut) GetContactName() string {
+	if o == nil || IsNil(o.ContactName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ContactName.Get()
+}
+
+// GetContactNameOk returns a tuple with the ContactName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CustomerOut) GetContactNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ContactName.Get(), o.ContactName.IsSet()
+}
+
+// HasContactName returns a boolean if a field has been set.
+func (o *CustomerOut) HasContactName() bool {
+	if o != nil && o.ContactName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetContactName gets a reference to the given NullableString and assigns it to the ContactName field.
+func (o *CustomerOut) SetContactName(v string) {
+	o.ContactName.Set(&v)
+}
+// SetContactNameNil sets the value for ContactName to be an explicit nil
+func (o *CustomerOut) SetContactNameNil() {
+	o.ContactName.Set(nil)
+}
+
+// UnsetContactName ensures that no value is present for ContactName, not even an explicit nil
+func (o *CustomerOut) UnsetContactName() {
+	o.ContactName.Unset()
 }
 
 // GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -449,6 +492,9 @@ func (o CustomerOut) MarshalJSON() ([]byte, error) {
 func (o CustomerOut) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
+	if o.ContactName.IsSet() {
+		toSerialize["contact_name"] = o.ContactName.Get()
+	}
 	if o.Email.IsSet() {
 		toSerialize["email"] = o.Email.Get()
 	}

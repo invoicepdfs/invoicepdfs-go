@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Seller** | [**DocumentPartyInput**](DocumentPartyInput.md) |  | 
 **Buyer** | [**DocumentPartyInput**](DocumentPartyInput.md) |  | 
 **ShipTo** | Pointer to [**NullableDocumentPartyInput**](DocumentPartyInput.md) |  | [optional] 
+**DeliveryDate** | Pointer to **NullableString** |  | [optional] 
 **BuyerReference** | Pointer to **NullableString** |  | [optional] 
 **PrecedingInvoiceNumber** | Pointer to **NullableString** |  | [optional] 
 **LineItems** | [**[]DocumentLineItemInput**](DocumentLineItemInput.md) |  | 
@@ -209,6 +210,41 @@ HasShipTo returns a boolean if a field has been set.
 `func (o *DocumentInvoiceDataInput) UnsetShipTo()`
 
 UnsetShipTo ensures that no value is present for ShipTo, not even an explicit nil
+### GetDeliveryDate
+
+`func (o *DocumentInvoiceDataInput) GetDeliveryDate() string`
+
+GetDeliveryDate returns the DeliveryDate field if non-nil, zero value otherwise.
+
+### GetDeliveryDateOk
+
+`func (o *DocumentInvoiceDataInput) GetDeliveryDateOk() (*string, bool)`
+
+GetDeliveryDateOk returns a tuple with the DeliveryDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeliveryDate
+
+`func (o *DocumentInvoiceDataInput) SetDeliveryDate(v string)`
+
+SetDeliveryDate sets DeliveryDate field to given value.
+
+### HasDeliveryDate
+
+`func (o *DocumentInvoiceDataInput) HasDeliveryDate() bool`
+
+HasDeliveryDate returns a boolean if a field has been set.
+
+### SetDeliveryDateNil
+
+`func (o *DocumentInvoiceDataInput) SetDeliveryDateNil(b bool)`
+
+ SetDeliveryDateNil sets the value for DeliveryDate to be an explicit nil
+
+### UnsetDeliveryDate
+`func (o *DocumentInvoiceDataInput) UnsetDeliveryDate()`
+
+UnsetDeliveryDate ensures that no value is present for DeliveryDate, not even an explicit nil
 ### GetBuyerReference
 
 `func (o *DocumentInvoiceDataInput) GetBuyerReference() string`

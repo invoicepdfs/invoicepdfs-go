@@ -23,6 +23,7 @@ var _ MappedNullable = &DocumentPartyInput{}
 type DocumentPartyInput struct {
 	Name string `json:"name"`
 	LegalName NullableString `json:"legal_name,omitempty"`
+	ContactName NullableString `json:"contact_name,omitempty"`
 	Email NullableString `json:"email,omitempty"`
 	Phone NullableString `json:"phone,omitempty"`
 	Website NullableString `json:"website,omitempty"`
@@ -117,6 +118,48 @@ func (o *DocumentPartyInput) SetLegalNameNil() {
 // UnsetLegalName ensures that no value is present for LegalName, not even an explicit nil
 func (o *DocumentPartyInput) UnsetLegalName() {
 	o.LegalName.Unset()
+}
+
+// GetContactName returns the ContactName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DocumentPartyInput) GetContactName() string {
+	if o == nil || IsNil(o.ContactName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ContactName.Get()
+}
+
+// GetContactNameOk returns a tuple with the ContactName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DocumentPartyInput) GetContactNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ContactName.Get(), o.ContactName.IsSet()
+}
+
+// HasContactName returns a boolean if a field has been set.
+func (o *DocumentPartyInput) HasContactName() bool {
+	if o != nil && o.ContactName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetContactName gets a reference to the given NullableString and assigns it to the ContactName field.
+func (o *DocumentPartyInput) SetContactName(v string) {
+	o.ContactName.Set(&v)
+}
+// SetContactNameNil sets the value for ContactName to be an explicit nil
+func (o *DocumentPartyInput) SetContactNameNil() {
+	o.ContactName.Set(nil)
+}
+
+// UnsetContactName ensures that no value is present for ContactName, not even an explicit nil
+func (o *DocumentPartyInput) UnsetContactName() {
+	o.ContactName.Unset()
 }
 
 // GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -468,6 +511,9 @@ func (o DocumentPartyInput) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	if o.LegalName.IsSet() {
 		toSerialize["legal_name"] = o.LegalName.Get()
+	}
+	if o.ContactName.IsSet() {
+		toSerialize["contact_name"] = o.ContactName.Get()
 	}
 	if o.Email.IsSet() {
 		toSerialize["email"] = o.Email.Get()

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **Reason** | Pointer to **NullableString** |  | [optional] 
 **ShipTo** | Pointer to [**NullablePostalAddress**](PostalAddress.md) |  | [optional] 
 **BuyerReference** | Pointer to **NullableString** |  | [optional] 
+**DeliveryDate** | Pointer to **NullableString** |  | [optional] 
 **LineItems** | [**[]StandardLineItemInput**](StandardLineItemInput.md) |  | 
 **Discounts** | Pointer to [**[]LineItemDiscountInput**](LineItemDiscountInput.md) |  | [optional] 
 **Shipping** | Pointer to [**NullableInvoiceShippingInput**](InvoiceShippingInput.md) |  | [optional] 
@@ -380,6 +381,41 @@ HasBuyerReference returns a boolean if a field has been set.
 `func (o *DocumentCreateRequest) UnsetBuyerReference()`
 
 UnsetBuyerReference ensures that no value is present for BuyerReference, not even an explicit nil
+### GetDeliveryDate
+
+`func (o *DocumentCreateRequest) GetDeliveryDate() string`
+
+GetDeliveryDate returns the DeliveryDate field if non-nil, zero value otherwise.
+
+### GetDeliveryDateOk
+
+`func (o *DocumentCreateRequest) GetDeliveryDateOk() (*string, bool)`
+
+GetDeliveryDateOk returns a tuple with the DeliveryDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeliveryDate
+
+`func (o *DocumentCreateRequest) SetDeliveryDate(v string)`
+
+SetDeliveryDate sets DeliveryDate field to given value.
+
+### HasDeliveryDate
+
+`func (o *DocumentCreateRequest) HasDeliveryDate() bool`
+
+HasDeliveryDate returns a boolean if a field has been set.
+
+### SetDeliveryDateNil
+
+`func (o *DocumentCreateRequest) SetDeliveryDateNil(b bool)`
+
+ SetDeliveryDateNil sets the value for DeliveryDate to be an explicit nil
+
+### UnsetDeliveryDate
+`func (o *DocumentCreateRequest) UnsetDeliveryDate()`
+
+UnsetDeliveryDate ensures that no value is present for DeliveryDate, not even an explicit nil
 ### GetLineItems
 
 `func (o *DocumentCreateRequest) GetLineItems() []StandardLineItemInput`

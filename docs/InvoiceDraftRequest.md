@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **CustomerId** | **string** |  | 
 **ShipTo** | Pointer to [**NullablePostalAddress**](PostalAddress.md) |  | [optional] 
 **BuyerReference** | Pointer to **NullableString** |  | [optional] 
+**DeliveryDate** | Pointer to **NullableString** |  | [optional] 
 **PrecedingInvoiceNumber** | Pointer to **NullableString** |  | [optional] 
 **LineItems** | [**[]InvoiceLineItemInput**](InvoiceLineItemInput.md) |  | 
 **Discounts** | Pointer to [**[]InvoiceDiscountInput**](InvoiceDiscountInput.md) |  | [optional] 
@@ -308,6 +309,41 @@ HasBuyerReference returns a boolean if a field has been set.
 `func (o *InvoiceDraftRequest) UnsetBuyerReference()`
 
 UnsetBuyerReference ensures that no value is present for BuyerReference, not even an explicit nil
+### GetDeliveryDate
+
+`func (o *InvoiceDraftRequest) GetDeliveryDate() string`
+
+GetDeliveryDate returns the DeliveryDate field if non-nil, zero value otherwise.
+
+### GetDeliveryDateOk
+
+`func (o *InvoiceDraftRequest) GetDeliveryDateOk() (*string, bool)`
+
+GetDeliveryDateOk returns a tuple with the DeliveryDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeliveryDate
+
+`func (o *InvoiceDraftRequest) SetDeliveryDate(v string)`
+
+SetDeliveryDate sets DeliveryDate field to given value.
+
+### HasDeliveryDate
+
+`func (o *InvoiceDraftRequest) HasDeliveryDate() bool`
+
+HasDeliveryDate returns a boolean if a field has been set.
+
+### SetDeliveryDateNil
+
+`func (o *InvoiceDraftRequest) SetDeliveryDateNil(b bool)`
+
+ SetDeliveryDateNil sets the value for DeliveryDate to be an explicit nil
+
+### UnsetDeliveryDate
+`func (o *InvoiceDraftRequest) UnsetDeliveryDate()`
+
+UnsetDeliveryDate ensures that no value is present for DeliveryDate, not even an explicit nil
 ### GetPrecedingInvoiceNumber
 
 `func (o *InvoiceDraftRequest) GetPrecedingInvoiceNumber() string`

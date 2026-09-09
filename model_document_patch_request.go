@@ -31,6 +31,7 @@ type DocumentPatchRequest struct {
 	Reason NullableString `json:"reason,omitempty"`
 	ShipTo NullablePostalAddress `json:"ship_to,omitempty"`
 	BuyerReference NullableString `json:"buyer_reference,omitempty"`
+	DeliveryDate NullableString `json:"delivery_date,omitempty"`
 	LineItems []StandardLineItemInput `json:"line_items,omitempty"`
 	Discounts []LineItemDiscountInput `json:"discounts,omitempty"`
 	Shipping NullableInvoiceShippingInput `json:"shipping,omitempty"`
@@ -562,6 +563,48 @@ func (o *DocumentPatchRequest) UnsetBuyerReference() {
 	o.BuyerReference.Unset()
 }
 
+// GetDeliveryDate returns the DeliveryDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DocumentPatchRequest) GetDeliveryDate() string {
+	if o == nil || IsNil(o.DeliveryDate.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DeliveryDate.Get()
+}
+
+// GetDeliveryDateOk returns a tuple with the DeliveryDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DocumentPatchRequest) GetDeliveryDateOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DeliveryDate.Get(), o.DeliveryDate.IsSet()
+}
+
+// HasDeliveryDate returns a boolean if a field has been set.
+func (o *DocumentPatchRequest) HasDeliveryDate() bool {
+	if o != nil && o.DeliveryDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDeliveryDate gets a reference to the given NullableString and assigns it to the DeliveryDate field.
+func (o *DocumentPatchRequest) SetDeliveryDate(v string) {
+	o.DeliveryDate.Set(&v)
+}
+// SetDeliveryDateNil sets the value for DeliveryDate to be an explicit nil
+func (o *DocumentPatchRequest) SetDeliveryDateNil() {
+	o.DeliveryDate.Set(nil)
+}
+
+// UnsetDeliveryDate ensures that no value is present for DeliveryDate, not even an explicit nil
+func (o *DocumentPatchRequest) UnsetDeliveryDate() {
+	o.DeliveryDate.Unset()
+}
+
 // GetLineItems returns the LineItems field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DocumentPatchRequest) GetLineItems() []StandardLineItemInput {
 	if o == nil {
@@ -898,6 +941,9 @@ func (o DocumentPatchRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if o.BuyerReference.IsSet() {
 		toSerialize["buyer_reference"] = o.BuyerReference.Get()
+	}
+	if o.DeliveryDate.IsSet() {
+		toSerialize["delivery_date"] = o.DeliveryDate.Get()
 	}
 	if o.LineItems != nil {
 		toSerialize["line_items"] = o.LineItems

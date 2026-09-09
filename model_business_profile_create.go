@@ -23,11 +23,13 @@ var _ MappedNullable = &BusinessProfileCreate{}
 type BusinessProfileCreate struct {
 	LegalName string `json:"legal_name"`
 	DisplayName NullableString `json:"display_name,omitempty"`
+	ContactName NullableString `json:"contact_name,omitempty"`
 	Email NullableString `json:"email,omitempty"`
 	Phone NullableString `json:"phone,omitempty"`
 	Website NullableString `json:"website,omitempty"`
 	TaxId NullableString `json:"tax_id,omitempty"`
 	Address NullablePostalAddress `json:"address,omitempty"`
+	BankAccount NullableInvoiceBankAccountInput `json:"bank_account,omitempty"`
 	ElectronicAddress NullableElectronicAddress `json:"electronic_address,omitempty"`
 	DefaultCurrency NullableString `json:"default_currency,omitempty"`
 	DefaultLocale NullableString `json:"default_locale,omitempty"`
@@ -119,6 +121,48 @@ func (o *BusinessProfileCreate) SetDisplayNameNil() {
 // UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 func (o *BusinessProfileCreate) UnsetDisplayName() {
 	o.DisplayName.Unset()
+}
+
+// GetContactName returns the ContactName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BusinessProfileCreate) GetContactName() string {
+	if o == nil || IsNil(o.ContactName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ContactName.Get()
+}
+
+// GetContactNameOk returns a tuple with the ContactName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BusinessProfileCreate) GetContactNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ContactName.Get(), o.ContactName.IsSet()
+}
+
+// HasContactName returns a boolean if a field has been set.
+func (o *BusinessProfileCreate) HasContactName() bool {
+	if o != nil && o.ContactName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetContactName gets a reference to the given NullableString and assigns it to the ContactName field.
+func (o *BusinessProfileCreate) SetContactName(v string) {
+	o.ContactName.Set(&v)
+}
+// SetContactNameNil sets the value for ContactName to be an explicit nil
+func (o *BusinessProfileCreate) SetContactNameNil() {
+	o.ContactName.Set(nil)
+}
+
+// UnsetContactName ensures that no value is present for ContactName, not even an explicit nil
+func (o *BusinessProfileCreate) UnsetContactName() {
+	o.ContactName.Unset()
 }
 
 // GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -329,6 +373,48 @@ func (o *BusinessProfileCreate) SetAddressNil() {
 // UnsetAddress ensures that no value is present for Address, not even an explicit nil
 func (o *BusinessProfileCreate) UnsetAddress() {
 	o.Address.Unset()
+}
+
+// GetBankAccount returns the BankAccount field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BusinessProfileCreate) GetBankAccount() InvoiceBankAccountInput {
+	if o == nil || IsNil(o.BankAccount.Get()) {
+		var ret InvoiceBankAccountInput
+		return ret
+	}
+	return *o.BankAccount.Get()
+}
+
+// GetBankAccountOk returns a tuple with the BankAccount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BusinessProfileCreate) GetBankAccountOk() (*InvoiceBankAccountInput, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BankAccount.Get(), o.BankAccount.IsSet()
+}
+
+// HasBankAccount returns a boolean if a field has been set.
+func (o *BusinessProfileCreate) HasBankAccount() bool {
+	if o != nil && o.BankAccount.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBankAccount gets a reference to the given NullableInvoiceBankAccountInput and assigns it to the BankAccount field.
+func (o *BusinessProfileCreate) SetBankAccount(v InvoiceBankAccountInput) {
+	o.BankAccount.Set(&v)
+}
+// SetBankAccountNil sets the value for BankAccount to be an explicit nil
+func (o *BusinessProfileCreate) SetBankAccountNil() {
+	o.BankAccount.Set(nil)
+}
+
+// UnsetBankAccount ensures that no value is present for BankAccount, not even an explicit nil
+func (o *BusinessProfileCreate) UnsetBankAccount() {
+	o.BankAccount.Unset()
 }
 
 // GetElectronicAddress returns the ElectronicAddress field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -555,6 +641,9 @@ func (o BusinessProfileCreate) ToMap() (map[string]interface{}, error) {
 	if o.DisplayName.IsSet() {
 		toSerialize["display_name"] = o.DisplayName.Get()
 	}
+	if o.ContactName.IsSet() {
+		toSerialize["contact_name"] = o.ContactName.Get()
+	}
 	if o.Email.IsSet() {
 		toSerialize["email"] = o.Email.Get()
 	}
@@ -569,6 +658,9 @@ func (o BusinessProfileCreate) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Address.IsSet() {
 		toSerialize["address"] = o.Address.Get()
+	}
+	if o.BankAccount.IsSet() {
+		toSerialize["bank_account"] = o.BankAccount.Get()
 	}
 	if o.ElectronicAddress.IsSet() {
 		toSerialize["electronic_address"] = o.ElectronicAddress.Get()

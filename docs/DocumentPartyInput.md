@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **LegalName** | Pointer to **NullableString** |  | [optional] 
+**ContactName** | Pointer to **NullableString** |  | [optional] 
 **Email** | Pointer to **NullableString** |  | [optional] 
 **Phone** | Pointer to **NullableString** |  | [optional] 
 **Website** | Pointer to **NullableString** |  | [optional] 
@@ -89,6 +90,41 @@ HasLegalName returns a boolean if a field has been set.
 `func (o *DocumentPartyInput) UnsetLegalName()`
 
 UnsetLegalName ensures that no value is present for LegalName, not even an explicit nil
+### GetContactName
+
+`func (o *DocumentPartyInput) GetContactName() string`
+
+GetContactName returns the ContactName field if non-nil, zero value otherwise.
+
+### GetContactNameOk
+
+`func (o *DocumentPartyInput) GetContactNameOk() (*string, bool)`
+
+GetContactNameOk returns a tuple with the ContactName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContactName
+
+`func (o *DocumentPartyInput) SetContactName(v string)`
+
+SetContactName sets ContactName field to given value.
+
+### HasContactName
+
+`func (o *DocumentPartyInput) HasContactName() bool`
+
+HasContactName returns a boolean if a field has been set.
+
+### SetContactNameNil
+
+`func (o *DocumentPartyInput) SetContactNameNil(b bool)`
+
+ SetContactNameNil sets the value for ContactName to be an explicit nil
+
+### UnsetContactName
+`func (o *DocumentPartyInput) UnsetContactName()`
+
+UnsetContactName ensures that no value is present for ContactName, not even an explicit nil
 ### GetEmail
 
 `func (o *DocumentPartyInput) GetEmail() string`

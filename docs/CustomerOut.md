@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
+**ContactName** | Pointer to **NullableString** |  | [optional] 
 **Email** | Pointer to **NullableString** |  | [optional] 
 **Phone** | Pointer to **NullableString** |  | [optional] 
 **TaxId** | Pointer to **NullableString** |  | [optional] 
@@ -55,6 +56,41 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
+### GetContactName
+
+`func (o *CustomerOut) GetContactName() string`
+
+GetContactName returns the ContactName field if non-nil, zero value otherwise.
+
+### GetContactNameOk
+
+`func (o *CustomerOut) GetContactNameOk() (*string, bool)`
+
+GetContactNameOk returns a tuple with the ContactName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContactName
+
+`func (o *CustomerOut) SetContactName(v string)`
+
+SetContactName sets ContactName field to given value.
+
+### HasContactName
+
+`func (o *CustomerOut) HasContactName() bool`
+
+HasContactName returns a boolean if a field has been set.
+
+### SetContactNameNil
+
+`func (o *CustomerOut) SetContactNameNil(b bool)`
+
+ SetContactNameNil sets the value for ContactName to be an explicit nil
+
+### UnsetContactName
+`func (o *CustomerOut) UnsetContactName()`
+
+UnsetContactName ensures that no value is present for ContactName, not even an explicit nil
 ### GetEmail
 
 `func (o *CustomerOut) GetEmail() string`
