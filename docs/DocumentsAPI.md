@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**CreateDocument**](DocumentsAPI.md#CreateDocument) | **Post** /api/v1/documents | Create Document
 [**CreateDocumentRender**](DocumentsAPI.md#CreateDocumentRender) | **Post** /api/v1/documents/{document_id}/renders | Create Document Render
 [**DeleteDocument**](DocumentsAPI.md#DeleteDocument) | **Delete** /api/v1/documents/{document_id} | Delete Document
+[**DownloadDocumentXml**](DocumentsAPI.md#DownloadDocumentXml) | **Get** /api/v1/documents/{document_id}/xml | Download Document Xml
 [**DuplicateDocument**](DocumentsAPI.md#DuplicateDocument) | **Post** /api/v1/documents/{document_id}/duplicate | Duplicate Document
 [**FinalizeDocument**](DocumentsAPI.md#FinalizeDocument) | **Post** /api/v1/documents/{document_id}/finalize | Finalize Document
 [**GetDocument**](DocumentsAPI.md#GetDocument) | **Get** /api/v1/documents/{document_id} | Get Document
@@ -18,6 +19,7 @@ Method | HTTP request | Description
 [**MarkSent**](DocumentsAPI.md#MarkSent) | **Post** /api/v1/documents/{document_id}/mark-sent | Mark Sent
 [**MarkUnpaid**](DocumentsAPI.md#MarkUnpaid) | **Post** /api/v1/documents/{document_id}/mark-unpaid | Mark Unpaid
 [**RenderDocument**](DocumentsAPI.md#RenderDocument) | **Post** /api/v1/documents/render | Render Document
+[**RenderDocumentXml**](DocumentsAPI.md#RenderDocumentXml) | **Post** /api/v1/documents/xml | Render Document Xml
 [**RestoreDocument**](DocumentsAPI.md#RestoreDocument) | **Post** /api/v1/documents/{document_id}/restore | Restore Document
 [**SendDocument**](DocumentsAPI.md#SendDocument) | **Post** /api/v1/documents/{document_id}/send | Send Document
 [**UpdateDocument**](DocumentsAPI.md#UpdateDocument) | **Patch** /api/v1/documents/{document_id} | Update Document
@@ -361,6 +363,78 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DownloadDocumentXml
+
+> string DownloadDocumentXml(ctx, documentId).Profile(profile).Execute()
+
+Download Document Xml
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+	documentId := "documentId_example" // string | 
+	profile := "peppol_bis_billing_3" // string | Which ruleset to write this against. No default: a document valid under one can be rejected by another, so the choice is the request.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DocumentsAPI.DownloadDocumentXml(context.Background(), documentId).Profile(profile).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.DownloadDocumentXml``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DownloadDocumentXml`: string
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.DownloadDocumentXml`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**documentId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDownloadDocumentXmlRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **profile** | **string** | Which ruleset to write this against. No default: a document valid under one can be rejected by another, so the choice is the request. | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/xml, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -978,6 +1052,73 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json, application/pdf
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RenderDocumentXml
+
+> string RenderDocumentXml(ctx).DocumentComplianceRequest(documentComplianceRequest).Execute()
+
+Render Document Xml
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+	documentComplianceRequest := *openapiclient.NewDocumentComplianceRequest(*openapiclient.NewDocumentInvoiceDataInput("INV-2026-001", time.Now(), "USD", *openapiclient.NewDocumentPartyInput("Acme Corp"), *openapiclient.NewDocumentPartyInput("Acme Corp"), []openapiclient.DocumentLineItemInput{*openapiclient.NewDocumentLineItemInput("Web Development", "2", "150.00")}), "peppol_bis_billing_3") // DocumentComplianceRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DocumentsAPI.RenderDocumentXml(context.Background()).DocumentComplianceRequest(documentComplianceRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DocumentsAPI.RenderDocumentXml``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RenderDocumentXml`: string
+	fmt.Fprintf(os.Stdout, "Response from `DocumentsAPI.RenderDocumentXml`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRenderDocumentXmlRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **documentComplianceRequest** | [**DocumentComplianceRequest**](DocumentComplianceRequest.md) |  | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/xml, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

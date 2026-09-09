@@ -22,6 +22,8 @@ type DocumentRenderOptions struct {
 	TemplateId *string `json:"template_id,omitempty"`
 	PageSize *string `json:"page_size,omitempty"`
 	ExpiresIn *int32 `json:"expires_in,omitempty"`
+	// `facturx_pdf` embeds the EN 16931 CII XML in a PDF/A-3, which is what a French or German counterparty means by Factur-X or ZUGFeRD.
+	Format *string `json:"format,omitempty"`
 }
 
 // NewDocumentRenderOptions instantiates a new DocumentRenderOptions object
@@ -36,6 +38,8 @@ func NewDocumentRenderOptions() *DocumentRenderOptions {
 	this.PageSize = &pageSize
 	var expiresIn int32 = 3600
 	this.ExpiresIn = &expiresIn
+	var format string = "pdf"
+	this.Format = &format
 	return &this
 }
 
@@ -50,6 +54,8 @@ func NewDocumentRenderOptionsWithDefaults() *DocumentRenderOptions {
 	this.PageSize = &pageSize
 	var expiresIn int32 = 3600
 	this.ExpiresIn = &expiresIn
+	var format string = "pdf"
+	this.Format = &format
 	return &this
 }
 
@@ -149,6 +155,38 @@ func (o *DocumentRenderOptions) SetExpiresIn(v int32) {
 	o.ExpiresIn = &v
 }
 
+// GetFormat returns the Format field value if set, zero value otherwise.
+func (o *DocumentRenderOptions) GetFormat() string {
+	if o == nil || IsNil(o.Format) {
+		var ret string
+		return ret
+	}
+	return *o.Format
+}
+
+// GetFormatOk returns a tuple with the Format field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DocumentRenderOptions) GetFormatOk() (*string, bool) {
+	if o == nil || IsNil(o.Format) {
+		return nil, false
+	}
+	return o.Format, true
+}
+
+// HasFormat returns a boolean if a field has been set.
+func (o *DocumentRenderOptions) HasFormat() bool {
+	if o != nil && !IsNil(o.Format) {
+		return true
+	}
+
+	return false
+}
+
+// SetFormat gets a reference to the given string and assigns it to the Format field.
+func (o *DocumentRenderOptions) SetFormat(v string) {
+	o.Format = &v
+}
+
 func (o DocumentRenderOptions) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -167,6 +205,9 @@ func (o DocumentRenderOptions) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ExpiresIn) {
 		toSerialize["expires_in"] = o.ExpiresIn
+	}
+	if !IsNil(o.Format) {
+		toSerialize["format"] = o.Format
 	}
 	return toSerialize, nil
 }

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **TemplateId** | Pointer to **string** |  | [optional] [default to "tpl_modern"]
 **PageSize** | Pointer to **string** |  | [optional] [default to "LETTER"]
 **ExpiresIn** | Pointer to **int32** |  | [optional] [default to 3600]
+**Format** | Pointer to **string** | &#x60;facturx_pdf&#x60; embeds the EN 16931 CII XML in a PDF/A-3, which is what a French or German counterparty means by Factur-X or ZUGFeRD. | [optional] [default to "pdf"]
 
 ## Methods
 
@@ -101,6 +102,31 @@ SetExpiresIn sets ExpiresIn field to given value.
 `func (o *DocumentRenderOptions) HasExpiresIn() bool`
 
 HasExpiresIn returns a boolean if a field has been set.
+
+### GetFormat
+
+`func (o *DocumentRenderOptions) GetFormat() string`
+
+GetFormat returns the Format field if non-nil, zero value otherwise.
+
+### GetFormatOk
+
+`func (o *DocumentRenderOptions) GetFormatOk() (*string, bool)`
+
+GetFormatOk returns a tuple with the Format field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFormat
+
+`func (o *DocumentRenderOptions) SetFormat(v string)`
+
+SetFormat sets Format field to given value.
+
+### HasFormat
+
+`func (o *DocumentRenderOptions) HasFormat() bool`
+
+HasFormat returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

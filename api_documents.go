@@ -621,6 +621,136 @@ func (a *DocumentsAPIService) DeleteDocumentExecute(r ApiDeleteDocumentRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiDownloadDocumentXmlRequest struct {
+	ctx context.Context
+	ApiService *DocumentsAPIService
+	documentId string
+	profile *string
+}
+
+// Which ruleset to write this against. No default: a document valid under one can be rejected by another, so the choice is the request.
+func (r ApiDownloadDocumentXmlRequest) Profile(profile string) ApiDownloadDocumentXmlRequest {
+	r.profile = &profile
+	return r
+}
+
+func (r ApiDownloadDocumentXmlRequest) Execute() (string, *http.Response, error) {
+	return r.ApiService.DownloadDocumentXmlExecute(r)
+}
+
+/*
+DownloadDocumentXml Download Document Xml
+
+The e-invoicing XML for a document already stored here.
+
+Reads `data_json` directly rather than going through the render path's
+reconstruction: the status, the logo and the source document's number are
+all attached there for the *PDF*, and none of them belong in the XML. The
+credit note's BG-3 reference is already in the stored payload, resolved when
+the document was written.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param documentId
+ @return ApiDownloadDocumentXmlRequest
+*/
+func (a *DocumentsAPIService) DownloadDocumentXml(ctx context.Context, documentId string) ApiDownloadDocumentXmlRequest {
+	return ApiDownloadDocumentXmlRequest{
+		ApiService: a,
+		ctx: ctx,
+		documentId: documentId,
+	}
+}
+
+// Execute executes the request
+//  @return string
+func (a *DocumentsAPIService) DownloadDocumentXmlExecute(r ApiDownloadDocumentXmlRequest) (string, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  string
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.DownloadDocumentXml")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/documents/{document_id}/xml"
+	localVarPath = strings.Replace(localVarPath, "{"+"document_id"+"}", url.PathEscape(parameterValueToString(r.documentId, "documentId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.profile == nil {
+		return localVarReturnValue, nil, reportError("profile is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "profile", r.profile, "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/xml", "application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiDuplicateDocumentRequest struct {
 	ctx context.Context
 	ApiService *DocumentsAPIService
@@ -1645,6 +1775,136 @@ func (a *DocumentsAPIService) RenderDocumentExecute(r ApiRenderDocumentRequest) 
 	}
 	// body params
 	localVarPostBody = r.documentRenderRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiRenderDocumentXmlRequest struct {
+	ctx context.Context
+	ApiService *DocumentsAPIService
+	documentComplianceRequest *DocumentComplianceRequest
+}
+
+func (r ApiRenderDocumentXmlRequest) DocumentComplianceRequest(documentComplianceRequest DocumentComplianceRequest) ApiRenderDocumentXmlRequest {
+	r.documentComplianceRequest = &documentComplianceRequest
+	return r
+}
+
+func (r ApiRenderDocumentXmlRequest) Execute() (string, *http.Response, error) {
+	return r.ApiService.RenderDocumentXmlExecute(r)
+}
+
+/*
+RenderDocumentXml Render Document Xml
+
+The e-invoicing XML for a document, without storing anything.
+
+Takes the same body as `/validate-compliance`, and the pairing is the point:
+check first, then take the XML once it passes. Nothing here validates
+against the ruleset — a document missing mandatory fields serialises to XML
+missing those elements, which is a more useful artefact to look at than a
+refusal, and `/validate-compliance` is where the refusal belongs.
+
+The syntax is not a parameter. It follows from the profile, because a
+profile already is a syntax plus a ruleset, and asking a caller for both is
+asking them to know that Peppol means UBL.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiRenderDocumentXmlRequest
+*/
+func (a *DocumentsAPIService) RenderDocumentXml(ctx context.Context) ApiRenderDocumentXmlRequest {
+	return ApiRenderDocumentXmlRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return string
+func (a *DocumentsAPIService) RenderDocumentXmlExecute(r ApiRenderDocumentXmlRequest) (string, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  string
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DocumentsAPIService.RenderDocumentXml")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/documents/xml"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.documentComplianceRequest == nil {
+		return localVarReturnValue, nil, reportError("documentComplianceRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/xml", "application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.documentComplianceRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
