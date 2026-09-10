@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Profile** | **string** |  | 
 **RulesetVersion** | **string** | The version these rules came from. Worth recording alongside any document you file — rulesets revise, and &#39;which rules did this pass?&#39; is what an audit asks years later. &#x60;rulesets&#x60; breaks the same answer down per ruleset. | 
 **Valid** | **bool** | Nothing fatal was found. Read it with &#x60;fully_checked&#x60; — on its own it says what was checked came back clean, not that everything was checked. | 
+**InScope** | Pointer to **bool** | Whether any of these rulesets is likely to apply to this document at all. False when neither party is in a country that uses one — these are European e-invoicing rulesets, and for a wholly domestic US invoice, say, &#x60;valid&#x60; is answering a question nobody asked. Advisory: it never changes the verdict or withholds the check, because an open network means a US seller invoicing a Dutch buyer genuinely needs it. | [optional] [default to true]
 **FullyChecked** | Pointer to **bool** | Every ruleset that applies to this profile ran. False means at least one could not, and &#x60;rulesets&#x60; says which and why. | [optional] [default to true]
 **Rulesets** | Pointer to [**[]ComplianceRulesetOut**](ComplianceRulesetOut.md) | Every ruleset the document was held to, including the mandatory-field check, at the version that ran. | [optional] 
 **Violations** | Pointer to [**[]ComplianceViolationOut**](ComplianceViolationOut.md) | Every violation found, not the first — fixing one field per round trip is the experience this avoids. Ordered mandatory-field findings first, since those name a field you can go and change. | [optional] 
@@ -89,6 +90,31 @@ and a boolean to check if the value has been set.
 
 SetValid sets Valid field to given value.
 
+
+### GetInScope
+
+`func (o *ComplianceCheckOut) GetInScope() bool`
+
+GetInScope returns the InScope field if non-nil, zero value otherwise.
+
+### GetInScopeOk
+
+`func (o *ComplianceCheckOut) GetInScopeOk() (*bool, bool)`
+
+GetInScopeOk returns a tuple with the InScope field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInScope
+
+`func (o *ComplianceCheckOut) SetInScope(v bool)`
+
+SetInScope sets InScope field to given value.
+
+### HasInScope
+
+`func (o *ComplianceCheckOut) HasInScope() bool`
+
+HasInScope returns a boolean if a field has been set.
 
 ### GetFullyChecked
 

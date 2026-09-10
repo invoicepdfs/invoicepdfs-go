@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **CustomerId** | **string** |  | 
 **ShipTo** | Pointer to [**NullablePostalAddress**](PostalAddress.md) |  | [optional] 
 **BuyerReference** | Pointer to **NullableString** |  | [optional] 
+**TaxScheme** | Pointer to **NullableString** |  | [optional] 
 **DeliveryDate** | Pointer to **NullableString** |  | [optional] 
 **PrecedingInvoiceNumber** | Pointer to **NullableString** |  | [optional] 
 **LineItems** | [**[]InvoiceLineItemInput**](InvoiceLineItemInput.md) |  | 
@@ -309,6 +310,41 @@ HasBuyerReference returns a boolean if a field has been set.
 `func (o *InvoiceDraftRequest) UnsetBuyerReference()`
 
 UnsetBuyerReference ensures that no value is present for BuyerReference, not even an explicit nil
+### GetTaxScheme
+
+`func (o *InvoiceDraftRequest) GetTaxScheme() string`
+
+GetTaxScheme returns the TaxScheme field if non-nil, zero value otherwise.
+
+### GetTaxSchemeOk
+
+`func (o *InvoiceDraftRequest) GetTaxSchemeOk() (*string, bool)`
+
+GetTaxSchemeOk returns a tuple with the TaxScheme field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTaxScheme
+
+`func (o *InvoiceDraftRequest) SetTaxScheme(v string)`
+
+SetTaxScheme sets TaxScheme field to given value.
+
+### HasTaxScheme
+
+`func (o *InvoiceDraftRequest) HasTaxScheme() bool`
+
+HasTaxScheme returns a boolean if a field has been set.
+
+### SetTaxSchemeNil
+
+`func (o *InvoiceDraftRequest) SetTaxSchemeNil(b bool)`
+
+ SetTaxSchemeNil sets the value for TaxScheme to be an explicit nil
+
+### UnsetTaxScheme
+`func (o *InvoiceDraftRequest) UnsetTaxScheme()`
+
+UnsetTaxScheme ensures that no value is present for TaxScheme, not even an explicit nil
 ### GetDeliveryDate
 
 `func (o *InvoiceDraftRequest) GetDeliveryDate() string`

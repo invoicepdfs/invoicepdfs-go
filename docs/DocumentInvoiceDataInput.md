@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Seller** | [**DocumentPartyInput**](DocumentPartyInput.md) |  | 
 **Buyer** | [**DocumentPartyInput**](DocumentPartyInput.md) |  | 
 **ShipTo** | Pointer to [**NullableDocumentPartyInput**](DocumentPartyInput.md) |  | [optional] 
+**TaxScheme** | Pointer to **NullableString** |  | [optional] 
 **DeliveryDate** | Pointer to **NullableString** |  | [optional] 
 **BuyerReference** | Pointer to **NullableString** |  | [optional] 
 **PrecedingInvoiceNumber** | Pointer to **NullableString** |  | [optional] 
@@ -210,6 +211,41 @@ HasShipTo returns a boolean if a field has been set.
 `func (o *DocumentInvoiceDataInput) UnsetShipTo()`
 
 UnsetShipTo ensures that no value is present for ShipTo, not even an explicit nil
+### GetTaxScheme
+
+`func (o *DocumentInvoiceDataInput) GetTaxScheme() string`
+
+GetTaxScheme returns the TaxScheme field if non-nil, zero value otherwise.
+
+### GetTaxSchemeOk
+
+`func (o *DocumentInvoiceDataInput) GetTaxSchemeOk() (*string, bool)`
+
+GetTaxSchemeOk returns a tuple with the TaxScheme field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTaxScheme
+
+`func (o *DocumentInvoiceDataInput) SetTaxScheme(v string)`
+
+SetTaxScheme sets TaxScheme field to given value.
+
+### HasTaxScheme
+
+`func (o *DocumentInvoiceDataInput) HasTaxScheme() bool`
+
+HasTaxScheme returns a boolean if a field has been set.
+
+### SetTaxSchemeNil
+
+`func (o *DocumentInvoiceDataInput) SetTaxSchemeNil(b bool)`
+
+ SetTaxSchemeNil sets the value for TaxScheme to be an explicit nil
+
+### UnsetTaxScheme
+`func (o *DocumentInvoiceDataInput) UnsetTaxScheme()`
+
+UnsetTaxScheme ensures that no value is present for TaxScheme, not even an explicit nil
 ### GetDeliveryDate
 
 `func (o *DocumentInvoiceDataInput) GetDeliveryDate() string`

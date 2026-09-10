@@ -31,6 +31,7 @@ type InvoiceDraftRequest struct {
 	CustomerId string `json:"customer_id"`
 	ShipTo NullablePostalAddress `json:"ship_to,omitempty"`
 	BuyerReference NullableString `json:"buyer_reference,omitempty"`
+	TaxScheme NullableString `json:"tax_scheme,omitempty"`
 	DeliveryDate NullableString `json:"delivery_date,omitempty"`
 	PrecedingInvoiceNumber NullableString `json:"preceding_invoice_number,omitempty"`
 	LineItems []InvoiceLineItemInput `json:"line_items"`
@@ -390,6 +391,48 @@ func (o *InvoiceDraftRequest) SetBuyerReferenceNil() {
 // UnsetBuyerReference ensures that no value is present for BuyerReference, not even an explicit nil
 func (o *InvoiceDraftRequest) UnsetBuyerReference() {
 	o.BuyerReference.Unset()
+}
+
+// GetTaxScheme returns the TaxScheme field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *InvoiceDraftRequest) GetTaxScheme() string {
+	if o == nil || IsNil(o.TaxScheme.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.TaxScheme.Get()
+}
+
+// GetTaxSchemeOk returns a tuple with the TaxScheme field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InvoiceDraftRequest) GetTaxSchemeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TaxScheme.Get(), o.TaxScheme.IsSet()
+}
+
+// HasTaxScheme returns a boolean if a field has been set.
+func (o *InvoiceDraftRequest) HasTaxScheme() bool {
+	if o != nil && o.TaxScheme.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTaxScheme gets a reference to the given NullableString and assigns it to the TaxScheme field.
+func (o *InvoiceDraftRequest) SetTaxScheme(v string) {
+	o.TaxScheme.Set(&v)
+}
+// SetTaxSchemeNil sets the value for TaxScheme to be an explicit nil
+func (o *InvoiceDraftRequest) SetTaxSchemeNil() {
+	o.TaxScheme.Set(nil)
+}
+
+// UnsetTaxScheme ensures that no value is present for TaxScheme, not even an explicit nil
+func (o *InvoiceDraftRequest) UnsetTaxScheme() {
+	o.TaxScheme.Unset()
 }
 
 // GetDeliveryDate returns the DeliveryDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -783,6 +826,9 @@ func (o InvoiceDraftRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if o.BuyerReference.IsSet() {
 		toSerialize["buyer_reference"] = o.BuyerReference.Get()
+	}
+	if o.TaxScheme.IsSet() {
+		toSerialize["tax_scheme"] = o.TaxScheme.Get()
 	}
 	if o.DeliveryDate.IsSet() {
 		toSerialize["delivery_date"] = o.DeliveryDate.Get()

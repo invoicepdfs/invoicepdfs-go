@@ -26,6 +26,8 @@ type ComplianceCheckOut struct {
 	RulesetVersion string `json:"ruleset_version"`
 	// Nothing fatal was found. Read it with `fully_checked` — on its own it says what was checked came back clean, not that everything was checked.
 	Valid bool `json:"valid"`
+	// Whether any of these rulesets is likely to apply to this document at all. False when neither party is in a country that uses one — these are European e-invoicing rulesets, and for a wholly domestic US invoice, say, `valid` is answering a question nobody asked. Advisory: it never changes the verdict or withholds the check, because an open network means a US seller invoicing a Dutch buyer genuinely needs it.
+	InScope *bool `json:"in_scope,omitempty"`
 	// Every ruleset that applies to this profile ran. False means at least one could not, and `rulesets` says which and why.
 	FullyChecked *bool `json:"fully_checked,omitempty"`
 	// Every ruleset the document was held to, including the mandatory-field check, at the version that ran.
@@ -45,6 +47,8 @@ func NewComplianceCheckOut(profile string, rulesetVersion string, valid bool) *C
 	this.Profile = profile
 	this.RulesetVersion = rulesetVersion
 	this.Valid = valid
+	var inScope bool = true
+	this.InScope = &inScope
 	var fullyChecked bool = true
 	this.FullyChecked = &fullyChecked
 	return &this
@@ -55,6 +59,8 @@ func NewComplianceCheckOut(profile string, rulesetVersion string, valid bool) *C
 // but it doesn't guarantee that properties required by API are set
 func NewComplianceCheckOutWithDefaults() *ComplianceCheckOut {
 	this := ComplianceCheckOut{}
+	var inScope bool = true
+	this.InScope = &inScope
 	var fullyChecked bool = true
 	this.FullyChecked = &fullyChecked
 	return &this
@@ -130,6 +136,38 @@ func (o *ComplianceCheckOut) GetValidOk() (*bool, bool) {
 // SetValid sets field value
 func (o *ComplianceCheckOut) SetValid(v bool) {
 	o.Valid = v
+}
+
+// GetInScope returns the InScope field value if set, zero value otherwise.
+func (o *ComplianceCheckOut) GetInScope() bool {
+	if o == nil || IsNil(o.InScope) {
+		var ret bool
+		return ret
+	}
+	return *o.InScope
+}
+
+// GetInScopeOk returns a tuple with the InScope field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ComplianceCheckOut) GetInScopeOk() (*bool, bool) {
+	if o == nil || IsNil(o.InScope) {
+		return nil, false
+	}
+	return o.InScope, true
+}
+
+// HasInScope returns a boolean if a field has been set.
+func (o *ComplianceCheckOut) HasInScope() bool {
+	if o != nil && !IsNil(o.InScope) {
+		return true
+	}
+
+	return false
+}
+
+// SetInScope gets a reference to the given bool and assigns it to the InScope field.
+func (o *ComplianceCheckOut) SetInScope(v bool) {
+	o.InScope = &v
 }
 
 // GetFullyChecked returns the FullyChecked field value if set, zero value otherwise.
@@ -241,6 +279,9 @@ func (o ComplianceCheckOut) ToMap() (map[string]interface{}, error) {
 	toSerialize["profile"] = o.Profile
 	toSerialize["ruleset_version"] = o.RulesetVersion
 	toSerialize["valid"] = o.Valid
+	if !IsNil(o.InScope) {
+		toSerialize["in_scope"] = o.InScope
+	}
 	if !IsNil(o.FullyChecked) {
 		toSerialize["fully_checked"] = o.FullyChecked
 	}
