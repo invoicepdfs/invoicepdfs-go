@@ -24,6 +24,8 @@ type RenderOut struct {
 	Id string `json:"id"`
 	Status string `json:"status"`
 	DocumentType string `json:"document_type"`
+	TemplateId string `json:"template_id"`
+	TemplateVersion NullableInt32 `json:"template_version,omitempty"`
 	Format string `json:"format"`
 	DownloadUrl string `json:"download_url"`
 	ExpiresAt string `json:"expires_at"`
@@ -37,11 +39,12 @@ type _RenderOut RenderOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRenderOut(id string, status string, documentType string, format string, downloadUrl string, expiresAt string, calculation CalculationBreakdown, createdAt string) *RenderOut {
+func NewRenderOut(id string, status string, documentType string, templateId string, format string, downloadUrl string, expiresAt string, calculation CalculationBreakdown, createdAt string) *RenderOut {
 	this := RenderOut{}
 	this.Id = id
 	this.Status = status
 	this.DocumentType = documentType
+	this.TemplateId = templateId
 	this.Format = format
 	this.DownloadUrl = downloadUrl
 	this.ExpiresAt = expiresAt
@@ -128,6 +131,72 @@ func (o *RenderOut) GetDocumentTypeOk() (*string, bool) {
 // SetDocumentType sets field value
 func (o *RenderOut) SetDocumentType(v string) {
 	o.DocumentType = v
+}
+
+// GetTemplateId returns the TemplateId field value
+func (o *RenderOut) GetTemplateId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TemplateId
+}
+
+// GetTemplateIdOk returns a tuple with the TemplateId field value
+// and a boolean to check if the value has been set.
+func (o *RenderOut) GetTemplateIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TemplateId, true
+}
+
+// SetTemplateId sets field value
+func (o *RenderOut) SetTemplateId(v string) {
+	o.TemplateId = v
+}
+
+// GetTemplateVersion returns the TemplateVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RenderOut) GetTemplateVersion() int32 {
+	if o == nil || IsNil(o.TemplateVersion.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.TemplateVersion.Get()
+}
+
+// GetTemplateVersionOk returns a tuple with the TemplateVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RenderOut) GetTemplateVersionOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TemplateVersion.Get(), o.TemplateVersion.IsSet()
+}
+
+// HasTemplateVersion returns a boolean if a field has been set.
+func (o *RenderOut) HasTemplateVersion() bool {
+	if o != nil && o.TemplateVersion.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTemplateVersion gets a reference to the given NullableInt32 and assigns it to the TemplateVersion field.
+func (o *RenderOut) SetTemplateVersion(v int32) {
+	o.TemplateVersion.Set(&v)
+}
+// SetTemplateVersionNil sets the value for TemplateVersion to be an explicit nil
+func (o *RenderOut) SetTemplateVersionNil() {
+	o.TemplateVersion.Set(nil)
+}
+
+// UnsetTemplateVersion ensures that no value is present for TemplateVersion, not even an explicit nil
+func (o *RenderOut) UnsetTemplateVersion() {
+	o.TemplateVersion.Unset()
 }
 
 // GetFormat returns the Format field value
@@ -263,6 +332,10 @@ func (o RenderOut) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["status"] = o.Status
 	toSerialize["document_type"] = o.DocumentType
+	toSerialize["template_id"] = o.TemplateId
+	if o.TemplateVersion.IsSet() {
+		toSerialize["template_version"] = o.TemplateVersion.Get()
+	}
 	toSerialize["format"] = o.Format
 	toSerialize["download_url"] = o.DownloadUrl
 	toSerialize["expires_at"] = o.ExpiresAt
@@ -279,6 +352,7 @@ func (o *RenderOut) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"status",
 		"document_type",
+		"template_id",
 		"format",
 		"download_url",
 		"expires_at",

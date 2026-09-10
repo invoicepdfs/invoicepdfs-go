@@ -20,6 +20,7 @@ var _ MappedNullable = &DocumentRenderOptions{}
 // DocumentRenderOptions Render options for an already-stored document (``POST /documents/{id}/renders``).  Distinct from ``app.schemas.v1.DocumentRenderRequest``, which carries a full inline document for the stateless ``POST /documents/render``. Two classes sharing one name made FastAPI fall back to module-qualified schema names in the spec (``app__documents__schemas__DocumentRenderRequest``), which the SDK generators turned into ``AppDocumentsSchemasDocumentRenderRequest``.
 type DocumentRenderOptions struct {
 	TemplateId *string `json:"template_id,omitempty"`
+	TemplateVersion NullableInt32 `json:"template_version,omitempty"`
 	PageSize *string `json:"page_size,omitempty"`
 	ExpiresIn *int32 `json:"expires_in,omitempty"`
 	// `facturx_pdf` embeds the EN 16931 CII XML in a PDF/A-3, which is what a French or German counterparty means by Factur-X or ZUGFeRD.
@@ -89,6 +90,48 @@ func (o *DocumentRenderOptions) HasTemplateId() bool {
 // SetTemplateId gets a reference to the given string and assigns it to the TemplateId field.
 func (o *DocumentRenderOptions) SetTemplateId(v string) {
 	o.TemplateId = &v
+}
+
+// GetTemplateVersion returns the TemplateVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DocumentRenderOptions) GetTemplateVersion() int32 {
+	if o == nil || IsNil(o.TemplateVersion.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.TemplateVersion.Get()
+}
+
+// GetTemplateVersionOk returns a tuple with the TemplateVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DocumentRenderOptions) GetTemplateVersionOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TemplateVersion.Get(), o.TemplateVersion.IsSet()
+}
+
+// HasTemplateVersion returns a boolean if a field has been set.
+func (o *DocumentRenderOptions) HasTemplateVersion() bool {
+	if o != nil && o.TemplateVersion.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTemplateVersion gets a reference to the given NullableInt32 and assigns it to the TemplateVersion field.
+func (o *DocumentRenderOptions) SetTemplateVersion(v int32) {
+	o.TemplateVersion.Set(&v)
+}
+// SetTemplateVersionNil sets the value for TemplateVersion to be an explicit nil
+func (o *DocumentRenderOptions) SetTemplateVersionNil() {
+	o.TemplateVersion.Set(nil)
+}
+
+// UnsetTemplateVersion ensures that no value is present for TemplateVersion, not even an explicit nil
+func (o *DocumentRenderOptions) UnsetTemplateVersion() {
+	o.TemplateVersion.Unset()
 }
 
 // GetPageSize returns the PageSize field value if set, zero value otherwise.
@@ -199,6 +242,9 @@ func (o DocumentRenderOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.TemplateId) {
 		toSerialize["template_id"] = o.TemplateId
+	}
+	if o.TemplateVersion.IsSet() {
+		toSerialize["template_version"] = o.TemplateVersion.Get()
 	}
 	if !IsNil(o.PageSize) {
 		toSerialize["page_size"] = o.PageSize

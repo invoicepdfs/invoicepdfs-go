@@ -25,6 +25,7 @@ type BatchOut struct {
 	Status string `json:"status"`
 	Operation string `json:"operation"`
 	TemplateId string `json:"template_id"`
+	TemplateVersion NullableInt32 `json:"template_version,omitempty"`
 	TotalItems int32 `json:"total_items"`
 	CompletedItems int32 `json:"completed_items"`
 	FailedItems int32 `json:"failed_items"`
@@ -155,6 +156,48 @@ func (o *BatchOut) GetTemplateIdOk() (*string, bool) {
 // SetTemplateId sets field value
 func (o *BatchOut) SetTemplateId(v string) {
 	o.TemplateId = v
+}
+
+// GetTemplateVersion returns the TemplateVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BatchOut) GetTemplateVersion() int32 {
+	if o == nil || IsNil(o.TemplateVersion.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.TemplateVersion.Get()
+}
+
+// GetTemplateVersionOk returns a tuple with the TemplateVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BatchOut) GetTemplateVersionOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TemplateVersion.Get(), o.TemplateVersion.IsSet()
+}
+
+// HasTemplateVersion returns a boolean if a field has been set.
+func (o *BatchOut) HasTemplateVersion() bool {
+	if o != nil && o.TemplateVersion.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTemplateVersion gets a reference to the given NullableInt32 and assigns it to the TemplateVersion field.
+func (o *BatchOut) SetTemplateVersion(v int32) {
+	o.TemplateVersion.Set(&v)
+}
+// SetTemplateVersionNil sets the value for TemplateVersion to be an explicit nil
+func (o *BatchOut) SetTemplateVersionNil() {
+	o.TemplateVersion.Set(nil)
+}
+
+// UnsetTemplateVersion ensures that no value is present for TemplateVersion, not even an explicit nil
+func (o *BatchOut) UnsetTemplateVersion() {
+	o.TemplateVersion.Unset()
 }
 
 // GetTotalItems returns the TotalItems field value
@@ -333,6 +376,9 @@ func (o BatchOut) ToMap() (map[string]interface{}, error) {
 	toSerialize["status"] = o.Status
 	toSerialize["operation"] = o.Operation
 	toSerialize["template_id"] = o.TemplateId
+	if o.TemplateVersion.IsSet() {
+		toSerialize["template_version"] = o.TemplateVersion.Get()
+	}
 	toSerialize["total_items"] = o.TotalItems
 	toSerialize["completed_items"] = o.CompletedItems
 	toSerialize["failed_items"] = o.FailedItems

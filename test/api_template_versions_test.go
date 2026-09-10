@@ -65,4 +65,19 @@ func Test_invoicepdfs_TemplateVersionsAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test TemplateVersionsAPIService RestoreTemplateVersion", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var templateId string
+		var version int32
+
+		resp, httpRes, err := apiClient.TemplateVersionsAPI.RestoreTemplateVersion(context.Background(), templateId, version).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }

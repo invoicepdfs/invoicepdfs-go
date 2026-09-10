@@ -9,14 +9,14 @@ Name | Type | Description | Notes
 **Version** | **int32** |  | 
 **Label** | Pointer to **NullableString** |  | [optional] 
 **Changelog** | Pointer to **NullableString** |  | [optional] 
-**Config** | **map[string]interface{}** |  | 
+**Config** | [**TemplateConfig**](TemplateConfig.md) |  | 
 **CreatedAt** | **string** |  | 
 
 ## Methods
 
 ### NewTemplateVersionOut
 
-`func NewTemplateVersionOut(id string, templateId string, version int32, config map[string]interface{}, createdAt string, ) *TemplateVersionOut`
+`func NewTemplateVersionOut(id string, templateId string, version int32, config TemplateConfig, createdAt string, ) *TemplateVersionOut`
 
 NewTemplateVersionOut instantiates a new TemplateVersionOut object
 This constructor will assign default values to properties that have it defined,
@@ -163,20 +163,20 @@ HasChangelog returns a boolean if a field has been set.
 UnsetChangelog ensures that no value is present for Changelog, not even an explicit nil
 ### GetConfig
 
-`func (o *TemplateVersionOut) GetConfig() map[string]interface{}`
+`func (o *TemplateVersionOut) GetConfig() TemplateConfig`
 
 GetConfig returns the Config field if non-nil, zero value otherwise.
 
 ### GetConfigOk
 
-`func (o *TemplateVersionOut) GetConfigOk() (*map[string]interface{}, bool)`
+`func (o *TemplateVersionOut) GetConfigOk() (*TemplateConfig, bool)`
 
 GetConfigOk returns a tuple with the Config field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfig
 
-`func (o *TemplateVersionOut) SetConfig(v map[string]interface{})`
+`func (o *TemplateVersionOut) SetConfig(v TemplateConfig)`
 
 SetConfig sets Config field to given value.
 

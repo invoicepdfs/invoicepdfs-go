@@ -21,7 +21,6 @@ var _ MappedNullable = &TemplateVersionCreateRequest{}
 type TemplateVersionCreateRequest struct {
 	Label NullableString `json:"label,omitempty"`
 	Changelog NullableString `json:"changelog,omitempty"`
-	Config map[string]interface{} `json:"config,omitempty"`
 }
 
 // NewTemplateVersionCreateRequest instantiates a new TemplateVersionCreateRequest object
@@ -125,38 +124,6 @@ func (o *TemplateVersionCreateRequest) UnsetChangelog() {
 	o.Changelog.Unset()
 }
 
-// GetConfig returns the Config field value if set, zero value otherwise.
-func (o *TemplateVersionCreateRequest) GetConfig() map[string]interface{} {
-	if o == nil || IsNil(o.Config) {
-		var ret map[string]interface{}
-		return ret
-	}
-	return o.Config
-}
-
-// GetConfigOk returns a tuple with the Config field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *TemplateVersionCreateRequest) GetConfigOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Config) {
-		return map[string]interface{}{}, false
-	}
-	return o.Config, true
-}
-
-// HasConfig returns a boolean if a field has been set.
-func (o *TemplateVersionCreateRequest) HasConfig() bool {
-	if o != nil && !IsNil(o.Config) {
-		return true
-	}
-
-	return false
-}
-
-// SetConfig gets a reference to the given map[string]interface{} and assigns it to the Config field.
-func (o *TemplateVersionCreateRequest) SetConfig(v map[string]interface{}) {
-	o.Config = v
-}
-
 func (o TemplateVersionCreateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -172,9 +139,6 @@ func (o TemplateVersionCreateRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Changelog.IsSet() {
 		toSerialize["changelog"] = o.Changelog.Get()
-	}
-	if !IsNil(o.Config) {
-		toSerialize["config"] = o.Config
 	}
 	return toSerialize, nil
 }

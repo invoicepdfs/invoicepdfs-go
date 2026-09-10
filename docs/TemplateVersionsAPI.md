@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreateTemplateVersion**](TemplateVersionsAPI.md#CreateTemplateVersion) | **Post** /api/v1/templates/{template_id}/versions | Create Template Version
 [**GetTemplateVersion**](TemplateVersionsAPI.md#GetTemplateVersion) | **Get** /api/v1/templates/{template_id}/versions/{version} | Get Template Version
 [**ListTemplateVersions**](TemplateVersionsAPI.md#ListTemplateVersions) | **Get** /api/v1/templates/{template_id}/versions | List Template Versions
+[**RestoreTemplateVersion**](TemplateVersionsAPI.md#RestoreTemplateVersion) | **Post** /api/v1/templates/{template_id}/versions/{version}/restore | Restore Template Version
 
 
 
@@ -204,6 +205,79 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TemplateVersionsListResponse**](TemplateVersionsListResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RestoreTemplateVersion
+
+> TemplateVersionResponse RestoreTemplateVersion(ctx, templateId, version).Execute()
+
+Restore Template Version
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+	templateId := "templateId_example" // string | 
+	version := int32(56) // int32 | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TemplateVersionsAPI.RestoreTemplateVersion(context.Background(), templateId, version).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TemplateVersionsAPI.RestoreTemplateVersion``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RestoreTemplateVersion`: TemplateVersionResponse
+	fmt.Fprintf(os.Stdout, "Response from `TemplateVersionsAPI.RestoreTemplateVersion`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**templateId** | **string** |  | 
+**version** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRestoreTemplateVersionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**TemplateVersionResponse**](TemplateVersionResponse.md)
 
 ### Authorization
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **BaseTemplateId** | Pointer to **string** |  | [optional] [default to "tpl_modern"]
-**Config** | Pointer to **map[string]interface{}** |  | [optional] 
+**Config** | Pointer to [**TemplateConfig**](TemplateConfig.md) |  | [optional] 
 
 ## Methods
 
@@ -110,20 +110,20 @@ HasBaseTemplateId returns a boolean if a field has been set.
 
 ### GetConfig
 
-`func (o *TemplateCreateRequest) GetConfig() map[string]interface{}`
+`func (o *TemplateCreateRequest) GetConfig() TemplateConfig`
 
 GetConfig returns the Config field if non-nil, zero value otherwise.
 
 ### GetConfigOk
 
-`func (o *TemplateCreateRequest) GetConfigOk() (*map[string]interface{}, bool)`
+`func (o *TemplateCreateRequest) GetConfigOk() (*TemplateConfig, bool)`
 
 GetConfigOk returns a tuple with the Config field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfig
 
-`func (o *TemplateCreateRequest) SetConfig(v map[string]interface{})`
+`func (o *TemplateCreateRequest) SetConfig(v TemplateConfig)`
 
 SetConfig sets Config field to given value.
 

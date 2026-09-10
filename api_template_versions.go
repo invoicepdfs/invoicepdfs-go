@@ -370,3 +370,125 @@ func (a *TemplateVersionsAPIService) ListTemplateVersionsExecute(r ApiListTempla
 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
+
+type ApiRestoreTemplateVersionRequest struct {
+	ctx context.Context
+	ApiService *TemplateVersionsAPIService
+	templateId string
+	version int32
+}
+
+func (r ApiRestoreTemplateVersionRequest) Execute() (*TemplateVersionResponse, *http.Response, error) {
+	return r.ApiService.RestoreTemplateVersionExecute(r)
+}
+
+/*
+RestoreTemplateVersion Restore Template Version
+
+Put a template back to the config a version recorded.
+
+The template moves; the version does not. Restoring v1 over v3's config does
+not delete v3 or renumber anything — the next snapshot is v4, and the history
+stays a record of what happened rather than a record of the last decision.
+Take a version first if the config being replaced is worth keeping.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param templateId
+ @param version
+ @return ApiRestoreTemplateVersionRequest
+*/
+func (a *TemplateVersionsAPIService) RestoreTemplateVersion(ctx context.Context, templateId string, version int32) ApiRestoreTemplateVersionRequest {
+	return ApiRestoreTemplateVersionRequest{
+		ApiService: a,
+		ctx: ctx,
+		templateId: templateId,
+		version: version,
+	}
+}
+
+// Execute executes the request
+//  @return TemplateVersionResponse
+func (a *TemplateVersionsAPIService) RestoreTemplateVersionExecute(r ApiRestoreTemplateVersionRequest) (*TemplateVersionResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TemplateVersionResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TemplateVersionsAPIService.RestoreTemplateVersion")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/templates/{template_id}/versions/{version}/restore"
+	localVarPath = strings.Replace(localVarPath, "{"+"template_id"+"}", url.PathEscape(parameterValueToString(r.templateId, "templateId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ApiErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}

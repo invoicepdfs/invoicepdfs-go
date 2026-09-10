@@ -915,11 +915,18 @@ type ApiPreviewTemplateRequest struct {
 	ApiService *TemplatesAPIService
 	templateId string
 	documentRenderRequest *DocumentRenderRequest
+	version *int32
 	idempotencyKey *string
 }
 
 func (r ApiPreviewTemplateRequest) DocumentRenderRequest(documentRenderRequest DocumentRenderRequest) ApiPreviewTemplateRequest {
 	r.documentRenderRequest = &documentRenderRequest
+	return r
+}
+
+// Preview the config this version recorded rather than the template&#39;s current config. Only a custom (&#x60;ctpl_&#x60;) template has versions.
+func (r ApiPreviewTemplateRequest) Version(version int32) ApiPreviewTemplateRequest {
+	r.version = &version
 	return r
 }
 
@@ -972,6 +979,9 @@ func (a *TemplatesAPIService) PreviewTemplateExecute(r ApiPreviewTemplateRequest
 		return localVarReturnValue, nil, reportError("documentRenderRequest is required and must be specified")
 	}
 
+	if r.version != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "version", r.version, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 

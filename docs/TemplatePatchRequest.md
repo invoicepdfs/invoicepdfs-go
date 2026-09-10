@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**Config** | Pointer to **map[string]interface{}** |  | [optional] 
+**Config** | Pointer to [**TemplateConfig**](TemplateConfig.md) |  | [optional] 
 
 ## Methods
 
@@ -89,20 +89,20 @@ HasDescription returns a boolean if a field has been set.
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetConfig
 
-`func (o *TemplatePatchRequest) GetConfig() map[string]interface{}`
+`func (o *TemplatePatchRequest) GetConfig() TemplateConfig`
 
 GetConfig returns the Config field if non-nil, zero value otherwise.
 
 ### GetConfigOk
 
-`func (o *TemplatePatchRequest) GetConfigOk() (*map[string]interface{}, bool)`
+`func (o *TemplatePatchRequest) GetConfigOk() (*TemplateConfig, bool)`
 
 GetConfigOk returns a tuple with the Config field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfig
 
-`func (o *TemplatePatchRequest) SetConfig(v map[string]interface{})`
+`func (o *TemplatePatchRequest) SetConfig(v TemplateConfig)`
 
 SetConfig sets Config field to given value.
 

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TemplateId** | Pointer to **string** |  | [optional] [default to "tpl_modern"]
+**TemplateVersion** | Pointer to **NullableInt32** |  | [optional] 
 **PageSize** | Pointer to **string** |  | [optional] [default to "LETTER"]
 **ExpiresIn** | Pointer to **int32** |  | [optional] [default to 3600]
 **Format** | Pointer to **string** | &#x60;facturx_pdf&#x60; embeds the EN 16931 CII XML in a PDF/A-3, which is what a French or German counterparty means by Factur-X or ZUGFeRD. | [optional] [default to "pdf"]
@@ -53,6 +54,41 @@ SetTemplateId sets TemplateId field to given value.
 
 HasTemplateId returns a boolean if a field has been set.
 
+### GetTemplateVersion
+
+`func (o *DocumentRenderOptions) GetTemplateVersion() int32`
+
+GetTemplateVersion returns the TemplateVersion field if non-nil, zero value otherwise.
+
+### GetTemplateVersionOk
+
+`func (o *DocumentRenderOptions) GetTemplateVersionOk() (*int32, bool)`
+
+GetTemplateVersionOk returns a tuple with the TemplateVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTemplateVersion
+
+`func (o *DocumentRenderOptions) SetTemplateVersion(v int32)`
+
+SetTemplateVersion sets TemplateVersion field to given value.
+
+### HasTemplateVersion
+
+`func (o *DocumentRenderOptions) HasTemplateVersion() bool`
+
+HasTemplateVersion returns a boolean if a field has been set.
+
+### SetTemplateVersionNil
+
+`func (o *DocumentRenderOptions) SetTemplateVersionNil(b bool)`
+
+ SetTemplateVersionNil sets the value for TemplateVersion to be an explicit nil
+
+### UnsetTemplateVersion
+`func (o *DocumentRenderOptions) UnsetTemplateVersion()`
+
+UnsetTemplateVersion ensures that no value is present for TemplateVersion, not even an explicit nil
 ### GetPageSize
 
 `func (o *DocumentRenderOptions) GetPageSize() string`

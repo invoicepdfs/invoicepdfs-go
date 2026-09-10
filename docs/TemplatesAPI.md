@@ -547,7 +547,7 @@ Other parameters are passed through a pointer to a apiListTemplatesRequest struc
 
 ## PreviewTemplate
 
-> RenderResponse PreviewTemplate(ctx, templateId).DocumentRenderRequest(documentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
+> RenderResponse PreviewTemplate(ctx, templateId).DocumentRenderRequest(documentRenderRequest).Version(version).IdempotencyKey(idempotencyKey).Execute()
 
 Preview Template
 
@@ -567,11 +567,12 @@ import (
 func main() {
 	templateId := "templateId_example" // string | 
 	documentRenderRequest := *openapiclient.NewDocumentRenderRequest(*openapiclient.NewDocumentInvoiceDataInput("INV-2026-001", time.Now(), "USD", *openapiclient.NewDocumentPartyInput("Acme Corp"), *openapiclient.NewDocumentPartyInput("Acme Corp"), []openapiclient.DocumentLineItemInput{*openapiclient.NewDocumentLineItemInput("Web Development", "2", "150.00")}), *openapiclient.NewDocumentTemplateRef("Id_example")) // DocumentRenderRequest | 
+	version := int32(56) // int32 | Preview the config this version recorded rather than the template's current config. Only a custom (`ctpl_`) template has versions. (optional)
 	idempotencyKey := "idempotencyKey_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TemplatesAPI.PreviewTemplate(context.Background(), templateId).DocumentRenderRequest(documentRenderRequest).IdempotencyKey(idempotencyKey).Execute()
+	resp, r, err := apiClient.TemplatesAPI.PreviewTemplate(context.Background(), templateId).DocumentRenderRequest(documentRenderRequest).Version(version).IdempotencyKey(idempotencyKey).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TemplatesAPI.PreviewTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -598,6 +599,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **documentRenderRequest** | [**DocumentRenderRequest**](DocumentRenderRequest.md) |  | 
+ **version** | **int32** | Preview the config this version recorded rather than the template&#39;s current config. Only a custom (&#x60;ctpl_&#x60;) template has versions. | 
  **idempotencyKey** | **string** |  | 
 
 ### Return type

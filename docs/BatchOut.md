@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Status** | **string** |  | 
 **Operation** | **string** |  | 
 **TemplateId** | **string** |  | 
+**TemplateVersion** | Pointer to **NullableInt32** |  | [optional] 
 **TotalItems** | **int32** |  | 
 **CompletedItems** | **int32** |  | 
 **FailedItems** | **int32** |  | 
@@ -114,6 +115,41 @@ and a boolean to check if the value has been set.
 SetTemplateId sets TemplateId field to given value.
 
 
+### GetTemplateVersion
+
+`func (o *BatchOut) GetTemplateVersion() int32`
+
+GetTemplateVersion returns the TemplateVersion field if non-nil, zero value otherwise.
+
+### GetTemplateVersionOk
+
+`func (o *BatchOut) GetTemplateVersionOk() (*int32, bool)`
+
+GetTemplateVersionOk returns a tuple with the TemplateVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTemplateVersion
+
+`func (o *BatchOut) SetTemplateVersion(v int32)`
+
+SetTemplateVersion sets TemplateVersion field to given value.
+
+### HasTemplateVersion
+
+`func (o *BatchOut) HasTemplateVersion() bool`
+
+HasTemplateVersion returns a boolean if a field has been set.
+
+### SetTemplateVersionNil
+
+`func (o *BatchOut) SetTemplateVersionNil(b bool)`
+
+ SetTemplateVersionNil sets the value for TemplateVersion to be an explicit nil
+
+### UnsetTemplateVersion
+`func (o *BatchOut) UnsetTemplateVersion()`
+
+UnsetTemplateVersion ensures that no value is present for TemplateVersion, not even an explicit nil
 ### GetTotalItems
 
 `func (o *BatchOut) GetTotalItems() int32`

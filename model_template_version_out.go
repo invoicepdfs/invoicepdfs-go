@@ -26,7 +26,7 @@ type TemplateVersionOut struct {
 	Version int32 `json:"version"`
 	Label NullableString `json:"label,omitempty"`
 	Changelog NullableString `json:"changelog,omitempty"`
-	Config map[string]interface{} `json:"config"`
+	Config TemplateConfig `json:"config"`
 	CreatedAt string `json:"created_at"`
 }
 
@@ -36,7 +36,7 @@ type _TemplateVersionOut TemplateVersionOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTemplateVersionOut(id string, templateId string, version int32, config map[string]interface{}, createdAt string) *TemplateVersionOut {
+func NewTemplateVersionOut(id string, templateId string, version int32, config TemplateConfig, createdAt string) *TemplateVersionOut {
 	this := TemplateVersionOut{}
 	this.Id = id
 	this.TemplateId = templateId
@@ -211,9 +211,9 @@ func (o *TemplateVersionOut) UnsetChangelog() {
 }
 
 // GetConfig returns the Config field value
-func (o *TemplateVersionOut) GetConfig() map[string]interface{} {
+func (o *TemplateVersionOut) GetConfig() TemplateConfig {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret TemplateConfig
 		return ret
 	}
 
@@ -222,15 +222,15 @@ func (o *TemplateVersionOut) GetConfig() map[string]interface{} {
 
 // GetConfigOk returns a tuple with the Config field value
 // and a boolean to check if the value has been set.
-func (o *TemplateVersionOut) GetConfigOk() (map[string]interface{}, bool) {
+func (o *TemplateVersionOut) GetConfigOk() (*TemplateConfig, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.Config, true
+	return &o.Config, true
 }
 
 // SetConfig sets field value
-func (o *TemplateVersionOut) SetConfig(v map[string]interface{}) {
+func (o *TemplateVersionOut) SetConfig(v TemplateConfig) {
 	o.Config = v
 }
 

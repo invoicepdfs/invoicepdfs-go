@@ -232,6 +232,7 @@ docs/TaxRatePatchRequest.md
 docs/TaxRateResponse.md
 docs/TaxRatesAPI.md
 docs/TaxRatesListResponse.md
+docs/TemplateConfig.md
 docs/TemplateCreateRequest.md
 docs/TemplateDetail.md
 docs/TemplateDetailResponse.md
@@ -460,6 +461,7 @@ model_tax_rate_out.go
 model_tax_rate_patch_request.go
 model_tax_rate_response.go
 model_tax_rates_list_response.go
+model_template_config.go
 model_template_create_request.go
 model_template_detail.go
 model_template_detail_response.go

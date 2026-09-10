@@ -24,6 +24,7 @@ type BatchCreateRequest struct {
 	Operation *string `json:"operation,omitempty"`
 	Items []BatchItemInput `json:"items"`
 	TemplateId *string `json:"template_id,omitempty"`
+	TemplateVersion NullableInt32 `json:"template_version,omitempty"`
 	Output *BatchOutputOptions `json:"output,omitempty"`
 }
 
@@ -143,6 +144,48 @@ func (o *BatchCreateRequest) SetTemplateId(v string) {
 	o.TemplateId = &v
 }
 
+// GetTemplateVersion returns the TemplateVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BatchCreateRequest) GetTemplateVersion() int32 {
+	if o == nil || IsNil(o.TemplateVersion.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.TemplateVersion.Get()
+}
+
+// GetTemplateVersionOk returns a tuple with the TemplateVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BatchCreateRequest) GetTemplateVersionOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TemplateVersion.Get(), o.TemplateVersion.IsSet()
+}
+
+// HasTemplateVersion returns a boolean if a field has been set.
+func (o *BatchCreateRequest) HasTemplateVersion() bool {
+	if o != nil && o.TemplateVersion.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTemplateVersion gets a reference to the given NullableInt32 and assigns it to the TemplateVersion field.
+func (o *BatchCreateRequest) SetTemplateVersion(v int32) {
+	o.TemplateVersion.Set(&v)
+}
+// SetTemplateVersionNil sets the value for TemplateVersion to be an explicit nil
+func (o *BatchCreateRequest) SetTemplateVersionNil() {
+	o.TemplateVersion.Set(nil)
+}
+
+// UnsetTemplateVersion ensures that no value is present for TemplateVersion, not even an explicit nil
+func (o *BatchCreateRequest) UnsetTemplateVersion() {
+	o.TemplateVersion.Unset()
+}
+
 // GetOutput returns the Output field value if set, zero value otherwise.
 func (o *BatchCreateRequest) GetOutput() BatchOutputOptions {
 	if o == nil || IsNil(o.Output) {
@@ -191,6 +234,9 @@ func (o BatchCreateRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["items"] = o.Items
 	if !IsNil(o.TemplateId) {
 		toSerialize["template_id"] = o.TemplateId
+	}
+	if o.TemplateVersion.IsSet() {
+		toSerialize["template_version"] = o.TemplateVersion.Get()
 	}
 	if !IsNil(o.Output) {
 		toSerialize["output"] = o.Output

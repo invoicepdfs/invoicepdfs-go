@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Status** | **string** |  | 
 **DocumentType** | **string** |  | 
+**TemplateId** | **string** |  | 
+**TemplateVersion** | Pointer to **NullableInt32** |  | [optional] 
 **Format** | **string** |  | 
 **DownloadUrl** | **string** |  | 
 **ExpiresAt** | **string** |  | 
@@ -17,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewRenderOut
 
-`func NewRenderOut(id string, status string, documentType string, format string, downloadUrl string, expiresAt string, calculation CalculationBreakdown, createdAt string, ) *RenderOut`
+`func NewRenderOut(id string, status string, documentType string, templateId string, format string, downloadUrl string, expiresAt string, calculation CalculationBreakdown, createdAt string, ) *RenderOut`
 
 NewRenderOut instantiates a new RenderOut object
 This constructor will assign default values to properties that have it defined,
@@ -92,6 +94,61 @@ and a boolean to check if the value has been set.
 SetDocumentType sets DocumentType field to given value.
 
 
+### GetTemplateId
+
+`func (o *RenderOut) GetTemplateId() string`
+
+GetTemplateId returns the TemplateId field if non-nil, zero value otherwise.
+
+### GetTemplateIdOk
+
+`func (o *RenderOut) GetTemplateIdOk() (*string, bool)`
+
+GetTemplateIdOk returns a tuple with the TemplateId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTemplateId
+
+`func (o *RenderOut) SetTemplateId(v string)`
+
+SetTemplateId sets TemplateId field to given value.
+
+
+### GetTemplateVersion
+
+`func (o *RenderOut) GetTemplateVersion() int32`
+
+GetTemplateVersion returns the TemplateVersion field if non-nil, zero value otherwise.
+
+### GetTemplateVersionOk
+
+`func (o *RenderOut) GetTemplateVersionOk() (*int32, bool)`
+
+GetTemplateVersionOk returns a tuple with the TemplateVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTemplateVersion
+
+`func (o *RenderOut) SetTemplateVersion(v int32)`
+
+SetTemplateVersion sets TemplateVersion field to given value.
+
+### HasTemplateVersion
+
+`func (o *RenderOut) HasTemplateVersion() bool`
+
+HasTemplateVersion returns a boolean if a field has been set.
+
+### SetTemplateVersionNil
+
+`func (o *RenderOut) SetTemplateVersionNil(b bool)`
+
+ SetTemplateVersionNil sets the value for TemplateVersion to be an explicit nil
+
+### UnsetTemplateVersion
+`func (o *RenderOut) UnsetTemplateVersion()`
+
+UnsetTemplateVersion ensures that no value is present for TemplateVersion, not even an explicit nil
 ### GetFormat
 
 `func (o *RenderOut) GetFormat() string`

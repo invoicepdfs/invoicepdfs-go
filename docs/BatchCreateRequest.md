@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Operation** | Pointer to **string** |  | [optional] [default to "render"]
 **Items** | [**[]BatchItemInput**](BatchItemInput.md) |  | 
 **TemplateId** | Pointer to **string** |  | [optional] [default to "tpl_modern"]
+**TemplateVersion** | Pointer to **NullableInt32** |  | [optional] 
 **Output** | Pointer to [**BatchOutputOptions**](BatchOutputOptions.md) |  | [optional] 
 
 ## Methods
@@ -98,6 +99,41 @@ SetTemplateId sets TemplateId field to given value.
 
 HasTemplateId returns a boolean if a field has been set.
 
+### GetTemplateVersion
+
+`func (o *BatchCreateRequest) GetTemplateVersion() int32`
+
+GetTemplateVersion returns the TemplateVersion field if non-nil, zero value otherwise.
+
+### GetTemplateVersionOk
+
+`func (o *BatchCreateRequest) GetTemplateVersionOk() (*int32, bool)`
+
+GetTemplateVersionOk returns a tuple with the TemplateVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTemplateVersion
+
+`func (o *BatchCreateRequest) SetTemplateVersion(v int32)`
+
+SetTemplateVersion sets TemplateVersion field to given value.
+
+### HasTemplateVersion
+
+`func (o *BatchCreateRequest) HasTemplateVersion() bool`
+
+HasTemplateVersion returns a boolean if a field has been set.
+
+### SetTemplateVersionNil
+
+`func (o *BatchCreateRequest) SetTemplateVersionNil(b bool)`
+
+ SetTemplateVersionNil sets the value for TemplateVersion to be an explicit nil
+
+### UnsetTemplateVersion
+`func (o *BatchCreateRequest) UnsetTemplateVersion()`
+
+UnsetTemplateVersion ensures that no value is present for TemplateVersion, not even an explicit nil
 ### GetOutput
 
 `func (o *BatchCreateRequest) GetOutput() BatchOutputOptions`

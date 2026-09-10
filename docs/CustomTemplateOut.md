@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **BaseTemplateId** | **string** |  | 
-**Config** | Pointer to **map[string]interface{}** |  | [optional] 
+**Config** | Pointer to [**TemplateConfig**](TemplateConfig.md) |  | [optional] 
 **Status** | **string** |  | 
 **IsDefault** | Pointer to **bool** |  | [optional] [default to false]
 **CreatedAt** | **string** |  | 
@@ -131,20 +131,20 @@ SetBaseTemplateId sets BaseTemplateId field to given value.
 
 ### GetConfig
 
-`func (o *CustomTemplateOut) GetConfig() map[string]interface{}`
+`func (o *CustomTemplateOut) GetConfig() TemplateConfig`
 
 GetConfig returns the Config field if non-nil, zero value otherwise.
 
 ### GetConfigOk
 
-`func (o *CustomTemplateOut) GetConfigOk() (*map[string]interface{}, bool)`
+`func (o *CustomTemplateOut) GetConfigOk() (*TemplateConfig, bool)`
 
 GetConfigOk returns a tuple with the Config field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfig
 
-`func (o *CustomTemplateOut) SetConfig(v map[string]interface{})`
+`func (o *CustomTemplateOut) SetConfig(v TemplateConfig)`
 
 SetConfig sets Config field to given value.
 

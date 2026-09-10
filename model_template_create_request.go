@@ -24,7 +24,7 @@ type TemplateCreateRequest struct {
 	Name string `json:"name"`
 	Description NullableString `json:"description,omitempty"`
 	BaseTemplateId *string `json:"base_template_id,omitempty"`
-	Config map[string]interface{} `json:"config,omitempty"`
+	Config *TemplateConfig `json:"config,omitempty"`
 }
 
 type _TemplateCreateRequest TemplateCreateRequest
@@ -150,19 +150,19 @@ func (o *TemplateCreateRequest) SetBaseTemplateId(v string) {
 }
 
 // GetConfig returns the Config field value if set, zero value otherwise.
-func (o *TemplateCreateRequest) GetConfig() map[string]interface{} {
+func (o *TemplateCreateRequest) GetConfig() TemplateConfig {
 	if o == nil || IsNil(o.Config) {
-		var ret map[string]interface{}
+		var ret TemplateConfig
 		return ret
 	}
-	return o.Config
+	return *o.Config
 }
 
 // GetConfigOk returns a tuple with the Config field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TemplateCreateRequest) GetConfigOk() (map[string]interface{}, bool) {
+func (o *TemplateCreateRequest) GetConfigOk() (*TemplateConfig, bool) {
 	if o == nil || IsNil(o.Config) {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
 	return o.Config, true
 }
@@ -176,9 +176,9 @@ func (o *TemplateCreateRequest) HasConfig() bool {
 	return false
 }
 
-// SetConfig gets a reference to the given map[string]interface{} and assigns it to the Config field.
-func (o *TemplateCreateRequest) SetConfig(v map[string]interface{}) {
-	o.Config = v
+// SetConfig gets a reference to the given TemplateConfig and assigns it to the Config field.
+func (o *TemplateCreateRequest) SetConfig(v TemplateConfig) {
+	o.Config = &v
 }
 
 func (o TemplateCreateRequest) MarshalJSON() ([]byte, error) {

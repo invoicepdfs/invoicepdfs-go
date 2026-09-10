@@ -22,6 +22,7 @@ var _ MappedNullable = &DocumentTemplateRef{}
 // DocumentTemplateRef struct for DocumentTemplateRef
 type DocumentTemplateRef struct {
 	Id string `json:"id"`
+	Version NullableInt32 `json:"version,omitempty"`
 }
 
 type _DocumentTemplateRef DocumentTemplateRef
@@ -68,6 +69,48 @@ func (o *DocumentTemplateRef) SetId(v string) {
 	o.Id = v
 }
 
+// GetVersion returns the Version field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DocumentTemplateRef) GetVersion() int32 {
+	if o == nil || IsNil(o.Version.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.Version.Get()
+}
+
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DocumentTemplateRef) GetVersionOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Version.Get(), o.Version.IsSet()
+}
+
+// HasVersion returns a boolean if a field has been set.
+func (o *DocumentTemplateRef) HasVersion() bool {
+	if o != nil && o.Version.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given NullableInt32 and assigns it to the Version field.
+func (o *DocumentTemplateRef) SetVersion(v int32) {
+	o.Version.Set(&v)
+}
+// SetVersionNil sets the value for Version to be an explicit nil
+func (o *DocumentTemplateRef) SetVersionNil() {
+	o.Version.Set(nil)
+}
+
+// UnsetVersion ensures that no value is present for Version, not even an explicit nil
+func (o *DocumentTemplateRef) UnsetVersion() {
+	o.Version.Unset()
+}
+
 func (o DocumentTemplateRef) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -79,6 +122,9 @@ func (o DocumentTemplateRef) MarshalJSON() ([]byte, error) {
 func (o DocumentTemplateRef) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
+	if o.Version.IsSet() {
+		toSerialize["version"] = o.Version.Get()
+	}
 	return toSerialize, nil
 }
 
