@@ -100,6 +100,8 @@ docs/BusinessProfileResponse.md
 docs/BusinessProfilesAPI.md
 docs/BusinessProfilesListResponse.md
 docs/CalculationBreakdown.md
+docs/CodeListResponse.md
+docs/CodeOut.md
 docs/ComplianceCheckOut.md
 docs/ComplianceRulesetOut.md
 docs/ComplianceViolationOut.md
@@ -345,6 +347,8 @@ model_business_profile_patch.go
 model_business_profile_response.go
 model_business_profiles_list_response.go
 model_calculation_breakdown.go
+model_code_list_response.go
+model_code_out.go
 model_compliance_check_out.go
 model_compliance_ruleset_out.go
 model_compliance_violation_out.go

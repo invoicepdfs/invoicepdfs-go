@@ -82,11 +82,47 @@ func Test_invoicepdfs_ReferenceAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test ReferenceAPIService ListTaxCategories", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ReferenceAPI.ListTaxCategories(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ReferenceAPIService ListTaxSchemes", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ReferenceAPI.ListTaxSchemes(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ReferenceAPIService ListTimezones", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.ReferenceAPI.ListTimezones(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ReferenceAPIService ListUnitCodes", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ReferenceAPI.ListUnitCodes(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

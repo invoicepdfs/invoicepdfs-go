@@ -11,9 +11,11 @@ Method | HTTP request | Description
 
 ## DownloadRender
 
-> *os.File DownloadRender(ctx, renderId).Execute()
+> *os.File DownloadRender(ctx, renderId).Token(token).Execute()
 
 Download Render
+
+
 
 ### Example
 
@@ -29,10 +31,11 @@ import (
 
 func main() {
 	renderId := "renderId_example" // string | 
+	token := "token_example" // string | The signature from this render's `download_url`. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RendersAPI.DownloadRender(context.Background(), renderId).Execute()
+	resp, r, err := apiClient.RendersAPI.DownloadRender(context.Background(), renderId).Token(token).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RendersAPI.DownloadRender``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -58,6 +61,7 @@ Other parameters are passed through a pointer to a apiDownloadRenderRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **token** | **string** | The signature from this render&#39;s &#x60;download_url&#x60;. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally. | 
 
 ### Return type
 

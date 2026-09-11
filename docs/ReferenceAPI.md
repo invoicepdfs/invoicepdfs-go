@@ -9,7 +9,10 @@ Method | HTTP request | Description
 [**ListDocumentTypes**](ReferenceAPI.md#ListDocumentTypes) | **Get** /api/v1/reference/document-types | List Document Types
 [**ListLocales**](ReferenceAPI.md#ListLocales) | **Get** /api/v1/reference/locales | List Locales
 [**ListPageSizes**](ReferenceAPI.md#ListPageSizes) | **Get** /api/v1/reference/page-sizes | List Page Sizes
+[**ListTaxCategories**](ReferenceAPI.md#ListTaxCategories) | **Get** /api/v1/reference/tax-categories | List Tax Categories
+[**ListTaxSchemes**](ReferenceAPI.md#ListTaxSchemes) | **Get** /api/v1/reference/tax-schemes | List Tax Schemes
 [**ListTimezones**](ReferenceAPI.md#ListTimezones) | **Get** /api/v1/reference/timezones | List Timezones
+[**ListUnitCodes**](ReferenceAPI.md#ListUnitCodes) | **Get** /api/v1/reference/unit-codes | List Unit Codes
 
 
 
@@ -310,6 +313,128 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## ListTaxCategories
+
+> CodeListResponse ListTaxCategories(ctx).Execute()
+
+List Tax Categories
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ReferenceAPI.ListTaxCategories(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListTaxCategories``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListTaxCategories`: CodeListResponse
+	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListTaxCategories`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListTaxCategoriesRequest struct via the builder pattern
+
+
+### Return type
+
+[**CodeListResponse**](CodeListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListTaxSchemes
+
+> CodeListResponse ListTaxSchemes(ctx).Execute()
+
+List Tax Schemes
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ReferenceAPI.ListTaxSchemes(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListTaxSchemes``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListTaxSchemes`: CodeListResponse
+	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListTaxSchemes`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListTaxSchemesRequest struct via the builder pattern
+
+
+### Return type
+
+[**CodeListResponse**](CodeListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ListTimezones
 
 > TimezonesListResponse ListTimezones(ctx).Execute()
@@ -354,6 +479,67 @@ Other parameters are passed through a pointer to a apiListTimezonesRequest struc
 ### Return type
 
 [**TimezonesListResponse**](TimezonesListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListUnitCodes
+
+> CodeListResponse ListUnitCodes(ctx).Execute()
+
+List Unit Codes
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/invoicepdfs/invoicepdfs-go"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ReferenceAPI.ListUnitCodes(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ReferenceAPI.ListUnitCodes``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ListUnitCodes`: CodeListResponse
+	fmt.Fprintf(os.Stdout, "Response from `ReferenceAPI.ListUnitCodes`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListUnitCodesRequest struct via the builder pattern
+
+
+### Return type
+
+[**CodeListResponse**](CodeListResponse.md)
 
 ### Authorization
 

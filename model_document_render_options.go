@@ -22,6 +22,7 @@ type DocumentRenderOptions struct {
 	TemplateId *string `json:"template_id,omitempty"`
 	TemplateVersion NullableInt32 `json:"template_version,omitempty"`
 	PageSize *string `json:"page_size,omitempty"`
+	// How long the render stays downloadable, in seconds (1 minute to 7 days). It is also the lifetime of the signature in `download_url`, which is why it is bounded: an unbounded value meant an unbounded grant. A value below the floor used to be accepted and produced a render that had already expired.
 	ExpiresIn *int32 `json:"expires_in,omitempty"`
 	// `facturx_pdf` embeds the EN 16931 CII XML in a PDF/A-3, which is what a French or German counterparty means by Factur-X or ZUGFeRD.
 	Format *string `json:"format,omitempty"`
