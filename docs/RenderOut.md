@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **ExpiresAt** | **string** |  | 
 **Calculation** | [**CalculationBreakdown**](CalculationBreakdown.md) |  | 
 **CreatedAt** | **string** |  | 
+**Compliance** | Pointer to [**NullableRenderComplianceOut**](RenderComplianceOut.md) |  | [optional] 
 
 ## Methods
 
@@ -249,6 +250,41 @@ and a boolean to check if the value has been set.
 SetCreatedAt sets CreatedAt field to given value.
 
 
+### GetCompliance
+
+`func (o *RenderOut) GetCompliance() RenderComplianceOut`
+
+GetCompliance returns the Compliance field if non-nil, zero value otherwise.
+
+### GetComplianceOk
+
+`func (o *RenderOut) GetComplianceOk() (*RenderComplianceOut, bool)`
+
+GetComplianceOk returns a tuple with the Compliance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompliance
+
+`func (o *RenderOut) SetCompliance(v RenderComplianceOut)`
+
+SetCompliance sets Compliance field to given value.
+
+### HasCompliance
+
+`func (o *RenderOut) HasCompliance() bool`
+
+HasCompliance returns a boolean if a field has been set.
+
+### SetComplianceNil
+
+`func (o *RenderOut) SetComplianceNil(b bool)`
+
+ SetComplianceNil sets the value for Compliance to be an explicit nil
+
+### UnsetCompliance
+`func (o *RenderOut) UnsetCompliance()`
+
+UnsetCompliance ensures that no value is present for Compliance, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -31,6 +31,7 @@ type RenderOut struct {
 	ExpiresAt string `json:"expires_at"`
 	Calculation CalculationBreakdown `json:"calculation"`
 	CreatedAt string `json:"created_at"`
+	Compliance NullableRenderComplianceOut `json:"compliance,omitempty"`
 }
 
 type _RenderOut RenderOut
@@ -319,6 +320,48 @@ func (o *RenderOut) SetCreatedAt(v string) {
 	o.CreatedAt = v
 }
 
+// GetCompliance returns the Compliance field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RenderOut) GetCompliance() RenderComplianceOut {
+	if o == nil || IsNil(o.Compliance.Get()) {
+		var ret RenderComplianceOut
+		return ret
+	}
+	return *o.Compliance.Get()
+}
+
+// GetComplianceOk returns a tuple with the Compliance field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RenderOut) GetComplianceOk() (*RenderComplianceOut, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Compliance.Get(), o.Compliance.IsSet()
+}
+
+// HasCompliance returns a boolean if a field has been set.
+func (o *RenderOut) HasCompliance() bool {
+	if o != nil && o.Compliance.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCompliance gets a reference to the given NullableRenderComplianceOut and assigns it to the Compliance field.
+func (o *RenderOut) SetCompliance(v RenderComplianceOut) {
+	o.Compliance.Set(&v)
+}
+// SetComplianceNil sets the value for Compliance to be an explicit nil
+func (o *RenderOut) SetComplianceNil() {
+	o.Compliance.Set(nil)
+}
+
+// UnsetCompliance ensures that no value is present for Compliance, not even an explicit nil
+func (o *RenderOut) UnsetCompliance() {
+	o.Compliance.Unset()
+}
+
 func (o RenderOut) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -341,6 +384,9 @@ func (o RenderOut) ToMap() (map[string]interface{}, error) {
 	toSerialize["expires_at"] = o.ExpiresAt
 	toSerialize["calculation"] = o.Calculation
 	toSerialize["created_at"] = o.CreatedAt
+	if o.Compliance.IsSet() {
+		toSerialize["compliance"] = o.Compliance.Get()
+	}
 	return toSerialize, nil
 }
 

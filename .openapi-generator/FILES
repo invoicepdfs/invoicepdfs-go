@@ -217,6 +217,7 @@ docs/RecurringInvoiceResponse.md
 docs/RecurringInvoicesAPI.md
 docs/RecurringInvoicesListResponse.md
 docs/ReferenceAPI.md
+docs/RenderComplianceOut.md
 docs/RenderOut.md
 docs/RenderResponse.md
 docs/RendersAPI.md
@@ -451,6 +452,7 @@ model_recurring_invoice_out.go
 model_recurring_invoice_patch_request.go
 model_recurring_invoice_response.go
 model_recurring_invoices_list_response.go
+model_render_compliance_out.go
 model_render_out.go
 model_render_response.go
 model_simple_bool_response.go
