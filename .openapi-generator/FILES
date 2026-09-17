@@ -186,6 +186,7 @@ docs/JobOut.md
 docs/JobProgressOut.md
 docs/JobResponse.md
 docs/JobsAPI.md
+docs/JobsListResponse.md
 docs/LineItemDiscountInput.md
 docs/LineItemTaxInput.md
 docs/LocaleOut.md
@@ -426,6 +427,7 @@ model_invoices_list_response.go
 model_job_out.go
 model_job_progress_out.go
 model_job_response.go
+model_jobs_list_response.go
 model_line_item_discount_input.go
 model_line_item_tax_input.go
 model_locale_out.go
