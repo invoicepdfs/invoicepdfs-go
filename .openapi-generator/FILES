@@ -8,6 +8,7 @@ api_batches.go
 api_billing.go
 api_branding_profiles.go
 api_business_profiles.go
+api_compliance.go
 api_customers.go
 api_deliveries.go
 api_document_attachments.go
@@ -102,6 +103,7 @@ docs/BusinessProfilesListResponse.md
 docs/CalculationBreakdown.md
 docs/CodeListResponse.md
 docs/CodeOut.md
+docs/ComplianceAPI.md
 docs/ComplianceCheckOut.md
 docs/ComplianceRulesetOut.md
 docs/ComplianceViolationOut.md
@@ -518,6 +520,7 @@ test/api_batches_test.go
 test/api_billing_test.go
 test/api_branding_profiles_test.go
 test/api_business_profiles_test.go
+test/api_compliance_test.go
 test/api_customers_test.go
 test/api_deliveries_test.go
 test/api_document_attachments_test.go

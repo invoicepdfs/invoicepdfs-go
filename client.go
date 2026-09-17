@@ -63,6 +63,8 @@ type APIClient struct {
 
 	BusinessProfilesAPI *BusinessProfilesAPIService
 
+	ComplianceAPI *ComplianceAPIService
+
 	CustomersAPI *CustomersAPIService
 
 	DeliveriesAPI *DeliveriesAPIService
@@ -129,6 +131,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.BillingAPI = (*BillingAPIService)(&c.common)
 	c.BrandingProfilesAPI = (*BrandingProfilesAPIService)(&c.common)
 	c.BusinessProfilesAPI = (*BusinessProfilesAPIService)(&c.common)
+	c.ComplianceAPI = (*ComplianceAPIService)(&c.common)
 	c.CustomersAPI = (*CustomersAPIService)(&c.common)
 	c.DeliveriesAPI = (*DeliveriesAPIService)(&c.common)
 	c.DocumentAttachmentsAPI = (*DocumentAttachmentsAPIService)(&c.common)

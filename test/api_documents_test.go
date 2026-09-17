@@ -88,20 +88,6 @@ func Test_invoicepdfs_DocumentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DocumentsAPIService DownloadDocumentXml", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var documentId string
-
-		resp, httpRes, err := apiClient.DocumentsAPI.DownloadDocumentXml(context.Background(), documentId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DocumentsAPIService DuplicateDocument", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -224,18 +210,6 @@ func Test_invoicepdfs_DocumentsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test DocumentsAPIService RenderDocumentXml", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DocumentsAPI.RenderDocumentXml(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test DocumentsAPIService RestoreDocument", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -271,18 +245,6 @@ func Test_invoicepdfs_DocumentsAPIService(t *testing.T) {
 		var documentId string
 
 		resp, httpRes, err := apiClient.DocumentsAPI.UpdateDocument(context.Background(), documentId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DocumentsAPIService ValidateCompliance", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.DocumentsAPI.ValidateCompliance(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
