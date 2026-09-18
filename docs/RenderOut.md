@@ -10,17 +10,18 @@ Name | Type | Description | Notes
 **TemplateId** | **string** |  | 
 **TemplateVersion** | Pointer to **NullableInt32** |  | [optional] 
 **Format** | **string** |  | 
-**DownloadUrl** | **string** |  | 
-**ExpiresAt** | **string** |  | 
+**DownloadUrl** | Pointer to **NullableString** |  | [optional] 
+**ExpiresAt** | Pointer to **NullableString** |  | [optional] 
 **Calculation** | [**CalculationBreakdown**](CalculationBreakdown.md) |  | 
 **CreatedAt** | **string** |  | 
 **Compliance** | Pointer to [**NullableRenderComplianceOut**](RenderComplianceOut.md) |  | [optional] 
+**Failure** | Pointer to [**NullableRenderFailureOut**](RenderFailureOut.md) |  | [optional] 
 
 ## Methods
 
 ### NewRenderOut
 
-`func NewRenderOut(id string, status string, documentType string, templateId string, format string, downloadUrl string, expiresAt string, calculation CalculationBreakdown, createdAt string, ) *RenderOut`
+`func NewRenderOut(id string, status string, documentType string, templateId string, format string, calculation CalculationBreakdown, createdAt string, ) *RenderOut`
 
 NewRenderOut instantiates a new RenderOut object
 This constructor will assign default values to properties that have it defined,
@@ -189,7 +190,22 @@ and a boolean to check if the value has been set.
 
 SetDownloadUrl sets DownloadUrl field to given value.
 
+### HasDownloadUrl
 
+`func (o *RenderOut) HasDownloadUrl() bool`
+
+HasDownloadUrl returns a boolean if a field has been set.
+
+### SetDownloadUrlNil
+
+`func (o *RenderOut) SetDownloadUrlNil(b bool)`
+
+ SetDownloadUrlNil sets the value for DownloadUrl to be an explicit nil
+
+### UnsetDownloadUrl
+`func (o *RenderOut) UnsetDownloadUrl()`
+
+UnsetDownloadUrl ensures that no value is present for DownloadUrl, not even an explicit nil
 ### GetExpiresAt
 
 `func (o *RenderOut) GetExpiresAt() string`
@@ -209,7 +225,22 @@ and a boolean to check if the value has been set.
 
 SetExpiresAt sets ExpiresAt field to given value.
 
+### HasExpiresAt
 
+`func (o *RenderOut) HasExpiresAt() bool`
+
+HasExpiresAt returns a boolean if a field has been set.
+
+### SetExpiresAtNil
+
+`func (o *RenderOut) SetExpiresAtNil(b bool)`
+
+ SetExpiresAtNil sets the value for ExpiresAt to be an explicit nil
+
+### UnsetExpiresAt
+`func (o *RenderOut) UnsetExpiresAt()`
+
+UnsetExpiresAt ensures that no value is present for ExpiresAt, not even an explicit nil
 ### GetCalculation
 
 `func (o *RenderOut) GetCalculation() CalculationBreakdown`
@@ -285,6 +316,41 @@ HasCompliance returns a boolean if a field has been set.
 `func (o *RenderOut) UnsetCompliance()`
 
 UnsetCompliance ensures that no value is present for Compliance, not even an explicit nil
+### GetFailure
+
+`func (o *RenderOut) GetFailure() RenderFailureOut`
+
+GetFailure returns the Failure field if non-nil, zero value otherwise.
+
+### GetFailureOk
+
+`func (o *RenderOut) GetFailureOk() (*RenderFailureOut, bool)`
+
+GetFailureOk returns a tuple with the Failure field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFailure
+
+`func (o *RenderOut) SetFailure(v RenderFailureOut)`
+
+SetFailure sets Failure field to given value.
+
+### HasFailure
+
+`func (o *RenderOut) HasFailure() bool`
+
+HasFailure returns a boolean if a field has been set.
+
+### SetFailureNil
+
+`func (o *RenderOut) SetFailureNil(b bool)`
+
+ SetFailureNil sets the value for Failure to be an explicit nil
+
+### UnsetFailure
+`func (o *RenderOut) UnsetFailure()`
+
+UnsetFailure ensures that no value is present for Failure, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

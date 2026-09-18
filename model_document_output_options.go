@@ -21,6 +21,8 @@ var _ MappedNullable = &DocumentOutputOptions{}
 type DocumentOutputOptions struct {
 	Format *string `json:"format,omitempty"`
 	Delivery *string `json:"delivery,omitempty"`
+	// `sync` renders inside the request and answers with the finished document. `async` returns `202` with a `queued` render a worker picks up; follow it with `GET /renders/{id}`. Use it for bursts — rendering is CPU-bound, so a hundred at once queue behind each other whichever mode you ask for, and only one of the two holds a connection open while they do.
+	Mode *string `json:"mode,omitempty"`
 	// How long the render stays downloadable, in seconds (1 minute to 7 days). It is also the lifetime of the signature in `download_url`, which is why it is bounded: an unbounded value meant an unbounded grant. A value below the floor used to be accepted and produced a render that had already expired.
 	ExpiresIn *int32 `json:"expires_in,omitempty"`
 }
@@ -35,6 +37,8 @@ func NewDocumentOutputOptions() *DocumentOutputOptions {
 	this.Format = &format
 	var delivery string = "url"
 	this.Delivery = &delivery
+	var mode string = "sync"
+	this.Mode = &mode
 	var expiresIn int32 = 3600
 	this.ExpiresIn = &expiresIn
 	return &this
@@ -49,6 +53,8 @@ func NewDocumentOutputOptionsWithDefaults() *DocumentOutputOptions {
 	this.Format = &format
 	var delivery string = "url"
 	this.Delivery = &delivery
+	var mode string = "sync"
+	this.Mode = &mode
 	var expiresIn int32 = 3600
 	this.ExpiresIn = &expiresIn
 	return &this
@@ -118,6 +124,38 @@ func (o *DocumentOutputOptions) SetDelivery(v string) {
 	o.Delivery = &v
 }
 
+// GetMode returns the Mode field value if set, zero value otherwise.
+func (o *DocumentOutputOptions) GetMode() string {
+	if o == nil || IsNil(o.Mode) {
+		var ret string
+		return ret
+	}
+	return *o.Mode
+}
+
+// GetModeOk returns a tuple with the Mode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DocumentOutputOptions) GetModeOk() (*string, bool) {
+	if o == nil || IsNil(o.Mode) {
+		return nil, false
+	}
+	return o.Mode, true
+}
+
+// HasMode returns a boolean if a field has been set.
+func (o *DocumentOutputOptions) HasMode() bool {
+	if o != nil && !IsNil(o.Mode) {
+		return true
+	}
+
+	return false
+}
+
+// SetMode gets a reference to the given string and assigns it to the Mode field.
+func (o *DocumentOutputOptions) SetMode(v string) {
+	o.Mode = &v
+}
+
 // GetExpiresIn returns the ExpiresIn field value if set, zero value otherwise.
 func (o *DocumentOutputOptions) GetExpiresIn() int32 {
 	if o == nil || IsNil(o.ExpiresIn) {
@@ -165,6 +203,9 @@ func (o DocumentOutputOptions) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Delivery) {
 		toSerialize["delivery"] = o.Delivery
+	}
+	if !IsNil(o.Mode) {
+		toSerialize["mode"] = o.Mode
 	}
 	if !IsNil(o.ExpiresIn) {
 		toSerialize["expires_in"] = o.ExpiresIn

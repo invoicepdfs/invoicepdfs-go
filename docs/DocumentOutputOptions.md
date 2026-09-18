@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Format** | Pointer to **string** |  | [optional] [default to "pdf"]
 **Delivery** | Pointer to **string** |  | [optional] [default to "url"]
+**Mode** | Pointer to **string** | &#x60;sync&#x60; renders inside the request and answers with the finished document. &#x60;async&#x60; returns &#x60;202&#x60; with a &#x60;queued&#x60; render a worker picks up; follow it with &#x60;GET /renders/{id}&#x60;. Use it for bursts — rendering is CPU-bound, so a hundred at once queue behind each other whichever mode you ask for, and only one of the two holds a connection open while they do. | [optional] [default to "sync"]
 **ExpiresIn** | Pointer to **int32** | How long the render stays downloadable, in seconds (1 minute to 7 days). It is also the lifetime of the signature in &#x60;download_url&#x60;, which is why it is bounded: an unbounded value meant an unbounded grant. A value below the floor used to be accepted and produced a render that had already expired. | [optional] [default to 3600]
 
 ## Methods
@@ -76,6 +77,31 @@ SetDelivery sets Delivery field to given value.
 `func (o *DocumentOutputOptions) HasDelivery() bool`
 
 HasDelivery returns a boolean if a field has been set.
+
+### GetMode
+
+`func (o *DocumentOutputOptions) GetMode() string`
+
+GetMode returns the Mode field if non-nil, zero value otherwise.
+
+### GetModeOk
+
+`func (o *DocumentOutputOptions) GetModeOk() (*string, bool)`
+
+GetModeOk returns a tuple with the Mode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMode
+
+`func (o *DocumentOutputOptions) SetMode(v string)`
+
+SetMode sets Mode field to given value.
+
+### HasMode
+
+`func (o *DocumentOutputOptions) HasMode() bool`
+
+HasMode returns a boolean if a field has been set.
 
 ### GetExpiresIn
 

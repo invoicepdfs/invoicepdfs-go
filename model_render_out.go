@@ -27,11 +27,12 @@ type RenderOut struct {
 	TemplateId string `json:"template_id"`
 	TemplateVersion NullableInt32 `json:"template_version,omitempty"`
 	Format string `json:"format"`
-	DownloadUrl string `json:"download_url"`
-	ExpiresAt string `json:"expires_at"`
+	DownloadUrl NullableString `json:"download_url,omitempty"`
+	ExpiresAt NullableString `json:"expires_at,omitempty"`
 	Calculation CalculationBreakdown `json:"calculation"`
 	CreatedAt string `json:"created_at"`
 	Compliance NullableRenderComplianceOut `json:"compliance,omitempty"`
+	Failure NullableRenderFailureOut `json:"failure,omitempty"`
 }
 
 type _RenderOut RenderOut
@@ -40,15 +41,13 @@ type _RenderOut RenderOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRenderOut(id string, status string, documentType string, templateId string, format string, downloadUrl string, expiresAt string, calculation CalculationBreakdown, createdAt string) *RenderOut {
+func NewRenderOut(id string, status string, documentType string, templateId string, format string, calculation CalculationBreakdown, createdAt string) *RenderOut {
 	this := RenderOut{}
 	this.Id = id
 	this.Status = status
 	this.DocumentType = documentType
 	this.TemplateId = templateId
 	this.Format = format
-	this.DownloadUrl = downloadUrl
-	this.ExpiresAt = expiresAt
 	this.Calculation = calculation
 	this.CreatedAt = createdAt
 	return &this
@@ -224,52 +223,88 @@ func (o *RenderOut) SetFormat(v string) {
 	o.Format = v
 }
 
-// GetDownloadUrl returns the DownloadUrl field value
+// GetDownloadUrl returns the DownloadUrl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RenderOut) GetDownloadUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.DownloadUrl.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.DownloadUrl
+	return *o.DownloadUrl.Get()
 }
 
-// GetDownloadUrlOk returns a tuple with the DownloadUrl field value
+// GetDownloadUrlOk returns a tuple with the DownloadUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RenderOut) GetDownloadUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.DownloadUrl, true
+	return o.DownloadUrl.Get(), o.DownloadUrl.IsSet()
 }
 
-// SetDownloadUrl sets field value
+// HasDownloadUrl returns a boolean if a field has been set.
+func (o *RenderOut) HasDownloadUrl() bool {
+	if o != nil && o.DownloadUrl.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDownloadUrl gets a reference to the given NullableString and assigns it to the DownloadUrl field.
 func (o *RenderOut) SetDownloadUrl(v string) {
-	o.DownloadUrl = v
+	o.DownloadUrl.Set(&v)
+}
+// SetDownloadUrlNil sets the value for DownloadUrl to be an explicit nil
+func (o *RenderOut) SetDownloadUrlNil() {
+	o.DownloadUrl.Set(nil)
 }
 
-// GetExpiresAt returns the ExpiresAt field value
+// UnsetDownloadUrl ensures that no value is present for DownloadUrl, not even an explicit nil
+func (o *RenderOut) UnsetDownloadUrl() {
+	o.DownloadUrl.Unset()
+}
+
+// GetExpiresAt returns the ExpiresAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RenderOut) GetExpiresAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.ExpiresAt.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.ExpiresAt
+	return *o.ExpiresAt.Get()
 }
 
-// GetExpiresAtOk returns a tuple with the ExpiresAt field value
+// GetExpiresAtOk returns a tuple with the ExpiresAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RenderOut) GetExpiresAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ExpiresAt, true
+	return o.ExpiresAt.Get(), o.ExpiresAt.IsSet()
 }
 
-// SetExpiresAt sets field value
+// HasExpiresAt returns a boolean if a field has been set.
+func (o *RenderOut) HasExpiresAt() bool {
+	if o != nil && o.ExpiresAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExpiresAt gets a reference to the given NullableString and assigns it to the ExpiresAt field.
 func (o *RenderOut) SetExpiresAt(v string) {
-	o.ExpiresAt = v
+	o.ExpiresAt.Set(&v)
+}
+// SetExpiresAtNil sets the value for ExpiresAt to be an explicit nil
+func (o *RenderOut) SetExpiresAtNil() {
+	o.ExpiresAt.Set(nil)
+}
+
+// UnsetExpiresAt ensures that no value is present for ExpiresAt, not even an explicit nil
+func (o *RenderOut) UnsetExpiresAt() {
+	o.ExpiresAt.Unset()
 }
 
 // GetCalculation returns the Calculation field value
@@ -362,6 +397,48 @@ func (o *RenderOut) UnsetCompliance() {
 	o.Compliance.Unset()
 }
 
+// GetFailure returns the Failure field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RenderOut) GetFailure() RenderFailureOut {
+	if o == nil || IsNil(o.Failure.Get()) {
+		var ret RenderFailureOut
+		return ret
+	}
+	return *o.Failure.Get()
+}
+
+// GetFailureOk returns a tuple with the Failure field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RenderOut) GetFailureOk() (*RenderFailureOut, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Failure.Get(), o.Failure.IsSet()
+}
+
+// HasFailure returns a boolean if a field has been set.
+func (o *RenderOut) HasFailure() bool {
+	if o != nil && o.Failure.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFailure gets a reference to the given NullableRenderFailureOut and assigns it to the Failure field.
+func (o *RenderOut) SetFailure(v RenderFailureOut) {
+	o.Failure.Set(&v)
+}
+// SetFailureNil sets the value for Failure to be an explicit nil
+func (o *RenderOut) SetFailureNil() {
+	o.Failure.Set(nil)
+}
+
+// UnsetFailure ensures that no value is present for Failure, not even an explicit nil
+func (o *RenderOut) UnsetFailure() {
+	o.Failure.Unset()
+}
+
 func (o RenderOut) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -380,12 +457,19 @@ func (o RenderOut) ToMap() (map[string]interface{}, error) {
 		toSerialize["template_version"] = o.TemplateVersion.Get()
 	}
 	toSerialize["format"] = o.Format
-	toSerialize["download_url"] = o.DownloadUrl
-	toSerialize["expires_at"] = o.ExpiresAt
+	if o.DownloadUrl.IsSet() {
+		toSerialize["download_url"] = o.DownloadUrl.Get()
+	}
+	if o.ExpiresAt.IsSet() {
+		toSerialize["expires_at"] = o.ExpiresAt.Get()
+	}
 	toSerialize["calculation"] = o.Calculation
 	toSerialize["created_at"] = o.CreatedAt
 	if o.Compliance.IsSet() {
 		toSerialize["compliance"] = o.Compliance.Get()
+	}
+	if o.Failure.IsSet() {
+		toSerialize["failure"] = o.Failure.Get()
 	}
 	return toSerialize, nil
 }
@@ -400,8 +484,6 @@ func (o *RenderOut) UnmarshalJSON(data []byte) (err error) {
 		"document_type",
 		"template_id",
 		"format",
-		"download_url",
-		"expires_at",
 		"calculation",
 		"created_at",
 	}
