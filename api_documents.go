@@ -1833,6 +1833,12 @@ func (r ApiSendDocumentRequest) Execute() (*DeliveryResponse, *http.Response, er
 /*
 SendDocument Send Document
 
+Queue the document to be emailed.
+
+Returns 202 with the delivery in `queued`. The mail is sent in the
+background and retried on transient failure; poll `GET /deliveries/{id}`
+for the outcome.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
  @return ApiSendDocumentRequest

@@ -147,6 +147,11 @@ func (r ApiRetryDeliveryRequest) Execute() (*DeliveryResponse, *http.Response, e
 /*
 RetryDelivery Retry Delivery
 
+Queue a fresh delivery copying a failed one.
+
+Returns 202 with the new delivery in `queued`. Transient failures are
+already retried automatically; this is for after those are exhausted.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param deliveryId
  @return ApiRetryDeliveryRequest
