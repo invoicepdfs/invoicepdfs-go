@@ -36,6 +36,11 @@ func (r ApiArchiveDocumentRequest) Execute() (*DocumentResponse, *http.Response,
 /*
 ArchiveDocument Archive Document
 
+Move a document out of the active list.
+
+Archiving hides a document from the default listing without destroying it;
+`restore_document` brings it back. Drafts are deleted rather than archived.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
  @return ApiArchiveDocumentRequest
@@ -151,6 +156,12 @@ func (r ApiCalculateDocumentRequest) Execute() (*DocumentCalculateResponse, *htt
 
 /*
 CalculateDocument Calculate Document
+
+Compute the totals for a document without storing or rendering it.
+
+Returns the same breakdown — subtotal, discounts, tax, shipping, total — that
+a render would print, so a checkout page can show a figure before committing
+to one.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCalculateDocumentRequest
@@ -275,6 +286,12 @@ func (r ApiCreateDocumentRequest) Execute() (*DocumentResponse, *http.Response, 
 
 /*
 CreateDocument Create Document
+
+Create a document in `draft`.
+
+Totals are computed and stored at creation, so the figures you read back are
+the ones that were issued rather than a recalculation. Nothing is rendered —
+use `create_document_render` once the document is final.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateDocumentRequest
@@ -404,6 +421,14 @@ func (r ApiCreateDocumentRenderRequest) Execute() (*RenderResponse, *http.Respon
 /*
 CreateDocumentRender Create Document Render
 
+Render a stored document to a PDF.
+
+Use this when the document lives here. To render one you hold yourself,
+without storing it, use `render_document`.
+
+The response carries a signed `download_url` that needs no API key, valid
+until `expires_at`.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
  @return ApiCreateDocumentRenderRequest
@@ -522,6 +547,11 @@ func (r ApiDeleteDocumentRequest) Execute() (*SimpleBoolResponse, *http.Response
 
 /*
 DeleteDocument Delete Document
+
+Permanently remove a `draft`.
+
+`409` if anything still points at it — a render, a delivery or a payment —
+naming what does. Finalized documents are voided or archived, not deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
@@ -645,6 +675,11 @@ func (r ApiDuplicateDocumentRequest) Execute() (*DocumentResponse, *http.Respons
 /*
 DuplicateDocument Duplicate Document
 
+Copy a document into a new `draft`.
+
+The copy gets the next available number rather than the original's, so it can
+be finalized without colliding with the document it came from.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
  @return ApiDuplicateDocumentRequest
@@ -756,6 +791,11 @@ func (r ApiFinalizeDocumentRequest) Execute() (*DocumentResponse, *http.Response
 /*
 FinalizeDocument Finalize Document
 
+Issue a `draft`: fix its number and totals.
+
+From here the document is a record. It can be sent, marked paid, voided or
+archived, but not edited — `update_document` returns `409` afterwards.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
  @return ApiFinalizeDocumentRequest
@@ -866,6 +906,8 @@ func (r ApiGetDocumentRequest) Execute() (*DocumentResponse, *http.Response, err
 
 /*
 GetDocument Get Document
+
+One document, with the totals stored when it was created.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
@@ -989,6 +1031,11 @@ func (r ApiListDocumentDeliveriesRequest) Execute() (*DeliveriesListResponse, *h
 
 /*
 ListDocumentDeliveries List Document Deliveries
+
+Every email delivery attempted for this document.
+
+One row per attempt, newest first, including the ones that failed — which is
+where to look when a customer says the invoice never arrived.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
@@ -1133,6 +1180,11 @@ func (r ApiListDocumentsRequest) Execute() (*DocumentsListResponse, *http.Respon
 /*
 ListDocuments List Documents
 
+Every document on the account, newest first.
+
+Cursor-paginated: pass the `next_cursor` from a response to fetch the page
+after it. Filter by `document_type` or `status` to narrow the list.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListDocumentsRequest
 */
@@ -1256,6 +1308,8 @@ func (r ApiMarkPaidRequest) Execute() (*DocumentResponse, *http.Response, error)
 /*
 MarkPaid Mark Paid
 
+Record that the document was paid in full.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
  @return ApiMarkPaidRequest
@@ -1367,6 +1421,12 @@ func (r ApiMarkSentRequest) Execute() (*DocumentResponse, *http.Response, error)
 /*
 MarkSent Mark Sent
 
+Record that the document reached the customer.
+
+**This does not send anything** — it only moves the status, for when the
+document was delivered by some means of your own. Use `send_document` to
+have us email it.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
  @return ApiMarkSentRequest
@@ -1477,6 +1537,10 @@ func (r ApiMarkUnpaidRequest) Execute() (*DocumentResponse, *http.Response, erro
 
 /*
 MarkUnpaid Mark Unpaid
+
+Undo `mark_paid`, returning the document to `sent`.
+
+For a payment that was recorded in error or later reversed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
@@ -1600,6 +1664,15 @@ func (r ApiRenderDocumentRequest) Execute() (*RenderResponse, *http.Response, er
 /*
 RenderDocument Render Document
 
+Render a document supplied inline, storing nothing but the PDF.
+
+The stateless path: pass the whole document in the body and get a PDF back,
+with no customer, business profile or stored document required. To render a
+document that already lives here, use `create_document_render`.
+
+Returns JSON with a signed `download_url` by default. Ask for the bytes
+directly with `output.delivery: "binary"` or `Accept: application/pdf`.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRenderDocumentRequest
 */
@@ -1715,6 +1788,8 @@ func (r ApiRestoreDocumentRequest) Execute() (*DocumentResponse, *http.Response,
 
 /*
 RestoreDocument Restore Document
+
+Bring an archived document back to `finalized`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
@@ -1961,6 +2036,12 @@ func (r ApiUpdateDocumentRequest) Execute() (*DocumentResponse, *http.Response, 
 /*
 UpdateDocument Update Document
 
+Change a document that is still a `draft`.
+
+A finalized document is a record of what was issued and cannot be edited;
+`409` if it has moved past `draft`. Only the fields you send are changed —
+omit one to leave it alone, and send `null` to clear it.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
  @return ApiUpdateDocumentRequest
@@ -2082,6 +2163,12 @@ func (r ApiValidateDocumentRequest) Execute() (*DocumentValidateResponse, *http.
 /*
 ValidateDocument Validate Document
 
+Check that a document body is well-formed, without pricing it.
+
+The cheapest of the three stateless operations: no totals are computed and no
+PDF is produced. Use `calculate_document` for the money and `render_document`
+for the document.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiValidateDocumentRequest
 */
@@ -2194,6 +2281,12 @@ func (r ApiVoidDocumentRequest) Execute() (*DocumentResponse, *http.Response, er
 
 /*
 VoidDocument Void Document
+
+Cancel a document that was issued.
+
+Voiding is how a finalized document is withdrawn, since it cannot be deleted.
+The PDF renders with a `VOID` mark from then on, so a copy already sent is
+distinguishable from the live one.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId

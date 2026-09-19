@@ -32,6 +32,8 @@ Method | HTTP request | Description
 
 Archive Document
 
+
+
 ### Example
 
 ```go
@@ -100,6 +102,8 @@ Name | Type | Description  | Notes
 
 Calculate Document
 
+
+
 ### Example
 
 ```go
@@ -164,6 +168,8 @@ Name | Type | Description  | Notes
 > DocumentResponse CreateDocument(ctx).DocumentCreateRequest(documentCreateRequest).IdempotencyKey(idempotencyKey).Execute()
 
 Create Document
+
+
 
 ### Example
 
@@ -231,6 +237,8 @@ Name | Type | Description  | Notes
 > RenderResponse CreateDocumentRender(ctx, documentId).DocumentRenderOptions(documentRenderOptions).IdempotencyKey(idempotencyKey).Execute()
 
 Create Document Render
+
+
 
 ### Example
 
@@ -304,6 +312,8 @@ Name | Type | Description  | Notes
 
 Delete Document
 
+
+
 ### Example
 
 ```go
@@ -371,6 +381,8 @@ Name | Type | Description  | Notes
 > DocumentResponse DuplicateDocument(ctx, documentId).Execute()
 
 Duplicate Document
+
+
 
 ### Example
 
@@ -440,6 +452,8 @@ Name | Type | Description  | Notes
 
 Finalize Document
 
+
+
 ### Example
 
 ```go
@@ -508,6 +522,8 @@ Name | Type | Description  | Notes
 
 Get Document
 
+
+
 ### Example
 
 ```go
@@ -575,6 +591,8 @@ Name | Type | Description  | Notes
 > DeliveriesListResponse ListDocumentDeliveries(ctx, documentId).Limit(limit).Cursor(cursor).Execute()
 
 List Document Deliveries
+
+
 
 ### Example
 
@@ -648,6 +666,8 @@ Name | Type | Description  | Notes
 
 List Documents
 
+
+
 ### Example
 
 ```go
@@ -718,6 +738,8 @@ Name | Type | Description  | Notes
 
 Mark Paid
 
+
+
 ### Example
 
 ```go
@@ -785,6 +807,8 @@ Name | Type | Description  | Notes
 > DocumentResponse MarkSent(ctx, documentId).Execute()
 
 Mark Sent
+
+
 
 ### Example
 
@@ -854,6 +878,8 @@ Name | Type | Description  | Notes
 
 Mark Unpaid
 
+
+
 ### Example
 
 ```go
@@ -922,6 +948,8 @@ Name | Type | Description  | Notes
 
 Render Document
 
+
+
 ### Example
 
 ```go
@@ -988,6 +1016,8 @@ Name | Type | Description  | Notes
 > DocumentResponse RestoreDocument(ctx, documentId).Execute()
 
 Restore Document
+
+
 
 ### Example
 
@@ -1129,6 +1159,8 @@ Name | Type | Description  | Notes
 
 Update Document
 
+
+
 ### Example
 
 ```go
@@ -1199,6 +1231,8 @@ Name | Type | Description  | Notes
 
 Validate Document
 
+
+
 ### Example
 
 ```go
@@ -1263,6 +1297,8 @@ Name | Type | Description  | Notes
 > DocumentResponse VoidDocument(ctx, documentId).Execute()
 
 Void Document
+
+
 
 ### Example
 

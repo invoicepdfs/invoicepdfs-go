@@ -87,6 +87,8 @@ No authorization required
 
 Get Current User
 
+
+
 ### Example
 
 ```go

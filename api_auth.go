@@ -158,6 +158,11 @@ func (r ApiGetCurrentUserRequest) Execute() (*AuthMeResponse, *http.Response, er
 /*
 GetCurrentUser Get Current User
 
+The account behind the current credential, and the plan it is on.
+
+Works with either an API key or a Firebase token, so it is the cheapest
+way to confirm a credential is live and see what it can reach.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetCurrentUserRequest
 */

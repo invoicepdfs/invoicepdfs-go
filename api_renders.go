@@ -165,6 +165,12 @@ func (r ApiGetRenderRequest) Execute() (*RenderResponse, *http.Response, error) 
 /*
 GetRender Get Render
 
+One render: its status, its totals, and how to download it.
+
+`download_url` and `expires_at` are `null` until the render is `completed`,
+and a `failed` render carries a `failure` explaining why. Poll this after an
+asynchronous render.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param renderId
  @return ApiGetRenderRequest
