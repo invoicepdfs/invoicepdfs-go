@@ -7911,8 +7911,6 @@ components:
           enum:
           - queued
           - sent
-          - delivered
-          - bounced
           - failed
           title: Status
           type: string
@@ -14084,6 +14082,7 @@ components:
         status:
           enum:
           - pending
+          - retrying
           - delivered
           - failed
           title: Status
