@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Subject** | **string** |  | 
 **Message** | Pointer to **NullableString** |  | [optional] 
 **AttachPdf** | **bool** |  | 
-**Status** | **string** |  | 
+**Status** | [**DeliveryStatus**](DeliveryStatus.md) |  | 
 **CreatedAt** | **string** |  | 
 **SentAt** | Pointer to **NullableString** |  | [optional] 
 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewDeliveryOut
 
-`func NewDeliveryOut(id string, invoiceId string, to []string, cc []string, bcc []string, subject string, attachPdf bool, status string, createdAt string, ) *DeliveryOut`
+`func NewDeliveryOut(id string, invoiceId string, to []string, cc []string, bcc []string, subject string, attachPdf bool, status DeliveryStatus, createdAt string, ) *DeliveryOut`
 
 NewDeliveryOut instantiates a new DeliveryOut object
 This constructor will assign default values to properties that have it defined,
@@ -212,20 +212,20 @@ SetAttachPdf sets AttachPdf field to given value.
 
 ### GetStatus
 
-`func (o *DeliveryOut) GetStatus() string`
+`func (o *DeliveryOut) GetStatus() DeliveryStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *DeliveryOut) GetStatusOk() (*string, bool)`
+`func (o *DeliveryOut) GetStatusOk() (*DeliveryStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *DeliveryOut) SetStatus(v string)`
+`func (o *DeliveryOut) SetStatus(v DeliveryStatus)`
 
 SetStatus sets Status field to given value.
 

@@ -22,7 +22,7 @@ var _ MappedNullable = &RenderOut{}
 // RenderOut struct for RenderOut
 type RenderOut struct {
 	Id string `json:"id"`
-	Status string `json:"status"`
+	Status RenderStatus `json:"status"`
 	DocumentType string `json:"document_type"`
 	TemplateId string `json:"template_id"`
 	TemplateVersion NullableInt32 `json:"template_version,omitempty"`
@@ -41,7 +41,7 @@ type _RenderOut RenderOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRenderOut(id string, status string, documentType string, templateId string, format string, calculation CalculationBreakdown, createdAt string) *RenderOut {
+func NewRenderOut(id string, status RenderStatus, documentType string, templateId string, format string, calculation CalculationBreakdown, createdAt string) *RenderOut {
 	this := RenderOut{}
 	this.Id = id
 	this.Status = status
@@ -86,9 +86,9 @@ func (o *RenderOut) SetId(v string) {
 }
 
 // GetStatus returns the Status field value
-func (o *RenderOut) GetStatus() string {
+func (o *RenderOut) GetStatus() RenderStatus {
 	if o == nil {
-		var ret string
+		var ret RenderStatus
 		return ret
 	}
 
@@ -97,7 +97,7 @@ func (o *RenderOut) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *RenderOut) GetStatusOk() (*string, bool) {
+func (o *RenderOut) GetStatusOk() (*RenderStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -105,7 +105,7 @@ func (o *RenderOut) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *RenderOut) SetStatus(v string) {
+func (o *RenderOut) SetStatus(v RenderStatus) {
 	o.Status = v
 }
 

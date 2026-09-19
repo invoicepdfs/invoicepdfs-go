@@ -24,7 +24,7 @@ type DocumentOut struct {
 	Id string `json:"id"`
 	DocumentType string `json:"document_type"`
 	Number string `json:"number"`
-	Status string `json:"status"`
+	Status DocumentStatus `json:"status"`
 	IssueDate string `json:"issue_date"`
 	DueDate NullableString `json:"due_date,omitempty"`
 	Currency string `json:"currency"`
@@ -46,7 +46,7 @@ type _DocumentOut DocumentOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDocumentOut(id string, documentType string, number string, status string, issueDate string, currency string, businessProfileId string, customerId string, data map[string]interface{}, totals InvoiceTotalsOut, createdAt string, updatedAt string) *DocumentOut {
+func NewDocumentOut(id string, documentType string, number string, status DocumentStatus, issueDate string, currency string, businessProfileId string, customerId string, data map[string]interface{}, totals InvoiceTotalsOut, createdAt string, updatedAt string) *DocumentOut {
 	this := DocumentOut{}
 	this.Id = id
 	this.DocumentType = documentType
@@ -144,9 +144,9 @@ func (o *DocumentOut) SetNumber(v string) {
 }
 
 // GetStatus returns the Status field value
-func (o *DocumentOut) GetStatus() string {
+func (o *DocumentOut) GetStatus() DocumentStatus {
 	if o == nil {
-		var ret string
+		var ret DocumentStatus
 		return ret
 	}
 
@@ -155,7 +155,7 @@ func (o *DocumentOut) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *DocumentOut) GetStatusOk() (*string, bool) {
+func (o *DocumentOut) GetStatusOk() (*DocumentStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -163,7 +163,7 @@ func (o *DocumentOut) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *DocumentOut) SetStatus(v string) {
+func (o *DocumentOut) SetStatus(v DocumentStatus) {
 	o.Status = v
 }
 

@@ -22,7 +22,7 @@ var _ MappedNullable = &InvoiceOut{}
 // InvoiceOut struct for InvoiceOut
 type InvoiceOut struct {
 	Id string `json:"id"`
-	Status string `json:"status"`
+	Status DocumentStatus `json:"status"`
 	InvoiceNumber string `json:"invoice_number"`
 	DocumentType string `json:"document_type"`
 	IssueDate string `json:"issue_date"`
@@ -44,7 +44,7 @@ type _InvoiceOut InvoiceOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInvoiceOut(id string, status string, invoiceNumber string, documentType string, issueDate string, currency string, businessProfileId string, customerId string, invoice map[string]interface{}, totals InvoiceTotalsOut, createdAt string, updatedAt string) *InvoiceOut {
+func NewInvoiceOut(id string, status DocumentStatus, invoiceNumber string, documentType string, issueDate string, currency string, businessProfileId string, customerId string, invoice map[string]interface{}, totals InvoiceTotalsOut, createdAt string, updatedAt string) *InvoiceOut {
 	this := InvoiceOut{}
 	this.Id = id
 	this.Status = status
@@ -94,9 +94,9 @@ func (o *InvoiceOut) SetId(v string) {
 }
 
 // GetStatus returns the Status field value
-func (o *InvoiceOut) GetStatus() string {
+func (o *InvoiceOut) GetStatus() DocumentStatus {
 	if o == nil {
-		var ret string
+		var ret DocumentStatus
 		return ret
 	}
 
@@ -105,7 +105,7 @@ func (o *InvoiceOut) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *InvoiceOut) GetStatusOk() (*string, bool) {
+func (o *InvoiceOut) GetStatusOk() (*DocumentStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -113,7 +113,7 @@ func (o *InvoiceOut) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *InvoiceOut) SetStatus(v string) {
+func (o *InvoiceOut) SetStatus(v DocumentStatus) {
 	o.Status = v
 }
 

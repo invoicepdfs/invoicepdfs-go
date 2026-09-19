@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Status** | **string** |  | 
+**Status** | [**DocumentStatus**](DocumentStatus.md) |  | 
 **InvoiceNumber** | **string** |  | 
 **DocumentType** | **string** |  | 
 **IssueDate** | **string** |  | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewInvoiceOut
 
-`func NewInvoiceOut(id string, status string, invoiceNumber string, documentType string, issueDate string, currency string, businessProfileId string, customerId string, invoice map[string]interface{}, totals InvoiceTotalsOut, createdAt string, updatedAt string, ) *InvoiceOut`
+`func NewInvoiceOut(id string, status DocumentStatus, invoiceNumber string, documentType string, issueDate string, currency string, businessProfileId string, customerId string, invoice map[string]interface{}, totals InvoiceTotalsOut, createdAt string, updatedAt string, ) *InvoiceOut`
 
 NewInvoiceOut instantiates a new InvoiceOut object
 This constructor will assign default values to properties that have it defined,
@@ -61,20 +61,20 @@ SetId sets Id field to given value.
 
 ### GetStatus
 
-`func (o *InvoiceOut) GetStatus() string`
+`func (o *InvoiceOut) GetStatus() DocumentStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *InvoiceOut) GetStatusOk() (*string, bool)`
+`func (o *InvoiceOut) GetStatusOk() (*DocumentStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *InvoiceOut) SetStatus(v string)`
+`func (o *InvoiceOut) SetStatus(v DocumentStatus)`
 
 SetStatus sets Status field to given value.
 

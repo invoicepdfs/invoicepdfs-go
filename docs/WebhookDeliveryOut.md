@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **EndpointId** | **string** |  | 
 **EventId** | **string** |  | 
 **EventType** | **string** |  | 
-**Status** | **string** |  | 
+**Status** | [**WebhookDeliveryStatus**](WebhookDeliveryStatus.md) |  | 
 **HttpStatus** | Pointer to **NullableInt32** |  | [optional] 
 **Attempts** | **int32** |  | 
 **ErrorMessage** | Pointer to **NullableString** |  | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewWebhookDeliveryOut
 
-`func NewWebhookDeliveryOut(id string, endpointId string, eventId string, eventType string, status string, attempts int32, createdAt string, ) *WebhookDeliveryOut`
+`func NewWebhookDeliveryOut(id string, endpointId string, eventId string, eventType string, status WebhookDeliveryStatus, attempts int32, createdAt string, ) *WebhookDeliveryOut`
 
 NewWebhookDeliveryOut instantiates a new WebhookDeliveryOut object
 This constructor will assign default values to properties that have it defined,
@@ -116,20 +116,20 @@ SetEventType sets EventType field to given value.
 
 ### GetStatus
 
-`func (o *WebhookDeliveryOut) GetStatus() string`
+`func (o *WebhookDeliveryOut) GetStatus() WebhookDeliveryStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *WebhookDeliveryOut) GetStatusOk() (*string, bool)`
+`func (o *WebhookDeliveryOut) GetStatusOk() (*WebhookDeliveryStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *WebhookDeliveryOut) SetStatus(v string)`
+`func (o *WebhookDeliveryOut) SetStatus(v WebhookDeliveryStatus)`
 
 SetStatus sets Status field to given value.
 

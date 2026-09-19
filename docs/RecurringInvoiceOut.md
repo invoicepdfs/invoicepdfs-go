@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Status** | **string** |  | 
+**Status** | [**RecurringInvoiceStatus**](RecurringInvoiceStatus.md) |  | 
 **BusinessProfileId** | **string** |  | 
 **CustomerId** | **string** |  | 
 **Frequency** | **string** |  | 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewRecurringInvoiceOut
 
-`func NewRecurringInvoiceOut(id string, status string, businessProfileId string, customerId string, frequency string, interval int32, nextOccurrenceDate NullableString, endDate NullableString, occurrencesCreated int32, maxOccurrences NullableInt32, numberingSequenceId NullableString, autoFinalize bool, createdAt string, updatedAt string, ) *RecurringInvoiceOut`
+`func NewRecurringInvoiceOut(id string, status RecurringInvoiceStatus, businessProfileId string, customerId string, frequency string, interval int32, nextOccurrenceDate NullableString, endDate NullableString, occurrencesCreated int32, maxOccurrences NullableInt32, numberingSequenceId NullableString, autoFinalize bool, createdAt string, updatedAt string, ) *RecurringInvoiceOut`
 
 NewRecurringInvoiceOut instantiates a new RecurringInvoiceOut object
 This constructor will assign default values to properties that have it defined,
@@ -60,20 +60,20 @@ SetId sets Id field to given value.
 
 ### GetStatus
 
-`func (o *RecurringInvoiceOut) GetStatus() string`
+`func (o *RecurringInvoiceOut) GetStatus() RecurringInvoiceStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *RecurringInvoiceOut) GetStatusOk() (*string, bool)`
+`func (o *RecurringInvoiceOut) GetStatusOk() (*RecurringInvoiceStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *RecurringInvoiceOut) SetStatus(v string)`
+`func (o *RecurringInvoiceOut) SetStatus(v RecurringInvoiceStatus)`
 
 SetStatus sets Status field to given value.
 

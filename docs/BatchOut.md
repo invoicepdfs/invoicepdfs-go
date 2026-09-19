@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Status** | **string** |  | 
+**Status** | [**BatchStatus**](BatchStatus.md) |  | 
 **Operation** | **string** |  | 
 **TemplateId** | **string** |  | 
 **TemplateVersion** | Pointer to **NullableInt32** |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewBatchOut
 
-`func NewBatchOut(id string, status string, operation string, templateId string, totalItems int32, completedItems int32, failedItems int32, createdAt string, updatedAt string, ) *BatchOut`
+`func NewBatchOut(id string, status BatchStatus, operation string, templateId string, totalItems int32, completedItems int32, failedItems int32, createdAt string, updatedAt string, ) *BatchOut`
 
 NewBatchOut instantiates a new BatchOut object
 This constructor will assign default values to properties that have it defined,
@@ -57,20 +57,20 @@ SetId sets Id field to given value.
 
 ### GetStatus
 
-`func (o *BatchOut) GetStatus() string`
+`func (o *BatchOut) GetStatus() BatchStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *BatchOut) GetStatusOk() (*string, bool)`
+`func (o *BatchOut) GetStatusOk() (*BatchStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *BatchOut) SetStatus(v string)`
+`func (o *BatchOut) SetStatus(v BatchStatus)`
 
 SetStatus sets Status field to given value.
 

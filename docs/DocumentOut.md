@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **DocumentType** | **string** |  | 
 **Number** | **string** |  | 
-**Status** | **string** |  | 
+**Status** | [**DocumentStatus**](DocumentStatus.md) |  | 
 **IssueDate** | **string** |  | 
 **DueDate** | Pointer to **NullableString** |  | [optional] 
 **Currency** | **string** |  | 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewDocumentOut
 
-`func NewDocumentOut(id string, documentType string, number string, status string, issueDate string, currency string, businessProfileId string, customerId string, data map[string]interface{}, totals InvoiceTotalsOut, createdAt string, updatedAt string, ) *DocumentOut`
+`func NewDocumentOut(id string, documentType string, number string, status DocumentStatus, issueDate string, currency string, businessProfileId string, customerId string, data map[string]interface{}, totals InvoiceTotalsOut, createdAt string, updatedAt string, ) *DocumentOut`
 
 NewDocumentOut instantiates a new DocumentOut object
 This constructor will assign default values to properties that have it defined,
@@ -103,20 +103,20 @@ SetNumber sets Number field to given value.
 
 ### GetStatus
 
-`func (o *DocumentOut) GetStatus() string`
+`func (o *DocumentOut) GetStatus() DocumentStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *DocumentOut) GetStatusOk() (*string, bool)`
+`func (o *DocumentOut) GetStatusOk() (*DocumentStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *DocumentOut) SetStatus(v string)`
+`func (o *DocumentOut) SetStatus(v DocumentStatus)`
 
 SetStatus sets Status field to given value.
 

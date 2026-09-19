@@ -23,7 +23,7 @@ var _ MappedNullable = &JobOut{}
 type JobOut struct {
 	Id string `json:"id"`
 	Type string `json:"type"`
-	Status string `json:"status"`
+	Status JobStatus `json:"status"`
 	Progress JobProgressOut `json:"progress"`
 	Result map[string]interface{} `json:"result,omitempty"`
 	Error NullableString `json:"error,omitempty"`
@@ -38,7 +38,7 @@ type _JobOut JobOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewJobOut(id string, type_ string, status string, progress JobProgressOut, createdAt string) *JobOut {
+func NewJobOut(id string, type_ string, status JobStatus, progress JobProgressOut, createdAt string) *JobOut {
 	this := JobOut{}
 	this.Id = id
 	this.Type = type_
@@ -105,9 +105,9 @@ func (o *JobOut) SetType(v string) {
 }
 
 // GetStatus returns the Status field value
-func (o *JobOut) GetStatus() string {
+func (o *JobOut) GetStatus() JobStatus {
 	if o == nil {
-		var ret string
+		var ret JobStatus
 		return ret
 	}
 
@@ -116,7 +116,7 @@ func (o *JobOut) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *JobOut) GetStatusOk() (*string, bool) {
+func (o *JobOut) GetStatusOk() (*JobStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -124,7 +124,7 @@ func (o *JobOut) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *JobOut) SetStatus(v string) {
+func (o *JobOut) SetStatus(v JobStatus) {
 	o.Status = v
 }
 

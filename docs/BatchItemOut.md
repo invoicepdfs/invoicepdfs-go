@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **ExternalId** | Pointer to **NullableString** |  | [optional] 
 **DocumentType** | **string** |  | 
-**Status** | **string** |  | 
+**Status** | [**BatchItemStatus**](BatchItemStatus.md) |  | 
 **RenderId** | Pointer to **NullableString** |  | [optional] 
 **ErrorMessage** | Pointer to **NullableString** |  | [optional] 
 **CreatedAt** | **string** |  | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewBatchItemOut
 
-`func NewBatchItemOut(id string, documentType string, status string, createdAt string, ) *BatchItemOut`
+`func NewBatchItemOut(id string, documentType string, status BatchItemStatus, createdAt string, ) *BatchItemOut`
 
 NewBatchItemOut instantiates a new BatchItemOut object
 This constructor will assign default values to properties that have it defined,
@@ -108,20 +108,20 @@ SetDocumentType sets DocumentType field to given value.
 
 ### GetStatus
 
-`func (o *BatchItemOut) GetStatus() string`
+`func (o *BatchItemOut) GetStatus() BatchItemStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *BatchItemOut) GetStatusOk() (*string, bool)`
+`func (o *BatchItemOut) GetStatusOk() (*BatchItemStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *BatchItemOut) SetStatus(v string)`
+`func (o *BatchItemOut) SetStatus(v BatchItemStatus)`
 
 SetStatus sets Status field to given value.
 

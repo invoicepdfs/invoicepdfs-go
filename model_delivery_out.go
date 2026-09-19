@@ -29,7 +29,7 @@ type DeliveryOut struct {
 	Subject string `json:"subject"`
 	Message NullableString `json:"message,omitempty"`
 	AttachPdf bool `json:"attach_pdf"`
-	Status string `json:"status"`
+	Status DeliveryStatus `json:"status"`
 	CreatedAt string `json:"created_at"`
 	SentAt NullableString `json:"sent_at,omitempty"`
 }
@@ -40,7 +40,7 @@ type _DeliveryOut DeliveryOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeliveryOut(id string, invoiceId string, to []string, cc []string, bcc []string, subject string, attachPdf bool, status string, createdAt string) *DeliveryOut {
+func NewDeliveryOut(id string, invoiceId string, to []string, cc []string, bcc []string, subject string, attachPdf bool, status DeliveryStatus, createdAt string) *DeliveryOut {
 	this := DeliveryOut{}
 	this.Id = id
 	this.InvoiceId = invoiceId
@@ -273,9 +273,9 @@ func (o *DeliveryOut) SetAttachPdf(v bool) {
 }
 
 // GetStatus returns the Status field value
-func (o *DeliveryOut) GetStatus() string {
+func (o *DeliveryOut) GetStatus() DeliveryStatus {
 	if o == nil {
-		var ret string
+		var ret DeliveryStatus
 		return ret
 	}
 
@@ -284,7 +284,7 @@ func (o *DeliveryOut) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *DeliveryOut) GetStatusOk() (*string, bool) {
+func (o *DeliveryOut) GetStatusOk() (*DeliveryStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -292,7 +292,7 @@ func (o *DeliveryOut) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *DeliveryOut) SetStatus(v string) {
+func (o *DeliveryOut) SetStatus(v DeliveryStatus) {
 	o.Status = v
 }
 

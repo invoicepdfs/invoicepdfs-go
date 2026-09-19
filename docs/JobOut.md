@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Type** | **string** |  | 
-**Status** | **string** |  | 
+**Status** | [**JobStatus**](JobStatus.md) |  | 
 **Progress** | [**JobProgressOut**](JobProgressOut.md) |  | 
 **Result** | Pointer to **map[string]interface{}** |  | [optional] 
 **Error** | Pointer to **NullableString** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewJobOut
 
-`func NewJobOut(id string, type_ string, status string, progress JobProgressOut, createdAt string, ) *JobOut`
+`func NewJobOut(id string, type_ string, status JobStatus, progress JobProgressOut, createdAt string, ) *JobOut`
 
 NewJobOut instantiates a new JobOut object
 This constructor will assign default values to properties that have it defined,
@@ -75,20 +75,20 @@ SetType sets Type field to given value.
 
 ### GetStatus
 
-`func (o *JobOut) GetStatus() string`
+`func (o *JobOut) GetStatus() JobStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *JobOut) GetStatusOk() (*string, bool)`
+`func (o *JobOut) GetStatusOk() (*JobStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *JobOut) SetStatus(v string)`
+`func (o *JobOut) SetStatus(v JobStatus)`
 
 SetStatus sets Status field to given value.
 

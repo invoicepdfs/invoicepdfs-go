@@ -24,7 +24,7 @@ type BatchItemOut struct {
 	Id string `json:"id"`
 	ExternalId NullableString `json:"external_id,omitempty"`
 	DocumentType string `json:"document_type"`
-	Status string `json:"status"`
+	Status BatchItemStatus `json:"status"`
 	RenderId NullableString `json:"render_id,omitempty"`
 	ErrorMessage NullableString `json:"error_message,omitempty"`
 	CreatedAt string `json:"created_at"`
@@ -36,7 +36,7 @@ type _BatchItemOut BatchItemOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBatchItemOut(id string, documentType string, status string, createdAt string) *BatchItemOut {
+func NewBatchItemOut(id string, documentType string, status BatchItemStatus, createdAt string) *BatchItemOut {
 	this := BatchItemOut{}
 	this.Id = id
 	this.DocumentType = documentType
@@ -144,9 +144,9 @@ func (o *BatchItemOut) SetDocumentType(v string) {
 }
 
 // GetStatus returns the Status field value
-func (o *BatchItemOut) GetStatus() string {
+func (o *BatchItemOut) GetStatus() BatchItemStatus {
 	if o == nil {
-		var ret string
+		var ret BatchItemStatus
 		return ret
 	}
 
@@ -155,7 +155,7 @@ func (o *BatchItemOut) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *BatchItemOut) GetStatusOk() (*string, bool) {
+func (o *BatchItemOut) GetStatusOk() (*BatchItemStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -163,7 +163,7 @@ func (o *BatchItemOut) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *BatchItemOut) SetStatus(v string) {
+func (o *BatchItemOut) SetStatus(v BatchItemStatus) {
 	o.Status = v
 }
 

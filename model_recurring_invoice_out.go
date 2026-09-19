@@ -22,7 +22,7 @@ var _ MappedNullable = &RecurringInvoiceOut{}
 // RecurringInvoiceOut struct for RecurringInvoiceOut
 type RecurringInvoiceOut struct {
 	Id string `json:"id"`
-	Status string `json:"status"`
+	Status RecurringInvoiceStatus `json:"status"`
 	BusinessProfileId string `json:"business_profile_id"`
 	CustomerId string `json:"customer_id"`
 	Frequency string `json:"frequency"`
@@ -43,7 +43,7 @@ type _RecurringInvoiceOut RecurringInvoiceOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRecurringInvoiceOut(id string, status string, businessProfileId string, customerId string, frequency string, interval int32, nextOccurrenceDate NullableString, endDate NullableString, occurrencesCreated int32, maxOccurrences NullableInt32, numberingSequenceId NullableString, autoFinalize bool, createdAt string, updatedAt string) *RecurringInvoiceOut {
+func NewRecurringInvoiceOut(id string, status RecurringInvoiceStatus, businessProfileId string, customerId string, frequency string, interval int32, nextOccurrenceDate NullableString, endDate NullableString, occurrencesCreated int32, maxOccurrences NullableInt32, numberingSequenceId NullableString, autoFinalize bool, createdAt string, updatedAt string) *RecurringInvoiceOut {
 	this := RecurringInvoiceOut{}
 	this.Id = id
 	this.Status = status
@@ -95,9 +95,9 @@ func (o *RecurringInvoiceOut) SetId(v string) {
 }
 
 // GetStatus returns the Status field value
-func (o *RecurringInvoiceOut) GetStatus() string {
+func (o *RecurringInvoiceOut) GetStatus() RecurringInvoiceStatus {
 	if o == nil {
-		var ret string
+		var ret RecurringInvoiceStatus
 		return ret
 	}
 
@@ -106,7 +106,7 @@ func (o *RecurringInvoiceOut) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *RecurringInvoiceOut) GetStatusOk() (*string, bool) {
+func (o *RecurringInvoiceOut) GetStatusOk() (*RecurringInvoiceStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -114,7 +114,7 @@ func (o *RecurringInvoiceOut) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *RecurringInvoiceOut) SetStatus(v string) {
+func (o *RecurringInvoiceOut) SetStatus(v RecurringInvoiceStatus) {
 	o.Status = v
 }
 

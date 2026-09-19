@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Status** | **string** |  | 
+**Status** | [**RenderStatus**](RenderStatus.md) |  | 
 **DocumentType** | **string** |  | 
 **TemplateId** | **string** |  | 
 **TemplateVersion** | Pointer to **NullableInt32** |  | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewRenderOut
 
-`func NewRenderOut(id string, status string, documentType string, templateId string, format string, calculation CalculationBreakdown, createdAt string, ) *RenderOut`
+`func NewRenderOut(id string, status RenderStatus, documentType string, templateId string, format string, calculation CalculationBreakdown, createdAt string, ) *RenderOut`
 
 NewRenderOut instantiates a new RenderOut object
 This constructor will assign default values to properties that have it defined,
@@ -58,20 +58,20 @@ SetId sets Id field to given value.
 
 ### GetStatus
 
-`func (o *RenderOut) GetStatus() string`
+`func (o *RenderOut) GetStatus() RenderStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *RenderOut) GetStatusOk() (*string, bool)`
+`func (o *RenderOut) GetStatusOk() (*RenderStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *RenderOut) SetStatus(v string)`
+`func (o *RenderOut) SetStatus(v RenderStatus)`
 
 SetStatus sets Status field to given value.
 

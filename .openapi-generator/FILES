@@ -69,10 +69,12 @@ docs/AuthTokenResponse.md
 docs/BatchCreateRequest.md
 docs/BatchItemInput.md
 docs/BatchItemOut.md
+docs/BatchItemStatus.md
 docs/BatchItemsListResponse.md
 docs/BatchOut.md
 docs/BatchOutputOptions.md
 docs/BatchResponse.md
+docs/BatchStatus.md
 docs/BatchesAPI.md
 docs/BatchesListResponse.md
 docs/BillingAPI.md
@@ -126,6 +128,7 @@ docs/DeliveriesListResponse.md
 docs/DeliveryOut.md
 docs/DeliveryResponse.md
 docs/DeliverySendRequest.md
+docs/DeliveryStatus.md
 docs/DocumentAttachmentsAPI.md
 docs/DocumentBrandingInput.md
 docs/DocumentCalculateRequest.md
@@ -147,6 +150,7 @@ docs/DocumentRenderOptions.md
 docs/DocumentRenderRequest.md
 docs/DocumentResponse.md
 docs/DocumentShippingInput.md
+docs/DocumentStatus.md
 docs/DocumentTemplateRef.md
 docs/DocumentTypeOut.md
 docs/DocumentTypesListResponse.md
@@ -163,6 +167,7 @@ docs/HealthResponse.md
 docs/ImportCreateRequest.md
 docs/ImportOut.md
 docs/ImportResponse.md
+docs/ImportStatus.md
 docs/ImportsAPI.md
 docs/InvoiceAttachmentCreateRequest.md
 docs/InvoiceAttachmentOut.md
@@ -185,6 +190,7 @@ docs/InvoicesListResponse.md
 docs/JobOut.md
 docs/JobProgressOut.md
 docs/JobResponse.md
+docs/JobStatus.md
 docs/JobsAPI.md
 docs/JobsListResponse.md
 docs/LineItemDiscountInput.md
@@ -217,6 +223,7 @@ docs/RecurringInvoiceCreateRequest.md
 docs/RecurringInvoiceOut.md
 docs/RecurringInvoicePatchRequest.md
 docs/RecurringInvoiceResponse.md
+docs/RecurringInvoiceStatus.md
 docs/RecurringInvoicesAPI.md
 docs/RecurringInvoicesListResponse.md
 docs/ReferenceAPI.md
@@ -224,6 +231,7 @@ docs/RenderComplianceOut.md
 docs/RenderFailureOut.md
 docs/RenderOut.md
 docs/RenderResponse.md
+docs/RenderStatus.md
 docs/RendersAPI.md
 docs/SimpleBoolResponse.md
 docs/StandardLineItemInput.md
@@ -270,6 +278,7 @@ docs/VersionResponse.md
 docs/WebhookDeliveriesListResponse.md
 docs/WebhookDeliveryOut.md
 docs/WebhookDeliveryResponse.md
+docs/WebhookDeliveryStatus.md
 docs/WebhookEndpointCreateRequest.md
 docs/WebhookEndpointOut.md
 docs/WebhookEndpointPatchRequest.md
@@ -324,10 +333,12 @@ model_auth_token_response.go
 model_batch_create_request.go
 model_batch_item_input.go
 model_batch_item_out.go
+model_batch_item_status.go
 model_batch_items_list_response.go
 model_batch_out.go
 model_batch_output_options.go
 model_batch_response.go
+model_batch_status.go
 model_batches_list_response.go
 model_billing_checkout_data.go
 model_billing_checkout_request.go
@@ -374,6 +385,7 @@ model_deliveries_list_response.go
 model_delivery_out.go
 model_delivery_response.go
 model_delivery_send_request.go
+model_delivery_status.go
 model_document_branding_input.go
 model_document_calculate_request.go
 model_document_calculate_response.go
@@ -394,6 +406,7 @@ model_document_render_options.go
 model_document_render_request.go
 model_document_response.go
 model_document_shipping_input.go
+model_document_status.go
 model_document_template_ref.go
 model_document_type_out.go
 model_document_types_list_response.go
@@ -407,6 +420,7 @@ model_health_response.go
 model_import_create_request.go
 model_import_out.go
 model_import_response.go
+model_import_status.go
 model_invoice_attachment_create_request.go
 model_invoice_attachment_out.go
 model_invoice_attachment_response.go
@@ -428,6 +442,7 @@ model_invoices_list_response.go
 model_job_out.go
 model_job_progress_out.go
 model_job_response.go
+model_job_status.go
 model_jobs_list_response.go
 model_line_item_discount_input.go
 model_line_item_tax_input.go
@@ -456,11 +471,13 @@ model_recurring_invoice_create_request.go
 model_recurring_invoice_out.go
 model_recurring_invoice_patch_request.go
 model_recurring_invoice_response.go
+model_recurring_invoice_status.go
 model_recurring_invoices_list_response.go
 model_render_compliance_out.go
 model_render_failure_out.go
 model_render_out.go
 model_render_response.go
+model_render_status.go
 model_simple_bool_response.go
 model_standard_line_item_input.go
 model_stats_counts.go
@@ -501,6 +518,7 @@ model_version_response.go
 model_webhook_deliveries_list_response.go
 model_webhook_delivery_out.go
 model_webhook_delivery_response.go
+model_webhook_delivery_status.go
 model_webhook_endpoint_create_request.go
 model_webhook_endpoint_out.go
 model_webhook_endpoint_patch_request.go

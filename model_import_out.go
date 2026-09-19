@@ -23,7 +23,7 @@ var _ MappedNullable = &ImportOut{}
 type ImportOut struct {
 	Id string `json:"id"`
 	SourceFormat string `json:"source_format"`
-	Status string `json:"status"`
+	Status ImportStatus `json:"status"`
 	TotalRows int32 `json:"total_rows"`
 	ImportedRows int32 `json:"imported_rows"`
 	FailedRows int32 `json:"failed_rows"`
@@ -39,7 +39,7 @@ type _ImportOut ImportOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewImportOut(id string, sourceFormat string, status string, totalRows int32, importedRows int32, failedRows int32, createdAt string, updatedAt string) *ImportOut {
+func NewImportOut(id string, sourceFormat string, status ImportStatus, totalRows int32, importedRows int32, failedRows int32, createdAt string, updatedAt string) *ImportOut {
 	this := ImportOut{}
 	this.Id = id
 	this.SourceFormat = sourceFormat
@@ -109,9 +109,9 @@ func (o *ImportOut) SetSourceFormat(v string) {
 }
 
 // GetStatus returns the Status field value
-func (o *ImportOut) GetStatus() string {
+func (o *ImportOut) GetStatus() ImportStatus {
 	if o == nil {
-		var ret string
+		var ret ImportStatus
 		return ret
 	}
 
@@ -120,7 +120,7 @@ func (o *ImportOut) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *ImportOut) GetStatusOk() (*string, bool) {
+func (o *ImportOut) GetStatusOk() (*ImportStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -128,7 +128,7 @@ func (o *ImportOut) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *ImportOut) SetStatus(v string) {
+func (o *ImportOut) SetStatus(v ImportStatus) {
 	o.Status = v
 }
 

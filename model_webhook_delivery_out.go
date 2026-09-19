@@ -25,7 +25,7 @@ type WebhookDeliveryOut struct {
 	EndpointId string `json:"endpoint_id"`
 	EventId string `json:"event_id"`
 	EventType string `json:"event_type"`
-	Status string `json:"status"`
+	Status WebhookDeliveryStatus `json:"status"`
 	HttpStatus NullableInt32 `json:"http_status,omitempty"`
 	Attempts int32 `json:"attempts"`
 	ErrorMessage NullableString `json:"error_message,omitempty"`
@@ -39,7 +39,7 @@ type _WebhookDeliveryOut WebhookDeliveryOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebhookDeliveryOut(id string, endpointId string, eventId string, eventType string, status string, attempts int32, createdAt string) *WebhookDeliveryOut {
+func NewWebhookDeliveryOut(id string, endpointId string, eventId string, eventType string, status WebhookDeliveryStatus, attempts int32, createdAt string) *WebhookDeliveryOut {
 	this := WebhookDeliveryOut{}
 	this.Id = id
 	this.EndpointId = endpointId
@@ -156,9 +156,9 @@ func (o *WebhookDeliveryOut) SetEventType(v string) {
 }
 
 // GetStatus returns the Status field value
-func (o *WebhookDeliveryOut) GetStatus() string {
+func (o *WebhookDeliveryOut) GetStatus() WebhookDeliveryStatus {
 	if o == nil {
-		var ret string
+		var ret WebhookDeliveryStatus
 		return ret
 	}
 
@@ -167,7 +167,7 @@ func (o *WebhookDeliveryOut) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *WebhookDeliveryOut) GetStatusOk() (*string, bool) {
+func (o *WebhookDeliveryOut) GetStatusOk() (*WebhookDeliveryStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -175,7 +175,7 @@ func (o *WebhookDeliveryOut) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *WebhookDeliveryOut) SetStatus(v string) {
+func (o *WebhookDeliveryOut) SetStatus(v WebhookDeliveryStatus) {
 	o.Status = v
 }
 

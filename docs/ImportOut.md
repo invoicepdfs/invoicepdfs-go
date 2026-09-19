@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **SourceFormat** | **string** |  | 
-**Status** | **string** |  | 
+**Status** | [**ImportStatus**](ImportStatus.md) |  | 
 **TotalRows** | **int32** |  | 
 **ImportedRows** | **int32** |  | 
 **FailedRows** | **int32** |  | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewImportOut
 
-`func NewImportOut(id string, sourceFormat string, status string, totalRows int32, importedRows int32, failedRows int32, createdAt string, updatedAt string, ) *ImportOut`
+`func NewImportOut(id string, sourceFormat string, status ImportStatus, totalRows int32, importedRows int32, failedRows int32, createdAt string, updatedAt string, ) *ImportOut`
 
 NewImportOut instantiates a new ImportOut object
 This constructor will assign default values to properties that have it defined,
@@ -76,20 +76,20 @@ SetSourceFormat sets SourceFormat field to given value.
 
 ### GetStatus
 
-`func (o *ImportOut) GetStatus() string`
+`func (o *ImportOut) GetStatus() ImportStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *ImportOut) GetStatusOk() (*string, bool)`
+`func (o *ImportOut) GetStatusOk() (*ImportStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *ImportOut) SetStatus(v string)`
+`func (o *ImportOut) SetStatus(v ImportStatus)`
 
 SetStatus sets Status field to given value.
 

@@ -22,7 +22,7 @@ var _ MappedNullable = &BatchOut{}
 // BatchOut struct for BatchOut
 type BatchOut struct {
 	Id string `json:"id"`
-	Status string `json:"status"`
+	Status BatchStatus `json:"status"`
 	Operation string `json:"operation"`
 	TemplateId string `json:"template_id"`
 	TemplateVersion NullableInt32 `json:"template_version,omitempty"`
@@ -40,7 +40,7 @@ type _BatchOut BatchOut
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBatchOut(id string, status string, operation string, templateId string, totalItems int32, completedItems int32, failedItems int32, createdAt string, updatedAt string) *BatchOut {
+func NewBatchOut(id string, status BatchStatus, operation string, templateId string, totalItems int32, completedItems int32, failedItems int32, createdAt string, updatedAt string) *BatchOut {
 	this := BatchOut{}
 	this.Id = id
 	this.Status = status
@@ -87,9 +87,9 @@ func (o *BatchOut) SetId(v string) {
 }
 
 // GetStatus returns the Status field value
-func (o *BatchOut) GetStatus() string {
+func (o *BatchOut) GetStatus() BatchStatus {
 	if o == nil {
-		var ret string
+		var ret BatchStatus
 		return ret
 	}
 
@@ -98,7 +98,7 @@ func (o *BatchOut) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *BatchOut) GetStatusOk() (*string, bool) {
+func (o *BatchOut) GetStatusOk() (*BatchStatus, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -106,7 +106,7 @@ func (o *BatchOut) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
-func (o *BatchOut) SetStatus(v string) {
+func (o *BatchOut) SetStatus(v BatchStatus) {
 	o.Status = v
 }
 
