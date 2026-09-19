@@ -42,6 +42,11 @@ func (r ApiCreateTemplateVersionRequest) Execute() (*TemplateVersionResponse, *h
 /*
 CreateTemplateVersion Create Template Version
 
+Snapshot a template's current configuration as a new version.
+
+A document can pin a version, so a render months later reproduces the design
+that was live when it was issued rather than today's.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
  @return ApiCreateTemplateVersionRequest
@@ -159,6 +164,8 @@ func (r ApiGetTemplateVersionRequest) Execute() (*TemplateVersionResponse, *http
 /*
 GetTemplateVersion Get Template Version
 
+One version's stored configuration.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
  @param version
@@ -272,6 +279,8 @@ func (r ApiListTemplateVersionsRequest) Execute() (*TemplateVersionsListResponse
 
 /*
 ListTemplateVersions List Template Versions
+
+Every published version of a custom template, newest first.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId

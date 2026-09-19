@@ -16,6 +16,8 @@ Method | HTTP request | Description
 
 Create Document Attachment
 
+
+
 ### Example
 
 ```go
@@ -85,6 +87,8 @@ Name | Type | Description  | Notes
 > SimpleBoolResponse DeleteDocumentAttachment(ctx, documentId, attachmentId).Execute()
 
 Delete Document Attachment
+
+
 
 ### Example
 
@@ -156,6 +160,8 @@ Name | Type | Description  | Notes
 > InvoiceAttachmentsListResponse ListDocumentAttachments(ctx, documentId).Execute()
 
 List Document Attachments
+
+
 
 ### Example
 

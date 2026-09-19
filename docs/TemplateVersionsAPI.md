@@ -17,6 +17,8 @@ Method | HTTP request | Description
 
 Create Template Version
 
+
+
 ### Example
 
 ```go
@@ -86,6 +88,8 @@ Name | Type | Description  | Notes
 > TemplateVersionResponse GetTemplateVersion(ctx, templateId, version).Execute()
 
 Get Template Version
+
+
 
 ### Example
 
@@ -157,6 +161,8 @@ Name | Type | Description  | Notes
 > TemplateVersionsListResponse ListTemplateVersions(ctx, templateId).Execute()
 
 List Template Versions
+
+
 
 ### Example
 

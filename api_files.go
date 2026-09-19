@@ -37,6 +37,10 @@ func (r ApiDeleteFileRequest) Execute() (*SimpleBoolResponse, *http.Response, er
 /*
 DeleteFile Delete File
 
+Remove a stored file.
+
+`409` if a branding profile or a document attachment still references it.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileId
  @return ApiDeleteFileRequest
@@ -147,6 +151,8 @@ func (r ApiGetFileRequest) Execute() (*FileResponse, *http.Response, error) {
 
 /*
 GetFile Get File
+
+A stored file's metadata — name, type and size.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fileId
@@ -269,6 +275,11 @@ func (r ApiUploadFileRequest) Execute() (*FileResponse, *http.Response, error) {
 
 /*
 UploadFile Upload File
+
+Store a file and get an id for it.
+
+Where logos and document attachments come from: upload once, then reference
+the returned `file_id` from a branding profile or an attachment.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUploadFileRequest

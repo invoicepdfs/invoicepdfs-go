@@ -41,6 +41,12 @@ func (r ApiCreateTemplateRequest) Execute() (*CustomTemplateResponse, *http.Resp
 /*
 CreateTemplate Create Template
 
+Design a template of your own, starting as a `draft`.
+
+A custom template is a built-in plus your own configuration — it does not
+replace the layout, it adjusts it. Drafts can be rendered while you iterate;
+publish it when you want a version pinned.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateTemplateRequest
 */
@@ -154,6 +160,10 @@ func (r ApiDeleteTemplateRequest) Execute() (*http.Response, error) {
 /*
 DeleteTemplate Delete Template
 
+Remove a custom template.
+
+`409` if a document or a recurring schedule still names it.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
  @return ApiDeleteTemplateRequest
@@ -253,6 +263,8 @@ func (r ApiDuplicateTemplateRequest) Execute() (*CustomTemplateResponse, *http.R
 
 /*
 DuplicateTemplate Duplicate Template
+
+Copy a custom template into a new `draft`, to change without affecting the original.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
@@ -365,6 +377,8 @@ func (r ApiGetBuiltinTemplateRequest) Execute() (*TemplateDetailResponse, *http.
 /*
 GetBuiltinTemplate Get Builtin Template
 
+One built-in template: its id, name and the options it accepts.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
  @return ApiGetBuiltinTemplateRequest
@@ -476,6 +490,8 @@ func (r ApiGetCustomTemplateRequest) Execute() (*CustomTemplateResponse, *http.R
 /*
 GetCustomTemplate Get Custom Template
 
+One of this account's templates.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
  @return ApiGetCustomTemplateRequest
@@ -586,6 +602,8 @@ func (r ApiGetTemplateRequest) Execute() (*TemplateDetailResponse, *http.Respons
 
 /*
 GetTemplate Get Template
+
+One built-in template: its id, name and the options it accepts.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
@@ -709,6 +727,8 @@ func (r ApiListCustomTemplatesRequest) Execute() (*CustomTemplatesListResponse, 
 /*
 ListCustomTemplates List Custom Templates
 
+Templates this account has designed, newest first. Cursor-paginated.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListCustomTemplatesRequest
 */
@@ -824,6 +844,10 @@ func (r ApiListTemplatesRequest) Execute() (*TemplatesListResponse, *http.Respon
 
 /*
 ListTemplates List Templates
+
+The built-in templates every account can render with.
+
+Your own designs are listed separately by `list_custom_templates`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListTemplatesRequest
@@ -941,6 +965,12 @@ func (r ApiPreviewTemplateRequest) Execute() (*RenderResponse, *http.Response, e
 
 /*
 PreviewTemplate Preview Template
+
+Render a template against sample data to see how it looks.
+
+**This is a real render**: it counts against the monthly quota and is metered
+like any other, because it does the same work. Use it to check a design, not
+as a way to render documents.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
@@ -1064,6 +1094,11 @@ func (r ApiPublishTemplateRequest) Execute() (*CustomTemplateResponse, *http.Res
 /*
 PublishTemplate Publish Template
 
+Mark a custom template `published`.
+
+`409` if it is published already. Publishing is what makes a version
+pinnable, so a document rendered months from now can still be reproduced.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId
  @return ApiPublishTemplateRequest
@@ -1180,6 +1215,8 @@ func (r ApiUpdateTemplateRequest) Execute() (*CustomTemplateResponse, *http.Resp
 
 /*
 UpdateTemplate Update Template
+
+Change a custom template. Only the fields you send are changed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param templateId

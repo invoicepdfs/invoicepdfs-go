@@ -24,6 +24,8 @@ Method | HTTP request | Description
 
 Create Template
 
+
+
 ### Example
 
 ```go
@@ -87,6 +89,8 @@ Name | Type | Description  | Notes
 > DeleteTemplate(ctx, templateId).Execute()
 
 Delete Template
+
+
 
 ### Example
 
@@ -153,6 +157,8 @@ Name | Type | Description  | Notes
 > CustomTemplateResponse DuplicateTemplate(ctx, templateId).Execute()
 
 Duplicate Template
+
+
 
 ### Example
 
@@ -222,6 +228,8 @@ Name | Type | Description  | Notes
 
 Get Builtin Template
 
+
+
 ### Example
 
 ```go
@@ -289,6 +297,8 @@ Name | Type | Description  | Notes
 > CustomTemplateResponse GetCustomTemplate(ctx, templateId).Execute()
 
 Get Custom Template
+
+
 
 ### Example
 
@@ -358,6 +368,8 @@ Name | Type | Description  | Notes
 
 Get Template
 
+
+
 ### Example
 
 ```go
@@ -426,6 +438,8 @@ Name | Type | Description  | Notes
 
 List Custom Templates
 
+
+
 ### Example
 
 ```go
@@ -492,6 +506,8 @@ Name | Type | Description  | Notes
 
 List Templates
 
+
+
 ### Example
 
 ```go
@@ -550,6 +566,8 @@ Other parameters are passed through a pointer to a apiListTemplatesRequest struc
 > RenderResponse PreviewTemplate(ctx, templateId).DocumentRenderRequest(documentRenderRequest).Version(version).IdempotencyKey(idempotencyKey).Execute()
 
 Preview Template
+
+
 
 ### Example
 
@@ -626,6 +644,8 @@ Name | Type | Description  | Notes
 
 Publish Template
 
+
+
 ### Example
 
 ```go
@@ -693,6 +713,8 @@ Name | Type | Description  | Notes
 > CustomTemplateResponse UpdateTemplate(ctx, templateId).TemplatePatchRequest(templatePatchRequest).Execute()
 
 Update Template
+
+
 
 ### Example
 

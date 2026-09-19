@@ -19,6 +19,8 @@ Method | HTTP request | Description
 
 Cancel Batch
 
+
+
 ### Example
 
 ```go
@@ -87,6 +89,8 @@ Name | Type | Description  | Notes
 
 Create Batch
 
+
+
 ### Example
 
 ```go
@@ -150,6 +154,8 @@ Name | Type | Description  | Notes
 > *os.File DownloadBatch(ctx, batchId).Execute()
 
 Download Batch
+
+
 
 ### Example
 
@@ -219,6 +225,8 @@ Name | Type | Description  | Notes
 
 Get Batch
 
+
+
 ### Example
 
 ```go
@@ -286,6 +294,8 @@ Name | Type | Description  | Notes
 > BatchItemsListResponse ListBatchItems(ctx, batchId).Limit(limit).Cursor(cursor).Execute()
 
 List Batch Items
+
+
 
 ### Example
 
@@ -358,6 +368,8 @@ Name | Type | Description  | Notes
 > BatchesListResponse ListBatches(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List Batches
+
+
 
 ### Example
 

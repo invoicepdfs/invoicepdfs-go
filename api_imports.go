@@ -36,6 +36,8 @@ func (r ApiCancelImportRequest) Execute() (*ImportResponse, *http.Response, erro
 /*
 CancelImport Cancel Import
 
+Discard an import without creating anything. Only while it is `pending` or `processing`.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param importId
  @return ApiCancelImportRequest
@@ -146,6 +148,10 @@ func (r ApiConfirmImportRequest) Execute() (*ImportResponse, *http.Response, err
 
 /*
 ConfirmImport Confirm Import
+
+Commit a reviewed import, creating its documents.
+
+Only from `pending` — an import already confirmed or cancelled returns `409`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param importId
@@ -263,6 +269,11 @@ func (r ApiCreateImportRequest) Execute() (*ImportResponse, *http.Response, erro
 /*
 CreateImport Create Import
 
+Upload rows to be turned into documents, for review first.
+
+Nothing is created yet: the rows are parsed and held so you can check them.
+`confirm_import` commits them, `cancel_import` discards them.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateImportRequest
 */
@@ -375,6 +386,8 @@ func (r ApiGetImportRequest) Execute() (*ImportResponse, *http.Response, error) 
 
 /*
 GetImport Get Import
+
+An import's status and how many rows it holds.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param importId

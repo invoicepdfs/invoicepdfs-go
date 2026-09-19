@@ -42,6 +42,11 @@ func (r ApiCreateDocumentAttachmentRequest) Execute() (*InvoiceAttachmentRespons
 /*
 CreateDocumentAttachment Create Document Attachment
 
+Attach an already-uploaded file to a document.
+
+Takes the `file_id` from `upload_file` rather than the bytes, so one upload
+can be attached to several documents.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
  @return ApiCreateDocumentAttachmentRequest
@@ -159,6 +164,8 @@ func (r ApiDeleteDocumentAttachmentRequest) Execute() (*SimpleBoolResponse, *htt
 /*
 DeleteDocumentAttachment Delete Document Attachment
 
+Detach a file from this document. The file itself is kept.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
  @param attachmentId
@@ -272,6 +279,8 @@ func (r ApiListDocumentAttachmentsRequest) Execute() (*InvoiceAttachmentsListRes
 
 /*
 ListDocumentAttachments List Document Attachments
+
+Files attached to this document.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId

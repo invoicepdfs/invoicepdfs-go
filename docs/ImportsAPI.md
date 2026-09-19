@@ -17,6 +17,8 @@ Method | HTTP request | Description
 
 Cancel Import
 
+
+
 ### Example
 
 ```go
@@ -84,6 +86,8 @@ Name | Type | Description  | Notes
 > ImportResponse ConfirmImport(ctx, importId).Execute()
 
 Confirm Import
+
+
 
 ### Example
 
@@ -153,6 +157,8 @@ Name | Type | Description  | Notes
 
 Create Import
 
+
+
 ### Example
 
 ```go
@@ -216,6 +222,8 @@ Name | Type | Description  | Notes
 > ImportResponse GetImport(ctx, importId).Execute()
 
 Get Import
+
+
 
 ### Example
 

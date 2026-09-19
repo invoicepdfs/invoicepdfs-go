@@ -36,6 +36,8 @@ func (r ApiCancelJobRequest) Execute() (*JobResponse, *http.Response, error) {
 /*
 CancelJob Cancel Job
 
+Stop a job that has not finished.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param jobId
  @return ApiCancelJobRequest
@@ -146,6 +148,8 @@ func (r ApiGetJobRequest) Execute() (*JobResponse, *http.Response, error) {
 
 /*
 GetJob Get Job
+
+One job's status and progress.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param jobId
@@ -390,6 +394,10 @@ func (r ApiRetryJobRequest) Execute() (*JobResponse, *http.Response, error) {
 
 /*
 RetryJob Retry Job
+
+Return a `failed` or `cancelled` job to `queued`, clearing its progress and error.
+
+`409` from any other status.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param jobId

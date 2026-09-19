@@ -37,6 +37,11 @@ func (r ApiCancelBatchRequest) Execute() (*BatchResponse, *http.Response, error)
 /*
 CancelBatch Cancel Batch
 
+Stop a batch that has not finished.
+
+Items not yet started are cancelled. An item already rendering completes —
+the work is done and cancelling it would waste it.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param batchId
  @return ApiCancelBatchRequest
@@ -153,6 +158,15 @@ func (r ApiCreateBatchRequest) Execute() (*BatchResponse, *http.Response, error)
 /*
 CreateBatch Create Batch
 
+Queue many documents to be rendered at once.
+
+Returns `202` — the batch is recorded and a worker renders it; nothing is
+rendered inside this request. Poll `get_batch` for progress, then
+`download_batch` for the results.
+
+The whole batch is refused if it would exceed the monthly quota, rather than
+rendering part of it.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateBatchRequest
 */
@@ -266,6 +280,11 @@ func (r ApiDownloadBatchRequest) Execute() (*os.File, *http.Response, error) {
 /*
 DownloadBatch Download Batch
 
+Every completed render in the batch, as a ZIP.
+
+`409` until the batch is `completed`. Items that failed are simply absent, so
+check `failed_items` rather than counting files.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param batchId
  @return ApiDownloadBatchRequest
@@ -376,6 +395,11 @@ func (r ApiGetBatchRequest) Execute() (*BatchResponse, *http.Response, error) {
 
 /*
 GetBatch Get Batch
+
+A batch's status and its per-item counts.
+
+The poll surface: `total_items`, `completed_items` and `failed_items` say how
+far it has got without listing every item.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param batchId
@@ -499,6 +523,11 @@ func (r ApiListBatchItemsRequest) Execute() (*BatchItemsListResponse, *http.Resp
 
 /*
 ListBatchItems List Batch Items
+
+Every item in a batch with its own status, newest first.
+
+Where to look when `failed_items` is not zero: each row carries its error and,
+once rendered, its `render_id`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param batchId
@@ -630,6 +659,8 @@ func (r ApiListBatchesRequest) Execute() (*BatchesListResponse, *http.Response, 
 
 /*
 ListBatches List Batches
+
+Batch jobs on this account, newest first.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListBatchesRequest

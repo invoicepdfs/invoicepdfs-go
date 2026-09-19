@@ -17,6 +17,8 @@ Method | HTTP request | Description
 
 Cancel Job
 
+
+
 ### Example
 
 ```go
@@ -84,6 +86,8 @@ Name | Type | Description  | Notes
 > JobResponse GetJob(ctx, jobId).Execute()
 
 Get Job
+
+
 
 ### Example
 
@@ -220,6 +224,8 @@ Name | Type | Description  | Notes
 > JobResponse RetryJob(ctx, jobId).Execute()
 
 Retry Job
+
+
 
 ### Example
 

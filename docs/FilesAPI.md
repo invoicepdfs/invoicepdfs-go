@@ -16,6 +16,8 @@ Method | HTTP request | Description
 
 Delete File
 
+
+
 ### Example
 
 ```go
@@ -84,6 +86,8 @@ Name | Type | Description  | Notes
 
 Get File
 
+
+
 ### Example
 
 ```go
@@ -151,6 +155,8 @@ Name | Type | Description  | Notes
 > FileResponse UploadFile(ctx).File(file).IdempotencyKey(idempotencyKey).Execute()
 
 Upload File
+
+
 
 ### Example
 
