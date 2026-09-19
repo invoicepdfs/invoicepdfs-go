@@ -21,6 +21,8 @@ Method | HTTP request | Description
 
 Create Branding Profile
 
+
+
 ### Example
 
 ```go
@@ -84,6 +86,8 @@ Name | Type | Description  | Notes
 > SimpleBoolResponse DeleteBrandingLogo(ctx, profileId).Execute()
 
 Delete Branding Logo
+
+
 
 ### Example
 
@@ -153,6 +157,8 @@ Name | Type | Description  | Notes
 
 Delete Branding Profile
 
+
+
 ### Example
 
 ```go
@@ -220,6 +226,8 @@ Name | Type | Description  | Notes
 > BrandingProfileResponse GetBrandingProfile(ctx, profileId).Execute()
 
 Get Branding Profile
+
+
 
 ### Example
 
@@ -289,6 +297,8 @@ Name | Type | Description  | Notes
 
 List Branding Profiles
 
+
+
 ### Example
 
 ```go
@@ -347,6 +357,8 @@ Other parameters are passed through a pointer to a apiListBrandingProfilesReques
 > BrandingProfileResponse SetDefaultBrandingProfile(ctx, profileId).Execute()
 
 Set Default Branding Profile
+
+
 
 ### Example
 
@@ -415,6 +427,8 @@ Name | Type | Description  | Notes
 > BrandingProfileResponse UpdateBrandingProfile(ctx, profileId).BrandingProfilePatchRequest(brandingProfilePatchRequest).Execute()
 
 Update Branding Profile
+
+
 
 ### Example
 
@@ -485,6 +499,8 @@ Name | Type | Description  | Notes
 > BrandingProfileResponse UploadBrandingLogo(ctx, profileId).File(file).Execute()
 
 Upload Branding Logo
+
+
 
 ### Example
 

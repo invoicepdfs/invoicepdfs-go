@@ -47,6 +47,12 @@ func (r ApiCreateBusinessProfileRequest) Execute() (*BusinessProfileResponse, *h
 /*
 CreateBusinessProfile Create Business Profile
 
+Create an identity to issue documents as: the seller side.
+
+`legal_name`, `tax_id`, address and bank details are what appears as the
+issuer, and what an e-invoicing ruleset checks. Distinct from a branding
+profile, which sets colours and a logo and says nothing about who you are.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateBusinessProfileRequest
 */
@@ -162,6 +168,10 @@ func (r ApiDeleteBusinessProfileRequest) Execute() (*SimpleBoolResponse, *http.R
 
 /*
 DeleteBusinessProfile Delete Business Profile
+
+Remove a business profile.
+
+`409` if any document was issued under it, naming what still points at it.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param businessProfileId
@@ -285,6 +295,8 @@ func (r ApiGetBusinessProfileRequest) Execute() (*BusinessProfileResponse, *http
 /*
 GetBusinessProfile Get Business Profile
 
+One business profile.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param businessProfileId
  @return ApiGetBusinessProfileRequest
@@ -406,6 +418,12 @@ func (r ApiListBusinessProfilesRequest) Execute() (*BusinessProfilesListResponse
 
 /*
 ListBusinessProfiles List Business Profiles
+
+The identities you issue documents *as*, newest first.
+
+One per entity you bill from — a business with two trading names or two tax
+registrations needs two. For how documents *look* rather than who issues
+them, see the branding profiles.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListBusinessProfilesRequest
@@ -535,6 +553,11 @@ func (r ApiUpdateBusinessProfileRequest) Execute() (*BusinessProfileResponse, *h
 
 /*
 UpdateBusinessProfile Update Business Profile
+
+Change a business profile.
+
+Only the fields you send are changed. Documents already issued keep the
+issuer details they carried at the time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param businessProfileId

@@ -18,6 +18,8 @@ Method | HTTP request | Description
 
 Create Customer
 
+
+
 ### Example
 
 ```go
@@ -83,6 +85,8 @@ Name | Type | Description  | Notes
 > SimpleBoolResponse DeleteCustomer(ctx, customerId).Execute()
 
 Delete Customer
+
+
 
 ### Example
 
@@ -152,6 +156,8 @@ Name | Type | Description  | Notes
 
 Get Customer
 
+
+
 ### Example
 
 ```go
@@ -220,6 +226,8 @@ Name | Type | Description  | Notes
 
 List Customers
 
+
+
 ### Example
 
 ```go
@@ -285,6 +293,8 @@ Name | Type | Description  | Notes
 > CustomerResponse UpdateCustomer(ctx, customerId).CustomerPatch(customerPatch).IdempotencyKey(idempotencyKey).Execute()
 
 Update Customer
+
+
 
 ### Example
 

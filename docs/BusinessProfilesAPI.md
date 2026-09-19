@@ -18,6 +18,8 @@ Method | HTTP request | Description
 
 Create Business Profile
 
+
+
 ### Example
 
 ```go
@@ -83,6 +85,8 @@ Name | Type | Description  | Notes
 > SimpleBoolResponse DeleteBusinessProfile(ctx, businessProfileId).Execute()
 
 Delete Business Profile
+
+
 
 ### Example
 
@@ -152,6 +156,8 @@ Name | Type | Description  | Notes
 
 Get Business Profile
 
+
+
 ### Example
 
 ```go
@@ -220,6 +226,8 @@ Name | Type | Description  | Notes
 
 List Business Profiles
 
+
+
 ### Example
 
 ```go
@@ -285,6 +293,8 @@ Name | Type | Description  | Notes
 > BusinessProfileResponse UpdateBusinessProfile(ctx, businessProfileId).BusinessProfilePatch(businessProfilePatch).IdempotencyKey(idempotencyKey).Execute()
 
 Update Business Profile
+
+
 
 ### Example
 

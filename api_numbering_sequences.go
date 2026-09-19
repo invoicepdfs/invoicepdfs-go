@@ -154,6 +154,11 @@ func (r ApiCreateSequenceRequest) Execute() (*NumberingSequenceResponse, *http.R
 /*
 CreateSequence Create Sequence
 
+Define how a document type's numbers are built.
+
+A prefix, an optional date pattern, and a zero-padded counter — `INV-2026-0001`.
+`reset` decides whether the counter returns to one each year.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateSequenceRequest
 */
@@ -267,6 +272,10 @@ func (r ApiDeleteSequenceRequest) Execute() (*SimpleBoolResponse, *http.Response
 /*
 DeleteSequence Delete Sequence
 
+Remove a numbering scheme.
+
+Documents of that type then need their number supplied explicitly.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param sequenceId
  @return ApiDeleteSequenceRequest
@@ -377,6 +386,8 @@ func (r ApiGetSequenceRequest) Execute() (*NumberingSequenceResponse, *http.Resp
 
 /*
 GetSequence Get Sequence
+
+One numbering sequence, including the number it will issue next.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param sequenceId
@@ -500,6 +511,11 @@ func (r ApiListSequencesRequest) Execute() (*NumberingSequencesListResponse, *ht
 /*
 ListSequences List Sequences
 
+The numbering schemes that produce document numbers, newest first.
+
+Each names the document type it numbers, so invoices and credit notes can
+run on separate counters.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListSequencesRequest
 */
@@ -617,6 +633,11 @@ func (r ApiPreviewSequenceRequest) Execute() (*NumberingSequencePreviewResponse,
 /*
 PreviewSequence Preview Sequence
 
+Show the next number **without consuming it**.
+
+Nothing is claimed, so calling this twice returns the same number and the
+number stays available. Use `consume_sequence_number` to take it.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param sequenceId
  @return ApiPreviewSequenceRequest
@@ -733,6 +754,12 @@ func (r ApiUpdateSequenceRequest) Execute() (*NumberingSequenceResponse, *http.R
 
 /*
 UpdateSequence Update Sequence
+
+Change a numbering scheme.
+
+Numbers already issued are not rewritten, so a change takes effect from the
+next document. Moving the counter backwards can collide with a number already
+used.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param sequenceId

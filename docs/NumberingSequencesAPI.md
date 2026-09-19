@@ -90,6 +90,8 @@ Name | Type | Description  | Notes
 
 Create Sequence
 
+
+
 ### Example
 
 ```go
@@ -153,6 +155,8 @@ Name | Type | Description  | Notes
 > SimpleBoolResponse DeleteSequence(ctx, sequenceId).Execute()
 
 Delete Sequence
+
+
 
 ### Example
 
@@ -222,6 +226,8 @@ Name | Type | Description  | Notes
 
 Get Sequence
 
+
+
 ### Example
 
 ```go
@@ -290,6 +296,8 @@ Name | Type | Description  | Notes
 
 List Sequences
 
+
+
 ### Example
 
 ```go
@@ -355,6 +363,8 @@ Name | Type | Description  | Notes
 > NumberingSequencePreviewResponse PreviewSequence(ctx, sequenceId).Execute()
 
 Preview Sequence
+
+
 
 ### Example
 
@@ -423,6 +433,8 @@ Name | Type | Description  | Notes
 > NumberingSequenceResponse UpdateSequence(ctx, sequenceId).NumberingSequencePatchRequest(numberingSequencePatchRequest).Execute()
 
 Update Sequence
+
+
 
 ### Example
 

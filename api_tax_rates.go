@@ -41,6 +41,12 @@ func (r ApiCreateTaxRateRequest) Execute() (*TaxRateResponse, *http.Response, er
 /*
 CreateTaxRate Create Tax Rate
 
+Store a reusable tax rate.
+
+`inclusive` decides whether the rate is already inside the unit price or
+added to it — the difference is the total, so it is worth being sure. The
+tax `category` travels with the rate into e-invoicing XML.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateTaxRateRequest
 */
@@ -154,6 +160,8 @@ func (r ApiDeleteTaxRateRequest) Execute() (*SimpleBoolResponse, *http.Response,
 /*
 DeleteTaxRate Delete Tax Rate
 
+Remove a stored tax rate. Documents already issued are unaffected.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taxRateId
  @return ApiDeleteTaxRateRequest
@@ -264,6 +272,8 @@ func (r ApiGetTaxRateRequest) Execute() (*TaxRateResponse, *http.Response, error
 
 /*
 GetTaxRate Get Tax Rate
+
+One stored tax rate.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taxRateId
@@ -387,6 +397,11 @@ func (r ApiListTaxRatesRequest) Execute() (*TaxRatesListResponse, *http.Response
 /*
 ListTaxRates List Tax Rates
 
+Named tax rates you can apply by reference, newest first.
+
+A convenience, not a requirement: a line item can state its rate inline
+instead. Storing one means a rate change is made in a single place.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListTaxRatesRequest
 */
@@ -509,6 +524,11 @@ func (r ApiUpdateTaxRateRequest) Execute() (*TaxRateResponse, *http.Response, er
 
 /*
 UpdateTaxRate Update Tax Rate
+
+Change a stored tax rate.
+
+Documents already issued keep the rate they were calculated with. This
+affects future documents only.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param taxRateId

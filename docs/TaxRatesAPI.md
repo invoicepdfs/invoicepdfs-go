@@ -18,6 +18,8 @@ Method | HTTP request | Description
 
 Create Tax Rate
 
+
+
 ### Example
 
 ```go
@@ -81,6 +83,8 @@ Name | Type | Description  | Notes
 > SimpleBoolResponse DeleteTaxRate(ctx, taxRateId).Execute()
 
 Delete Tax Rate
+
+
 
 ### Example
 
@@ -150,6 +154,8 @@ Name | Type | Description  | Notes
 
 Get Tax Rate
 
+
+
 ### Example
 
 ```go
@@ -218,6 +224,8 @@ Name | Type | Description  | Notes
 
 List Tax Rates
 
+
+
 ### Example
 
 ```go
@@ -283,6 +291,8 @@ Name | Type | Description  | Notes
 > TaxRateResponse UpdateTaxRate(ctx, taxRateId).TaxRatePatchRequest(taxRatePatchRequest).Execute()
 
 Update Tax Rate
+
+
 
 ### Example
 

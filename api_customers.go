@@ -47,6 +47,12 @@ func (r ApiCreateCustomerRequest) Execute() (*CustomerResponse, *http.Response, 
 /*
 CreateCustomer Create Customer
 
+Store a customer you can bill repeatedly.
+
+`tax_id` and `electronic_address` are what e-invoicing needs: a buyer VAT
+number and the Peppol identifier a receiver is addressed by. Neither is
+required for a plain PDF.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateCustomerRequest
 */
@@ -162,6 +168,11 @@ func (r ApiDeleteCustomerRequest) Execute() (*SimpleBoolResponse, *http.Response
 
 /*
 DeleteCustomer Delete Customer
+
+Remove a customer.
+
+`409` if any document still references them, naming what does. History is
+kept rather than rewritten.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param customerId
@@ -285,6 +296,8 @@ func (r ApiGetCustomerRequest) Execute() (*CustomerResponse, *http.Response, err
 /*
 GetCustomer Get Customer
 
+One stored customer.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param customerId
  @return ApiGetCustomerRequest
@@ -406,6 +419,11 @@ func (r ApiListCustomersRequest) Execute() (*CustomersListResponse, *http.Respon
 
 /*
 ListCustomers List Customers
+
+The people and companies you bill, newest first.
+
+Cursor-paginated. A customer is optional — the stateless render endpoints take
+a buyer inline — but storing one lets a document reference it by id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListCustomersRequest
@@ -535,6 +553,12 @@ func (r ApiUpdateCustomerRequest) Execute() (*CustomerResponse, *http.Response, 
 
 /*
 UpdateCustomer Update Customer
+
+Change a stored customer.
+
+Only the fields you send are changed — omit one to leave it alone, send
+`null` to clear it. Documents already issued keep the details they were
+issued with; this does not rewrite them.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param customerId

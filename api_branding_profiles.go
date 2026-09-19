@@ -42,6 +42,12 @@ func (r ApiCreateBrandingProfileRequest) Execute() (*BrandingProfileResponse, *h
 /*
 CreateBrandingProfile Create Branding Profile
 
+Create a look: colours, logo, fonts and footer.
+
+Applies on top of whichever template a render names, so one template can
+serve several brands. Mark one as the default and documents that name no
+profile will use it.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateBrandingProfileRequest
 */
@@ -155,6 +161,8 @@ func (r ApiDeleteBrandingLogoRequest) Execute() (*SimpleBoolResponse, *http.Resp
 /*
 DeleteBrandingLogo Delete Branding Logo
 
+Remove this profile's logo, leaving its colours and text intact.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param profileId
  @return ApiDeleteBrandingLogoRequest
@@ -265,6 +273,11 @@ func (r ApiDeleteBrandingProfileRequest) Execute() (*SimpleBoolResponse, *http.R
 
 /*
 DeleteBrandingProfile Delete Branding Profile
+
+Remove a branding profile.
+
+Deleting the default is allowed: the oldest remaining profile becomes the
+default in its place, so documents that name no profile keep rendering.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param profileId
@@ -377,6 +390,8 @@ func (r ApiGetBrandingProfileRequest) Execute() (*BrandingProfileResponse, *http
 /*
 GetBrandingProfile Get Branding Profile
 
+One branding profile.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param profileId
  @return ApiGetBrandingProfileRequest
@@ -487,6 +502,11 @@ func (r ApiListBrandingProfilesRequest) Execute() (*BrandingProfilesListResponse
 /*
 ListBrandingProfiles List Branding Profiles
 
+The looks a document can be rendered in, newest first.
+
+Colours, logo, fonts and footer text — how a document appears. Who it is
+issued by is a business profile, which is a different thing.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListBrandingProfilesRequest
 */
@@ -584,6 +604,10 @@ func (r ApiSetDefaultBrandingProfileRequest) Execute() (*BrandingProfileResponse
 
 /*
 SetDefaultBrandingProfile Set Default Branding Profile
+
+Make this the profile used when a document names none.
+
+Exactly one profile is the default; setting a new one clears the previous.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param profileId
@@ -701,6 +725,13 @@ func (r ApiUpdateBrandingProfileRequest) Execute() (*BrandingProfileResponse, *h
 
 /*
 UpdateBrandingProfile Update Branding Profile
+
+Change a branding profile.
+
+Only the fields you send are changed. `hide_invoicepdfs_branding` is stored
+on any plan but only honoured on a plan that includes it — it is applied
+when a document renders, not validated here, so setting it on a plan without
+it is accepted and has no effect.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param profileId
@@ -823,6 +854,12 @@ func (r ApiUploadBrandingLogoRequest) Execute() (*BrandingProfileResponse, *http
 
 /*
 UploadBrandingLogo Upload Branding Logo
+
+Attach a logo image to this branding profile.
+
+Replaces whatever logo the profile carried. The image is embedded when a
+document renders, so a later change applies to future renders and leaves
+PDFs already produced as they were.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param profileId
