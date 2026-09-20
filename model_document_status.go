@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// DocumentStatus The document lifecycle. The transitions between these live in app/documents/base.py, which is the only thing that moves a document.
+// DocumentStatus The document lifecycle.
 type DocumentStatus string
 
 // List of DocumentStatus
