@@ -42,6 +42,14 @@ func (r ApiCreateDocumentPaymentRequest) Execute() (*PaymentResponse, *http.Resp
 /*
 CreateDocumentPayment Create Document Payment
 
+Record a payment received against an invoice.
+
+The currency is taken from the invoice rather than from the request, so a
+payment can never disagree with what was billed.
+
+Refused with 409 while the invoice is still a draft. Recording a payment
+does not move the invoice to `paid` — use `mark_paid` for that.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
  @return ApiCreateDocumentPaymentRequest
@@ -158,6 +166,11 @@ func (r ApiDeletePaymentRequest) Execute() (*SimpleBoolResponse, *http.Response,
 /*
 DeletePayment Delete Payment
 
+Remove a recorded payment.
+
+The payment is deleted outright rather than reversed, and the invoice's
+status is left alone. The deletion is kept in the audit log.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param paymentId
  @return ApiDeletePaymentRequest
@@ -268,6 +281,8 @@ func (r ApiGetPaymentRequest) Execute() (*PaymentResponse, *http.Response, error
 
 /*
 GetPayment Get Payment
+
+One recorded payment by id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param paymentId
@@ -391,6 +406,8 @@ func (r ApiListDocumentPaymentsRequest) Execute() (*PaymentsListResponse, *http.
 
 /*
 ListDocumentPayments List Document Payments
+
+Payments recorded against one document, newest first.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param documentId
@@ -517,6 +534,11 @@ func (r ApiUpdatePaymentRequest) Execute() (*PaymentResponse, *http.Response, er
 
 /*
 UpdatePayment Update Payment
+
+Correct a payment that was already recorded.
+
+Only the fields you send are changed. The invoice's status and totals are
+left alone.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param paymentId

@@ -18,6 +18,8 @@ Method | HTTP request | Description
 
 Create Document Payment
 
+
+
 ### Example
 
 ```go
@@ -89,6 +91,8 @@ Name | Type | Description  | Notes
 
 Delete Payment
 
+
+
 ### Example
 
 ```go
@@ -157,6 +161,8 @@ Name | Type | Description  | Notes
 
 Get Payment
 
+
+
 ### Example
 
 ```go
@@ -224,6 +230,8 @@ Name | Type | Description  | Notes
 > PaymentsListResponse ListDocumentPayments(ctx, documentId).Limit(limit).Cursor(cursor).Execute()
 
 List Document Payments
+
+
 
 ### Example
 
@@ -296,6 +304,8 @@ Name | Type | Description  | Notes
 > PaymentResponse UpdatePayment(ctx, paymentId).PaymentPatchRequest(paymentPatchRequest).Execute()
 
 Update Payment
+
+
 
 ### Example
 

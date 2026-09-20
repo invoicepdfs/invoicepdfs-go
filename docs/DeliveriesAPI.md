@@ -15,6 +15,8 @@ Method | HTTP request | Description
 
 Get Delivery
 
+
+
 ### Example
 
 ```go

@@ -16,6 +16,8 @@ Method | HTTP request | Description
 
 Get Usage
 
+
+
 ### Example
 
 ```go
@@ -75,6 +77,8 @@ Other parameters are passed through a pointer to a apiGetUsageRequest struct via
 
 Get Usage Limits
 
+
+
 ### Example
 
 ```go
@@ -133,6 +137,8 @@ Other parameters are passed through a pointer to a apiGetUsageLimitsRequest stru
 > UsageEventsListResponse ListUsageEvents(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List Usage Events
+
+
 
 ### Example
 

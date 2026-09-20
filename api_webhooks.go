@@ -41,6 +41,13 @@ func (r ApiCreateWebhookEndpointRequest) Execute() (*WebhookEndpointResponse, *h
 /*
 CreateWebhookEndpoint Create Webhook Endpoint
 
+Register a URL to receive events.
+
+The endpoint starts active and begins receiving the events you list.
+
+A signing secret is generated but is **not** returned here. Call
+`rotate_webhook_secret` to obtain one before you can verify signatures.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateWebhookEndpointRequest
 */
@@ -154,6 +161,12 @@ func (r ApiDeleteWebhookEndpointRequest) Execute() (*SimpleBoolResponse, *http.R
 /*
 DeleteWebhookEndpoint Delete Webhook Endpoint
 
+Remove an endpoint and its delivery history.
+
+The endpoint's delivery records are deleted with it, including any still
+waiting to be retried. To stop deliveries without losing the history, set
+`is_active` to false instead.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param endpointId
  @return ApiDeleteWebhookEndpointRequest
@@ -265,6 +278,11 @@ func (r ApiGetWebhookDeliveryRequest) Execute() (*WebhookDeliveryResponse, *http
 /*
 GetWebhookDelivery Get Webhook Delivery
 
+One webhook delivery by id — an HTTP POST to one of your endpoints.
+
+Not to be confused with `get_delivery`, which is an email sent to a
+customer.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param deliveryId
  @return ApiGetWebhookDeliveryRequest
@@ -375,6 +393,8 @@ func (r ApiGetWebhookEndpointRequest) Execute() (*WebhookEndpointResponse, *http
 
 /*
 GetWebhookEndpoint Get Webhook Endpoint
+
+One webhook endpoint by id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param endpointId
@@ -497,6 +517,12 @@ func (r ApiListWebhookDeliveriesRequest) Execute() (*WebhookDeliveriesListRespon
 
 /*
 ListWebhookDeliveries List Webhook Deliveries
+
+Every webhook delivery attempt on the account, newest first.
+
+One row per attempt to POST an event to one of your endpoints, with the
+HTTP status and attempt count. For emails sent to your customers, see
+`get_delivery`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListWebhookDeliveriesRequest
@@ -626,6 +652,8 @@ func (r ApiListWebhookEndpointsRequest) Execute() (*WebhookEndpointsListResponse
 /*
 ListWebhookEndpoints List Webhook Endpoints
 
+Every webhook endpoint registered on the account, newest first.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListWebhookEndpointsRequest
 */
@@ -743,6 +771,16 @@ func (r ApiRetryWebhookDeliveryRequest) Execute() (*WebhookDeliveryResponse, *ht
 /*
 RetryWebhookDelivery Retry Webhook Delivery
 
+Send a failed or pending webhook delivery again, immediately.
+
+Resets the attempt counter on the same delivery and dispatches it without
+waiting for the retry schedule. Failed deliveries are already retried
+automatically with backoff, so this is for after those are exhausted — or
+to send a delivery created by `test_webhook_endpoint`.
+
+Refused with 409 in any other status. To re-send an email, use
+`retry_delivery`.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param deliveryId
  @return ApiRetryWebhookDeliveryRequest
@@ -854,6 +892,12 @@ func (r ApiRotateWebhookSecretRequest) Execute() (*WebhookSecretResponse, *http.
 /*
 RotateWebhookSecret Rotate Webhook Secret
 
+Issue a new signing secret and return it.
+
+This is the only response that contains the secret, so it is also how you
+obtain the first one after creating an endpoint. The previous secret stops
+being accepted immediately: signatures computed with it will not verify.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param endpointId
  @return ApiRotateWebhookSecretRequest
@@ -964,6 +1008,14 @@ func (r ApiTestWebhookEndpointRequest) Execute() (*WebhookDeliveryResponse, *htt
 
 /*
 TestWebhookEndpoint Test Webhook Endpoint
+
+Record a test event against this endpoint.
+
+Creates a `test` event and a delivery in `pending`, which you can inspect
+with `get_webhook_delivery`.
+
+This call does not send the delivery. Pass the returned delivery id to
+`retry_webhook_delivery` to have it dispatched.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param endpointId
@@ -1081,6 +1133,12 @@ func (r ApiUpdateWebhookEndpointRequest) Execute() (*WebhookEndpointResponse, *h
 
 /*
 UpdateWebhookEndpoint Update Webhook Endpoint
+
+Change an endpoint's URL, description, event list or active flag.
+
+Only the fields you send are changed. Setting `is_active` to false stops
+new deliveries while keeping the endpoint and its history, which is the
+reversible alternative to deleting it.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param endpointId

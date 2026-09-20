@@ -15,6 +15,8 @@ Method | HTTP request | Description
 
 Get Audit Event
 
+
+
 ### Example
 
 ```go
@@ -82,6 +84,8 @@ Name | Type | Description  | Notes
 > AuditEventsListResponse ListAuditEvents(ctx).Limit(limit).Cursor(cursor).Action(action).ResourceType(resourceType).ResourceId(resourceId).Execute()
 
 List Audit Events
+
+
 
 ### Example
 

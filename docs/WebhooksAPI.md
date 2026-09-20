@@ -23,6 +23,8 @@ Method | HTTP request | Description
 
 Create Webhook Endpoint
 
+
+
 ### Example
 
 ```go
@@ -86,6 +88,8 @@ Name | Type | Description  | Notes
 > SimpleBoolResponse DeleteWebhookEndpoint(ctx, endpointId).Execute()
 
 Delete Webhook Endpoint
+
+
 
 ### Example
 
@@ -155,6 +159,8 @@ Name | Type | Description  | Notes
 
 Get Webhook Delivery
 
+
+
 ### Example
 
 ```go
@@ -222,6 +228,8 @@ Name | Type | Description  | Notes
 > WebhookEndpointResponse GetWebhookEndpoint(ctx, endpointId).Execute()
 
 Get Webhook Endpoint
+
+
 
 ### Example
 
@@ -291,6 +299,8 @@ Name | Type | Description  | Notes
 
 List Webhook Deliveries
 
+
+
 ### Example
 
 ```go
@@ -357,6 +367,8 @@ Name | Type | Description  | Notes
 
 List Webhook Endpoints
 
+
+
 ### Example
 
 ```go
@@ -422,6 +434,8 @@ Name | Type | Description  | Notes
 > WebhookDeliveryResponse RetryWebhookDelivery(ctx, deliveryId).Execute()
 
 Retry Webhook Delivery
+
+
 
 ### Example
 
@@ -491,6 +505,8 @@ Name | Type | Description  | Notes
 
 Rotate Webhook Secret
 
+
+
 ### Example
 
 ```go
@@ -559,6 +575,8 @@ Name | Type | Description  | Notes
 
 Test Webhook Endpoint
 
+
+
 ### Example
 
 ```go
@@ -626,6 +644,8 @@ Name | Type | Description  | Notes
 > WebhookEndpointResponse UpdateWebhookEndpoint(ctx, endpointId).WebhookEndpointPatchRequest(webhookEndpointPatchRequest).Execute()
 
 Update Webhook Endpoint
+
+
 
 ### Example
 

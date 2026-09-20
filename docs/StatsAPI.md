@@ -14,6 +14,8 @@ Method | HTTP request | Description
 
 Get Stats
 
+
+
 ### Example
 
 ```go

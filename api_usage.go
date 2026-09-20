@@ -34,6 +34,13 @@ func (r ApiGetUsageRequest) Execute() (*UsageResponse, *http.Response, error) {
 /*
 GetUsage Get Usage
 
+Renders used this calendar month, against the plan's quota.
+
+The period starts at midnight UTC on the first of the month.
+
+For rate limits, log retention and overage, use `get_usage_limits`; for
+the individual renders behind the count, `list_usage_events`.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetUsageRequest
 */
@@ -130,6 +137,15 @@ func (r ApiGetUsageLimitsRequest) Execute() (*UsageLimitsResponse, *http.Respons
 
 /*
 GetUsageLimits Get Usage Limits
+
+Every ceiling on the account, and how close you are to each.
+
+A superset of `get_usage`: the render quota and what is left of it, plus
+requests per second, how long API logs are kept, and overage — whether it
+is enabled and available on the plan, how many renders have gone over,
+and what they have cost so far.
+
+The cost estimate is rounded up, so it is never lower than the invoice.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetUsageLimitsRequest
@@ -239,6 +255,11 @@ func (r ApiListUsageEventsRequest) Execute() (*UsageEventsListResponse, *http.Re
 
 /*
 ListUsageEvents List Usage Events
+
+One row per metered render, newest first.
+
+The detail behind the count `get_usage` returns, each row naming the
+render that produced it.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListUsageEventsRequest

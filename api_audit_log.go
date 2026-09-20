@@ -36,6 +36,8 @@ func (r ApiGetAuditEventRequest) Execute() (*AuditEventResponse, *http.Response,
 /*
 GetAuditEvent Get Audit Event
 
+One audit event by id.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param auditEventId
  @return ApiGetAuditEventRequest
@@ -175,6 +177,11 @@ func (r ApiListAuditEventsRequest) Execute() (*AuditEventsListResponse, *http.Re
 
 /*
 ListAuditEvents List Audit Events
+
+Who changed what on this account, newest first.
+
+Filter by `action`, `resource_type` and `resource_id` to follow a single
+object's history.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListAuditEventsRequest
