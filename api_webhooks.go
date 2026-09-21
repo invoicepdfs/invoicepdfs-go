@@ -34,7 +34,7 @@ func (r ApiCreateWebhookEndpointRequest) WebhookEndpointCreateRequest(webhookEnd
 	return r
 }
 
-func (r ApiCreateWebhookEndpointRequest) Execute() (*WebhookEndpointResponse, *http.Response, error) {
+func (r ApiCreateWebhookEndpointRequest) Execute() (*WebhookEndpointCreatedResponse, *http.Response, error) {
 	return r.ApiService.CreateWebhookEndpointExecute(r)
 }
 
@@ -45,8 +45,10 @@ Register a URL to receive events.
 
 The endpoint starts active and begins receiving the events you list.
 
-A signing secret is generated but is **not** returned here. Call
-`rotate_webhook_secret` to obtain one before you can verify signatures.
+The response carries the signing secret, and is the only one that ever
+will — store it now. Reading or listing endpoints never returns it, and
+the only way to get another is `rotate_webhook_secret`, which stops this
+one working.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateWebhookEndpointRequest
@@ -59,13 +61,13 @@ func (a *WebhooksAPIService) CreateWebhookEndpoint(ctx context.Context) ApiCreat
 }
 
 // Execute executes the request
-//  @return WebhookEndpointResponse
-func (a *WebhooksAPIService) CreateWebhookEndpointExecute(r ApiCreateWebhookEndpointRequest) (*WebhookEndpointResponse, *http.Response, error) {
+//  @return WebhookEndpointCreatedResponse
+func (a *WebhooksAPIService) CreateWebhookEndpointExecute(r ApiCreateWebhookEndpointRequest) (*WebhookEndpointCreatedResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WebhookEndpointResponse
+		localVarReturnValue  *WebhookEndpointCreatedResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksAPIService.CreateWebhookEndpoint")
@@ -1009,13 +1011,13 @@ func (r ApiTestWebhookEndpointRequest) Execute() (*WebhookDeliveryResponse, *htt
 /*
 TestWebhookEndpoint Test Webhook Endpoint
 
-Record a test event against this endpoint.
+Send a test event to this endpoint.
 
-Creates a `test` event and a delivery in `pending`, which you can inspect
-with `get_webhook_delivery`.
+Delivers a `test` event immediately, so you can confirm the URL is
+reachable and your signature check works before real events depend on it.
 
-This call does not send the delivery. Pass the returned delivery id to
-`retry_webhook_delivery` to have it dispatched.
+Returns straight away with the delivery in `pending`; follow it with
+`get_webhook_delivery` to see whether it arrived.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param endpointId

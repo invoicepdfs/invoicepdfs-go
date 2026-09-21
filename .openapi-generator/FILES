@@ -280,6 +280,8 @@ docs/WebhookDeliveryOut.md
 docs/WebhookDeliveryResponse.md
 docs/WebhookDeliveryStatus.md
 docs/WebhookEndpointCreateRequest.md
+docs/WebhookEndpointCreatedOut.md
+docs/WebhookEndpointCreatedResponse.md
 docs/WebhookEndpointOut.md
 docs/WebhookEndpointPatchRequest.md
 docs/WebhookEndpointResponse.md
@@ -520,6 +522,8 @@ model_webhook_delivery_out.go
 model_webhook_delivery_response.go
 model_webhook_delivery_status.go
 model_webhook_endpoint_create_request.go
+model_webhook_endpoint_created_out.go
+model_webhook_endpoint_created_response.go
 model_webhook_endpoint_out.go
 model_webhook_endpoint_patch_request.go
 model_webhook_endpoint_response.go

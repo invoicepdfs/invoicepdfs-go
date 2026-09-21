@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## CreateWebhookEndpoint
 
-> WebhookEndpointResponse CreateWebhookEndpoint(ctx).WebhookEndpointCreateRequest(webhookEndpointCreateRequest).Execute()
+> WebhookEndpointCreatedResponse CreateWebhookEndpoint(ctx).WebhookEndpointCreateRequest(webhookEndpointCreateRequest).Execute()
 
 Create Webhook Endpoint
 
@@ -47,7 +47,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.CreateWebhookEndpoint``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateWebhookEndpoint`: WebhookEndpointResponse
+	// response from `CreateWebhookEndpoint`: WebhookEndpointCreatedResponse
 	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.CreateWebhookEndpoint`: %v\n", resp)
 }
 ```
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WebhookEndpointResponse**](WebhookEndpointResponse.md)
+[**WebhookEndpointCreatedResponse**](WebhookEndpointCreatedResponse.md)
 
 ### Authorization
 
