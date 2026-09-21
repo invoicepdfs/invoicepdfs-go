@@ -22,6 +22,8 @@ Method | HTTP request | Description
 
 Add Workspace Member
 
+
+
 ### Example
 
 ```go
@@ -94,6 +96,8 @@ Name | Type | Description  | Notes
 
 Create Workspace
 
+
+
 ### Example
 
 ```go
@@ -159,6 +163,8 @@ Name | Type | Description  | Notes
 > SimpleBoolResponse DeleteWorkspace(ctx, workspaceId).Execute()
 
 Delete Workspace
+
+
 
 ### Example
 
@@ -228,6 +234,8 @@ Name | Type | Description  | Notes
 
 Get Workspace
 
+
+
 ### Example
 
 ```go
@@ -295,6 +303,8 @@ Name | Type | Description  | Notes
 > WorkspaceMembersListResponse ListWorkspaceMembers(ctx, workspaceId).Execute()
 
 List Workspace Members
+
+
 
 ### Example
 
@@ -364,6 +374,8 @@ Name | Type | Description  | Notes
 
 List Workspaces
 
+
+
 ### Example
 
 ```go
@@ -429,6 +441,8 @@ Name | Type | Description  | Notes
 > SimpleBoolResponse RemoveWorkspaceMember(ctx, workspaceId, memberId).Execute()
 
 Remove Workspace Member
+
+
 
 ### Example
 
@@ -501,6 +515,8 @@ Name | Type | Description  | Notes
 
 Update Workspace
 
+
+
 ### Example
 
 ```go
@@ -572,6 +588,8 @@ Name | Type | Description  | Notes
 > WorkspaceMemberOut UpdateWorkspaceMember(ctx, workspaceId, memberId).WorkspaceMemberPatchRequest(workspaceMemberPatchRequest).Execute()
 
 Update Workspace Member
+
+
 
 ### Example
 

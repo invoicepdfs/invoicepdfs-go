@@ -19,6 +19,8 @@ Method | HTTP request | Description
 
 Create Api Key
 
+
+
 ### Example
 
 ```go
@@ -82,6 +84,8 @@ Name | Type | Description  | Notes
 > ApiKeyDetailResponse GetApiKey(ctx, apiKeyId).Execute()
 
 Get Api Key
+
+
 
 ### Example
 
@@ -151,6 +155,8 @@ Name | Type | Description  | Notes
 
 List Api Keys
 
+
+
 ### Example
 
 ```go
@@ -209,6 +215,8 @@ Other parameters are passed through a pointer to a apiListApiKeysRequest struct 
 > ApiKeyRevokeResponse RevokeApiKey(ctx, apiKeyId).Execute()
 
 Revoke Api Key
+
+
 
 ### Example
 
@@ -347,6 +355,8 @@ Name | Type | Description  | Notes
 > ApiKeyDetailResponse UpdateApiKey(ctx, apiKeyId).ApiKeyPatchRequest(apiKeyPatchRequest).Execute()
 
 Update Api Key
+
+
 
 ### Example
 

@@ -21,6 +21,8 @@ Method | HTTP request | Description
 
 Cancel Recurring Invoice
 
+
+
 ### Example
 
 ```go
@@ -89,6 +91,8 @@ Name | Type | Description  | Notes
 
 Create Recurring Invoice
 
+
+
 ### Example
 
 ```go
@@ -153,6 +157,8 @@ Name | Type | Description  | Notes
 > RecurringInvoiceResponse GetRecurringInvoice(ctx, recurringId).Execute()
 
 Get Recurring Invoice
+
+
 
 ### Example
 
@@ -221,6 +227,8 @@ Name | Type | Description  | Notes
 > InvoicesListResponse ListGeneratedInvoices(ctx, recurringId).Limit(limit).Cursor(cursor).Execute()
 
 List Generated Invoices
+
+
 
 ### Example
 
@@ -294,6 +302,8 @@ Name | Type | Description  | Notes
 
 List Recurring Invoices
 
+
+
 ### Example
 
 ```go
@@ -361,6 +371,8 @@ Name | Type | Description  | Notes
 > RecurringInvoiceResponse PauseRecurringInvoice(ctx, recurringId).Execute()
 
 Pause Recurring Invoice
+
+
 
 ### Example
 
@@ -430,6 +442,8 @@ Name | Type | Description  | Notes
 
 Resume Recurring Invoice
 
+
+
 ### Example
 
 ```go
@@ -497,6 +511,8 @@ Name | Type | Description  | Notes
 > RecurringInvoiceResponse UpdateRecurringInvoice(ctx, recurringId).RecurringInvoicePatchRequest(recurringInvoicePatchRequest).Execute()
 
 Update Recurring Invoice
+
+
 
 ### Example
 

@@ -34,6 +34,12 @@ func (r ApiGetHealthRequest) Execute() (*HealthResponse, *http.Response, error) 
 /*
 GetHealth Get Health
 
+Is the API process alive.
+
+Answers as long as the process can serve a request; it checks nothing
+behind it. For whether the service can actually do work, use
+`get_readiness`.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetHealthRequest
 */
@@ -131,6 +137,13 @@ func (r ApiGetReadinessRequest) Execute() (*ReadyResponse, *http.Response, error
 /*
 GetReadiness Get Readiness
 
+Can the API serve real traffic — dependencies included.
+
+Checks the database, storage, and the separate render service, and reports
+each one. `status` is `ready` only when all three are `ok`, so this is the
+check to point a load balancer at. `get_health` answers sooner but proves
+less.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetReadinessRequest
 */
@@ -227,6 +240,8 @@ func (r ApiGetVersionRequest) Execute() (*VersionResponse, *http.Response, error
 
 /*
 GetVersion Get Version
+
+Which build is deployed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetVersionRequest

@@ -48,6 +48,11 @@ func (r ApiAddWorkspaceMemberRequest) Execute() (*WorkspaceMembersListResponse, 
 /*
 AddWorkspaceMember Add Workspace Member
 
+Add someone to a workspace by email address.
+
+Refused with 409 if that email is already a member. The address does not
+have to belong to an existing account.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId
  @return ApiAddWorkspaceMemberRequest
@@ -178,6 +183,13 @@ func (r ApiCreateWorkspaceRequest) Execute() (*WorkspaceResponse, *http.Response
 /*
 CreateWorkspace Create Workspace
 
+Create a workspace, owned by this account.
+
+The creating account is added as its first member with the `owner` role.
+
+Send an `Idempotency-Key` header to make retrying safe: a repeat with the
+same key and body returns the original workspace instead of a second one.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateWorkspaceRequest
 */
@@ -294,6 +306,11 @@ func (r ApiDeleteWorkspaceRequest) Execute() (*SimpleBoolResponse, *http.Respons
 /*
 DeleteWorkspace Delete Workspace
 
+Delete a workspace and its membership list.
+
+Every member record goes with it. This cannot be undone, and documents are
+unaffected — they belong to the account, not the workspace.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId
  @return ApiDeleteWorkspaceRequest
@@ -405,6 +422,8 @@ func (r ApiGetWorkspaceRequest) Execute() (*WorkspaceResponse, *http.Response, e
 /*
 GetWorkspace Get Workspace
 
+One workspace by id.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId
  @return ApiGetWorkspaceRequest
@@ -515,6 +534,8 @@ func (r ApiListWorkspaceMembersRequest) Execute() (*WorkspaceMembersListResponse
 
 /*
 ListWorkspaceMembers List Workspace Members
+
+Everyone on a workspace, with their role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId
@@ -638,6 +659,8 @@ func (r ApiListWorkspacesRequest) Execute() (*WorkspacesListResponse, *http.Resp
 /*
 ListWorkspaces List Workspaces
 
+Workspaces this account owns, newest first.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListWorkspacesRequest
 */
@@ -755,6 +778,10 @@ func (r ApiRemoveWorkspaceMemberRequest) Execute() (*SimpleBoolResponse, *http.R
 
 /*
 RemoveWorkspaceMember Remove Workspace Member
+
+Remove someone from a workspace.
+
+Removes the membership only; nothing they created is affected.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId
@@ -882,6 +909,10 @@ func (r ApiUpdateWorkspaceRequest) Execute() (*WorkspaceResponse, *http.Response
 /*
 UpdateWorkspace Update Workspace
 
+Rename a workspace.
+
+Only the fields you send are changed.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId
  @return ApiUpdateWorkspaceRequest
@@ -1007,6 +1038,8 @@ func (r ApiUpdateWorkspaceMemberRequest) Execute() (*WorkspaceMemberOut, *http.R
 
 /*
 UpdateWorkspaceMember Update Workspace Member
+
+Change a member's role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param workspaceId

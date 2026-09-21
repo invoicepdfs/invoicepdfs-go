@@ -16,6 +16,8 @@ Method | HTTP request | Description
 
 Get Health
 
+
+
 ### Example
 
 ```go
@@ -75,6 +77,8 @@ No authorization required
 
 Get Readiness
 
+
+
 ### Example
 
 ```go
@@ -133,6 +137,8 @@ No authorization required
 > VersionResponse GetVersion(ctx).Execute()
 
 Get Version
+
+
 
 ### Example
 

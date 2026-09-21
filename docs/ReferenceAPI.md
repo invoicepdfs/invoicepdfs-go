@@ -22,6 +22,8 @@ Method | HTTP request | Description
 
 List Countries
 
+
+
 ### Example
 
 ```go
@@ -80,6 +82,8 @@ No authorization required
 > CurrenciesListResponse ListCurrencies(ctx).Execute()
 
 List Currencies
+
+
 
 ### Example
 
@@ -201,6 +205,8 @@ No authorization required
 
 List Locales
 
+
+
 ### Example
 
 ```go
@@ -259,6 +265,8 @@ No authorization required
 > PageSizesListResponse ListPageSizes(ctx).Execute()
 
 List Page Sizes
+
+
 
 ### Example
 
@@ -440,6 +448,8 @@ No authorization required
 > TimezonesListResponse ListTimezones(ctx).Execute()
 
 List Timezones
+
+
 
 ### Example
 

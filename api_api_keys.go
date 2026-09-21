@@ -41,6 +41,14 @@ func (r ApiCreateApiKeyRequest) Execute() (*ApiKeyCreateResponse, *http.Response
 /*
 CreateApiKey Create Api Key
 
+Create an API key and return it once.
+
+The response is the only place the key appears — it is stored hashed, so a
+lost key cannot be recovered, only replaced.
+
+Keys are not scoped: any key can do anything this account can, including
+creating further keys and deleting data. Treat one as a full credential.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateApiKeyRequest
 */
@@ -154,6 +162,8 @@ func (r ApiGetApiKeyRequest) Execute() (*ApiKeyDetailResponse, *http.Response, e
 /*
 GetApiKey Get Api Key
 
+One API key's details by id, without the key itself.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param apiKeyId
  @return ApiGetApiKeyRequest
@@ -264,6 +274,11 @@ func (r ApiListApiKeysRequest) Execute() (*ApiKeyListResponse, *http.Response, e
 /*
 ListApiKeys List Api Keys
 
+Every API key on the account, including revoked ones.
+
+Shows only the last four characters: the key itself is stored hashed and
+cannot be recovered.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListApiKeysRequest
 */
@@ -361,6 +376,14 @@ func (r ApiRevokeApiKeyRequest) Execute() (*ApiKeyRevokeResponse, *http.Response
 
 /*
 RevokeApiKey Revoke Api Key
+
+Stop an API key working, permanently.
+
+Takes effect immediately and cannot be undone — issue a new key with
+`create_api_key` instead. The record is kept, so the key still appears in
+`list_api_keys` with a revoked date and the audit log stays readable.
+
+Revoking an already-revoked key succeeds and changes nothing.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param apiKeyId
@@ -591,6 +614,11 @@ func (r ApiUpdateApiKeyRequest) Execute() (*ApiKeyDetailResponse, *http.Response
 
 /*
 UpdateApiKey Update Api Key
+
+Rename an API key.
+
+The key itself is unchanged and keeps working. To replace the secret while
+keeping the record, use `rotate_api_key`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param apiKeyId
