@@ -23,6 +23,8 @@ var _ MappedNullable = &ReadyResponse{}
 type ReadyResponse struct {
 	Status string `json:"status"`
 	Dependencies map[string]string `json:"dependencies"`
+	Workers *map[string]string `json:"workers,omitempty"`
+	Degraded []string `json:"degraded,omitempty"`
 }
 
 type _ReadyResponse ReadyResponse
@@ -94,6 +96,71 @@ func (o *ReadyResponse) SetDependencies(v map[string]string) {
 	o.Dependencies = v
 }
 
+// GetWorkers returns the Workers field value if set, zero value otherwise.
+func (o *ReadyResponse) GetWorkers() map[string]string {
+	if o == nil || IsNil(o.Workers) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Workers
+}
+
+// GetWorkersOk returns a tuple with the Workers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReadyResponse) GetWorkersOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Workers) {
+		return nil, false
+	}
+	return o.Workers, true
+}
+
+// HasWorkers returns a boolean if a field has been set.
+func (o *ReadyResponse) HasWorkers() bool {
+	if o != nil && !IsNil(o.Workers) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkers gets a reference to the given map[string]string and assigns it to the Workers field.
+func (o *ReadyResponse) SetWorkers(v map[string]string) {
+	o.Workers = &v
+}
+
+// GetDegraded returns the Degraded field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ReadyResponse) GetDegraded() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Degraded
+}
+
+// GetDegradedOk returns a tuple with the Degraded field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ReadyResponse) GetDegradedOk() ([]string, bool) {
+	if o == nil || IsNil(o.Degraded) {
+		return nil, false
+	}
+	return o.Degraded, true
+}
+
+// HasDegraded returns a boolean if a field has been set.
+func (o *ReadyResponse) HasDegraded() bool {
+	if o != nil && !IsNil(o.Degraded) {
+		return true
+	}
+
+	return false
+}
+
+// SetDegraded gets a reference to the given []string and assigns it to the Degraded field.
+func (o *ReadyResponse) SetDegraded(v []string) {
+	o.Degraded = v
+}
+
 func (o ReadyResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -106,6 +173,12 @@ func (o ReadyResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["status"] = o.Status
 	toSerialize["dependencies"] = o.Dependencies
+	if !IsNil(o.Workers) {
+		toSerialize["workers"] = o.Workers
+	}
+	if o.Degraded != nil {
+		toSerialize["degraded"] = o.Degraded
+	}
 	return toSerialize, nil
 }
 
